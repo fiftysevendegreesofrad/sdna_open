@@ -1,0 +1,66 @@
+<!-- Build both 32 and 64 bit versions and put in output folder along with docs and scripts -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+<ItemGroup>
+
+<scripts Include="autocadscripts\sdna.vlx"/>
+<scripts Include="autocadscripts\sdna.cuix"/>
+<scripts Include="arcscripts\sDNA_ArcGIS_extra_tools.tbx"/>
+<scripts Include="arcscripts\runcalculation.py"/>
+<scripts Include="arcscripts\sDNA.pyt"/>
+<scripts Include="arcscripts\sDNAUISpec.py"/>
+<scripts Include="arcscripts\commandline_integral_prepare.py"/>
+<scripts Include="arcscripts\arc_utils.py"/>
+<scripts Include="arcscripts\sdna_environment.py"/>
+<scripts Include="arcscripts\sdnapy.py"/>
+<scripts Include="arcscripts\shapefile.py"/>
+<scripts Include="arcscripts\arc_import_itn.py"/>
+<scripts Include="arcscripts\arc_matchsymbologyranges.py"/>
+<scripts Include="arcscripts\sdnaregutilities.py"/>
+<scripts Include="arcscripts\boxcox.R"/>
+<scripts Include="arcscripts\boxtidwell.R"/>
+<scripts Include="arcscripts\regularizedregression.R"/>
+<scripts Include="arcscripts\runsdnacommand.py"/>
+<scripts Include="arcscripts\sdnaexception.py"/>
+
+<scriptsbin Include="arcscripts\bin\_parentdir.py"/>
+<scriptsbin Include="arcscripts\bin\README.txt"/>
+<scriptsbin Include="arcscripts\bin\sdnaintegral.py"/>
+<scriptsbin Include="arcscripts\bin\sdnaprepare.py"/>
+<scriptsbin Include="arcscripts\bin\sdnalearn.py"/>
+<scriptsbin Include="arcscripts\bin\sdnapredict.py"/>
+
+<rportable Include="arcscripts\rportable\**\*.*" />
+
+<installerbits Include="installerbits\license.rtf"/>
+
+</ItemGroup>
+
+
+    <Target Name="Rebuild">
+
+        <MakeDir Directories="output\$(Configuration)\x64"/>
+
+        <Copy
+             SourceFiles="@(scripts)"
+             DestinationFolder="output\$(Configuration)\"
+        />
+        <Copy
+             SourceFiles="@(scriptsbin)"
+             DestinationFolder="output\$(Configuration)\bin"
+        />
+        <Copy
+             SourceFiles="@(installerbits)"
+             DestinationFolder="output\$(Configuration)"
+        />
+
+        <Copy SourceFiles="@(rportable)" DestinationFolder="output\$(Configuration)\rportable\%(RecursiveDir)" SkipUnchangedFiles="true" />
+
+        <MSBuild Projects="sdna\sdna_vs2008\sdna_vs2008.sln" Properties="Configuration=$(Configuration);Platform=Win32" Targets="Rebuild"/>
+        <MSBuild Projects="sdna\sdna_vs2008\sdna_vs2008.sln" Properties="Configuration=$(Configuration);Platform=x64" Targets="Rebuild"/>
+
+    </Target>
+
+    
+</Project>

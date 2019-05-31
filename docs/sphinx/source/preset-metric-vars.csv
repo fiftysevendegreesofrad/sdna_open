@@ -1,0 +1,5 @@
+Metric,Variable,Default,Meaning
+Cycle,aadtfield,aadt,Name of data field containing annual average daily vehicle traffic estimate
+Cycle,t,0.04,Tendency of cyclists to avoid vehicle traffic
+Cycle,a,0.3,Tendency of cyclists to avoid angular change
+Cycle,s,0.5,Tendency of cyclists to avoid slope

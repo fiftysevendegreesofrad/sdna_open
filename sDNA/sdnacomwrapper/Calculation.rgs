@@ -1,0 +1,26 @@
+HKCR
+{
+	sdnacomwrapper.Calculation.1 = s 'Calculation Class'
+	{
+		CLSID = s '{4ACDBC53-97C8-4F75-A7D1-672AC7DE335F}'
+	}
+	sdnacomwrapper.Calculation = s 'Calculation Class'
+	{
+		CLSID = s '{4ACDBC53-97C8-4F75-A7D1-672AC7DE335F}'
+		CurVer = s 'sdnacomwrapper.Calculation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4ACDBC53-97C8-4F75-A7D1-672AC7DE335F} = s 'Calculation Class'
+		{
+			ProgID = s 'sdnacomwrapper.Calculation.1'
+			VersionIndependentProgID = s 'sdnacomwrapper.Calculation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AF487B50-9B88-4C64-BD11-1A38BC8990D7}'
+		}
+	}
+}

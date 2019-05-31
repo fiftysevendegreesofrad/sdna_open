@@ -1,0 +1,816 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>R: lme4 News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="R.css">
+</head><body>
+
+<table width="100%" summary="page for NEWS"><tr><td>NEWS</td><td align="right">R Documentation</td></tr></table>
+
+<h2>lme4 News</h2>
+
+<h3>CHANGES IN VERSION 1.1-7</h3>
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> change gradient testing from absolute to relative
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.1-6</h3>
+
+<p>This version incorporates no changes in functionality, just
+modifications to testing and dependencies for CRAN/backward compatibility.
+</p>
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> change <code>drop1</code> example to prevent use of old/incompatible
+<code>pbkrtest</code> versions, for 2.15.3 compatibility
+</p>
+</li>
+<li><p> explicitly <code>require(mlmRev)</code> for tests to prevent cyclic
+dependency
+</p>
+</li>
+<li><p> bump <code>RcppEigen</code> Imports: requirement from &gt;0.3.1.2.3 to
+&gt;=0.3.2.0; <code>Rcpp</code> dependency to &gt;= 0.10.5
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.1-5</h3>
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> improved NA handling in <code>simulate</code> and <code>refit</code>
+</p>
+</li>
+<li><p> made internal handling of <code>weights</code>/<code>offset</code>
+arguments slightly more robust (Github #191)
+</p>
+</li>
+<li><p> handle non-positive-definite estimated fixed effect
+variance-covariance matrices slightly more generally/robustly
+(fall back on RX approximation, with a warning,
+if finite-difference Hessian
+is non-PD; return <code>NA</code> matrix if RX approximation is
+also bad)
+</p>
+</li></ul>
+ 
+
+
+
+<h4>MINOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> Added output specifying when Gauss-Hermite quadrature
+was used to fit the model, and specifying number of GHQ points
+(Github #190)
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.1-4</h3>
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> Models with prior weights returned an incorrect sigma and
+deviance (Github issue #155). The deviance bug was only a
+practical issue in model comparisons, not with inferences given a
+particular model. Both bugs are now fixed.
+</p>
+</li>
+<li><p> Profiling failed in some cases for models with vector random
+effects (Github issue #172)
+</p>
+</li>
+<li><p> Standard errors of fixed effects are now computed
+from the approximate Hessian by default (see the
+<code>use.hessian</code> argument in <code>vcov.merMod</code>); this
+gives better (correct) answers when the estimates of
+the random- and fixed-effect parameters are correlated
+(Github #47)
+</p>
+</li></ul>
+
+
+
+
+<h4>MAJOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> The default optimizer for <code>lmer</code> fits has been
+switched from &quot;Nelder_Mead&quot; to &quot;bobyqa&quot; because we have
+generally found the latter to be more reliable.  To switch
+back to the old behaviour,
+use <code>control=lmerControl(optimizer="Nelder_Mead")</code>.
+</p>
+</li>
+<li><p> Better handling of rank-deficient/overparameterized
+fixed-effect model matrices; see <code>check.rankX</code> option
+to <code>[g]lmerControl</code>.  The default value is
+&quot;message+drop.cols&quot;, which automatically drops redundant
+columns and issues a message (not a warning). (Github #144)
+</p>
+</li></ul>
+
+
+
+
+<h4>MINOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> slight changes in convergence checking; tolerances can
+be specified where appropriate, and some default tolerances
+have changed (e.g., <code>check.conv.grad</code>)
+</p>
+</li>
+<li><p> improved warning messages about rank-deficiency in X and Z
+etc. (warnings now try to indicate whether the unidentifiability
+is in the fixed- or random-effects part of the model)
+</p>
+</li>
+<li> <p><code>predict</code> and <code>simulate</code> now prefer
+<code>re.form</code> as the argument to specify which random effects
+to condition on, but allow <code>ReForm</code>, <code>REForm</code>, or
+<code>REform</code>, giving a message (not a warning) that they are
+deprecated (addresses Github #170)
+</p>
+</li>
+<li><p> small fixes for printing consistency in models with no
+fixed effects
+</p>
+</li>
+<li><p> we previously exported a <code>fortify</code> function identical
+to the one found in <code>ggplot2</code> in order to be able to define a
+<code>fortify.merMod</code> S3 method without inducing a dependency on
+<code>ggplot2</code>.  This has now been unexported to avoid masking
+<code>ggplot2</code>'s own <code>fortify</code> methods; if you want to
+add diagnostic information to the results of a model, use
+<code>fortify.merMod</code> explicitly.
+</p>
+</li>
+<li> <p><code>simulate.formula</code> now checks for names associated
+with the <code>theta</code> and <code>beta</code> parameter vectors. If
+missing, it prints a message (not a warning); otherwise, it
+re-orders the parameter vectors to match the internal
+representation.
+</p>
+</li>
+<li><p> preliminary implementation of a <code>check.scaleX</code> argument
+in <code>[g]lmerControl</code> that warns about scaling if some columns
+of the fixed-effect model matrix have large standard
+deviations (relative to 1, or to each other)
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.1-3</h3>
+
+
+
+<h4>NEW FEATURES</h4>
+
+
+<ul>
+<li><p> The gradient and Hessian are now computed via finite
+differencing after the nonlinear fit is done, and the results
+are used for additional convergence tests. Control of the
+behaviour is available through the <code>check.conv.*</code> options
+in <code>[g]lmerControl</code>. Singular fits (fits with estimated
+variances of zero or correlations of +/- 1) can also be tested for,
+although the current default value of the <code>check.conv.singular</code>
+option is <code>"ignore"</code>; this may be changed to <code>"warning"</code>
+in the future. The results are stored in <code>@optinfo$derivs</code>.
+(Github issue #120; based on code by Rune Christensen.)
+</p>
+</li>
+<li><p> The <code>simulate</code> method will now work to generate
+simulations &quot;from scratch&quot; by providing a model formula,
+a data frame holding the predictor variables, and a list
+containing the values of the model parameters:
+see <code>?simulate.merMod</code>. (Github issue #115)
+</p>
+</li>
+<li> <p><code>VarCorr.merMod</code> objects now have an <code>as.data.frame</code>
+method, converting the list of matrices to a more
+convenient form for reporting and post-processing. (Github issue #129)
+</p>
+</li></ul>
+
+
+
+
+<h4>MINOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> results of <code>fitted()</code>, <code>predict()</code>,
+and <code>residuals()</code> now have
+names in all cases (previously results were unnamed, or
+named only when predicting from new data)
+</p>
+</li>
+<li><p> the <code>anova</code> method now has a <code>refit</code> argument
+that controls whether objects of class <code>lmerMod</code> should be
+refitted with ML before producing the <code>anova</code> table.
+(Github issues #141, #165; contributed by Henrik Singmann.)
+</p>
+</li>
+<li><p> the <code>print</code> method for <code>VarCorr</code> objects
+now has a <code>formatter</code> argument for finer control
+of standard deviation and variance formats
+</p>
+</li>
+<li><p> the <code>optinfo</code> slot now stores slightly more
+information, including the number of function evaluations
+(<code>$feval</code>).
+</p>
+</li>
+<li> <p><code>dotplot.ranef.mer</code> now adds titles to sub-plots by default,
+like <code>qqmath.ranef.mer</code>
+</p>
+</li></ul>
+
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li> <p><code>fitted</code> now respects <code>na.action</code> settings (Github
+issue #149)
+</p>
+</li>
+<li> <p><code>confint(.,method="boot")</code> now works when there are
+<code>NA</code> values in the original data set (Github issue #158)
+</p>
+</li>
+<li><p> previously, the code stored the results (parameter values,
+residuals, etc.) based on the <EM>last</EM> set of parameters
+evaluated, rather than the optimal parameters.  These were
+not always the same, but were almost always very close,
+but some previous results will change slightly
+(Github issue #166)
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.1-0</h3>
+
+
+
+<h4>MINOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> when using the default <code>method="profile"</code>,
+<code>confint</code> now returns appropriate upper/lower bounds
+(-1/1 for correlations, 0/Inf for standard deviations)
+rather than <code>NA</code> when appropriate
+</p>
+</li></ul>
+
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> in a previous development version, <code>ranef</code> returned
+incorrect conditional variances (github issue #148). this is 
+now fixed
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.0-6 (2013-10-27)</h3>
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> prediction now works when new data have fewer factor
+levels than are present in the original data (Github issue #143,
+reported by Rune Haubo)
+</p>
+</li>
+<li><p> the existence of a variable &quot;new&quot; in the global environment
+would mess <code>lme4</code> up: reported at http://stackoverflow.com/questions/19801070/error-message-glmer-using-r-what-must-be-a-character-string-or-a-function
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.0-5 (2013-10-24)</h3>
+
+
+
+<h4>USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li> <p><code>confint.merMod</code> and <code>vcov.merMod</code> are
+now exported, for downstream package-author convenience
+</p>
+</li>
+<li><p> the package now depends on Matrix &gt;=1.1-0 and RcppEigen
+&gt;=0.3.1.2.3
+</p>
+</li>
+<li><p> new <code>rename.response</code> option for <code>refit</code> (see BUG
+FIXES section)
+</p>
+</li></ul>
+
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> eliminated redundant messages about suppressed
+fixed-effect correlation matrices when p&gt;20
+</p>
+</li>
+<li><p> most inverse-link functions are now bounded where
+appropriate by <code>.Machine$double.eps</code>, allowing fitting
+of GLMMs with extreme parameter values
+</p>
+</li>
+<li> <p><code>merMod</code> objects created with <code>refit</code> did not
+work with <code>update</code>: optional
+<code>rename.response</code> option added to <code>refit.merMod</code>, to allow
+this (but the default is still <code>FALSE</code>, for
+back-compatibility) (reported by A. Kuznetsova)
+</p>
+</li>
+<li><p> fixed buglet preventing on-the-fly creation of index variables,
+e.g. <code>y~1+(1|rownames(data))</code> (reported by J. Dushoff)
+</p>
+</li>
+<li> <p><code>predict</code> now works properly for <code>glmer</code> models
+with basis-creating terms (e.g. <code>poly</code>, <code>ns</code>)
+</p>
+</li>
+<li><p> step sizes determined from fixed effect coefficient standard
+errors after first state of <code>glmer</code> fitting are now bounded,
+allowing some additional models to be fitted
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.0-4 (2013-09-08)</h3>
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li> <p><code>refit()</code> now works, again, with lists of
+length 1, so that e.g. <code>refit(.,simulate(.))</code> works.
+(Reported by Gustaf Granath)
+</p>
+</li>
+<li> <p><code>getME(.,"ST")</code> was returning a list
+containing the Cholesky factorizations that get repeated in
+Lambda. But this was inconsistent with what <code>ST</code> represents in
+<code>lme4.0</code>. This inconsistency has now been fixed and
+<code>getME(.,"ST")</code> is now consistent with the definition of the
+<code>ST</code> matrix in <code>lme4.0</code>. See
+<code>https://github.com/lme4/lme4/issues/111</code> for more
+detail. Thanks to Vince Dorie.
+</p>
+</li>
+<li><p> Corrected order of unpacking of standard
+deviation/correlation components, which affected results
+from <code>confint(.,method="boot")</code>. (Reported by Reinhold
+Kliegl)
+</p>
+</li>
+<li><p> fixed a copying bug that made <code>refitML()</code>
+modify the original model
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.0-1 (2013-08-17)</h3>
+
+
+
+<h4>MINOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li> <p><code>check.numobs.*</code> and <code>check.numlev.*</code> in
+<code>(g)lmerControl</code> have been changed (from recent development
+versions) to <code>check.nobs.*</code> and
+<code>check.nlev.*</code> respectively, and the default values of
+<code>check.nlev.gtreq.5</code> and <code>check.nobs.vs.rankZ</code>
+have been changed to <code>"ignore"</code> and <code>"warningSmall"</code>
+respectively
+</p>
+</li>
+<li><p> in <code>(g)lmerControl</code>, arguments to the optimizer
+should be passed as a list called <code>optCtrl</code>, rather than
+specified as additional (ungrouped) arguments
+</p>
+</li>
+<li><p> the <code>postVar</code> argument to <code>ranef</code> has been
+changed to the (more sensible) <code>condVar</code> (&quot;posterior variance&quot;
+was a misnomer, &quot;conditional variance&quot; &ndash; short for &quot;variance of the
+conditional mode&quot; &ndash; is preferred)
+</p>
+</li>
+<li><p> the <code>REform</code> argument to <code>predict</code> has been changed
+to <code>ReForm</code> for consistency
+</p>
+</li>
+<li><p> the <code>tnames</code> function, briefly exported, has been
+unexported
+</p>
+</li>
+<li> <p><code>getME(.,"cnms")</code> added
+</p>
+</li>
+<li> <p><code>print</code> method for <code>merMod</code> objects is now more
+terse, and different from <code>summary.merMod</code>
+</p>
+</li>
+<li><p> the <code>objective</code> method for the <code>respMod</code>
+reference class now takes an optional <code>sigma.sq</code> parameter
+(defaulting to <code>NULL</code>) to allow calculation of the
+objective function with a residual variance different from
+the profiled value (Vince Dorie)
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 1.0-0 (2013-08-01)</h3>
+
+
+
+<h4>MAJOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> Because the internal computational machinery has changed,
+results from the newest version of <code>lme4</code> will not be numerically
+identical to those from previous versions.  For reasonably well-
+defined fits, they will be extremely close (within numerical
+tolerances of 1e-4 or so), but for unstable or poorly-defined fits
+the results may change, and very unstable fits may fail when they
+(apparently) succeeded with previous versions. Similarly, some fits
+may be slower with the new version, although on average the new
+version should be faster and more stable. More numerical
+tuning options are now available (see below); non-default settings
+may restore the speed and/or ability to fit a particular model without
+an error. If you notice significant or disturbing changes when fitting
+a model with the new version of <code>lme4</code>, <EM>please notify the maintainers</EM>.
+</p>
+</li>
+<li> <p><code>VarCorr</code> returns its results in the same format as before (as a
+list of variance-covariance matrices with <code>correlation</code> and <code>stddev</code>
+attributes, plus a <code>sc</code> attribute giving the residual standard
+deviation/scale parameter when appropriate), but prints them in a
+different (nicer) way.
+</p>
+</li>
+<li><p> By default <code>residuals</code> gives deviance (rather than Pearson)
+residuals when applied to <code>glmer</code> fits (a side effect of matching <code>glm</code>
+behaviour more closely).
+</p>
+</li>
+<li><p> As another side effect of matching <code>glm</code>
+behaviour, reported log-likelihoods from <code>glmer</code> models
+are no longer consistent with those from pre-1.0 <code>lme4</code>,
+but <EM>are</EM> consistent with <code>glm</code>; see <code>glmer</code>
+examples.
+</p>
+</li></ul>
+
+
+
+
+<h4>MINOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> More use is made of S3 rather than S4 classes and methods: one
+side effect is that the <code>nlme</code> and <code>lme4</code> packages are now much more
+compatible; methods such as <code>fixef</code> no longer conflict.
+</p>
+</li>
+<li><p> The internal optimizer has changed. <code>[gn]lmer</code> now has an
+<code>optimizer</code> argument; <code>"Nelder_Mead"</code> is the default for <code>[n]lmer</code>,
+while a combination of <code>"bobyqa"</code> (an alternative derivative-free
+method) and <code>"Nelder_Mead"</code> is the default for <code>glmer</code>. To use the
+<code>nlminb</code> optimizer as in the old version of <code>lme4</code>, you can use
+<code>optimizer="optimx"</code> with <code>control=list(method="nlminb")</code> (you will
+need the <code>optimx</code> package to be installed and loaded). See
+<code>lmerControl</code> for details.
+</p>
+</li>
+<li><p> Families in GLMMs are no longer restricted to built-in/hard-
+coded families; any family described in <code>family</code>, or following that
+design, is usable (although there are some hard-coded families, which
+will be faster).
+</p>
+</li>
+<li> <p><code>[gn]lmer</code> now produces objects of class <code>merMod</code> rather than
+class <code>mer</code> as before.
+</p>
+</li>
+<li><p> the structure of the <code>Zt</code> (transposed random effect
+design matrix) as returned by <code>getME(.,"Zt")</code>, and the
+corresponding order of the random effects vector
+(<code>getME(.,"u")</code>) have changed. To retrieve <code>Zt</code>
+in the old format, use <code>do.call(Matrix::rBind,getME(.,"Ztlist"))</code>.
+</p>
+</li>
+<li><p> the package checks input more thoroughly for
+non-identifiable or otherwise problematic cases: see
+<code>lmerControl</code> for fine control of the test behaviour.
+</p>
+</li></ul>
+
+
+
+
+<h4>NEW FEATURES</h4>
+
+
+<ul>
+<li><p> A general-purpose <code>getME</code> accessor method allows
+extraction of a wide variety of components of a mixed-model
+fit. <code>getME</code> also allows a vector of objects to be returned as
+a list of mixed-model components. This has been backported to
+be compatible with older versions of <code>lme4</code> that still produce <code>mer</code>
+objects rather than <code>merMod</code> objects. However, backporting is incomplete;
+some objects are only extractable in newer versions of <code>lme4</code>.
+</p>
+</li>
+<li><p> Optimization information (convergence codes, warnings, etc.)
+is now stored in an <code>@optinfo</code> slot.
+</p>
+</li>
+<li> <p><code>bootMer</code> provides a framework for obtaining parameter confidence
+intervals by parametric bootstrapping.
+</p>
+</li>
+<li> <p><code>plot.merMod</code> provides diagnostic plotting
+methods similar to those from the <code>nlme</code> package
+(although missing <code>augPred</code>).
+</p>
+</li>
+<li><p> A <code>predict.merMod</code> method gives predictions;
+it allows an effect-specific choice of conditional prediction or prediction at the
+population level (i.e., with random effects set to zero).
+</p>
+</li>
+<li><p> Likelihood profiling for <code>lmer</code> and <code>glmer</code> results (see
+<code>link{profile-methods}</code>).
+</p>
+</li>
+<li><p> Confidence intervals by likelihood profiling (default),
+parametric bootstrap, or Wald approximation (fixed effects only):
+see <code>confint.merMod</code>
+</p>
+</li>
+<li> <p><code>nAGQ=0</code>, an option to do fast (but inaccurate) fitting of GLMMs.
+</p>
+</li>
+<li><p> Using <code>devFunOnly=TRUE</code> allows the user to extract a deviance
+function for the model, allowing further diagnostics/customization of
+model results.
+</p>
+</li>
+<li><p> The internal structure of [gn]lmer is now more modular, allowing
+finer control of the different steps of argument checking; construction
+of design matrices and data structures; parameter estimation; and construction
+of the final <code>merMod</code> object (see <code>?modular</code>).
+</p>
+</li>
+<li><p> the <code>formula</code>, <code>model.frame</code>, and <code>terms</code>
+methods return full versions (including random effect terms and
+input variables) by default, but a <code>fixed.only</code> argument
+allows access to the fixed effect submodel.
+</p>
+</li></ul>
+
+
+
+
+<h4>EXPERIMENTAL FEATURES</h4>
+
+
+<ul>
+<li> <p><code>glmer.nb</code> provides an embryonic negative
+binomial fitting capability.
+</p>
+</li></ul>
+
+
+
+
+<h4>STILL NON-EXISTENT FEATURES</h4>
+
+
+<ul>
+<li><p> Adaptive Gaussian quadrature (AGQ) is not available for multiple and/or
+non-scalar random effects.
+</p>
+</li>
+<li><p> Posterior variances of conditional models for non-scalar random effects.
+</p>
+</li>
+<li><p> Standard errors for <code>predict.merMod</code> results.
+</p>
+</li>
+<li><p> Automatic MCMC sampling based on the fit turns out to be very difficult
+to implement in a way that is really broadly reliable and robust; <code>mcmcsamp</code>
+will not be implemented in the near future. See
+<code>pvalues</code> for alternatives.
+</p>
+</li>
+<li><p> &quot;R-side&quot; structures (within-block correlation and heteroscedasticity) are
+not on the current timetable.
+</p>
+</li></ul>
+
+
+
+
+<h4>BUG FIXES</h4>
+
+
+<ul>
+<li><p> In a development version, prior weights were not being used properly in
+the calculation of the residual standard deviation, but this has been fixed.
+Thanks to Simon Wood for pointing this out.
+</p>
+</li>
+<li><p> In a development version, the step-halving component of the penalized
+iteratively reweighted least squares algorithm was not working, but
+this is now fixed.
+</p>
+</li>
+<li><p> In a development version, square <code>RZX</code> matrices would lead to a
+<code>pwrssUpdate did not converge in 30 iterations</code> error. This has been fixed
+by adding an extra column of zeros to <code>RZX</code>.
+</p>
+</li></ul>
+
+
+
+
+<h4>DEPRECATED AND DEFUNCT</h4>
+
+
+<ul>
+<li><p> Previous versions of <code>lme4</code> provided
+the <code>mcmcsamp</code> function, which efficiently generated
+a Markov chain Monte Carlo sample from the posterior
+distribution of the parameters, assuming flat (scaled
+likelihood) priors. Due to difficulty in constructing a
+version of <code>mcmcsamp</code> that was reliable even in
+cases where the estimated random effect variances were
+near zero (e.g.
+<a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/003115.html">https://stat.ethz.ch/pipermail/r-sig-mixed-models/2009q4/003115.html</a>),
+<code>mcmcsamp</code> has been withdrawn (or more precisely,
+not updated to work with <code>lme4</code> versions &gt;=1.0).
+</p>
+</li>
+<li><p> Calling <code>glmer</code> with the default <code>gaussian</code> family
+redirects to <code>lmer</code>, but this is deprecated
+(in the future <code>glmer(...,family="gaussian")</code> may
+fit a LMM using the penalized iteratively reweighted least squares
+algorithm). Please call <code>lmer</code> directly.
+</p>
+</li>
+<li><p> Calling <code>lmer</code> with a <code>family</code> argument redirects
+to <code>glmer</code>; this is deprecated. Please call <code>glmer</code> directly.
+</p>
+</li></ul>
+
+
+
+
+<h3>CHANGES IN VERSION 0.999375-16 (2008-06-23)</h3>
+
+
+
+<h4>MAJOR USER-VISIBLE CHANGES</h4>
+
+
+<ul>
+<li><p> The underlying algorithms and representations for all the
+mixed-effects models fit by this package have changed - for
+the better, we hope. The class &quot;mer&quot; is a common
+mixed-effects model representation for linear, generalized
+linear, nonlinear and generalized nonlinear mixed-effects
+models.
+</p>
+</li>
+<li><p> ECME iterations are no longer used at all, nor are analytic
+gradients. Components named 'niterEM', 'EMverbose', or
+'gradient' can be included in the 'control' argument to
+lmer(), glmer() or nlmer() but have no effect.
+</p>
+</li>
+<li><p> PQL iterations are no longer used in glmer() and nlmer().
+Only the Laplace approximation is currently available. AGQ,
+for certain classes of GLMMs or NLMMs, is being added.
+</p>
+</li>
+<li><p> The 'method' argument to lmer(), glmer() or nlmer() is
+deprecated. Use the 'REML = FALSE' in lmer() to obtain ML
+estimates. Selection of AGQ in glmer() and nlmer() will be
+controlled by the argument 'nAGQ', when completed.
+</p>
+</li></ul>
+
+
+
+
+<h4>NEW FEATURES</h4>
+
+
+<ul>
+<li><p> The representation of mixed-effects models has been
+dramatically changed to allow for smooth evaluation of the
+objective as the variance-covariance matrices for the random
+effects approach singularity. Beta testers found this
+representation to be more robust and usually faster than
+previous versions of lme4.
+</p>
+</li>
+<li><p> The mcmcsamp function uses a new sampling method for the
+variance-covariance parameters that allows recovery from
+singularity. The update is not based on a sample from the
+Wishart distribution. It uses a redundant parameter
+representation and a linear least squares update.
+</p>
+</li>
+<li><p> CAUTION: Currently the results from mcmcsamp look peculiar and
+are probably incorrect. I hope it is just a matter of my
+omitting a scaling factor but I have seen patterns such as
+the parameter estimate for some variance-covariance parameters
+being the maximum value in the chain, which is highly
+unlikely.
+</p>
+</li>
+<li><p> The 'verbose' argument to lmer(), glmer() and nlmer() can be
+used instead of 'control = list(msVerbose = TRUE)'.
+</p>
+</li></ul>
+
+
+
+
+</body></html>

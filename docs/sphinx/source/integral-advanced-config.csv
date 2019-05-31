@@ -1,0 +1,60 @@
+Option,Default,Description
+startelev=,,Name of field to read start elevation from
+endelev=,,Name of field to read end elevation from
+metric=,angular,"Metric – angular, euclidean, custom or one of the presets"
+radius=,n,List of radii separated by commas
+startelev=,,Name of field to read start elevation from
+endelev=,,Name of field to read end elevation from
+origweight=,,Name of field to read origin weight from
+destweight=,,Name of field to read destination weight from
+origweightformula=,,Expression for origin weight (overrides origweight)
+destweightformula=,,Expression for destination weight (overrides destweight)
+weight=,,Name of field to read weight from. Applies weight field to both origins and destinations.
+zonesums=,,Expressions to sum over zones (see zone sums below)
+lenwt,,Specifies that weight field is per unit length
+custommetric=,,Specified field name to read custom metric from
+xytol=,,Manual override xy tolerance for fixing endpoint connectivity.  
+ztol=,,Manual override z tolerance for fixing endpoint connectivity.  
+outputgeodesics,,Output geometry of all pairwise geodesics in analysis (careful – this can create a lot of data)
+outputdestinations,,Output geometry of all pairwise destinations in analysis (careful – this can create a lot of data).  Useful in combination with origins for creating a map of distance/metric from a given origin.
+outputhulls,,Output geometry of all convex hulls in analysis 
+outputnetradii,,Output geometry of all network radii in analysis
+origins=,,"Only compute selected origins (provide feature IDs as comma separated list).  Useful in conjunction with outputgeodesicsm, outputdestinations, outputhulls, outputnetradii."
+destinations=,,Only compute selected destinations (ditto)
+nonetdata,,Don’t output any network data (used in conjunction with geometry outputs)
+pre=,,Prefix text of your choice to output column names
+post=,,Postfix text of your choice to output column names
+nobetweenness,,Don’t calculate betweenness (saves a lot of time)
+nojunctions,,Don’t calculate junction measures (saves time)
+nohull,,Don’t calculate convex hull measures (saves time)
+linkonly,,Only calculate individual link measures.  
+outputsums,,"Output sum measures SAD, SCF etc as well as means MAD, MCF etc."
+probroutes,,Output measures of problem routes – routes which exceed the length of the radius
+forcecontorigin,,"Force origin link to be handled in continuous space, even in a discrete analysis.  Prevents odd results on very long links."
+nqpdn=,1,Custom numerator power for NQPD equation
+nqpdd=,1,Custom denominator power for NQPD equation
+skipzeroweightorigins,,Skips calculation of any output measures for origins with zero weight.  Saves a lot of time if many such origins exist.
+skipzeroweightdestinations,1,Zero weight destinations are skipped by default.  Note this will exclude them from geometry outputs; if this is not desired behaviour then set skipzeroweightdestinations=0
+skiporiginifzero=,,"Specified field name.  If this field is zero, the origin will be skipped.  Allows full customization of skipping origins."
+skipfraction=,1,"Set to value n, skips calculation for (n-1)/n origins.  Effectively the increment value when looping over origins."
+skipmod=,0,Chooses which origins are calculated if skipfraction?1.  Effectively the initial value when looping over origins: every skipfractionth origin is computed starting with the skipmodth one.
+nostrictnetworkcut,,Don’t constrain geodesics to stay within radius.  This will create a lot more ‘problem routes’.  Only alters behaviour of betweenness measures (not closeness).
+probrouteaction=,ignore,"Take special action for problem routes that exceed the radius by a factor greater than probroutethreshold.  Can be set to ignore, discard or reroute.  Reroute changes geodesic to shortest Euclidean path.  Only alters betweenness output, not closeness."
+probroutethreshold=,1.2,"Threshold over which probrouteaction is taken.  Note this does not affect computation of probroutes measures, which report on all routes which exceed the radius length regardless of this setting."
+outputdecomposableonly,,output only measures which are decomposable i.e. can be summed over different origins (useful for parallelization)
+linkcentretype=,"Angular for angular analysis, Euclidean otherwise",Override link centre types – angular or Euclidean
+lineformula=,,Formula for line metric in hybrid analysis (see below)
+juncformula=,0,Formula for junction turn metric in hybrid analysis (see below)
+bidir,,Output betweenness for each direction separately
+oneway=,,Specified field name to read one way data from (see note 1 below)
+vertoneway=,,Specified field name to read vertical one way data from (see note 1 below)
+oversample=,1,Number of times to run the analysis; results given are the mean of all runs.  Useful for sampling hybrid metrics with random components.
+odmatrix,,Read OD matrix from input tables (a 2d table must be present)
+zonedist=,euc,"Set expression to determine how zone weights are distributed over links in each zone, or 0 to skip distribution (all lines receive entire zone weight)"
+intermediates=,,Set expression for intermediate link filter.  Geodesics are discarded unless they pass through link where expression is nonzero.
+disable=,,Set expression to switch off links (links switched off when expression evaluates nonzero)
+outputskim,,Output skim matrix file
+skimorigzone,,Origin zone field (must be text) for skim matrix
+skimdestzone,,Destination zone field (must be text) for skim matrix
+skimzone,,Skim matrix zone field for both origin and destination (sets both skimorigzone and skimdestzone)
+bandedradii,,Divide radius into bands: for each radius only include links outside the previous radius

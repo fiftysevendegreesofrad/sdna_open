@@ -1,0 +1,60 @@
+Abbreviation,Description
+AngD,Angular Distance in Radius
+BtA,Betweenness Angular
+BtC,Betweenness Custom
+BtE,Betweenness Euclidean
+BtH,Betweenness Hybrid 
+Conn,Connectivity in Radius
+DivA,Diversion Ratio in Radius Angular
+DivC,Diversion Ratio in Radius Custom
+DivE,Diversion Ratio in Radius Euclidean
+DivH,Diversion Ratio in Radius Hybrid 
+HMb,Line Hybrid Metric (backwards direction)
+HMf,Line Hybrid Metric (forwards direction)
+HullA,Convex Hull Area 
+HullB,Convex Hull Bearing of Maximum Radius
+HullP,Convex Hull Perimeter 
+HullR,Convex Hull Maximum (Crow Flight) Radius 
+HullSI,Convex Hull Shape Index
+Jnc,Junctions in Radius
+LAC,Line Angular Curvature
+LBear,Line Bearing
+LConn,Line Connectivity
+Len,Length in Radius
+Lfrac,Link fraction (for current line)
+LLen,Line Length
+Lnk,Links in Radius
+LSin,Line Sinuosity
+MAD,Mean Angular Distance in Radius
+MCD,Mean Custom Distance in Radius
+MCF,Mean Crow Flight Distance in Radius 
+MED,Mean Euclidean Distance in Radius
+MGLA,Mean Geodesic Length in Radius Angular
+MGLC ,Mean Geodesic Length in Radius Custom
+MGLE,Mean Geodesic Length in Radius Euclidean
+MGLH,Mean Geodesic Length in Radius Hybrid 
+MHD,Mean Hybrid Distance in Radius
+NQPDA,Network Quantity Penalized by Distance in Radius Angular
+NQPDC,Network Quantity Penalized by Distance in Radius Custom
+NQPDE,Network Quantity Penalized by Distance in Radius Euclidean
+NQPDH,Network Quantity Penalized by Distance in Radius Hybrid 
+SAD,Sum of Angular Distance in Radius *
+SCD,Sum of Custom Distance in Radius *
+SCF,Sum of Crow Flight Distance in Radius  *
+SED,Sum of Euclidean Distance in Radius *
+SGLA,Sum of Geodesic Length in Radius Angular *
+SGLC,Sum of Geodesic Length in Radius Custom *
+SGLE,Sum of Geodesic Length in Radius Euclidean *
+SGLH,Sum of Geodesic Length in Radius Hybrid  *
+SHD,Sum of Hybrid Distance in Radius *
+TPBtA,Two Phase Betweenness Angular
+TPBtC,Two Phase Betweenness Custom
+TPBtE,Two Phase Betweenness Euclidean
+TPBtH,Two Phase Betweenness Hybrid 
+TPDA,Two Phase Destination Angular
+TPDC,Two Phase Destination Custom
+TPDE,Two Phase Destination Euclidean
+TPDH,Two Phase Destination Hybrid 
+Wl,Weighted by Length (as opposed to Link)
+Wp,Weighted by Polyline (as opposed to Link)
+Wt,Weight in Radius

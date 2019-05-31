@@ -1,0 +1,70 @@
+Package: car
+Version: 2.1-1
+Date: 2015-12-12
+Title: Companion to Applied Regression
+Authors@R: c(person("John", "Fox", role = c("aut", "cre"), email = "jfox@mcmaster.ca"),
+	person("Sanford", "Weisberg", role = "aut", email = "sandy@umn.edu"),
+    person("Daniel", "Adler", role="ctb"),
+    person("Douglas", "Bates", role = "ctb"),
+    person("Gabriel", "Baud-Bovy", role = "ctb"),
+    person("Steve", "Ellison", role="ctb"),
+    person("David", "Firth", role = "ctb"),
+    person("Michael", "Friendly", role = "ctb"),
+    person("Gregor", "Gorjanc", role = "ctb"),
+    person("Spencer", "Graves", role = "ctb"),
+    person("Richard", "Heiberger", role = "ctb"),
+    person("Rafael", "Laboissiere", role = "ctb"),
+    person("Georges", "Monette", role = "ctb"),
+    person("Duncan", "Murdoch", role="ctb"),
+    person("Henric", "Nilsson", role = "ctb"),
+    person("Derek", "Ogle", role = "ctb"),
+    person("Brian", "Ripley", role = "ctb"),
+    person("William", "Venables", role = "ctb"),
+    person("David", "Winsemius", role="ctb"),
+    person("Achim", "Zeileis", role = "ctb"),
+    person("R-Core", role="ctb"))
+Depends: R (>= 3.2.0)
+Imports: MASS, mgcv, nnet, pbkrtest (>= 0.4-4), quantreg, grDevices,
+        utils, stats, graphics
+Suggests: alr4, boot, coxme, leaps, lme4, lmtest, Matrix, MatrixModels,
+        nlme, rgl (>= 0.93.960), sandwich, SparseM, survival, survey
+ByteCompile: yes
+LazyLoad: yes
+LazyData: yes
+Description: 
+  Functions and Datasets to Accompany J. Fox and S. Weisberg, 
+  An R Companion to Applied Regression, Second Edition, Sage, 2011.
+License: GPL (>= 2)
+URL: https://r-forge.r-project.org/projects/car/,
+        http://CRAN.R-project.org/package=car,
+        http://socserv.socsci.mcmaster.ca/jfox/Books/Companion/index.html
+Author: John Fox [aut, cre],
+  Sanford Weisberg [aut],
+  Daniel Adler [ctb],
+  Douglas Bates [ctb],
+  Gabriel Baud-Bovy [ctb],
+  Steve Ellison [ctb],
+  David Firth [ctb],
+  Michael Friendly [ctb],
+  Gregor Gorjanc [ctb],
+  Spencer Graves [ctb],
+  Richard Heiberger [ctb],
+  Rafael Laboissiere [ctb],
+  Georges Monette [ctb],
+  Duncan Murdoch [ctb],
+  Henric Nilsson [ctb],
+  Derek Ogle [ctb],
+  Brian Ripley [ctb],
+  William Venables [ctb],
+  David Winsemius [ctb],
+  Achim Zeileis [ctb],
+  R-Core [ctb]
+Maintainer: John Fox <jfox@mcmaster.ca>
+Repository: CRAN
+Repository/R-Forge/Project: car
+Repository/R-Forge/Revision: 442
+Repository/R-Forge/DateTimeStamp: 2015-12-13 15:47:01
+Date/Publication: 2015-12-14 17:19:09
+NeedsCompilation: no
+Packaged: 2015-12-13 16:05:56 UTC; rforge
+Built: R 3.2.3; ; 2015-12-19 05:40:29 UTC; windows

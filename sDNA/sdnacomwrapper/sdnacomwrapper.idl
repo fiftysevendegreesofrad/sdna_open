@@ -1,0 +1,108 @@
+//sDNA software for spatial network analysis 
+//Copyright (C) 2011-2019 Cardiff University
+
+//This program is free software: you can redistribute it and/or modify
+//it under the terms of the GNU General Public License as published by
+//the Free Software Foundation, either version 3 of the License, or
+//(at your option) any later version.
+
+//This program is distributed in the hope that it will be useful,
+//but WITHOUT ANY WARRANTY; without even the implied warranty of
+//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//GNU General Public License for more details.
+
+//You should have received a copy of the GNU General Public License
+//along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+// sdnacomwrapper.idl : IDL source for sdnacomwrapper
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (sdnacomwrapper.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(A46443C3-A7EF-4080-9305-EC723C5EDE90),
+	dual,
+	nonextensible,
+	helpstring("ISpatialNet Interface"),
+	pointer_default(unique)
+]
+interface ISpatialNet : IDispatch{
+	[id(6), helpstring("method add_link")] HRESULT add_link([in] LONG arcid, [in] VARIANT xs, [in] VARIANT ys, [in] DOUBLE start_gs, [in] DOUBLE end_gs, [in] DOUBLE activity_weight, [in] DOUBLE custom_cost, [in] VARIANT_BOOL isisland);
+	[id(7), helpstring("method print")] HRESULT print(void);
+	[id(8), helpstring("method configure")] HRESULT configure([in] IUnknown* sdnawindow);
+	[id(9), helpstring("method reset_iterator")] HRESULT reset_iterator(void);
+	[id(10), helpstring("method iterator_next")] HRESULT iterator_next([out] VARIANT_BOOL *success,[out] VARIANT* xs, [out] VARIANT* ys, [out] DOUBLE* start_gs, [out] DOUBLE* end_gs, [out] VARIANT_BOOL *isisland);
+	[id(11), helpstring("method get_split_links")] HRESULT get_split_links([out] VARIANT* ids);
+	[id(12), helpstring("method fix_split_links")] HRESULT fix_split_links(void);
+	[id(13), helpstring("method get_traffic_islands")] HRESULT get_traffic_islands([out] VARIANT* ids);
+	[id(14), helpstring("method fix_traffic_islands")] HRESULT fix_traffic_islands(void);
+	[id(15), helpstring("method get_subsystems")] HRESULT get_subsystems([out] BSTR* message, [out] VARIANT* ids);
+	[id(16), helpstring("method fix_subsystems")] HRESULT fix_subsystems(void);
+	[id(17), helpstring("method get_duplicates")] HRESULT get_duplicates([out] VARIANT* ids,[out] VARIANT* ids2);
+	[id(18), helpstring("method fix_duplicates")] HRESULT fix_duplicates(void);
+	[id(19), helpstring("method import_from_link_unlink_format")] HRESULT import_from_link_unlink_format();
+	[id(21), helpstring("method add_unlink")] HRESULT add_unlink([in] VARIANT xs_array, [in] VARIANT ys_array);
+};
+[
+	object,
+	uuid(3807B392-CDDA-4979-A1E4-ECEDE062E713),
+	dual,
+	nonextensible,
+	helpstring("ICalculation Interface"),
+	pointer_default(unique)
+]
+interface ICalculation : IDispatch{
+	[id(1), helpstring("method configure")] HRESULT configure([in] VARIANT config_bs, [in] IUnknown* net,[in] IUnknown* sdnawindow);
+	[id(2), helpstring("method run")] HRESULT run();
+	[id(4), helpstring("method get_output_shortnames")] HRESULT get_output_shortnames([out] VARIANT* names);
+	[id(5), helpstring("method get_output_names")] HRESULT get_output_names([out] VARIANT* names);
+	[id(6), helpstring("method get_all_outputs")] HRESULT get_all_outputs([in] LONG id, [out] VARIANT* outputs);
+};
+[
+	object,
+	uuid(BFC4B22A-0C1A-4C03-8057-5A47F01FD830),
+	dual,
+	nonextensible,
+	helpstring("ISDNAWindow Interface"),
+	pointer_default(unique)
+]
+interface ISDNAWindow : IDispatch{
+};
+[
+	uuid(AF487B50-9B88-4C64-BD11-1A38BC8990D7),
+	version(1.0),
+	helpstring("sdnacomwrapper 1.0 Type Library")
+]
+library sdnacomwrapperLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(94B457E2-C5D2-42FB-ADBD-D06C36A398B2),
+		helpstring("SpatialNet Class")
+	]
+	coclass SpatialNet
+	{
+		[default] interface ISpatialNet;
+	};
+	[
+		uuid(4ACDBC53-97C8-4F75-A7D1-672AC7DE335F),
+		helpstring("Calculation Class")
+	]
+	coclass Calculation
+	{
+		[default] interface ICalculation;
+	};
+	[
+		uuid(498F0591-0624-4C0E-A23C-317D44292ED0),
+		helpstring("SDNAWindow Class")
+	]
+	coclass SDNAWindow
+	{
+		[default] interface ISDNAWindow;
+	};
+};

@@ -1,0 +1,19 @@
+KRmodcomp               Ftest and degrees of freedom based on
+                        Kenward-Roger approximation
+PBmodcomp               Model comparison using parametric bootstrap
+                        methods.
+PBrefdist               Calculate reference distribution using
+                        parametric bootstrap
+beets                   Yield and sugar percentage in sugar beets from
+                        a split plot experiment.
+budworm                 Effect of Insecticide on survivial of tobacco
+                        budworms
+getKR                   Extract (or "get") components from a
+                        'KRmodcomp' object.
+get_Lb_ddf              Adjusted denomintor degress freedom for linear
+                        estimate for linear mixed model.
+model2restrictionMatrix
+                        Conversion between a model object and a
+                        restriction matrix
+vcovAdj                 Ajusted covariance matrix for linear mixed
+                        models according to Kenward and Roger

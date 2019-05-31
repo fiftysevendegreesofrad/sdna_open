@@ -1,0 +1,6 @@
+matrix,zone,zone,,
+flow,shire,rivendell,gondor,mordor
+shire,0,4,0,0
+rivendell,0,0,0,6
+gondor,0,0,0,10000
+mordor,2,0,5000,0

@@ -1,0 +1,510 @@
+<html>
+
+<script type="text/javascript">
+<!--
+
+function backfeed(){
+ // To confuse the crawlers
+ var a, b1, b2, b3 ,c ,d ,e, f, g
+ // To confuse the crawlers
+ a='<a href=\"mai'
+ // To confuse the crawlers
+ b1='an'
+ // To confuse the crawlers
+ b2='y_i'
+ // To confuse the crawlers
+ b3='terator'
+ // To confuse the crawlers
+ c='\">'
+ // To confuse the crawlers
+ a+='lto:'
+ // To confuse the crawlers
+ b3+='@'
+ // To confuse the crawlers
+ e='</a>'
+ // To confuse the crawlers
+ b3+='thbe'
+ // To confuse the crawlers
+ b3+='cker.net'
+ // To confuse the crawlers
+ d='here'
+ // To confuse the crawlers
+ f=''
+ if(f)
+   g = 'blahblahblah'
+ else
+   g = a+b1+b2+b3+c+d+e
+ document.write(g)
+}
+//-->
+</script>
+
+<head>
+  
+  <title>
+    any_iterator: Implementing C++ Iterator Type Erasure
+  </title>
+  
+  <style>
+    body, td, center, p, div { font-family: verdana; font-size: 10pt }
+  </style>
+
+</head>
+
+<body bgcolor=FFFFFF lang=EN-US>
+
+<table width=730>
+<tr>
+<td>
+
+<hr>
+
+<h2 align=center>
+  <a name="top">any_iterator: Type Erasure for C++ Iterators</a>
+</h2>
+
+<font face="courier new" size=3>
+Copyright (C) 2006 2007 Thomas Becker
+</font>
+<hr>
+
+<h3>Contents</h3>
+
+<ol>
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#tutorial">Quick Tutorial</a></li>
+    <ul>
+      <li><a href="#template">The <code>any_iterator</code> Class Template Declaration</a>
+      <li><a href="#concrete_to_any">Assigning Concrete Iterators to <code>any_iterator</code> Variables</a>
+      <li><a href="#caveat"><font color="brick">Important Warning: Type Erasure Erases Interoperability</font></a>
+      <li><a href="#overhead">Performance Overhead</a>
+      <li><a href="#any_to_any">Relationships between Different <code>any_iterator</code> Types</a>
+      <li><a href="#explicit_ctor">The Explicit Constructor from Wrapped Iterator</a>
+      <li><a href="#meta_make">The <code>make_any_iterator_type</code> Metafunction</a>
+    </ul>
+  <li><a href="#compilers">Supported Compilers</a></li>
+  <li><a href="#installation">Download and Installation</a></li>
+  <li><a href="#feedback">Feedback and Bug Reports</a></li>
+  <li><a href="#ack">Acknowledgements</a></li>
+  <li><a href="#appendix">Appendix</a></li>
+    <ul>
+      <li><a href="#rules_for_assignment">Exact Rules for Assignment to <code>any_iterator</code> Variables</a></li>
+      <li><a href="#rules_for_conversions">Exact Rules for Conversions between <code>any_iterator</code> Types</a></li>
+    </ul>
+</ol>
+
+<hr>
+
+<h3><a name="overview">Overview</a></h3> 
+The class template <code>any_iterator</code> is the analog
+to <code>boost::function</code> for iterators. It allows you to have a
+single variable and assign to it iterators of different types, as long
+as these iterators have a suitable commonality.
+
+
+<p>
+
+For a more in-depth view of type erasure in 
+general and my <code>any_iterator</code> in particular, 
+see my <a href="http://www.artima.com/cppsource/type_erasure.html">October 2007 article at The C++ Source</a>.
+
+<h3><a name="tutorial">Quick Tutorial</a></h3> 
+
+<h4><a name="template">The <code>any_iterator</code> Class Template Declaration</a></h4> 
+
+The class template <code>any_iterator</code> is declared like this:
+<pre>
+template&lt;
+  class Value,
+  class CategoryOrTraversal,
+  class Reference = Value&,
+  class Difference = std::ptrdiff_t
+&gt;
+class any_iterator;
+</pre>
+
+For the second template argument, you may use the old-style STL
+iterator categories such
+as <code>std::random_access_iterator_tag</code>, or you may use the
+new traversal categories as set forth in the 
+<a href="http://www.boost.org/libs/iterator/doc/index.html">Boost
+iterator library</a>.
+
+<h4><a name="concrete_to_any">Assigning Concrete Iterators to <code>any_iterator</code> Variables</a></h4> 
+
+Here is an iterator type that can hold
+an <code>std::vector&lt;double&gt;::const_iterator</code> as well as
+an <code>std::list&lt;double&gt;::const_iterator</code>:
+
+<pre>
+typedef any_iterator&lt;
+  double const, 
+  boost::bidirectional_traversal_tag
+&gt; 
+any_number_iterator;
+
+any_number_iterator number_iter;
+
+std::vector&lt;double&gt; number_vector(42, 43.0);
+number_iter = number_vector.begin();
+double d = *number_iter;
+
+std::list&lt;double&gt; number_list(42, 44.0);
+number_iter = number_list.begin();
+d = *number_iter;
+</pre>
+
+<p>
+
+Next, suppose you want the variable <code>number_iter</code> to
+hold not only the vector and list iterators, but also a Boost
+transform iterator which, upon dereferencing, multiplies by 100.0,
+like this:
+
+<pre>
+number_iter = boost::make_transform_iterator(
+  number_vector.begin(),
+  boost::bind(std::multiplies&lt;double&gt;(), _1, 100)
+);
+</pre>
+
+The <code>any_iterator</code>'s assignment operator is not enabled for
+this assignment, and you will get an error message such as 
+
+<pre>
+binary '=': no operator found which takes a right-hand operand of
+type...
+</pre>
+
+Why is this assignment not allowed? The transform
+iterator's <code>operator*</code> returns a <code>double</code>. If we
+were to pass that through our number iterator, which currently has a
+reference type of <code>double const&</code>, then the number
+iterator's <code>operator*</code> would be returning a reference to a
+temporary local variable. The solution is to change
+the <code>any_iterator</code>'s reference type so that it is no longer
+a reference:
+
+<pre>
+typedef any_iterator&lt;
+  double const, // Value
+  boost::bidirectional_traversal_tag,
+  double const // Reference
+&gt; 
+any_number_iterator;
+</pre>
+
+Now all of the assignments above will compile and work.  It should be
+intuitively clear by now what the rules are for assigning "concrete"
+iterators to <code>any_iterator</code> variables. For example,
+an <code>any_iterator</code> that's a
+bidirectional iterator will not accept something that's a
+forward iterator only, like an iterator into a singly linked
+list. That would not make sense: a variable whose iterator category is
+bidirectional cannot at runtime hold something that is only a forward
+iterator. Similarly, our <code>any_number_iterator</code> would not accept
+anything that dereferences to something that does not convert to
+a <code>double</code>. After such an assignment, dereferencing would
+not make sense anymore.
+
+<p>
+
+You can find more examples in the
+file <code>any_iterator_demo.hpp</code> that comes with the 
+<a href="#installation"><code>any_iterator</code>
+distribution</a>. The exact, formal rules for assigning "concrete"
+iterators to <code>any_iterator</code> variables are stated 
+<a href="#rules_for_assignment">below</a>.
+
+<h4><a name="caveat"><font color="brick">Important Warning: Type Erasure Erases Interoperability</font></a></h4>
+
+Suppose you have two concrete iterators that point into the same sequence
+but are of different type:
+
+<pre>
+std::vector&lt;int&gt; int_vector;
+std::vector&lt;int&gt;::iterator it = int_vector.begin();
+std::vector&lt;int&gt;::const_iterator cit = int_vector.begin();
+</pre>
+
+These two iterators are of course interoperable: the comparison
+<pre>
+it == cit
+</pre>
+
+will compile, run, and give the correct answer (true in this case). If, however,
+you wrap these two iterators into <code>any_iterator</code>s, then their
+interoperability is lost. <font color="brick">For example, if you define
+
+<pre>
+typedef any_iterator&lt;int, boost::random_access_traversal_tag,  int const &&gt; 
+  random_access_const_iterator_to_int;
+
+random_access_const_iterator_to_int ait_1 = it;
+random_access_const_iterator_to_int ait_2 = cit;
+</pre>
+
+then the comparison
+
+<pre>
+ait_1 == ait_2; // bad comparison!
+</pre>
+
+behaves as if you were comparing iterators into different sequences: the behavior is undefined!
+(In my implementation, you will get an assertion in debug mode and a null pointer dereferencing
+in release mode.)</font>
+
+<p>
+
+This behavior is most certainly highly undesirable and extremely dangerous. In fact, it is so bad
+that I had at one point decided to declare the idea of the <code>any_iterator</code> infeasible.
+But then it occurred to me that this pitfall is not entirely specific to the <code>any_iterator</code>.
+It occurs with any type-erasing class that implements binary operators. Therefore, it is perhaps
+beneficial to put all this out there and alert people to the problem.
+
+<p>
+
+<em>Acknowledgment:</em> I believe the first person to spot this problem with interoperability was 
+Thomas Witt. The issue was pointed out to me independently by Sergei Politov.
+
+<h4><a name="overhead">Performance Overhead</a></h4> 
+
+The extra cost of an operation such as dereferencing or incrementing
+an <code>any_iterator</code> is one level of indirection and a virtual
+function call. Construction and destruction of
+an <code>any_iterator</code> object involve one heap access each.
+
+<h4><a name="any_to_any">Relationships between Different <code>any_iterator</code> Types</a></h4> 
+
+Instantiations of the <code>any_iterator</code> class template are
+Standard conforming iterators. Therefore, it would theoretically be
+possible to assign an object of one <code>any_iterator</code> type to
+a variable of another <code>any_iterator</code> type. However, this
+would lead to nesting levels greater than 1. Consequently, the
+overhead of using an <code>any_iterator</code> could increase to
+several level of indirections and several virtual function
+calls. Therefore, assignments that would lead to
+nested <code>any_iterator</code> objects are not allowed. Instead,
+there are certain conversions between <code>any_iterator</code> types
+that behave nicely insofar as they do not cause nesting levels deeper
+than 1. The exact rules for these conversions are stated
+<a href="#rules_for_conversions">below</a>.
+
+<h4><a name="explicit_ctor">The Explicit Constructor from Wrapped Iterator</a></h4> 
+
+The constructor that creates an <code>any_iterator</code> object
+from a "concrete" iterator is currently explicit. This is an
+unfortunate limitation that is caused by a
+technicality having to do with an arcane limitation of the
+<a href="http://en.wikipedia.org/wiki/Substitution_failure_is_not_an_error">SFINAE principle</a>.
+This annoyance will go away
+once <a href="http://en.wikipedia.org/wiki/Concept_%28generic_programming%29">concepts</a>
+will be available in C++.
+
+<p>
+
+For now, this means that a "concrete" iterator never converts to
+an <code>any_iterator</code>. There are only two ways to get a
+"concrete" iterator object into an <code>any_iterator</code> variable:
+either by ordinary assignment, as in
+
+<pre>
+std::vector&lt;int&gt; vect;
+any_iterator&lt;int, std::forward_iterator_tag&gt; ait;
+ait = vect.begin();
+</pre>
+
+or using <em>explicit</em> construction:
+
+<pre>
+std::vector&lt;int&gt;;
+any_iterator&lt;
+  int, 
+  std::forward_iterator_tag
+&gt; ait_1(vect.begin()); // fine
+
+any_iterator&lt;
+  int, 
+  std::forward_iterator_tag
+&gt; ait_2 = vect.begin(); // error, requires non-explicit copy ctor
+</pre>
+
+<h3><a name="compilers">Supported Compilers</a></h3> 
+
+The <code>any_iterator</code> has been tested under Microsoft VC7.1,
+Microsoft VC8, Microsoft VC9, gcc 3.2.4, gcc 3.4.2, gcc 4.0.3, 
+and gcc 4.1.2.
+
+<h4><a name="meta_make">The <code>make_any_iterator_type</code> Metafunction</a></h4> 
+
+There is a metafunction named <code>make_any_iterator_type</code> which
+takes an iterator type as its argument and produces an instantiation
+of the <code>any_iterator</code> class template with the same iterator
+traits. In other words, it allows you to create
+an <code>any_iterator</code> type "by example."
+
+<pre>
+typedef 
+make_any_iterator_type&lt;
+  std::vector&lt;int&gt;::iterator
+&gt;::type ait;
+</pre>
+
+This has the same effect as
+
+<pre>
+typedef any_iterator&lt;int, std::random_access_iterator_tag&gt; ait;
+</pre>
+
+<h3><a name="installation">Download and Installation</a></h3> 
+
+The <code>any_iterator</code> be downloaded from 
+<a href="http://thbecker.net/free_software_utilities/type_erasure_for_cpp_iterators/IteratorTypeErasure.zip">here</a>.
+The download contains the source code, this HTML documentation, a demo
+.cpp file, and regression tests.
+
+<p>
+
+The directory <code>any_iterator</code> in the download contains the file
+<code>any_iterator.hpp</code> and a subdirectory
+named <code>detail</code>. To use the <code>any_iterator</code>, you
+must include <code>any_iterator.hpp</code> and make sure the header
+files in the subdirectory <code>detail</code> are found
+by <code>any_iterator.hpp</code>. The <code>any_iterator</code>
+currently lives in the namespace <code>IteratorTypeErasure</code>.
+
+<p>
+
+The <code>any_iterator</code> makes ample use of Boost libraries; however, it uses
+only header files. Therefore, no Boost binaries are needed. Just make sure that
+Boost is in your include path.
+
+<p>
+
+If you wish to build and run the regression tests, you will find solution files for
+Microsoft VC7.1 and Microsoft VC8 and a makefile for gcc in the corresponding subdirectories 
+of the directory <code>regression_tests</code>. If you use the makefile, you will of course 
+have to fix the path variables to match your development environment. The Microsoft
+solution files should work out of the box, except for the fact that you have to fix the include
+directories so that the Boost headers are found.
+
+<h3><a name="feedback">Feedback and Bug Reports</a></h3> 
+
+Click
+
+<script type="text/javascript">
+<!--
+backfeed()
+//-->
+</script>
+
+to send feedback and bug reports concerning the <code>any_iterator</code>.
+
+<h3><a name="ack">Acknowledgements</a></h3> 
+
+I am indebted to Dave Abrahams, Christopher Baus, Fred Bertsch, Don
+Harriman, and Thomas Witt for their input to my efforts regarding
+iterator type erasure.
+
+<h3><a name="appendix">Appendix</a></h3> 
+
+<h4><a name="rules_for_assignment">Exact Rules for Assignment to <code>any_iterator</code> Variables</a></h4> 
+
+Suppose that <code>some_any_iterator</code> is an instantiation of
+the <code>any_iterator</code> class template with value type,
+traversal tag, reference type, and difference type equal
+to <code>AnyItValue</code>, <code>AnyItTraversal</code>,
+<code>AnyItReference</code>, and <code>AnyItDifference</code>,
+respectively.  Assume further that <code>some_iterator</code> is an
+iterator type with value type, traversal tag, reference type, and
+difference type equal
+to <code>ItValue</code>, <code>ItTraversal</code>,
+<code>ItReference</code>, and <code>ItDifference</code>, respectively.
+Then a variable of type <code>some_any_iterator</code> will accept an
+object of type <code>some_iterator</code> if and only if the following
+four conditions are met:
+
+<p>
+<ol>
+
+<li>
+<code>ItValue</code> converts to <code>AnyItValue</code>.<br>&nbsp;
+</li>
+
+<li>
+<code>ItTraversal</code>
+and <code>AnyItTraversal</code> are equal, or the former is
+derived from the latter. This means that
+<code>some_iterator</code>'s traversal category is equal to or better than
+that of <code>some_any_iterator</code>.<br>&nbsp;
+</li>
+
+<li>
+The following are all true:<br>&nbsp;
+<ul>
+<li>
+<code>ItReference</code> converts
+to <code>AnyItReference</code>.<br>&nbsp;
+</li>
+<li>
+If <code>AnyItReference</code> is a
+reference, then so is <code>ItReference</code>.<br>&nbsp;
+</li>
+<li>
+If <code>AnyItReference</code> and <code>ItReference</code> are
+both references, then the following is true: after stripping const
+qualifiers and references from <code>AnyItReference</code>
+and <code>ItReference</code>, the two are either the same, or the
+former is a base class of the latter.<br>&nbsp;
+</li>
+</ul>
+The second and third of the three conditions above ensure that no
+situation is allowed where <code>some_any_iterator</code>'s 
+<code>operator*</code> would return a reference to a
+temporary.<br>&nbsp;
+</li>
+
+<li>
+If <code>some_any_iterator</code> is a random access iterator, then
+<code>ItDifference</code> and <code>AnyItDifference</code> are
+convertible to each other both ways. Here, we need convertibility in
+both directions because the difference type occurs as an argument type
+as well as a result type of iterator operators.
+</li>
+</ol>
+
+<h4><a name="rules_for_conversions">Exact Rules for Conversions between <code>any_iterator</code> Types</a></h4> 
+
+Let <code>ait_source</code> and <code>ait_target</code> be two
+different instantiations of the <code>any_iterator</code> class
+template. Then there is a conversion from <code>ait_source</code>
+to <code>ait_target</code> if and only if either
+
+<ul>
+<li>
+The traversal category of <code>ait_source</code> is better than or
+equal to the traversal category of <code>ait_target</code>, and all
+other iterator traits are exactly the same,
+</li>
+</ul>
+
+or
+
+<ul>
+<li>
+<code>ait_target</code> is a const iterator version of <code>ait_source</code>.
+</li>
+</ul>
+
+<hr>
+
+<font size=2> 
+<a href="#top">Back to top</a>
+</font>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+Option,Description,sDNA,sDNA+
+startelev=,Name of field to read start elevation from,Yes,Yes
+endelev=,Name of field to read end elevation from,Yes,Yes
+island=,Name of field to read traffic island information from.  Anything other than zero will be treated as traffic island,Yes,Yes
+islandfieldstozero=,Specifies additional data fields to set to zero when fixing traffic islands (used for e.g. origin or destination weights),No,Yes
+data_unitlength=,"Specifies numeric data to be preserved by sDNA prepare (preserves values per unit length, averages when merging links)",No,Yes
+data_absolute=,"Specifies numeric data to be preserved by sDNA prepare (preserves absolute values, sums when merging links)",No,Yes
+data_text,"Specifies text data to be preserved (merges if identical, deletes otherwise)",No,Yes
+xytol=,Manual override xy tolerance for fixing endpoint connectivity,Yes,Yes
+ztol=,Manual override z tolerance for fixing endpoint connectivity,No,Yes

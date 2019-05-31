@@ -1,0 +1,19 @@
+;;; Visual LISP make file [V1.0] sdna saved to:[D:/sdna/autocadscripts] at:[5/3/13] 
+(PRV-DEF (:target . "sdna.VLX")
+	 (:active-x . T)
+	 (:separate-namespace . T)
+	 (:protected . T)
+	 (:load-file-list
+	   (:lsp "sdnaimportlinksunlinks.lsp")
+	   (:lsp "utils.lsp")
+	   (:lsp "sdnaloaditn.LSP")
+	   (:lsp "sdnaintegral.LSP")
+	   (:lsp "sdnacolour.LSP")
+	   (:lsp "sdnaprepare.lsp")
+	 )
+	 (:require-file-list (:DCL "integral.dcl"))
+	 (:ob-directory)
+	 (:tmp-directory)
+	 (:optimization . lsa)
+)
+;; EOF

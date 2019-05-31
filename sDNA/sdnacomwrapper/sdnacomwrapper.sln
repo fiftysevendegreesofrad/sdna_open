@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sdnacomwrapper", "sdnacomwrapper.vcproj", "{4A6CF44E-1244-4416-AE81-8119F4239F41}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sdnacomwrapperPS", "sdnacomwrapperPS.vcproj", "{DBADE05B-C975-4981-8103-7E916B8DC500}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A6CF44E-1244-4416-AE81-8119F4239F41} = {4A6CF44E-1244-4416-AE81-8119F4239F41}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A6CF44E-1244-4416-AE81-8119F4239F41}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4A6CF44E-1244-4416-AE81-8119F4239F41}.Debug|Win32.Build.0 = Debug|Win32
+		{4A6CF44E-1244-4416-AE81-8119F4239F41}.Release|Win32.ActiveCfg = Release|Win32
+		{4A6CF44E-1244-4416-AE81-8119F4239F41}.Release|Win32.Build.0 = Release|Win32
+		{DBADE05B-C975-4981-8103-7E916B8DC500}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DBADE05B-C975-4981-8103-7E916B8DC500}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

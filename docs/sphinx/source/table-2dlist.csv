@@ -1,0 +1,7 @@
+list,2,
+zone,zone,flow
+shire,rivendell,4
+rivendell,mordor,6
+mordor,shire,2
+gondor,mordor,10000
+mordor,gondor,5000

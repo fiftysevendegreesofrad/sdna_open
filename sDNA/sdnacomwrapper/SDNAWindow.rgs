@@ -1,0 +1,26 @@
+HKCR
+{
+	sdnacomwrapper.SDNAWindow.1 = s 'SDNAWindow Class'
+	{
+		CLSID = s '{498F0591-0624-4C0E-A23C-317D44292ED0}'
+	}
+	sdnacomwrapper.SDNAWindow = s 'SDNAWindow Class'
+	{
+		CLSID = s '{498F0591-0624-4C0E-A23C-317D44292ED0}'
+		CurVer = s 'sdnacomwrapper.SDNAWindow.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {498F0591-0624-4C0E-A23C-317D44292ED0} = s 'SDNAWindow Class'
+		{
+			ProgID = s 'sdnacomwrapper.SDNAWindow.1'
+			VersionIndependentProgID = s 'sdnacomwrapper.SDNAWindow'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AF487B50-9B88-4C64-BD11-1A38BC8990D7}'
+		}
+	}
+}

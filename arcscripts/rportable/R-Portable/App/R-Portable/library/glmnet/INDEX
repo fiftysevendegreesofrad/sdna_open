@@ -1,0 +1,14 @@
+beta_CVX                Simulated data for the glmnet vignette
+cv.glmnet               Cross-validation for glmnet
+deviance.glmnet         Extract the deviance from a glmnet object
+glmnet                  fit a GLM with lasso or elasticnet
+                        regularization
+glmnet-package          Elastic net model paths for some generalized
+                        linear models
+glmnet.control          internal glmnet parameters
+plot.cv.glmnet          plot the cross-validation curve produced by
+                        cv.glmnet
+plot.glmnet             plot coefficients from a "glmnet" object
+predict.cv.glmnet       make predictions from a "cv.glmnet" object.
+predict.glmnet          make predictions from a "glmnet" object.
+print.glmnet            print a glmnet object

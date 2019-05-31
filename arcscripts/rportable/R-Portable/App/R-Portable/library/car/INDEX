@@ -1,0 +1,133 @@
+AMSsurvey               American Math Society Survey Data
+Adler                   Experimenter Expectations
+Angell                  Moral Integration of American Cities
+Anova                   Anova Tables for Various Statistical Models
+Anscombe                U. S. State Public-School Expenditures
+Baumann                 Methods of Teaching Reading Comprehension
+Bfox                    Canadian Women's Labour-Force Participation
+Blackmore               Exercise Histories of Eating-Disordered and
+                        Control Subjects
+Boot                    Bootstrapping for regression models
+Boxplot                 Boxplots With Point Identification
+Burt                    Fraudulent Data on IQs of Twins Raised Apart
+CanPop                  Canadian Population Data
+Chile                   Voting Intentions in the 1988 Chilean
+                        Plebiscite
+Chirot                  The 1907 Romanian Peasant Rebellion
+Contrasts               Functions to Construct Contrasts
+Cowles                  Cowles and Davis's Data on Volunteering
+Davis                   Self-Reports of Height and Weight
+DavisThin               Davis's Data on Drive for Thinness
+Depredations            Minnesota Wolf Depredation Data
+Duncan                  Duncan's Occupational Prestige Data
+Ericksen                The 1980 U.S. Census Undercount
+Florida                 Florida County Voting
+Freedman                Crowding and Crime in U. S. Metropolitan Areas
+Friendly                Format Effects on Recall
+Ginzberg                Data on Depression
+Greene                  Refugee Appeals
+Guyer                   Anonymity and Cooperation
+Hartnagel               Canadian Crime-Rates Time Series
+Highway1                Highway Accidents
+KosteckiDillon          Treatment of Migraine Headaches
+Leinhardt               Data on Infant-Mortality
+LoBD                    Cancer drug data use to provide an example of
+                        the use of the skew power distributions.
+Mandel                  Contrived Collinear Data
+Migration               Canadian Interprovincial Migration Data
+Moore                   Status, Authoritarianism, and Conformity
+Mroz                    U.S. Women's Labor-Force Participation
+OBrienKaiser            O'Brien and Kaiser's Repeated-Measures Data
+Ornstein                Interlocking Directorates Among Major Canadian
+                        Firms
+Pottery                 Chemical Composition of Pottery
+Prestige                Prestige of Canadian Occupations
+Quartet                 Four Regression Datasets
+Robey                   Fertility and Contraception
+SLID                    Survey of Labour and Income Dynamics
+Sahlins                 Agricultural Production in Mazulu Village
+Salaries                Salaries for Professors
+ScatterplotSmoothers    Smoothers to Draw Lines on Scatterplots
+Soils                   Soil Compositions of Physical and Chemical
+                        Characteristics
+States                  Education and Related Statistics for the U.S.
+                        States
+Transact                Transaction data
+UN                      GDP and Infant Mortality
+USPop                   Population of the United States
+Vocab                   Vocabulary and Education
+WeightLoss              Weight Loss Data
+Womenlf                 Canadian Women's Labour-Force Participation
+Wong                    Post-Coma Recovery of IQ
+Wool                    Wool data
+avPlots                 Added-Variable Plots
+basicPowerAxis          Axes for Transformed Variables
+bcPower                 Box-Cox, Yeo-Johnson and Basic Power
+                        Transformations
+boxCox                  Box-Cox Transformations for Linear Models
+boxCoxVariable          Constructed Variable for Box-Cox Transformation
+boxTidwell              Box-Tidwell Transformations
+car-deprecated          Deprecated Functions in car Package
+car-internal.Rd         Internal Objects for the 'car' package
+car-package             Companion to Applied Regression
+carWeb                  Access to the R Companion to Applied Regression
+                        website
+ceresPlots              Ceres Plots
+compareCoefs            Print estimated coefficients and their standard
+                        errors in a table for several regression
+                        models.
+crPlots                 Component+Residual (Partial Residual) Plots
+deltaMethod             Estimate and Standard Error of a Nonlinear
+                        Function of Estimated Regression Coefficients
+densityPlot             Nonparametric Density Estimates
+dfbetaPlots             dfbeta and dfbetas Index Plots
+durbinWatsonTest        Durbin-Watson Test for Autocorrelated Errors
+ellipse                 Ellipses, Data Ellipses, and Confidence
+                        Ellipses
+hccm                    Heteroscedasticity-Corrected Covariance
+                        Matrices
+hist.boot               Generic functions to provide support for 'boot'
+                        objects
+infIndexPlot            Influence Index Plot
+influencePlot           Regression Influence Plot
+invResPlot              Inverse Response Plots to Transform the
+                        Response
+invTranPlot             Choose a Predictor Transformation Visually or
+                        Numerically
+leveneTest              Levene's Test
+leveragePlots           Regression Leverage Plots
+linearHypothesis        Test Linear Hypothesis
+logit                   Logit Transformation
+mcPlots                 Draw Linear Model Marginal and Conditional
+                        Plots in Parallel or Overlaid
+mmps                    Marginal Model Plotting
+ncvTest                 Score Test for Non-Constant Error Variance
+outlierTest             Bonferroni Outlier Test
+panel.car               Panel Function for Coplots
+plot.powerTransform     plot Method for powerTransform Objects
+powerTransform          Finding Univariate or Multivariate Power
+                        Transformations
+qqPlot                  Quantile-Comparison Plots
+recode                  Recode a Variable
+regLine                 Plot Regression Line
+residualPlots           Residual Plots and Curvature Tests for Linear
+                        Model Fits
+scatter3d               Three-Dimensional Scatterplots and Point
+                        Identification
+scatterplot             Scatterplots with Boxplots
+scatterplotMatrix       Scatterplot Matrices
+showLabels              Utility Functions to Identify and Mark Extreme
+                        Points in a 2D Plot.
+sigmaHat                Return the scale estimate for a regression
+                        model
+skewPower               Skew Power Transformations
+some                    Sample a Few Elements of an Object
+spreadLevelPlot         Spread-Level Plots
+subsets                 Plot Output from regsubsets Function in leaps
+                        package
+symbox                  Boxplots for transformations to symmetry
+testTransform           Likelihood-Ratio Tests for Univariate or
+                        Multivariate Power Transformations to Normality
+vif                     Variance Inflation Factors
+wcrossprod              Weighted Matrix Crossproduct
+which.names             Position of Row Names

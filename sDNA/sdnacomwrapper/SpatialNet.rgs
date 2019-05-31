@@ -1,0 +1,26 @@
+HKCR
+{
+	sdnacomwrapper.SpatialNet.1 = s 'SpatialNet Class'
+	{
+		CLSID = s '{94B457E2-C5D2-42FB-ADBD-D06C36A398B2}'
+	}
+	sdnacomwrapper.SpatialNet = s 'SpatialNet Class'
+	{
+		CLSID = s '{94B457E2-C5D2-42FB-ADBD-D06C36A398B2}'
+		CurVer = s 'sdnacomwrapper.SpatialNet.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {94B457E2-C5D2-42FB-ADBD-D06C36A398B2} = s 'SpatialNet Class'
+		{
+			ProgID = s 'sdnacomwrapper.SpatialNet.1'
+			VersionIndependentProgID = s 'sdnacomwrapper.SpatialNet'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AF487B50-9B88-4C64-BD11-1A38BC8990D7}'
+		}
+	}
+}

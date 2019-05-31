@@ -1,0 +1,125 @@
+sDNA sdnaintegral config: linkonly;zonesums=lulinks=landuse*FULLlf@origzone,eucsum=euc@destzone;origweightformula=zoneweight*one*dztest*landuse*FULLlf/lulinks;destweightformula=eucsum;
+Reading table file zonetesttable.csv
+ ...1d variable zoneweight
+ ...1d variable one
+Reading table file zonetesttable2.csv
+ ...1d variable dztest
+  Using origin weight expression: zoneweight*one*dztest*landuse*FULLlf/lulinks
+  Using destination weight expression: eucsum
+  Using default of angular link centres for angular analysis
+  Using xytolerance=0, ztolerance=0
+Input has 24 rows
+Creating geometry output tabletestout.shp
+Adding fields:
+    ID         - ID
+    origzone   - origzone
+    destzone   - destzone
+    landuse    - landuse
+    zoneweight - zoneweight
+    one        - one
+    dztest     - dztest
+    lulinks    - lulinks
+    eucsum     - eucsum
+    LConn      - Line Connectivity
+    LLen       - Line Length
+    LFrac      - Link Fraction
+    LAC        - Line Ang Curvature
+    LSin       - Line Sinuosity
+    LBear      - Line Bearing
+    LOrigWt    - Line Origin Weight
+    LDestWt    - Line Destination Weight
+Field names saved to tabletestout.shp.names.csv
+Reading features from zonetest
+Reading features from zonetest
+Progress: 0.0%Progress: 33.3%sDNA processing
+
+Progress: 0.0%  sDNA is running in 32-bit mode
+  Building network and checking for tolerance errors...
+Progress: 100%
+Writing tabletestout.shp
+Progress: 0.0%Progress: 100%
+Shapefile  tabletestout.shp ====================================
+Item 0
+[
+ [
+  0.0,0.0,0.0
+  0.0,1.0,0.0
+ ]
+]
+{'dztest': '1.00000', 'origzone': 'a', 'lulinks': '1.00000', 'LDestWt': '4.00000', 'LOrigWt': '0.00000', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '0.00000', 'ID': '0.00000', 'destzone': 'x'}
+Item 1
+[
+ [
+  1.0,0.0,0.0
+  1.0,1.0,0.0
+ ]
+]
+{'dztest': '1.00000', 'origzone': 'a', 'lulinks': '1.00000', 'LDestWt': '4.00000', 'LOrigWt': '3.00000', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '1.00000', 'destzone': 'x'}
+Item 2
+[
+ [
+  2.0,0.0,0.0
+  2.0,1.0,0.0
+ ]
+]
+{'dztest': '1.00000', 'origzone': 'b', 'lulinks': '3.00000', 'LDestWt': '4.00000', 'LOrigWt': '2.33333', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '2.00000', 'destzone': 'x'}
+Item 3
+[
+ [
+  3.0,0.0,0.0
+  3.0,1.0,0.0
+ ]
+]
+{'dztest': '1.00000', 'origzone': 'b', 'lulinks': '3.00000', 'LDestWt': '4.00000', 'LOrigWt': '4.66667', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '2.00000', 'ID': '3.00000', 'destzone': 'x'}
+Item 4
+[
+ [
+  0.0,2.0,0.0
+  0.0,3.0,0.0
+ ]
+]
+{'dztest': '2.00000', 'origzone': 'c', 'lulinks': '1.00000', 'LDestWt': '4.41421', 'LOrigWt': '0.00000', 'LConn': '0.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '0.00000', 'ID': '4.00000', 'destzone': 'y'}
+Item 5
+[
+ [
+  1.0,2.0,0.0
+  1.0,3.0,0.0
+ ]
+]
+{'dztest': '2.00000', 'origzone': 'c', 'lulinks': '1.00000', 'LDestWt': '4.41421', 'LOrigWt': '6.00000', 'LConn': '0.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '5.00000', 'destzone': 'y'}
+Item 6
+[
+ [
+  2.0,2.0,0.0
+  2.0,3.0,0.0
+ ]
+]
+{'dztest': '2.00000', 'origzone': 'd', 'lulinks': '1.58579', 'LDestWt': '4.41421', 'LOrigWt': '3.65685', 'LConn': '1.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '0.41421', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '6.00000', 'destzone': 'y'}
+Item 7
+[
+ [
+  2.0,2.0,0.0
+  3.0,3.0,0.0
+ ]
+]
+{'dztest': '2.00000', 'origzone': 'd', 'lulinks': '1.58579', 'LDestWt': '4.41421', 'LOrigWt': '10.34315', 'LConn': '1.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '0.58579', 'LBear': '45.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.41421', 'landuse': '2.00000', 'ID': '7.00000', 'destzone': 'y'}
+
+
+
+"duplicate zone table/sum test" 
+sDNA sdnaintegral config: linkonly;zonesums=one=1@destzone
+Reading table file zonetesttable.csv
+ ...1d variable zoneweight
+ ...1d variable one
+  Using default of angular link centres for angular analysis
+  Using xytolerance=0, ztolerance=0
+  Data name one detected more than once in zonesums, zone data or net data.
+ ERROR: Duplicate data name is ambiguous
+ERROR: Bad config
+"duplicate zone and net data test" 
+sDNA sdnaintegral config: linkonly
+Reading table file zonetesttableduplicate.csv
+ ...1d variable landuse
+  Using default of angular link centres for angular analysis
+  Using xytolerance=0, ztolerance=0
+Field landuse appears both on network and in tables, ambiguous

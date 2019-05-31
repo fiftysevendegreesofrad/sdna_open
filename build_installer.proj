@@ -1,0 +1,18 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+    <Target Name="Rebuild">
+
+        <MSBuild Projects="build_output.proj" Targets="Rebuild"/>
+
+        <Exec Command="&quot;C:\Program Files (x86)\Caphyon\Advanced Installer 12.4.2\bin\x86\advancedinstaller.com&quot; /build installerbits\advanced\sdna.aip"/>
+    
+        <Exec Command="make.bat clean" WorkingDirectory=".\docs\sphinx\"/>
+        <Exec Command="make.bat html" WorkingDirectory=".\docs\sphinx\"/>
+
+        <Exec Command="c:\Python27\ArcGIS10.3\python.exe -u installerbits\rename_version.py installerbits/advanced/output/sdna_setup.msi docs/sphinx/build/html ."/>
+
+    </Target>
+
+    
+</Project>

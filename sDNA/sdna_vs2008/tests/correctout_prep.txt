@@ -1,0 +1,1330 @@
+sDNA sdnaprepare config: action=repair;splitlinks;isolated;nearmisses;duplicates;xytol=0.01
+  Using xytolerance=0.01, ztolerance=0
+Input has 21732 rows
+Creating geometry output prep_crash_shapefile\out
+Adding fields:
+    ID         - ID
+Field names saved to prep_crash_shapefile\out.names.csv
+Reading features from prep_crash_shapefile\shapefilepreparecrash
+Reading features from prep_crash_shapefile\shapefilepreparecrash
+sDNA processing
+  sDNA is running in 32-bit mode
+  Fixing near miss connections
+moving junction at 523776,181082 to 523776,181082
+moving link startpoint of link 16941
+moving link endpoint of link 16960
+moving link startpoint of link 16961
+moving junction at 523776,181082 to 523776,181082
+moving link endpoint of link 18119
+moving link startpoint of link 18120
+moving link startpoint of link -2
+ - link erased as now zero length
+moving junction at 523776,181082 to 523776,181082
+moving link startpoint of link 16942
+moving link endpoint of link 18118
+moving link endpoint of link -1
+ - link erased as now zero length
+moving link startpoint of link -4
+ - link erased as now zero length
+moving junction at 523776,181082 to 523776,181082
+moving junction at 523901,179851 to 523901,179851
+moving link startpoint of link 5409
+moving link endpoint of link 13843
+moving link startpoint of link 13844
+moving link endpoint of link 14764
+moving junction at 523901,179851 to 523901,179851
+moving link endpoint of link 6237
+moving link startpoint of link -11
+ - link erased as now zero length
+moving junction at 523901,179851 to 523901,179851
+moving link endpoint of link 13842
+moving link endpoint of link 13860
+moving link startpoint of link -9
+ - link erased as now zero length
+moving link startpoint of link -12
+ - link erased as now zero length
+moving junction at 523901,179851 to 523901,179851
+moving junction at 524350,181246 to 524350,181246
+moving link startpoint of link 6572
+moving link endpoint of link 6573
+moving link endpoint of link 13515
+moving junction at 524350,181246 to 524350,181246
+moving link startpoint of link 5502
+moving link endpoint of link 13514
+moving link endpoint of link 14679
+moving link startpoint of link 14680
+moving link endpoint of link -15
+ - link erased as now zero length
+moving link startpoint of link -16
+ - link erased as now zero length
+moving link endpoint of link -21
+ - link erased as now zero length
+moving junction at 524677,176669 to 524677,176669
+moving link startpoint of link 498
+moving link endpoint of link 20796
+moving link startpoint of link 20868
+moving junction at 524677,176669 to 524677,176669
+moving link endpoint of link 10366
+moving link startpoint of link 10367
+moving link endpoint of link -22
+ - link erased as now zero length
+moving junction at 524677,176669 to 524677,176669
+moving link startpoint of link 421
+moving link endpoint of link 10365
+moving link endpoint of link -24
+ - link erased as now zero length
+moving link startpoint of link -25
+ - link erased as now zero length
+moving junction at 524677,176669 to 524677,176669
+moving junction at 524711,176727 to 524711,176727
+moving link startpoint of link 499
+moving link endpoint of link 20793
+moving link startpoint of link 20867
+moving junction at 524711,176727 to 524711,176727
+moving link startpoint of link 422
+moving link startpoint of link 10368
+moving link startpoint of link 10369
+moving link endpoint of link -26
+moving link endpoint of link -29
+ - link erased as now zero length
+moving link endpoint of link -31
+ - link erased as now zero length
+moving link endpoint of link -33
+ - link erased as now zero length
+moving junction at 526294,181447 to 526294,181447
+moving link startpoint of link 4997
+moving link endpoint of link 15412
+moving link endpoint of link 17100
+moving link startpoint of link 17101
+moving junction at 526294,181447 to 526294,181447
+moving link startpoint of link 4979
+moving link endpoint of link 15423
+moving link startpoint of link -37
+ - link erased as now zero length
+moving junction at 529572,182001 to 529572,182001
+moving link startpoint of link 3179
+moving link endpoint of link 17359
+moving link startpoint of link 17365
+moving junction at 529572,182001 to 529572,182001
+moving link endpoint of link 3174
+moving link startpoint of link 17366
+moving link endpoint of link -44
+ - link erased as now zero length
+moving junction at 529572,182001 to 529572,182001
+moving link endpoint of link 17358
+moving link endpoint of link 17370
+moving link startpoint of link -43
+ - link erased as now zero length
+moving link startpoint of link -45
+ - link erased as now zero length
+moving junction at 529572,182001 to 529572,182001
+moving junction at 529649,182047 to 529649,182047
+moving link startpoint of link 3175
+moving link endpoint of link 17368
+moving link endpoint of link 21059
+moving link startpoint of link 21060
+moving junction at 529649,182047 to 529649,182047
+moving link startpoint of link 4907
+moving link endpoint of link 15515
+moving link endpoint of link -49
+ - link erased as now zero length
+moving junction at 529649,182047 to 529649,182047
+moving link endpoint of link 15514
+moving link endpoint of link 21058
+moving link startpoint of link -51
+ - link erased as now zero length
+moving link startpoint of link -54
+ - link erased as now zero length
+moving junction at 529649,182047 to 529649,182047
+moving junction at 530661,180659 to 530661,180659
+moving link startpoint of link 8
+moving link startpoint of link 678
+moving link startpoint of link 12668
+moving link endpoint of link 20471
+moving link endpoint of link 21715
+moving junction at 530661,180659 to 530661,180659
+moving link endpoint of link 10344
+moving link startpoint of link 10345
+moving link endpoint of link -58
+ - link erased as now zero length
+moving junction at 530661,180659 to 530661,180659
+moving link startpoint of link 7668
+moving link endpoint of link 10343
+moving link endpoint of link -59
+ - link erased as now zero length
+moving link startpoint of link -62
+ - link erased as now zero length
+moving junction at 530661,180659 to 530661,180659
+moving link endpoint of link 10342
+moving link endpoint of link -57
+ - link erased as now zero length
+moving link startpoint of link -65
+ - link erased as now zero length
+moving junction at 530661,180659 to 530661,180659
+moving junction at 530661,180659 to 530661,180659
+moving junction at 530661,180659 to 530661,180659
+  Fixing duplicate links
+  Checking for isolated systems
+  Largest system contains 21523 links
+7-link subsystem contains link with id = 8285
+6-link subsystem contains link with id = 9654
+4-link subsystem contains link with id = 8028
+3-link subsystem contains link with id = 9920
+3-link subsystem contains link with id = 8090
+3-link subsystem contains link with id = 7162
+3-link subsystem contains link with id = 8468
+2-link subsystem contains link with id = 4103
+1-link subsystem contains link with id = 246
+1-link subsystem contains link with id = 272
+1-link subsystem contains link with id = 1073
+1-link subsystem contains link with id = 4251
+1-link subsystem contains link with id = 4651
+1-link subsystem contains link with id = 4901
+1-link subsystem contains link with id = 4902
+1-link subsystem contains link with id = 6132
+1-link subsystem contains link with id = 7103
+1-link subsystem contains link with id = 4252
+1-link subsystem contains link with id = 7163
+1-link subsystem contains link with id = 7183
+1-link subsystem contains link with id = 7269
+1-link subsystem contains link with id = 7855
+1-link subsystem contains link with id = 7939
+1-link subsystem contains link with id = 7940
+1-link subsystem contains link with id = 8108
+1-link subsystem contains link with id = 8141
+1-link subsystem contains link with id = 8174
+1-link subsystem contains link with id = 8474
+1-link subsystem contains link with id = 8476
+1-link subsystem contains link with id = 8617
+1-link subsystem contains link with id = 8701
+1-link subsystem contains link with id = 8932
+1-link subsystem contains link with id = 8933
+1-link subsystem contains link with id = 8934
+1-link subsystem contains link with id = 9178
+1-link subsystem contains link with id = 9445
+1-link subsystem contains link with id = 9446
+1-link subsystem contains link with id = 9549
+1-link subsystem contains link with id = 8255
+1-link subsystem contains link with id = 9831
+1-link subsystem contains link with id = 8417
+1-link subsystem contains link with id = 9921
+1-link subsystem contains link with id = 10010
+1-link subsystem contains link with id = 10017
+1-link subsystem contains link with id = 10021
+1-link subsystem contains link with id = 10022
+1-link subsystem contains link with id = 10076
+1-link subsystem contains link with id = 10218
+1-link subsystem contains link with id = 10310
+  Fixing isolated systems
+  Fixing split links
+Writing prep_crash_shapefile\out
+dll is ..\Debug\sdna_vs2008.dll
+minimal split link, absolute weights
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (2 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(0,2,0)))
+detect
+[0, 1]
+repair
+1 split links repaired
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', -1), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
+
+
+minimal split link, length weighted
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (2 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(0,2,0)))
+detect
+[0, 1]
+repair
+1 split links repaired
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', -1), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
+
+
+minimal traffic island
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (5 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,1,0),(0,2,0),(0,3,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,1,0),(1,2,0),(0,3,0)))
+[('ID', 3), ('sametext', '1'), ('difftext', '3'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3,0),(0,4,0)))
+[('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
+detect
+[1, 2]
+repair
+2 traffic islands repaired
+net - POLYLINEZ (2 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', -4), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,4,0),(0,3,0),(0,1,0),(0,0,0)))
+[('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
+
+
+dual traffic island
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (7 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,1,0),(0,2,0),(0,3,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,1,0),(1,2,0),(0,3,0)))
+[('ID', 3), ('sametext', '1'), ('difftext', '3'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3,0),(0,4,0)))
+[('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,4,0),(0,5,0),(0,6,0)))
+[('ID', 5), ('sametext', '1'), ('difftext', '5'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,4,0),(1,5,0),(0,6,0)))
+[('ID', 6), ('sametext', '1'), ('difftext', '6'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,6,0),(0,7,0)))
+detect
+[1, 2, 4, 5]
+repair
+4 traffic islands repaired
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', -8), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 3.0), ('cost', 3.0), ('island', 0.0)]  (((0,7,0),(0,6,0),(0,4,0),(0,3,0),(0,1,0),(0,0,0)))
+
+
+minimal duplicate link
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (2 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+detect
+[(1, 0)]
+repair
+1 duplicate links removed
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+
+
+reverse duplicate link
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (2 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(0,0,0)))
+detect
+[(1, 0)]
+repair
+1 duplicate links removed
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+
+
+minimal isolated system
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (3 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(0,2,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(1,1,0)))
+detect
+Largest system contains 2 links
+1-link subsystem contains link with id = 2
+[2]
+repair
+1 subsystems removed
+net - POLYLINEZ (2 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(0,2,0)))
+
+
+minimal near miss connection
+links 0 and 1 should join
+links 2 3 and 4 should join
+link 5 and 6 should not
+Using xytolerance=0.2, ztolerance=0
+before
+net - POLYLINEZ (7 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1.1,0),(0,2,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,2,0),(0,3,0)))
+[('ID', 3), ('sametext', '1'), ('difftext', '3'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3.15,0),(0,4,0)))
+[('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3.3,0),(1,4,0)))
+[('ID', 5), ('sametext', '1'), ('difftext', '5'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
+[('ID', 6), ('sametext', '1'), ('difftext', '6'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4.3,0),(1,5,0)))
+detect
+[0, 1, 2, 3, 4]
+repair
+moving junction at 0,1 to 0,1.05
+moving link endpoint of link 0
+moving junction at 0,1.1 to 0,1.05
+moving link startpoint of link 1
+moving junction at 0,3 to 0,3.15
+moving link endpoint of link 2
+moving junction at 0,3.15 to 0,3.15
+moving junction at 0,3.3 to 0,3.15
+moving link startpoint of link 4
+2 near connections fixed
+net - POLYLINEZ (7 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', -4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3.15,0),(1,4,0)))
+[('ID', -3), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,2,0),(0,3.15,0)))
+[('ID', -2), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1.05,0),(0,2,0)))
+[('ID', -1), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1.05,0)))
+[('ID', 3), ('sametext', '1'), ('difftext', '3'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3.15,0),(0,4,0)))
+[('ID', 5), ('sametext', '1'), ('difftext', '5'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
+[('ID', 6), ('sametext', '1'), ('difftext', '6'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4.3,0),(1,5,0)))
+
+
+near miss connection resulting in zero length link
+Using xytolerance=0.2, ztolerance=0
+before
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,0.1,0)))
+repair
+moving junction at 0,0 to 0,0.05
+moving link startpoint of link 0
+moving junction at 0,0.1 to 0,0.05
+moving link endpoint of link -1
+ - link erased as now zero length
+1 near connections fixed
+net - POLYLINEZ (0 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+
+
+traffic island unsplits into loop link
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (3 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,0,0),(0,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 1.0)]  (((0,0,0),(1,0,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(1,0,0)))
+detect
+[0, 1]
+repair
+2 traffic islands repaired
+net - POLYLINEZ (1 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', -4), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(0,1,0),(0,0,0),(1,0,0)))
+
+
+link unlink import test
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (10 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(1,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(0,1,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,1,0),(2,1,0)))
+[('ID', 3), ('sametext', '1'), ('difftext', '3'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((2,0,0),(2,2,0)))
+[('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((10,0,0),(11,1,0)))
+[('ID', 5), ('sametext', '1'), ('difftext', '5'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((11,0,0),(10,1,0)))
+[('ID', 6), ('sametext', '1'), ('difftext', '6'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((11,1,0),(12,1,0)))
+[('ID', 7), ('sametext', '1'), ('difftext', '7'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((12,0,0),(12,2,0)))
+[('ID', 8), ('sametext', '1'), ('difftext', '8'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((3,3,0),(6,6,0)))
+[('ID', 9), ('sametext', '1'), ('difftext', '9'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((4,4,0),(5,5,0)))
+Using xytolerance=0, ztolerance=0
+after
+net - POLYLINEZ (10 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(1,1,0)))
+[('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(0,1,0)))
+[('ID', 2), ('sametext', '1'), ('difftext', '2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,1,0),(2,1,0)))
+[('ID', 3), ('sametext', '1'), ('difftext', '3'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((2,0,0),(2,2,0)))
+[('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((10,0,0),(11,1,0)))
+[('ID', 5), ('sametext', '1'), ('difftext', '5'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((11,0,0),(10,1,0)))
+[('ID', 6), ('sametext', '1'), ('difftext', '6'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((11,1,0),(12,1,0)))
+[('ID', 7), ('sametext', '1'), ('difftext', '7'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((12,0,0),(12,2,0)))
+[('ID', 8), ('sametext', '1'), ('difftext', '8'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((3,3,0),(6,6,0)))
+[('ID', 9), ('sametext', '1'), ('difftext', '9'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((4,4,0),(5,5,0)))
+result
+net - POLYLINEZ (10 items)
+[('ID', 'ID', 'INT')]
+[('ID', -11)]  (((12,2,0),(12,1.1,0),(12,0.9,0),(12,0,0)))
+[('ID', -9)]  (((12,1,0),(11.9,1,0),(11,1,0),(10.6,0.6,0),(10.4,0.4,0),(10,0,0)))
+[('ID', -6)]  (((11,0,0),(10.6,0.4,0),(10.4,0.6,0),(10,1,0)))
+[('ID', -3)]  (((6,6,0),(5,5,0),(4,4,0),(3,3,0)))
+[('ID', -1)]  (((0.5,0.5,0),(1,1,0),(2,1,0)))
+[('ID', 4)]  (((0,0,0),(0.5,0.5,0)))
+[('ID', 6)]  (((1,0,0),(0.5,0.5,0)))
+[('ID', 7)]  (((0.5,0.5,0),(0,1,0)))
+[('ID', 9)]  (((2,0,0),(2,1,0)))
+[('ID', 10)]  (((2,1,0),(2,2,0)))
+
+empty link unlink import
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (0 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+Using xytolerance=0, ztolerance=0
+result
+net - POLYLINEZ (0 items)
+[('ID', 'ID', 'INT')]
+
+bigger link unlink test
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (40 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+[('ID', 10), ('sametext', '1'), ('difftext', '10'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,20,0)))
+[('ID', 11), ('sametext', '1'), ('difftext', '11'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(20,0,0)))
+[('ID', 12), ('sametext', '1'), ('difftext', '12'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(1,20,0)))
+[('ID', 13), ('sametext', '1'), ('difftext', '13'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(20,1,0)))
+[('ID', 14), ('sametext', '1'), ('difftext', '14'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((2,0,0),(2,20,0)))
+[('ID', 15), ('sametext', '1'), ('difftext', '15'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,2,0),(20,2,0)))
+[('ID', 16), ('sametext', '1'), ('difftext', '16'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((3,0,0),(3,20,0)))
+[('ID', 17), ('sametext', '1'), ('difftext', '17'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,3,0),(20,3,0)))
+[('ID', 18), ('sametext', '1'), ('difftext', '18'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((4,0,0),(4,20,0)))
+[('ID', 19), ('sametext', '1'), ('difftext', '19'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(20,4,0)))
+[('ID', 20), ('sametext', '1'), ('difftext', '20'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((5,0,0),(5,20,0)))
+[('ID', 21), ('sametext', '1'), ('difftext', '21'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,5,0),(20,5,0)))
+[('ID', 22), ('sametext', '1'), ('difftext', '22'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((6,0,0),(6,20,0)))
+[('ID', 23), ('sametext', '1'), ('difftext', '23'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,6,0),(20,6,0)))
+[('ID', 24), ('sametext', '1'), ('difftext', '24'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((7,0,0),(7,20,0)))
+[('ID', 25), ('sametext', '1'), ('difftext', '25'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,7,0),(20,7,0)))
+[('ID', 26), ('sametext', '1'), ('difftext', '26'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((8,0,0),(8,20,0)))
+[('ID', 27), ('sametext', '1'), ('difftext', '27'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,8,0),(20,8,0)))
+[('ID', 28), ('sametext', '1'), ('difftext', '28'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((9,0,0),(9,20,0)))
+[('ID', 29), ('sametext', '1'), ('difftext', '29'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,9,0),(20,9,0)))
+[('ID', 30), ('sametext', '1'), ('difftext', '30'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((10,0,0),(10,20,0)))
+[('ID', 31), ('sametext', '1'), ('difftext', '31'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,10,0),(20,10,0)))
+[('ID', 32), ('sametext', '1'), ('difftext', '32'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((11,0,0),(11,20,0)))
+[('ID', 33), ('sametext', '1'), ('difftext', '33'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,11,0),(20,11,0)))
+[('ID', 34), ('sametext', '1'), ('difftext', '34'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((12,0,0),(12,20,0)))
+[('ID', 35), ('sametext', '1'), ('difftext', '35'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,12,0),(20,12,0)))
+[('ID', 36), ('sametext', '1'), ('difftext', '36'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((13,0,0),(13,20,0)))
+[('ID', 37), ('sametext', '1'), ('difftext', '37'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,13,0),(20,13,0)))
+[('ID', 38), ('sametext', '1'), ('difftext', '38'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((14,0,0),(14,20,0)))
+[('ID', 39), ('sametext', '1'), ('difftext', '39'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,14,0),(20,14,0)))
+[('ID', 40), ('sametext', '1'), ('difftext', '40'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((15,0,0),(15,20,0)))
+[('ID', 41), ('sametext', '1'), ('difftext', '41'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,15,0),(20,15,0)))
+[('ID', 42), ('sametext', '1'), ('difftext', '42'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((16,0,0),(16,20,0)))
+[('ID', 43), ('sametext', '1'), ('difftext', '43'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,16,0),(20,16,0)))
+[('ID', 44), ('sametext', '1'), ('difftext', '44'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((17,0,0),(17,20,0)))
+[('ID', 45), ('sametext', '1'), ('difftext', '45'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,17,0),(20,17,0)))
+[('ID', 46), ('sametext', '1'), ('difftext', '46'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((18,0,0),(18,20,0)))
+[('ID', 47), ('sametext', '1'), ('difftext', '47'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,18,0),(20,18,0)))
+[('ID', 48), ('sametext', '1'), ('difftext', '48'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((19,0,0),(19,20,0)))
+[('ID', 49), ('sametext', '1'), ('difftext', '49'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,19,0),(20,19,0)))
+Using xytolerance=0, ztolerance=0
+result
+net - POLYLINEZ (799 items)
+[('ID', 'ID', 'INT')]
+[('ID', -1)]  (((1,0,0),(0,0,0),(0,1,0)))
+[('ID', 0)]  (((0,8,0),(1,8,0)))
+[('ID', 1)]  (((1,8,0),(2,8,0)))
+[('ID', 2)]  (((2,8,0),(3,8,0)))
+[('ID', 3)]  (((0,9,0),(1,9,0)))
+[('ID', 4)]  (((1,9,0),(2,9,0)))
+[('ID', 5)]  (((2,9,0),(3,9,0)))
+[('ID', 6)]  (((0,8,0),(0,9,0)))
+[('ID', 7)]  (((0,9,0),(0,10,0)))
+[('ID', 8)]  (((0,10,0),(0,11,0)))
+[('ID', 9)]  (((0,11,0),(0,12,0)))
+[('ID', 10)]  (((0,12,0),(0,13,0)))
+[('ID', 11)]  (((0,13,0),(0,14,0)))
+[('ID', 12)]  (((0,14,0),(0,15,0)))
+[('ID', 13)]  (((0,15,0),(0,16,0)))
+[('ID', 14)]  (((0,16,0),(0,17,0)))
+[('ID', 15)]  (((0,17,0),(0,18,0)))
+[('ID', 16)]  (((0,18,0),(0,19,0)))
+[('ID', 17)]  (((0,19,0),(0,20,0)))
+[('ID', 18)]  (((1,8,0),(1,9,0)))
+[('ID', 19)]  (((1,9,0),(1,10,0)))
+[('ID', 20)]  (((1,10,0),(1,11,0)))
+[('ID', 21)]  (((1,11,0),(1,12,0)))
+[('ID', 22)]  (((1,12,0),(1,13,0)))
+[('ID', 23)]  (((1,13,0),(1,14,0)))
+[('ID', 24)]  (((1,14,0),(1,15,0)))
+[('ID', 25)]  (((1,15,0),(1,16,0)))
+[('ID', 26)]  (((1,16,0),(1,17,0)))
+[('ID', 27)]  (((1,17,0),(1,18,0)))
+[('ID', 28)]  (((1,18,0),(1,19,0)))
+[('ID', 29)]  (((1,19,0),(1,20,0)))
+[('ID', 30)]  (((2,8,0),(2,9,0)))
+[('ID', 31)]  (((2,9,0),(2,10,0)))
+[('ID', 32)]  (((2,10,0),(2,11,0)))
+[('ID', 33)]  (((2,11,0),(2,12,0)))
+[('ID', 34)]  (((2,12,0),(2,13,0)))
+[('ID', 35)]  (((2,13,0),(2,14,0)))
+[('ID', 36)]  (((2,14,0),(2,15,0)))
+[('ID', 37)]  (((2,15,0),(2,16,0)))
+[('ID', 38)]  (((2,16,0),(2,17,0)))
+[('ID', 39)]  (((2,17,0),(2,18,0)))
+[('ID', 40)]  (((2,18,0),(2,19,0)))
+[('ID', 41)]  (((2,19,0),(2,20,0)))
+[('ID', 42)]  (((3,8,0),(3,9,0)))
+[('ID', 43)]  (((3,9,0),(3,10,0)))
+[('ID', 44)]  (((3,10,0),(3,11,0)))
+[('ID', 45)]  (((3,11,0),(3,12,0)))
+[('ID', 46)]  (((3,12,0),(3,13,0)))
+[('ID', 47)]  (((3,13,0),(3,14,0)))
+[('ID', 48)]  (((3,14,0),(3,15,0)))
+[('ID', 49)]  (((3,15,0),(3,16,0)))
+[('ID', 50)]  (((3,16,0),(3,17,0)))
+[('ID', 51)]  (((3,17,0),(3,18,0)))
+[('ID', 52)]  (((3,18,0),(3,19,0)))
+[('ID', 53)]  (((3,19,0),(3,20,0)))
+[('ID', 55)]  (((1,0,0),(2,0,0)))
+[('ID', 56)]  (((2,0,0),(3,0,0)))
+[('ID', 57)]  (((0,1,0),(1,1,0)))
+[('ID', 58)]  (((1,1,0),(2,1,0)))
+[('ID', 59)]  (((2,1,0),(3,1,0)))
+[('ID', 60)]  (((0,2,0),(1,2,0)))
+[('ID', 61)]  (((1,2,0),(2,2,0)))
+[('ID', 62)]  (((2,2,0),(3,2,0)))
+[('ID', 63)]  (((0,3,0),(1,3,0)))
+[('ID', 64)]  (((1,3,0),(2,3,0)))
+[('ID', 65)]  (((2,3,0),(3,3,0)))
+[('ID', 66)]  (((0,4,0),(1,4,0)))
+[('ID', 67)]  (((1,4,0),(2,4,0)))
+[('ID', 68)]  (((2,4,0),(3,4,0)))
+[('ID', 69)]  (((0,5,0),(1,5,0)))
+[('ID', 70)]  (((1,5,0),(2,5,0)))
+[('ID', 71)]  (((2,5,0),(3,5,0)))
+[('ID', 72)]  (((0,6,0),(1,6,0)))
+[('ID', 73)]  (((1,6,0),(2,6,0)))
+[('ID', 74)]  (((2,6,0),(3,6,0)))
+[('ID', 75)]  (((0,7,0),(1,7,0)))
+[('ID', 76)]  (((1,7,0),(2,7,0)))
+[('ID', 77)]  (((2,7,0),(3,7,0)))
+[('ID', 79)]  (((0,1,0),(0,2,0)))
+[('ID', 80)]  (((0,2,0),(0,3,0)))
+[('ID', 81)]  (((0,3,0),(0,4,0)))
+[('ID', 82)]  (((0,4,0),(0,5,0)))
+[('ID', 83)]  (((0,5,0),(0,6,0)))
+[('ID', 84)]  (((0,6,0),(0,7,0)))
+[('ID', 85)]  (((0,7,0),(0,8,0)))
+[('ID', 86)]  (((1,0,0),(1,1,0)))
+[('ID', 87)]  (((1,1,0),(1,2,0)))
+[('ID', 88)]  (((1,2,0),(1,3,0)))
+[('ID', 89)]  (((1,3,0),(1,4,0)))
+[('ID', 90)]  (((1,4,0),(1,5,0)))
+[('ID', 91)]  (((1,5,0),(1,6,0)))
+[('ID', 92)]  (((1,6,0),(1,7,0)))
+[('ID', 93)]  (((1,7,0),(1,8,0)))
+[('ID', 94)]  (((2,0,0),(2,1,0)))
+[('ID', 95)]  (((2,1,0),(2,2,0)))
+[('ID', 96)]  (((2,2,0),(2,3,0)))
+[('ID', 97)]  (((2,3,0),(2,4,0)))
+[('ID', 98)]  (((2,4,0),(2,5,0)))
+[('ID', 99)]  (((2,5,0),(2,6,0)))
+[('ID', 100)]  (((2,6,0),(2,7,0)))
+[('ID', 101)]  (((2,7,0),(2,8,0)))
+[('ID', 102)]  (((3,0,0),(3,1,0)))
+[('ID', 103)]  (((3,1,0),(3,2,0)))
+[('ID', 104)]  (((3,2,0),(3,3,0)))
+[('ID', 105)]  (((3,3,0),(3,4,0)))
+[('ID', 106)]  (((3,4,0),(3,5,0)))
+[('ID', 107)]  (((3,5,0),(3,6,0)))
+[('ID', 108)]  (((3,6,0),(3,7,0)))
+[('ID', 109)]  (((3,7,0),(3,8,0)))
+[('ID', 110)]  (((3,8,0),(4,8,0)))
+[('ID', 111)]  (((4,8,0),(5,8,0)))
+[('ID', 112)]  (((5,8,0),(6,8,0)))
+[('ID', 113)]  (((6,8,0),(7,8,0)))
+[('ID', 114)]  (((7,8,0),(8,8,0)))
+[('ID', 115)]  (((8,8,0),(9,8,0)))
+[('ID', 116)]  (((9,8,0),(10,8,0)))
+[('ID', 117)]  (((10,8,0),(11,8,0)))
+[('ID', 118)]  (((11,8,0),(12,8,0)))
+[('ID', 119)]  (((12,8,0),(13,8,0)))
+[('ID', 120)]  (((13,8,0),(14,8,0)))
+[('ID', 121)]  (((14,8,0),(15,8,0)))
+[('ID', 122)]  (((15,8,0),(16,8,0)))
+[('ID', 123)]  (((16,8,0),(17,8,0)))
+[('ID', 124)]  (((17,8,0),(18,8,0)))
+[('ID', 125)]  (((18,8,0),(19,8,0)))
+[('ID', 126)]  (((19,8,0),(20,8,0)))
+[('ID', 127)]  (((3,9,0),(4,9,0)))
+[('ID', 128)]  (((4,9,0),(5,9,0)))
+[('ID', 129)]  (((5,9,0),(6,9,0)))
+[('ID', 130)]  (((6,9,0),(7,9,0)))
+[('ID', 131)]  (((7,9,0),(8,9,0)))
+[('ID', 132)]  (((8,9,0),(9,9,0)))
+[('ID', 133)]  (((9,9,0),(10,9,0)))
+[('ID', 134)]  (((10,9,0),(11,9,0)))
+[('ID', 135)]  (((11,9,0),(12,9,0)))
+[('ID', 136)]  (((12,9,0),(13,9,0)))
+[('ID', 137)]  (((13,9,0),(14,9,0)))
+[('ID', 138)]  (((14,9,0),(15,9,0)))
+[('ID', 139)]  (((15,9,0),(16,9,0)))
+[('ID', 140)]  (((16,9,0),(17,9,0)))
+[('ID', 141)]  (((17,9,0),(18,9,0)))
+[('ID', 142)]  (((18,9,0),(19,9,0)))
+[('ID', 143)]  (((19,9,0),(20,9,0)))
+[('ID', 144)]  (((3,0,0),(4,0,0)))
+[('ID', 145)]  (((4,0,0),(5,0,0)))
+[('ID', 146)]  (((5,0,0),(6,0,0)))
+[('ID', 147)]  (((6,0,0),(7,0,0)))
+[('ID', 148)]  (((7,0,0),(8,0,0)))
+[('ID', 149)]  (((8,0,0),(9,0,0)))
+[('ID', 150)]  (((9,0,0),(10,0,0)))
+[('ID', 151)]  (((10,0,0),(11,0,0)))
+[('ID', 152)]  (((11,0,0),(12,0,0)))
+[('ID', 153)]  (((12,0,0),(13,0,0)))
+[('ID', 154)]  (((13,0,0),(14,0,0)))
+[('ID', 155)]  (((14,0,0),(15,0,0)))
+[('ID', 156)]  (((15,0,0),(16,0,0)))
+[('ID', 157)]  (((16,0,0),(17,0,0)))
+[('ID', 158)]  (((17,0,0),(18,0,0)))
+[('ID', 159)]  (((18,0,0),(19,0,0)))
+[('ID', 160)]  (((19,0,0),(20,0,0)))
+[('ID', 161)]  (((3,1,0),(4,1,0)))
+[('ID', 162)]  (((4,1,0),(5,1,0)))
+[('ID', 163)]  (((5,1,0),(6,1,0)))
+[('ID', 164)]  (((6,1,0),(7,1,0)))
+[('ID', 165)]  (((7,1,0),(8,1,0)))
+[('ID', 166)]  (((8,1,0),(9,1,0)))
+[('ID', 167)]  (((9,1,0),(10,1,0)))
+[('ID', 168)]  (((10,1,0),(11,1,0)))
+[('ID', 169)]  (((11,1,0),(12,1,0)))
+[('ID', 170)]  (((12,1,0),(13,1,0)))
+[('ID', 171)]  (((13,1,0),(14,1,0)))
+[('ID', 172)]  (((14,1,0),(15,1,0)))
+[('ID', 173)]  (((15,1,0),(16,1,0)))
+[('ID', 174)]  (((16,1,0),(17,1,0)))
+[('ID', 175)]  (((17,1,0),(18,1,0)))
+[('ID', 176)]  (((18,1,0),(19,1,0)))
+[('ID', 177)]  (((19,1,0),(20,1,0)))
+[('ID', 178)]  (((3,2,0),(4,2,0)))
+[('ID', 179)]  (((4,2,0),(5,2,0)))
+[('ID', 180)]  (((5,2,0),(6,2,0)))
+[('ID', 181)]  (((6,2,0),(7,2,0)))
+[('ID', 182)]  (((7,2,0),(8,2,0)))
+[('ID', 183)]  (((8,2,0),(9,2,0)))
+[('ID', 184)]  (((9,2,0),(10,2,0)))
+[('ID', 185)]  (((10,2,0),(11,2,0)))
+[('ID', 186)]  (((11,2,0),(12,2,0)))
+[('ID', 187)]  (((12,2,0),(13,2,0)))
+[('ID', 188)]  (((13,2,0),(14,2,0)))
+[('ID', 189)]  (((14,2,0),(15,2,0)))
+[('ID', 190)]  (((15,2,0),(16,2,0)))
+[('ID', 191)]  (((16,2,0),(17,2,0)))
+[('ID', 192)]  (((17,2,0),(18,2,0)))
+[('ID', 193)]  (((18,2,0),(19,2,0)))
+[('ID', 194)]  (((19,2,0),(20,2,0)))
+[('ID', 195)]  (((3,3,0),(4,3,0)))
+[('ID', 196)]  (((4,3,0),(5,3,0)))
+[('ID', 197)]  (((5,3,0),(6,3,0)))
+[('ID', 198)]  (((6,3,0),(7,3,0)))
+[('ID', 199)]  (((7,3,0),(8,3,0)))
+[('ID', 200)]  (((8,3,0),(9,3,0)))
+[('ID', 201)]  (((9,3,0),(10,3,0)))
+[('ID', 202)]  (((10,3,0),(11,3,0)))
+[('ID', 203)]  (((11,3,0),(12,3,0)))
+[('ID', 204)]  (((12,3,0),(13,3,0)))
+[('ID', 205)]  (((13,3,0),(14,3,0)))
+[('ID', 206)]  (((14,3,0),(15,3,0)))
+[('ID', 207)]  (((15,3,0),(16,3,0)))
+[('ID', 208)]  (((16,3,0),(17,3,0)))
+[('ID', 209)]  (((17,3,0),(18,3,0)))
+[('ID', 210)]  (((18,3,0),(19,3,0)))
+[('ID', 211)]  (((19,3,0),(20,3,0)))
+[('ID', 212)]  (((3,4,0),(4,4,0)))
+[('ID', 213)]  (((4,4,0),(5,4,0)))
+[('ID', 214)]  (((5,4,0),(6,4,0)))
+[('ID', 215)]  (((6,4,0),(7,4,0)))
+[('ID', 216)]  (((7,4,0),(8,4,0)))
+[('ID', 217)]  (((8,4,0),(9,4,0)))
+[('ID', 218)]  (((9,4,0),(10,4,0)))
+[('ID', 219)]  (((10,4,0),(11,4,0)))
+[('ID', 220)]  (((11,4,0),(12,4,0)))
+[('ID', 221)]  (((12,4,0),(13,4,0)))
+[('ID', 222)]  (((13,4,0),(14,4,0)))
+[('ID', 223)]  (((14,4,0),(15,4,0)))
+[('ID', 224)]  (((15,4,0),(16,4,0)))
+[('ID', 225)]  (((16,4,0),(17,4,0)))
+[('ID', 226)]  (((17,4,0),(18,4,0)))
+[('ID', 227)]  (((18,4,0),(19,4,0)))
+[('ID', 228)]  (((19,4,0),(20,4,0)))
+[('ID', 229)]  (((3,5,0),(4,5,0)))
+[('ID', 230)]  (((4,5,0),(5,5,0)))
+[('ID', 231)]  (((5,5,0),(6,5,0)))
+[('ID', 232)]  (((6,5,0),(7,5,0)))
+[('ID', 233)]  (((7,5,0),(8,5,0)))
+[('ID', 234)]  (((8,5,0),(9,5,0)))
+[('ID', 235)]  (((9,5,0),(10,5,0)))
+[('ID', 236)]  (((10,5,0),(11,5,0)))
+[('ID', 237)]  (((11,5,0),(12,5,0)))
+[('ID', 238)]  (((12,5,0),(13,5,0)))
+[('ID', 239)]  (((13,5,0),(14,5,0)))
+[('ID', 240)]  (((14,5,0),(15,5,0)))
+[('ID', 241)]  (((15,5,0),(16,5,0)))
+[('ID', 242)]  (((16,5,0),(17,5,0)))
+[('ID', 243)]  (((17,5,0),(18,5,0)))
+[('ID', 244)]  (((18,5,0),(19,5,0)))
+[('ID', 245)]  (((19,5,0),(20,5,0)))
+[('ID', 246)]  (((3,6,0),(4,6,0)))
+[('ID', 247)]  (((4,6,0),(5,6,0)))
+[('ID', 248)]  (((5,6,0),(6,6,0)))
+[('ID', 249)]  (((6,6,0),(7,6,0)))
+[('ID', 250)]  (((7,6,0),(8,6,0)))
+[('ID', 251)]  (((8,6,0),(9,6,0)))
+[('ID', 252)]  (((9,6,0),(10,6,0)))
+[('ID', 253)]  (((10,6,0),(11,6,0)))
+[('ID', 254)]  (((11,6,0),(12,6,0)))
+[('ID', 255)]  (((12,6,0),(13,6,0)))
+[('ID', 256)]  (((13,6,0),(14,6,0)))
+[('ID', 257)]  (((14,6,0),(15,6,0)))
+[('ID', 258)]  (((15,6,0),(16,6,0)))
+[('ID', 259)]  (((16,6,0),(17,6,0)))
+[('ID', 260)]  (((17,6,0),(18,6,0)))
+[('ID', 261)]  (((18,6,0),(19,6,0)))
+[('ID', 262)]  (((19,6,0),(20,6,0)))
+[('ID', 263)]  (((3,7,0),(4,7,0)))
+[('ID', 264)]  (((4,7,0),(5,7,0)))
+[('ID', 265)]  (((5,7,0),(6,7,0)))
+[('ID', 266)]  (((6,7,0),(7,7,0)))
+[('ID', 267)]  (((7,7,0),(8,7,0)))
+[('ID', 268)]  (((8,7,0),(9,7,0)))
+[('ID', 269)]  (((9,7,0),(10,7,0)))
+[('ID', 270)]  (((10,7,0),(11,7,0)))
+[('ID', 271)]  (((11,7,0),(12,7,0)))
+[('ID', 272)]  (((12,7,0),(13,7,0)))
+[('ID', 273)]  (((13,7,0),(14,7,0)))
+[('ID', 274)]  (((14,7,0),(15,7,0)))
+[('ID', 275)]  (((15,7,0),(16,7,0)))
+[('ID', 276)]  (((16,7,0),(17,7,0)))
+[('ID', 277)]  (((17,7,0),(18,7,0)))
+[('ID', 278)]  (((18,7,0),(19,7,0)))
+[('ID', 279)]  (((19,7,0),(20,7,0)))
+[('ID', 280)]  (((4,0,0),(4,1,0)))
+[('ID', 281)]  (((4,1,0),(4,2,0)))
+[('ID', 282)]  (((4,2,0),(4,3,0)))
+[('ID', 283)]  (((4,3,0),(4,4,0)))
+[('ID', 284)]  (((4,4,0),(4,5,0)))
+[('ID', 285)]  (((4,5,0),(4,6,0)))
+[('ID', 286)]  (((4,6,0),(4,7,0)))
+[('ID', 287)]  (((4,7,0),(4,8,0)))
+[('ID', 288)]  (((4,8,0),(4,9,0)))
+[('ID', 289)]  (((4,9,0),(4,10,0)))
+[('ID', 290)]  (((4,10,0),(4,11,0)))
+[('ID', 291)]  (((4,11,0),(4,12,0)))
+[('ID', 292)]  (((4,12,0),(4,13,0)))
+[('ID', 293)]  (((4,13,0),(4,14,0)))
+[('ID', 294)]  (((4,14,0),(4,15,0)))
+[('ID', 295)]  (((4,15,0),(4,16,0)))
+[('ID', 296)]  (((4,16,0),(4,17,0)))
+[('ID', 297)]  (((4,17,0),(4,18,0)))
+[('ID', 298)]  (((4,18,0),(4,19,0)))
+[('ID', 299)]  (((4,19,0),(4,20,0)))
+[('ID', 300)]  (((5,0,0),(5,1,0)))
+[('ID', 301)]  (((5,1,0),(5,2,0)))
+[('ID', 302)]  (((5,2,0),(5,3,0)))
+[('ID', 303)]  (((5,3,0),(5,4,0)))
+[('ID', 304)]  (((5,4,0),(5,5,0)))
+[('ID', 305)]  (((5,5,0),(5,6,0)))
+[('ID', 306)]  (((5,6,0),(5,7,0)))
+[('ID', 307)]  (((5,7,0),(5,8,0)))
+[('ID', 308)]  (((5,8,0),(5,9,0)))
+[('ID', 309)]  (((5,9,0),(5,10,0)))
+[('ID', 310)]  (((5,10,0),(5,11,0)))
+[('ID', 311)]  (((5,11,0),(5,12,0)))
+[('ID', 312)]  (((5,12,0),(5,13,0)))
+[('ID', 313)]  (((5,13,0),(5,14,0)))
+[('ID', 314)]  (((5,14,0),(5,15,0)))
+[('ID', 315)]  (((5,15,0),(5,16,0)))
+[('ID', 316)]  (((5,16,0),(5,17,0)))
+[('ID', 317)]  (((5,17,0),(5,18,0)))
+[('ID', 318)]  (((5,18,0),(5,19,0)))
+[('ID', 319)]  (((5,19,0),(5,20,0)))
+[('ID', 320)]  (((6,0,0),(6,1,0)))
+[('ID', 321)]  (((6,1,0),(6,2,0)))
+[('ID', 322)]  (((6,2,0),(6,3,0)))
+[('ID', 323)]  (((6,3,0),(6,4,0)))
+[('ID', 324)]  (((6,4,0),(6,5,0)))
+[('ID', 325)]  (((6,5,0),(6,6,0)))
+[('ID', 326)]  (((6,6,0),(6,7,0)))
+[('ID', 327)]  (((6,7,0),(6,8,0)))
+[('ID', 328)]  (((6,8,0),(6,9,0)))
+[('ID', 329)]  (((6,9,0),(6,10,0)))
+[('ID', 330)]  (((6,10,0),(6,11,0)))
+[('ID', 331)]  (((6,11,0),(6,12,0)))
+[('ID', 332)]  (((6,12,0),(6,13,0)))
+[('ID', 333)]  (((6,13,0),(6,14,0)))
+[('ID', 334)]  (((6,14,0),(6,15,0)))
+[('ID', 335)]  (((6,15,0),(6,16,0)))
+[('ID', 336)]  (((6,16,0),(6,17,0)))
+[('ID', 337)]  (((6,17,0),(6,18,0)))
+[('ID', 338)]  (((6,18,0),(6,19,0)))
+[('ID', 339)]  (((6,19,0),(6,20,0)))
+[('ID', 340)]  (((7,0,0),(7,1,0)))
+[('ID', 341)]  (((7,1,0),(7,2,0)))
+[('ID', 342)]  (((7,2,0),(7,3,0)))
+[('ID', 343)]  (((7,3,0),(7,4,0)))
+[('ID', 344)]  (((7,4,0),(7,5,0)))
+[('ID', 345)]  (((7,5,0),(7,6,0)))
+[('ID', 346)]  (((7,6,0),(7,7,0)))
+[('ID', 347)]  (((7,7,0),(7,8,0)))
+[('ID', 348)]  (((7,8,0),(7,9,0)))
+[('ID', 349)]  (((7,9,0),(7,10,0)))
+[('ID', 350)]  (((7,10,0),(7,11,0)))
+[('ID', 351)]  (((7,11,0),(7,12,0)))
+[('ID', 352)]  (((7,12,0),(7,13,0)))
+[('ID', 353)]  (((7,13,0),(7,14,0)))
+[('ID', 354)]  (((7,14,0),(7,15,0)))
+[('ID', 355)]  (((7,15,0),(7,16,0)))
+[('ID', 356)]  (((7,16,0),(7,17,0)))
+[('ID', 357)]  (((7,17,0),(7,18,0)))
+[('ID', 358)]  (((7,18,0),(7,19,0)))
+[('ID', 359)]  (((7,19,0),(7,20,0)))
+[('ID', 360)]  (((8,0,0),(8,1,0)))
+[('ID', 361)]  (((8,1,0),(8,2,0)))
+[('ID', 362)]  (((8,2,0),(8,3,0)))
+[('ID', 363)]  (((8,3,0),(8,4,0)))
+[('ID', 364)]  (((8,4,0),(8,5,0)))
+[('ID', 365)]  (((8,5,0),(8,6,0)))
+[('ID', 366)]  (((8,6,0),(8,7,0)))
+[('ID', 367)]  (((8,7,0),(8,8,0)))
+[('ID', 368)]  (((8,8,0),(8,9,0)))
+[('ID', 369)]  (((8,9,0),(8,10,0)))
+[('ID', 370)]  (((8,10,0),(8,11,0)))
+[('ID', 371)]  (((8,11,0),(8,12,0)))
+[('ID', 372)]  (((8,12,0),(8,13,0)))
+[('ID', 373)]  (((8,13,0),(8,14,0)))
+[('ID', 374)]  (((8,14,0),(8,15,0)))
+[('ID', 375)]  (((8,15,0),(8,16,0)))
+[('ID', 376)]  (((8,16,0),(8,17,0)))
+[('ID', 377)]  (((8,17,0),(8,18,0)))
+[('ID', 378)]  (((8,18,0),(8,19,0)))
+[('ID', 379)]  (((8,19,0),(8,20,0)))
+[('ID', 380)]  (((9,0,0),(9,1,0)))
+[('ID', 381)]  (((9,1,0),(9,2,0)))
+[('ID', 382)]  (((9,2,0),(9,3,0)))
+[('ID', 383)]  (((9,3,0),(9,4,0)))
+[('ID', 384)]  (((9,4,0),(9,5,0)))
+[('ID', 385)]  (((9,5,0),(9,6,0)))
+[('ID', 386)]  (((9,6,0),(9,7,0)))
+[('ID', 387)]  (((9,7,0),(9,8,0)))
+[('ID', 388)]  (((9,8,0),(9,9,0)))
+[('ID', 389)]  (((9,9,0),(9,10,0)))
+[('ID', 390)]  (((9,10,0),(9,11,0)))
+[('ID', 391)]  (((9,11,0),(9,12,0)))
+[('ID', 392)]  (((9,12,0),(9,13,0)))
+[('ID', 393)]  (((9,13,0),(9,14,0)))
+[('ID', 394)]  (((9,14,0),(9,15,0)))
+[('ID', 395)]  (((9,15,0),(9,16,0)))
+[('ID', 396)]  (((9,16,0),(9,17,0)))
+[('ID', 397)]  (((9,17,0),(9,18,0)))
+[('ID', 398)]  (((9,18,0),(9,19,0)))
+[('ID', 399)]  (((9,19,0),(9,20,0)))
+[('ID', 400)]  (((10,0,0),(10,1,0)))
+[('ID', 401)]  (((10,1,0),(10,2,0)))
+[('ID', 402)]  (((10,2,0),(10,3,0)))
+[('ID', 403)]  (((10,3,0),(10,4,0)))
+[('ID', 404)]  (((10,4,0),(10,5,0)))
+[('ID', 405)]  (((10,5,0),(10,6,0)))
+[('ID', 406)]  (((10,6,0),(10,7,0)))
+[('ID', 407)]  (((10,7,0),(10,8,0)))
+[('ID', 408)]  (((10,8,0),(10,9,0)))
+[('ID', 409)]  (((10,9,0),(10,10,0)))
+[('ID', 410)]  (((10,10,0),(10,11,0)))
+[('ID', 411)]  (((10,11,0),(10,12,0)))
+[('ID', 412)]  (((10,12,0),(10,13,0)))
+[('ID', 413)]  (((0,10,0),(1,10,0)))
+[('ID', 414)]  (((1,10,0),(2,10,0)))
+[('ID', 415)]  (((2,10,0),(3,10,0)))
+[('ID', 416)]  (((3,10,0),(4,10,0)))
+[('ID', 417)]  (((4,10,0),(5,10,0)))
+[('ID', 418)]  (((5,10,0),(6,10,0)))
+[('ID', 419)]  (((6,10,0),(7,10,0)))
+[('ID', 420)]  (((7,10,0),(8,10,0)))
+[('ID', 421)]  (((8,10,0),(9,10,0)))
+[('ID', 422)]  (((9,10,0),(10,10,0)))
+[('ID', 423)]  (((10,10,0),(11,10,0)))
+[('ID', 424)]  (((11,10,0),(12,10,0)))
+[('ID', 425)]  (((11,0,0),(11,1,0)))
+[('ID', 426)]  (((11,1,0),(11,2,0)))
+[('ID', 427)]  (((11,2,0),(11,3,0)))
+[('ID', 428)]  (((11,3,0),(11,4,0)))
+[('ID', 429)]  (((11,4,0),(11,5,0)))
+[('ID', 430)]  (((11,5,0),(11,6,0)))
+[('ID', 431)]  (((11,6,0),(11,7,0)))
+[('ID', 432)]  (((11,7,0),(11,8,0)))
+[('ID', 433)]  (((11,8,0),(11,9,0)))
+[('ID', 434)]  (((11,9,0),(11,10,0)))
+[('ID', 435)]  (((11,10,0),(11,11,0)))
+[('ID', 436)]  (((11,11,0),(11,12,0)))
+[('ID', 437)]  (((11,12,0),(11,13,0)))
+[('ID', 438)]  (((12,0,0),(12,1,0)))
+[('ID', 439)]  (((12,1,0),(12,2,0)))
+[('ID', 440)]  (((12,2,0),(12,3,0)))
+[('ID', 441)]  (((12,3,0),(12,4,0)))
+[('ID', 442)]  (((12,4,0),(12,5,0)))
+[('ID', 443)]  (((12,5,0),(12,6,0)))
+[('ID', 444)]  (((12,6,0),(12,7,0)))
+[('ID', 445)]  (((12,7,0),(12,8,0)))
+[('ID', 446)]  (((12,8,0),(12,9,0)))
+[('ID', 447)]  (((12,9,0),(12,10,0)))
+[('ID', 448)]  (((12,10,0),(12,11,0)))
+[('ID', 449)]  (((12,11,0),(12,12,0)))
+[('ID', 450)]  (((12,12,0),(12,13,0)))
+[('ID', 451)]  (((12,10,0),(13,10,0)))
+[('ID', 452)]  (((13,10,0),(14,10,0)))
+[('ID', 453)]  (((14,10,0),(15,10,0)))
+[('ID', 454)]  (((15,10,0),(16,10,0)))
+[('ID', 455)]  (((16,10,0),(17,10,0)))
+[('ID', 456)]  (((17,10,0),(18,10,0)))
+[('ID', 457)]  (((18,10,0),(19,10,0)))
+[('ID', 458)]  (((19,10,0),(20,10,0)))
+[('ID', 459)]  (((13,0,0),(13,1,0)))
+[('ID', 460)]  (((13,1,0),(13,2,0)))
+[('ID', 461)]  (((13,2,0),(13,3,0)))
+[('ID', 462)]  (((13,3,0),(13,4,0)))
+[('ID', 463)]  (((13,4,0),(13,5,0)))
+[('ID', 464)]  (((13,5,0),(13,6,0)))
+[('ID', 465)]  (((13,6,0),(13,7,0)))
+[('ID', 466)]  (((13,7,0),(13,8,0)))
+[('ID', 467)]  (((13,8,0),(13,9,0)))
+[('ID', 468)]  (((13,9,0),(13,10,0)))
+[('ID', 469)]  (((13,10,0),(13,11,0)))
+[('ID', 470)]  (((13,11,0),(13,12,0)))
+[('ID', 471)]  (((13,12,0),(13,13,0)))
+[('ID', 472)]  (((14,0,0),(14,1,0)))
+[('ID', 473)]  (((14,1,0),(14,2,0)))
+[('ID', 474)]  (((14,2,0),(14,3,0)))
+[('ID', 475)]  (((14,3,0),(14,4,0)))
+[('ID', 476)]  (((14,4,0),(14,5,0)))
+[('ID', 477)]  (((14,5,0),(14,6,0)))
+[('ID', 478)]  (((14,6,0),(14,7,0)))
+[('ID', 479)]  (((14,7,0),(14,8,0)))
+[('ID', 480)]  (((14,8,0),(14,9,0)))
+[('ID', 481)]  (((14,9,0),(14,10,0)))
+[('ID', 482)]  (((14,10,0),(14,11,0)))
+[('ID', 483)]  (((14,11,0),(14,12,0)))
+[('ID', 484)]  (((14,12,0),(14,13,0)))
+[('ID', 485)]  (((15,0,0),(15,1,0)))
+[('ID', 486)]  (((15,1,0),(15,2,0)))
+[('ID', 487)]  (((15,2,0),(15,3,0)))
+[('ID', 488)]  (((15,3,0),(15,4,0)))
+[('ID', 489)]  (((15,4,0),(15,5,0)))
+[('ID', 490)]  (((15,5,0),(15,6,0)))
+[('ID', 491)]  (((15,6,0),(15,7,0)))
+[('ID', 492)]  (((15,7,0),(15,8,0)))
+[('ID', 493)]  (((15,8,0),(15,9,0)))
+[('ID', 494)]  (((15,9,0),(15,10,0)))
+[('ID', 495)]  (((15,10,0),(15,11,0)))
+[('ID', 496)]  (((15,11,0),(15,12,0)))
+[('ID', 497)]  (((15,12,0),(15,13,0)))
+[('ID', 498)]  (((16,0,0),(16,1,0)))
+[('ID', 499)]  (((16,1,0),(16,2,0)))
+[('ID', 500)]  (((16,2,0),(16,3,0)))
+[('ID', 501)]  (((16,3,0),(16,4,0)))
+[('ID', 502)]  (((16,4,0),(16,5,0)))
+[('ID', 503)]  (((16,5,0),(16,6,0)))
+[('ID', 504)]  (((16,6,0),(16,7,0)))
+[('ID', 505)]  (((16,7,0),(16,8,0)))
+[('ID', 506)]  (((16,8,0),(16,9,0)))
+[('ID', 507)]  (((16,9,0),(16,10,0)))
+[('ID', 508)]  (((16,10,0),(16,11,0)))
+[('ID', 509)]  (((16,11,0),(16,12,0)))
+[('ID', 510)]  (((16,12,0),(16,13,0)))
+[('ID', 511)]  (((19,0,0),(19,1,0)))
+[('ID', 512)]  (((19,1,0),(19,2,0)))
+[('ID', 513)]  (((19,2,0),(19,3,0)))
+[('ID', 514)]  (((19,3,0),(19,4,0)))
+[('ID', 515)]  (((19,4,0),(19,5,0)))
+[('ID', 516)]  (((19,5,0),(19,6,0)))
+[('ID', 517)]  (((19,6,0),(19,7,0)))
+[('ID', 518)]  (((19,7,0),(19,8,0)))
+[('ID', 519)]  (((19,8,0),(19,9,0)))
+[('ID', 520)]  (((19,9,0),(19,10,0)))
+[('ID', 521)]  (((19,10,0),(19,11,0)))
+[('ID', 522)]  (((19,11,0),(20,11,0)))
+[('ID', 523)]  (((19,11,0),(19,12,0)))
+[('ID', 524)]  (((19,12,0),(19,13,0)))
+[('ID', 525)]  (((19,12,0),(20,12,0)))
+[('ID', 526)]  (((19,13,0),(20,13,0)))
+[('ID', 527)]  (((17,0,0),(17,1,0)))
+[('ID', 528)]  (((17,1,0),(17,2,0)))
+[('ID', 529)]  (((17,2,0),(17,3,0)))
+[('ID', 530)]  (((17,3,0),(17,4,0)))
+[('ID', 531)]  (((17,4,0),(17,5,0)))
+[('ID', 532)]  (((17,5,0),(17,6,0)))
+[('ID', 533)]  (((17,6,0),(17,7,0)))
+[('ID', 534)]  (((17,7,0),(17,8,0)))
+[('ID', 535)]  (((17,8,0),(17,9,0)))
+[('ID', 536)]  (((17,9,0),(17,10,0)))
+[('ID', 537)]  (((17,10,0),(17,11,0)))
+[('ID', 538)]  (((17,11,0),(17,12,0)))
+[('ID', 539)]  (((17,12,0),(17,13,0)))
+[('ID', 540)]  (((18,0,0),(18,1,0)))
+[('ID', 541)]  (((18,1,0),(18,2,0)))
+[('ID', 542)]  (((18,2,0),(18,3,0)))
+[('ID', 543)]  (((18,3,0),(18,4,0)))
+[('ID', 544)]  (((18,4,0),(18,5,0)))
+[('ID', 545)]  (((18,5,0),(18,6,0)))
+[('ID', 546)]  (((18,6,0),(18,7,0)))
+[('ID', 547)]  (((18,7,0),(18,8,0)))
+[('ID', 548)]  (((18,8,0),(18,9,0)))
+[('ID', 549)]  (((18,9,0),(18,10,0)))
+[('ID', 550)]  (((18,10,0),(18,11,0)))
+[('ID', 551)]  (((18,11,0),(18,12,0)))
+[('ID', 552)]  (((18,12,0),(18,13,0)))
+[('ID', 553)]  (((0,11,0),(1,11,0)))
+[('ID', 554)]  (((1,11,0),(2,11,0)))
+[('ID', 555)]  (((2,11,0),(3,11,0)))
+[('ID', 556)]  (((3,11,0),(4,11,0)))
+[('ID', 557)]  (((4,11,0),(5,11,0)))
+[('ID', 558)]  (((5,11,0),(6,11,0)))
+[('ID', 559)]  (((6,11,0),(7,11,0)))
+[('ID', 560)]  (((7,11,0),(8,11,0)))
+[('ID', 561)]  (((8,11,0),(9,11,0)))
+[('ID', 562)]  (((9,11,0),(10,11,0)))
+[('ID', 563)]  (((10,11,0),(11,11,0)))
+[('ID', 564)]  (((11,11,0),(12,11,0)))
+[('ID', 565)]  (((12,11,0),(13,11,0)))
+[('ID', 566)]  (((13,11,0),(14,11,0)))
+[('ID', 567)]  (((14,11,0),(15,11,0)))
+[('ID', 568)]  (((15,11,0),(16,11,0)))
+[('ID', 569)]  (((16,11,0),(17,11,0)))
+[('ID', 570)]  (((17,11,0),(18,11,0)))
+[('ID', 571)]  (((18,11,0),(19,11,0)))
+[('ID', 572)]  (((0,12,0),(1,12,0)))
+[('ID', 573)]  (((1,12,0),(2,12,0)))
+[('ID', 574)]  (((2,12,0),(3,12,0)))
+[('ID', 575)]  (((3,12,0),(4,12,0)))
+[('ID', 576)]  (((4,12,0),(5,12,0)))
+[('ID', 577)]  (((5,12,0),(6,12,0)))
+[('ID', 578)]  (((6,12,0),(7,12,0)))
+[('ID', 579)]  (((7,12,0),(8,12,0)))
+[('ID', 580)]  (((8,12,0),(9,12,0)))
+[('ID', 581)]  (((9,12,0),(10,12,0)))
+[('ID', 582)]  (((10,12,0),(11,12,0)))
+[('ID', 583)]  (((11,12,0),(12,12,0)))
+[('ID', 584)]  (((12,12,0),(13,12,0)))
+[('ID', 585)]  (((13,12,0),(14,12,0)))
+[('ID', 586)]  (((14,12,0),(15,12,0)))
+[('ID', 587)]  (((15,12,0),(16,12,0)))
+[('ID', 588)]  (((16,12,0),(17,12,0)))
+[('ID', 589)]  (((17,12,0),(18,12,0)))
+[('ID', 590)]  (((18,12,0),(19,12,0)))
+[('ID', 591)]  (((0,13,0),(1,13,0)))
+[('ID', 592)]  (((1,13,0),(2,13,0)))
+[('ID', 593)]  (((2,13,0),(3,13,0)))
+[('ID', 594)]  (((3,13,0),(4,13,0)))
+[('ID', 595)]  (((4,13,0),(5,13,0)))
+[('ID', 596)]  (((5,13,0),(6,13,0)))
+[('ID', 597)]  (((6,13,0),(7,13,0)))
+[('ID', 598)]  (((7,13,0),(8,13,0)))
+[('ID', 599)]  (((8,13,0),(9,13,0)))
+[('ID', 600)]  (((9,13,0),(10,13,0)))
+[('ID', 601)]  (((10,13,0),(11,13,0)))
+[('ID', 602)]  (((11,13,0),(12,13,0)))
+[('ID', 603)]  (((12,13,0),(13,13,0)))
+[('ID', 604)]  (((13,13,0),(14,13,0)))
+[('ID', 605)]  (((14,13,0),(15,13,0)))
+[('ID', 606)]  (((15,13,0),(16,13,0)))
+[('ID', 607)]  (((16,13,0),(17,13,0)))
+[('ID', 608)]  (((17,13,0),(18,13,0)))
+[('ID', 609)]  (((18,13,0),(19,13,0)))
+[('ID', 610)]  (((10,13,0),(10,14,0)))
+[('ID', 611)]  (((10,14,0),(10,15,0)))
+[('ID', 612)]  (((10,15,0),(10,16,0)))
+[('ID', 613)]  (((10,16,0),(10,17,0)))
+[('ID', 614)]  (((10,17,0),(10,18,0)))
+[('ID', 615)]  (((10,18,0),(10,19,0)))
+[('ID', 616)]  (((10,19,0),(10,20,0)))
+[('ID', 617)]  (((11,13,0),(11,14,0)))
+[('ID', 618)]  (((11,14,0),(11,15,0)))
+[('ID', 619)]  (((11,15,0),(11,16,0)))
+[('ID', 620)]  (((11,16,0),(11,17,0)))
+[('ID', 621)]  (((11,17,0),(11,18,0)))
+[('ID', 622)]  (((11,18,0),(11,19,0)))
+[('ID', 623)]  (((11,19,0),(11,20,0)))
+[('ID', 624)]  (((12,13,0),(12,14,0)))
+[('ID', 625)]  (((12,14,0),(12,15,0)))
+[('ID', 626)]  (((12,15,0),(12,16,0)))
+[('ID', 627)]  (((12,16,0),(12,17,0)))
+[('ID', 628)]  (((12,17,0),(12,18,0)))
+[('ID', 629)]  (((12,18,0),(12,19,0)))
+[('ID', 630)]  (((12,19,0),(12,20,0)))
+[('ID', 631)]  (((13,13,0),(13,14,0)))
+[('ID', 632)]  (((13,14,0),(13,15,0)))
+[('ID', 633)]  (((13,15,0),(13,16,0)))
+[('ID', 634)]  (((13,16,0),(13,17,0)))
+[('ID', 635)]  (((13,17,0),(13,18,0)))
+[('ID', 636)]  (((13,18,0),(13,19,0)))
+[('ID', 637)]  (((13,19,0),(13,20,0)))
+[('ID', 638)]  (((14,13,0),(14,14,0)))
+[('ID', 639)]  (((14,14,0),(14,15,0)))
+[('ID', 640)]  (((14,15,0),(14,16,0)))
+[('ID', 641)]  (((14,16,0),(14,17,0)))
+[('ID', 642)]  (((14,17,0),(14,18,0)))
+[('ID', 643)]  (((14,18,0),(14,19,0)))
+[('ID', 644)]  (((14,19,0),(14,20,0)))
+[('ID', 645)]  (((15,13,0),(15,14,0)))
+[('ID', 646)]  (((15,14,0),(15,15,0)))
+[('ID', 647)]  (((15,15,0),(15,16,0)))
+[('ID', 648)]  (((15,16,0),(15,17,0)))
+[('ID', 649)]  (((15,17,0),(15,18,0)))
+[('ID', 650)]  (((15,18,0),(15,19,0)))
+[('ID', 651)]  (((15,19,0),(15,20,0)))
+[('ID', 652)]  (((16,13,0),(16,14,0)))
+[('ID', 653)]  (((16,14,0),(16,15,0)))
+[('ID', 654)]  (((16,15,0),(16,16,0)))
+[('ID', 655)]  (((16,16,0),(16,17,0)))
+[('ID', 656)]  (((16,17,0),(16,18,0)))
+[('ID', 657)]  (((16,18,0),(16,19,0)))
+[('ID', 658)]  (((16,19,0),(16,20,0)))
+[('ID', 659)]  (((19,13,0),(19,14,0)))
+[('ID', 660)]  (((19,14,0),(19,15,0)))
+[('ID', 661)]  (((19,15,0),(19,16,0)))
+[('ID', 662)]  (((19,16,0),(19,17,0)))
+[('ID', 663)]  (((19,17,0),(19,18,0)))
+[('ID', 664)]  (((19,18,0),(19,19,0)))
+[('ID', 665)]  (((19,19,0),(19,20,0)))
+[('ID', 666)]  (((17,13,0),(17,14,0)))
+[('ID', 667)]  (((17,14,0),(17,15,0)))
+[('ID', 668)]  (((17,15,0),(17,16,0)))
+[('ID', 669)]  (((17,16,0),(17,17,0)))
+[('ID', 670)]  (((17,17,0),(17,18,0)))
+[('ID', 671)]  (((17,18,0),(17,19,0)))
+[('ID', 672)]  (((17,19,0),(17,20,0)))
+[('ID', 673)]  (((18,13,0),(18,14,0)))
+[('ID', 674)]  (((18,14,0),(18,15,0)))
+[('ID', 675)]  (((18,15,0),(18,16,0)))
+[('ID', 676)]  (((18,16,0),(18,17,0)))
+[('ID', 677)]  (((18,17,0),(18,18,0)))
+[('ID', 678)]  (((18,18,0),(18,19,0)))
+[('ID', 679)]  (((18,19,0),(18,20,0)))
+[('ID', 680)]  (((0,14,0),(1,14,0)))
+[('ID', 681)]  (((1,14,0),(2,14,0)))
+[('ID', 682)]  (((2,14,0),(3,14,0)))
+[('ID', 683)]  (((3,14,0),(4,14,0)))
+[('ID', 684)]  (((4,14,0),(5,14,0)))
+[('ID', 685)]  (((5,14,0),(6,14,0)))
+[('ID', 686)]  (((6,14,0),(7,14,0)))
+[('ID', 687)]  (((7,14,0),(8,14,0)))
+[('ID', 688)]  (((8,14,0),(9,14,0)))
+[('ID', 689)]  (((9,14,0),(10,14,0)))
+[('ID', 690)]  (((10,14,0),(11,14,0)))
+[('ID', 691)]  (((11,14,0),(12,14,0)))
+[('ID', 692)]  (((12,14,0),(13,14,0)))
+[('ID', 693)]  (((13,14,0),(14,14,0)))
+[('ID', 694)]  (((14,14,0),(15,14,0)))
+[('ID', 695)]  (((15,14,0),(16,14,0)))
+[('ID', 696)]  (((16,14,0),(17,14,0)))
+[('ID', 697)]  (((17,14,0),(18,14,0)))
+[('ID', 698)]  (((18,14,0),(19,14,0)))
+[('ID', 699)]  (((19,14,0),(20,14,0)))
+[('ID', 700)]  (((0,15,0),(1,15,0)))
+[('ID', 701)]  (((1,15,0),(2,15,0)))
+[('ID', 702)]  (((2,15,0),(3,15,0)))
+[('ID', 703)]  (((3,15,0),(4,15,0)))
+[('ID', 704)]  (((4,15,0),(5,15,0)))
+[('ID', 705)]  (((5,15,0),(6,15,0)))
+[('ID', 706)]  (((6,15,0),(7,15,0)))
+[('ID', 707)]  (((7,15,0),(8,15,0)))
+[('ID', 708)]  (((8,15,0),(9,15,0)))
+[('ID', 709)]  (((9,15,0),(10,15,0)))
+[('ID', 710)]  (((10,15,0),(11,15,0)))
+[('ID', 711)]  (((11,15,0),(12,15,0)))
+[('ID', 712)]  (((12,15,0),(13,15,0)))
+[('ID', 713)]  (((13,15,0),(14,15,0)))
+[('ID', 714)]  (((14,15,0),(15,15,0)))
+[('ID', 715)]  (((15,15,0),(16,15,0)))
+[('ID', 716)]  (((16,15,0),(17,15,0)))
+[('ID', 717)]  (((17,15,0),(18,15,0)))
+[('ID', 718)]  (((18,15,0),(19,15,0)))
+[('ID', 719)]  (((19,15,0),(20,15,0)))
+[('ID', 720)]  (((0,16,0),(1,16,0)))
+[('ID', 721)]  (((1,16,0),(2,16,0)))
+[('ID', 722)]  (((2,16,0),(3,16,0)))
+[('ID', 723)]  (((3,16,0),(4,16,0)))
+[('ID', 724)]  (((4,16,0),(5,16,0)))
+[('ID', 725)]  (((5,16,0),(6,16,0)))
+[('ID', 726)]  (((6,16,0),(7,16,0)))
+[('ID', 727)]  (((7,16,0),(8,16,0)))
+[('ID', 728)]  (((8,16,0),(9,16,0)))
+[('ID', 729)]  (((9,16,0),(10,16,0)))
+[('ID', 730)]  (((10,16,0),(11,16,0)))
+[('ID', 731)]  (((11,16,0),(12,16,0)))
+[('ID', 732)]  (((12,16,0),(13,16,0)))
+[('ID', 733)]  (((13,16,0),(14,16,0)))
+[('ID', 734)]  (((14,16,0),(15,16,0)))
+[('ID', 735)]  (((15,16,0),(16,16,0)))
+[('ID', 736)]  (((16,16,0),(17,16,0)))
+[('ID', 737)]  (((17,16,0),(18,16,0)))
+[('ID', 738)]  (((18,16,0),(19,16,0)))
+[('ID', 739)]  (((19,16,0),(20,16,0)))
+[('ID', 740)]  (((0,17,0),(1,17,0)))
+[('ID', 741)]  (((1,17,0),(2,17,0)))
+[('ID', 742)]  (((2,17,0),(3,17,0)))
+[('ID', 743)]  (((3,17,0),(4,17,0)))
+[('ID', 744)]  (((4,17,0),(5,17,0)))
+[('ID', 745)]  (((5,17,0),(6,17,0)))
+[('ID', 746)]  (((6,17,0),(7,17,0)))
+[('ID', 747)]  (((7,17,0),(8,17,0)))
+[('ID', 748)]  (((8,17,0),(9,17,0)))
+[('ID', 749)]  (((9,17,0),(10,17,0)))
+[('ID', 750)]  (((10,17,0),(11,17,0)))
+[('ID', 751)]  (((11,17,0),(12,17,0)))
+[('ID', 752)]  (((12,17,0),(13,17,0)))
+[('ID', 753)]  (((13,17,0),(14,17,0)))
+[('ID', 754)]  (((14,17,0),(15,17,0)))
+[('ID', 755)]  (((15,17,0),(16,17,0)))
+[('ID', 756)]  (((16,17,0),(17,17,0)))
+[('ID', 757)]  (((17,17,0),(18,17,0)))
+[('ID', 758)]  (((18,17,0),(19,17,0)))
+[('ID', 759)]  (((19,17,0),(20,17,0)))
+[('ID', 760)]  (((0,18,0),(1,18,0)))
+[('ID', 761)]  (((1,18,0),(2,18,0)))
+[('ID', 762)]  (((2,18,0),(3,18,0)))
+[('ID', 763)]  (((3,18,0),(4,18,0)))
+[('ID', 764)]  (((4,18,0),(5,18,0)))
+[('ID', 765)]  (((5,18,0),(6,18,0)))
+[('ID', 766)]  (((6,18,0),(7,18,0)))
+[('ID', 767)]  (((7,18,0),(8,18,0)))
+[('ID', 768)]  (((8,18,0),(9,18,0)))
+[('ID', 769)]  (((9,18,0),(10,18,0)))
+[('ID', 770)]  (((10,18,0),(11,18,0)))
+[('ID', 771)]  (((11,18,0),(12,18,0)))
+[('ID', 772)]  (((12,18,0),(13,18,0)))
+[('ID', 773)]  (((13,18,0),(14,18,0)))
+[('ID', 774)]  (((14,18,0),(15,18,0)))
+[('ID', 775)]  (((15,18,0),(16,18,0)))
+[('ID', 776)]  (((16,18,0),(17,18,0)))
+[('ID', 777)]  (((17,18,0),(18,18,0)))
+[('ID', 778)]  (((18,18,0),(19,18,0)))
+[('ID', 779)]  (((19,18,0),(20,18,0)))
+[('ID', 780)]  (((0,19,0),(1,19,0)))
+[('ID', 781)]  (((1,19,0),(2,19,0)))
+[('ID', 782)]  (((2,19,0),(3,19,0)))
+[('ID', 783)]  (((3,19,0),(4,19,0)))
+[('ID', 784)]  (((4,19,0),(5,19,0)))
+[('ID', 785)]  (((5,19,0),(6,19,0)))
+[('ID', 786)]  (((6,19,0),(7,19,0)))
+[('ID', 787)]  (((7,19,0),(8,19,0)))
+[('ID', 788)]  (((8,19,0),(9,19,0)))
+[('ID', 789)]  (((9,19,0),(10,19,0)))
+[('ID', 790)]  (((10,19,0),(11,19,0)))
+[('ID', 791)]  (((11,19,0),(12,19,0)))
+[('ID', 792)]  (((12,19,0),(13,19,0)))
+[('ID', 793)]  (((13,19,0),(14,19,0)))
+[('ID', 794)]  (((14,19,0),(15,19,0)))
+[('ID', 795)]  (((15,19,0),(16,19,0)))
+[('ID', 796)]  (((16,19,0),(17,19,0)))
+[('ID', 797)]  (((17,19,0),(18,19,0)))
+[('ID', 798)]  (((18,19,0),(19,19,0)))
+[('ID', 799)]  (((19,19,0),(20,19,0)))
+
+unlinks only test
+Using xytolerance=0, ztolerance=0
+before
+net - POLYLINEZ (0 items)
+[('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
+Using xytolerance=0, ztolerance=0
+result
+net - POLYLINEZ (0 items)
+[('ID', 'ID', 'INT')]

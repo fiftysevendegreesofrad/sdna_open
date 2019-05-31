@@ -1,0 +1,27 @@
+Measure,Abbreviations,Description
+Closeness (mean distance)/Farness,"MAD, MED, MCD, MHD","Inverse of closeness, accessibility"
+Mean Geodesic Length,"MGLA, MGLE, MGLC, MGLH",As closeness but always output in units of length even for non-Euclidean geodesics
+Network Quantity Penalized by Distance,"NQPDA, NQPDE, NQPDC, NQPDH",Sum of network quantity over distance
+Betweenness,"BtA, BtE, BtC, BtH","Flow model, through-movement"
+Two Phase Betweenness,"TPBtA, TPBtE, TPBtC, TPBtH",Generation-distribution flow model
+Two Phase Destination,"TPDA, TPDE, TPDC, TPDH","Floating catchment, competitive accessibility"
+Mean Crow Flight,MCF,Mean distance to destinations as crow flies
+Diversion Ratio,"DivA, DivE, DivC, DivH",Mean ratio of geodesic length to crow flight distance
+Convex Hull Area,HullA,Area of convex hull of radius
+Convex Hull Perimeter,HullP,Perimiter of convex hull of radius
+Convex Hull Max Radius,HullR,Furthest extent of convex hull; crow flight distance for most efficient route
+Convex Hull Bearing,HullB,Bearing of furthest extent / most efficient route
+Convex Hull Shape Index,HullSI,Describes shape of hull; ranges from 1 for circle to infinity for straight line
+Links,Lnk,Links in radius
+Length,Len,Length in radius
+Weight,Wt,Weight in radius
+Angular Distance,AngD,Angularity in radius
+Junctions,Jnc,Junctions in radius
+Connectivity,Conn,Connectivity in radius
+Line Length,LLen,Length of individual polyline
+Line Connectivity,LConn,Connectivity of individual polyline
+Line Angular Curvature,LAC,Angularity of individual polyline
+Line Hybrid Metric,"HMf, HMb",Hybrid metric of individual polyline
+Line Sinuosity,LSin,Diversion ratio for individual polyline
+Line Bearing,LBear,Bearing of individual polyline
+Link Fraction,LFrac,Fraction of link represented by polyline

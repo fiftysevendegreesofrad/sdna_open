@@ -1,0 +1,17 @@
+citHeader("To cite the car package in publications use:")
+
+citEntry(entry = "Book",
+  title        = "An {R} Companion to Applied Regression",
+  edition	   = "Second",
+  author       = personList(as.person("John Fox"), as.person("Sanford Weisberg")),
+  year         = "2011",
+  publisher    = "Sage",
+  address      = "Thousand Oaks {CA}",
+  url          = "http://socserv.socsci.mcmaster.ca/jfox/Books/Companion",
+
+  textVersion  =
+  paste("John Fox and Sanford Weisberg (2011).",
+        "An {R} Companion to Applied Regression, Second Edition.",
+        "Thousand Oaks CA: Sage.",
+        "URL: http://socserv.socsci.mcmaster.ca/jfox/Books/Companion")
+)

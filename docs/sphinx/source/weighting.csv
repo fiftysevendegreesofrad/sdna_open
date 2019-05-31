@@ -1,0 +1,7 @@
+Weighting,Output suffix,Origin/Destination weight fields ,Result
+Link,,Left blank,All origin and destination links have weight of 1.  Recommended default for analysis without weight data
+Length,Wl,Left blank,All origin and destination links have weight equal to their length.  Alternative default for instances where length better represents urban density than link count
+Polyline,Wp,Left blank,"All polylines receive weight of 1 (not recommended, we don't know of a logical use for this)"
+Link,,Specify user weight data,All origin and destination links have weight equal to the custom weight provided by user defined field (or averaged for links represented by multiple polylines).  Recommended for attaching weights based on land use data
+Length,Wl,Specify user weight data,"All origin and destination links have weight equal to the custom weight provided by user defined field, multiplied by their length.  In other words, the user has specified weight per unit length.  Alternative for attaching weights based on land use data"
+Polyline,Wp,Specify user weight data,All polylines receive weight equal to the custom weight.  Recommended for attaching address point or census data at sub link level
