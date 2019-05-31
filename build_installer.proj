@@ -7,8 +7,10 @@
 
         <Exec Command="&quot;C:\Program Files (x86)\Caphyon\Advanced Installer 12.4.2\bin\x86\advancedinstaller.com&quot; /build installerbits\advanced\sdna.aip"/>
     
-        <Exec Command="make.bat clean" WorkingDirectory=".\docs\sphinx\"/>
-        <Exec Command="make.bat html" WorkingDirectory=".\docs\sphinx\"/>
+        <Exec Command="make.bat clean" WorkingDirectory=".\doc_source\sphinx\"/>
+        <Exec Command="make.bat html" WorkingDirectory=".\doc_source\sphinx\"/>
+        <Exec Command="if exist docs rmdir /S docs"/>
+        <Exec Command="move doc_source\sphinx\build\html docs"/>
 
         <Exec Command="c:\Python27\ArcGIS10.3\python.exe -u installerbits\rename_version.py installerbits/advanced/output/sdna_setup.msi docs/sphinx/build/html ."/>
 

@@ -1,0 +1,801 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8. Step by step guides for specific tasks &mdash; sDNA Open 4.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '4.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="top" title="sDNA Open 4.0.2 documentation" href="index.html" />
+    <link rel="prev" title="7. Guide to individual tools" href="guide_to_individual_tools.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="guide_to_individual_tools.html" title="7. Guide to individual tools"
+             accesskey="P">previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">sDNA Open 4.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/weblogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_preparation.html">2. Network Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-friendly.html">3. Analysis: what the results mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-spec.html">4. Analysis: full specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_usage.html">6. Installation and first usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_to_individual_tools.html">7. Guide to individual tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">8. Step by step guides for specific tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#downloading-and-preparing-data-from-openstreetmap">8.1. Downloading and preparing data from OpenStreetMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelling-a-combined-vehicle-and-cycle-network">8.2. Modelling a combined vehicle and cycle network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#production-of-a-routable-network">Production of a routable network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-vehicle-network-model">Running the vehicle network model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calibrating-the-vehicle-model">Calibrating the vehicle model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#production-of-the-cycle-model">Production of the cycle model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calibration-of-the-cycle-model">Calibration of the cycle model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recommended-model-outputs">Recommended model outputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#predicted-vehicle-flows">Predicted vehicle flows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#predicted-cyclist-flows">Predicted cyclist flows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessibility">Accessibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-traffic-and-slope-on-accessibility">Effect of traffic and slope on accessibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-traffic-on-accessibility">Effect of traffic on accessibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#predicted-conflicts">Predicted conflicts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flows-to-from-specific-facilities">Flows to/from specific facilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessibility-to-from-specific-facilities">Accessibility to/from specific facilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-to-accessibility-caused-by-proposed-scheme">Change to accessibility caused by proposed scheme</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#displaying-model-outputs">Displaying model outputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="guide_to_individual_tools.html"
+                        title="previous chapter">7. Guide to individual tools</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="step-by-step-guides-for-specific-tasks">
+<span id="step-by-step-guides"></span><h1>8. Step by step guides for specific tasks<a class="headerlink" href="#step-by-step-guides-for-specific-tasks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="downloading-and-preparing-data-from-openstreetmap">
+<span id="osm-step-by-step"></span><h2>8.1. Downloading and preparing data from OpenStreetMap<a class="headerlink" href="#downloading-and-preparing-data-from-openstreetmap" title="Permalink to this headline">¶</a></h2>
+<p>OSM is a crowd-sourced mapping product and as such is particularly well supported by the open source community.  This tutorial therefore uses the free <a class="reference external" href="http://www.qgis.org/en/site/">QGIS</a>.</p>
+<p>Numerous online services exist for extracting OSM data into shapefiles.  One such service is <a class="reference external" href="https://mapzen.com/metro-extracts/">Mapzen</a>:   Mapzen extracts come with more attribute data attached than most (including e.g. cycle routes) but are available only for urban areas.  If you need larger scale or rural OSM extracts, you may find other services suit your purposes better; the OSMDownloader plugin available within QGIS can also be useful.</p>
+<p>OSM contains numerous types of lines feature beside roads and paths –
+for example walls, fences and river banks. You will need to filter out
+the roads and paths only. This can be achieved using <code class="docutils literal"><span class="pre">Layer</span></code> → <code class="docutils literal"><span class="pre">Filter...</span></code>.  Results of a layer filter can be saved as a new layer using <code class="docutils literal"><span class="pre">Layer</span></code> → <code class="docutils literal"><span class="pre">Save</span> <span class="pre">As...</span></code>; at the same time a new coordinate system can be chosen to ensure a suitable <a class="reference internal" href="network_preparation.html#projection"><span>Spatial reference</span></a> for sDNA analysis, and the saved layer can be restricted to selected features only, allowing extraction of the desired modelling area from the OSM download.</p>
+<p>In Cardiff (as of November 2014) a road was present when the ‘highway’
+field was set to one of the following: <code class="docutils literal"><span class="pre">living_street,</span> <span class="pre">motorway,</span>
+<span class="pre">motorway_link,</span> <span class="pre">primary,</span> <span class="pre">primary_link,</span> <span class="pre">residential,</span> <span class="pre">road,</span> <span class="pre">secondary,</span>
+<span class="pre">secondary_link,</span> <span class="pre">service,</span> <span class="pre">services,</span> <span class="pre">tertiary,</span> <span class="pre">tertiary_link,</span> <span class="pre">trunk,</span>
+<span class="pre">trunk_link,</span> <span class="pre">unclassified</span></code>. Note that other areas may differ, and these
+classes may change over time. We recommend examining all values which
+appear in the ‘highway’ field to decide for yourself which to use.</p>
+<p>Cycle lane data (that is, presence of cycle lanes on roads) was not extensive enough to be useful, but data on cycle
+routes (major cycle routes through cities) was consistent. Cycle routes do not necessarily denote highways,
+but are a separate feature that coincides with the highways used. Some
+of the marked cycle routes coincided with features which were classed as
+paths rather than highways (a data inconsistency). Therefore it was
+necessary to extract all candidate highways for cycle routes using the
+following procedure:</p>
+<ul class="simple">
+<li>Select all lines where <code class="docutils literal"><span class="pre">route=&quot;bicycle&quot;</span></code></li>
+<li>Create 5m buffers surrounding these lines</li>
+<li>Create a new data field on the OSM data, “on_cycle_route”</li>
+<li>Use spatial join to set on_cycle_route=1 for all OSM lines within
+the cycle route buffers</li>
+<li>Use the filter <code class="docutils literal"><span class="pre">highway</span> <span class="pre">IS</span> <span class="pre">NOT</span> <span class="pre">NULL</span> <span class="pre">AND</span> <span class="pre">on_cycle_route</span> <span class="pre">=</span> <span class="pre">1</span></code> to
+extract all highways coinciding with cycle routes.</li>
+</ul>
+<p>With further use of the <code class="docutils literal"><span class="pre">Filter</span></code> tool it is possible to
+create two fields on the extracted highway network:</p>
+<ul class="simple">
+<li>cycle_route – set to 1 if on a cycle route, 0 otherwise</li>
+<li>car_net – set to 1 if on car (road) network, 0 otherwise</li>
+</ul>
+<p>Reducing such data to numeric values is important if it is to be
+preserved during the <a class="reference internal" href="guide_to_individual_tools.html#prepare"><span>Prepare network</span></a> process, or if filtering of links is desired from <a class="reference internal" href="guide_to_individual_tools.html#integral-analysis"><span>Integral Analysis</span></a>.</p>
+<p>As of November 2014, the OSM data for Cardiff also contained a number of
+connectivity and geometry errors. These were fixed by use of topology tools (ArcGIS <code class="docutils literal"><span class="pre">Planarize</span></code> or GRASS <code class="docutils literal"><span class="pre">v.clean.advanced</span></code>).  OSM represents bridges and tunnels with non-intersected lines, so it is recommended to preserve this format.</p>
+<ol class="arabic">
+<li><p class="first">Filter out bridges and tunnels (brunels), to avoid breaking them, using the SQL query:</p>
+<div class="highlight-text"><div class="highlight"><pre>(&quot;bridge&quot; &lt;&gt; &#39;no&#39; AND &quot;bridge&quot; &lt;&gt; &#39; &#39;) or &quot;tunnel&quot; = &#39;yes&#39;
+</pre></div>
+</div>
+<p>and save them to a new layer.</p>
+<p>It is strongly recommended to inspect all values which appear in
+the bridge and tunnel fields in order to be sure that you are capturing
+all information provided by OSM. In our case the bridge field could
+contain the values “”, “no”, “suspension”, “viaduct”, “swing”,
+“transporter” and “yes” - if these are present in your data, modify the query to account for them.</p>
+</li>
+<li><p class="first">Filter out all other links:</p>
+<div class="highlight-text"><div class="highlight"><pre>NOT ((&quot;bridge&quot; &lt;&gt; &#39;no&#39; AND &quot;bridge&quot; &lt;&gt; &#39; &#39;) or &quot;tunnel&quot; = &#39;yes&#39;)
+</pre></div>
+</div>
+<p>(modified for other bridge types if necessary) and save them to a new layer.</p>
+</li>
+<li><p class="first">On the &#8220;other links&#8221; layer run <code class="docutils literal"><span class="pre">v.clean.advanced</span></code> from the GRASS toolbox.  The GRASS tools are bundled with the free <a class="reference external" href="http://www.qgis.org/en/site/">QGIS</a>, though to display them it is necessary to switch the
+Processing toolbox to advanced mode.  (This is necessary for <a class="reference internal" href="installation_usage.html#firstuse"><span>Using sDNA for the first time</span></a> in any case).  For the <code class="docutils literal"><span class="pre">Cleaning</span> <span class="pre">tools</span></code> parameter, enter:</p>
+<div class="highlight-text"><div class="highlight"><pre>snap,break,rmline
+</pre></div>
+</div>
+<p>and for <code class="docutils literal"><span class="pre">threshold</span></code> enter 1 (assuming a suitable coordinate system was chosen above, with units in metres).  This will merge nearby lines, remove duplicates, break at intersections and remove zero length lines.</p>
+</li>
+<li><p class="first">Re-merge the cleaned &#8220;other links&#8221; with the brunel layer using <code class="docutils literal"><span class="pre">Vector</span></code> → <code class="docutils literal"><span class="pre">Data</span> <span class="pre">Management</span></code> → <code class="docutils literal"><span class="pre">Merge</span> <span class="pre">Shapefiles</span> <span class="pre">to</span> <span class="pre">one...</span></code></p>
+</li>
+<li><p class="first">Run sDNA Line Measures on the merged data to compute connectivity.  Set layer properties to label each feature with connectivity (LConn).  Using the brunels layer as a reference, manually check that brunels have been correctly reconnected with ordinary links.  (If the attribute table for the brunels layer is opened, each feature can be selected and zoomed to in turn, and the corresponding feature on the merged class checked).</p>
+</li>
+</ol>
+</div>
+<div class="section" id="modelling-a-combined-vehicle-and-cycle-network">
+<h2>8.2. Modelling a combined vehicle and cycle network<a class="headerlink" href="#modelling-a-combined-vehicle-and-cycle-network" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial is intended to illustrate the use of sDNA in practice. It
+deals with one of the most complex tasks we have achieved with sDNA to
+data; modelling a cycle network in which cyclists avoid motor vehicles,
+slope and twistiness. However, several lessons for other model types
+(vehicle and pedestrian) are illustrated by the same process, so the
+example is worthwhile reading whatever your intended end use of sDNA.</p>
+<p>The tutorial is written with sDNA and ArcGIS in mind, though could
+apply to any GIS software. Steps specific to ArcGIS are written in
+<em>italics.</em>  Some features (hybrid metrics, one way streets) are not available in standard sDNA, though
+the principles of modelling remain the same.</p>
+<p>sDNA cycle models are based on detailed behavioural simulation and have
+various outputs including</p>
+<ol class="arabic simple">
+<li>Predicted vehicle flows</li>
+<li>Predicted cyclist flows</li>
+<li>Cycling accessibility – quantity and quality of provision</li>
+<li>Effect of traffic and slope on accessibility</li>
+<li>Roads with predicted conflicts between cyclist and motor vehicles</li>
+<li>Maps of cycling flows to specific facilities</li>
+<li>Maps of cycling accessibility to specific facilities</li>
+<li>Quantification of change to accessibility caused by proposed scheme</li>
+</ol>
+<p>All of these outputs can be used in two ways</p>
+<ol class="arabic simple">
+<li>For gap analysis, to identify areas of need prior to designing
+schemes</li>
+<li>For evaluating proposed schemes</li>
+</ol>
+<p>Additionally, the model can be based on network shape alone, or take
+existing land use / commuting patterns into account. The alternatives
+are</p>
+<ol class="arabic simple">
+<li>Land use weighted models. These allow for weighting origins and
+destinations within the network, e.g. homes and railway stations as
+origins, employers and retail as destinations.</li>
+<li>Origin Destination (OD) matrix models (forthcoming in 2016). These
+allow input of an existing OD matrix, such as commuting flows from
+census data.</li>
+<li>Network shape only models. These use only the network shape itself to
+predict flows.</li>
+</ol>
+<p>Model types 1 and 2 are likely to have higher correlation with observed
+flows than type 3, however type 3 (network only) models are the easiest
+to produce and perhaps the most useful. Type 1 models incur the problem
+of determining suitable weights for different types of land use. Both
+type 1 and 2 models also make the assumption that existing land use and
+commuting patterns will remain unchanged. In the long term this is not
+true, as new developments occur and major employers open and close. Such
+factors are typically outside the control of those analysing the network
+in any case. It may be appropriate to model these factors in some cases,
+for example, if there is an explicit need to design transport
+infrastructure around an existing major employer. In most cases however
+we recommend working with network shape only; although the models will
+exhibit reduced fit to current data compared to other model types, they
+are likely to remain more applicable in the long term.</p>
+<p>The modelling process includes the following steps:</p>
+<ol class="arabic simple">
+<li>Create a routable vehicle and cycle network</li>
+<li>Run the vehicle network model</li>
+<li>Calibrate the vehicle model</li>
+<li>Produce a cycle model informed by the calibrated vehicle model</li>
+<li>(Optional) Calibrate the cycle network model. If this step is
+omitted, the cycle model will not show predicted counts but will
+still show relative levels of flow, which may be all that is needed.</li>
+<li>Produce desired outputs from the cycle model</li>
+</ol>
+<div class="section" id="production-of-a-routable-network">
+<h3>Production of a routable network<a class="headerlink" href="#production-of-a-routable-network" title="Permalink to this headline">¶</a></h3>
+<p>This tutorial assumes a routable network accurate enough to use for
+modelling is already available. Producing such a network is usually the
+most time consuming part of any modelling exercise; fortunately in many
+cases this step has been completed already, or if not, then good
+material is already available to work with. OpenStreetMap for example
+contains mapping of vehicle and cycle links in some areas.</p>
+<p>General considerations when preparing a network for analysis are
+discussed in <a class="reference internal" href="network_preparation.html#network-preparation"><span>Network Preparation</span></a>. This is essential reading for all users of sDNA
+models. More specific notes on Open Street Map can be found in <a class="reference internal" href="network_preparation.html#osm"><span>OpenStreetMap (OSM)</span></a>
+and a step-by-step guide to its use in <a class="reference internal" href="#osm-step-by-step"><span>Downloading and preparing data from OpenStreetMap</span></a>.</p>
+<p>A special consideration applies when producing a vehicle and cycle
+model, namely that it must be possible to join (preferably with ease)
+the predicted flows from the vehicle model to the cycle network. The
+best way to do this is to produce a single input network for both
+models, with two attached data fields to show whether access to each
+link is permitted (i) by cars and (ii) by cycles. Results from different
+model runs can then be joined easily by either geometry (spatial join)
+or object ID.</p>
+<p>Table 1 shows an example of a unified network format. In it, link 1 and
+4 are ordinary roads traversable by both vehicles and cycles, link 2
+would be a motorway accessible only to vehicles, and link 3 a (short)
+section of traffic free cycle path. Links 2 and 4 have one way systems
+in place, and link 2 ends on a bridge (shown by the grade separation
+field end_gs – to be discussed below). Link 5 is not a real network
+link but represents a city outside the model containing a million links.
+The “start” and “end” of the grade separation fields, and also the one
+way data, refer to the direction in which the link is drawn in the
+graphics program or GIS rather than any “natural” direction it has.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="16%" />
+<col width="10%" />
+<col width="11%" />
+<col width="14%" />
+<col width="11%" />
+<col width="13%" />
+<col width="11%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object ID</th>
+<th class="head">Shape length</th>
+<th class="head">carnet</th>
+<th class="head">bikenet</th>
+<th class="head">onewaydata</th>
+<th class="head">weight</th>
+<th class="head">start_gs</th>
+<th class="head">end_gs</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>42.6</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>89</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>8.4</td>
+<td>1</td>
+<td>1</td>
+<td>-1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1000000</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Table 1. Sample excerpt from combined cycle and vehicle network</p>
+<p>If the road network data encodes dual carriageways as separate links
+(that is, each half of the dual carriageway is represented by its own
+link in the network) then it is essential to ensure simulated vehicle
+traffic makes use of both sides of the carriageway. If this is not done,
+all vehicle traffic will take the most convenient side, leaving the
+other as an apparently useful traffic free cycle route. Obviously this
+does not happen in reality, because dual carriageways carry an explicit
+or implicit one way traffic restriction per side. The most reliable way
+to ensure correct usage of dual carriageways is therefore to input one
+way information into sDNA <a class="footnote-reference" href="#id3" id="id1">[1]</a>. Table 2 shows how sDNA interprets one way data.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">One way data</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Traversal in both directions allowed</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Forwards traversal only</td>
+</tr>
+<tr class="row-even"><td>-1</td>
+<td>Backwards traversal only</td>
+</tr>
+</tbody>
+</table>
+<p>Table 2. sDNA encoding of one way data. “Forwards” and “backwards”
+relate to the direction in which the link is drawn in the graphics
+program or GIS.</p>
+<p>A third consideration in producing combined vehicle/cycle models is that
+vehicle network information will probably be needed for a much wider
+area than cycle network information. Table 3 gives an example. If we
+wish to model cycle flows within a city, we must make the cycle model
+slightly larger than the city itself to correctly model flows over the
+boundary in and out of the city. The vehicle model must in turn be quite
+a lot larger, in order to deduce where the medium distance traffic is
+travelling from and to. Although most vehicle trips are short, longer
+trips tend to aggregate to major through routes, so if we want to
+estimate the level of traffic on a major through route such as a
+motorway then we must also include some trips of at least medium length.</p>
+<p>The best size of model to use will vary depending on travel behaviour in
+an area, but fortunately, spatial network models are not overly
+sensitive to the exact model size used. This is because network problems
+have a high level of <em>collinearity</em>, e.g. a link that is useful for 50km
+trips is also likely to be useful for 30km trips, so both types of model
+will be able to identify realistic patterns of flow.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="55%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Area</th>
+<th class="head">Radius from model centre (example)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Desired modelling area e.g. city-wide model</td>
+<td>8km, as measured along network</td>
+</tr>
+<tr class="row-odd"><td>Cycle network model</td>
+<td>12km, as measured along network</td>
+</tr>
+<tr class="row-even"><td>Vehicle network model</td>
+<td>30km, as measured along network</td>
+</tr>
+</tbody>
+</table>
+<p>Table 3. Example of nested models</p>
+<p>As the vehicle model we need is larger than the cycle model, note that
+in a unified model <em>we do not need cycle route information for the wide
+scale vehicle network.</em> Also, at greater distances from the study area,
+there is even a reduced need for accuracy in the vehicle network. It is
+included in the model purely as a source and sink for traffic, and so
+long as the major routes to major neighbouring towns/cities are
+included, the model is sufficient. This can be checked after running the
+model by inspecting the predicted flows to these places.</p>
+<p>A fourth consideration is modelling of elevation and grade separation in
+the network.</p>
+<ol class="arabic">
+<li><p class="first">Elevation measures the height of each point above ground. Use of
+elevation data makes cycle models more accurate as slope affects
+cyclists behavioural choices. sDNA reads network features in 3d,
+which therefore includes elevation if present. Typically, network
+data is downloaded, corrected and prepared in 2d form then <em>draped</em>
+over a 3d terrain model to produce a 3d network. (In ArcGIS:
+<em>ArcToolbox</em> → <em>3d Analyst</em> → <em>Functional Surface</em> → <em>Interpolate
+Shape</em>).</p>
+</li>
+<li><p class="first">Grade separation relates to points where links cross, such as bridges
+and tunnels. (These are collectively referred to as brunels). Although in theory this is determined by elevation, the available elevation data may not be preciseWhether
+enough to distinguish different levels of a brunel, particularly if data has been obtained by draping over a terrain model.  sDNA will thus accept grade separation data
+in addition to elevation.</p>
+<p>Whether
+or not it is necessary to give sDNA grade separation data depends on
+how brunels are geometrically encoded. In some network data, links
+which pass over or under one another are represented by lines which
+intersect but are not noded; in these cases grade separation is not
+needed. More commonly however, a node is placed at such points even
+though there is no connection between the links; in the latter case,
+grade separation data is needed to inform sDNA that there is no
+connectivity. <a class="reference internal" href="network_preparation.html#network-preparation"><span>Network Preparation</span></a>
+discusses this topic in more detail.</p>
+</li>
+</ol>
+<p>A final consideration with the wider vehicle network model is whether to
+model the wide network in detail. Such modelling is computationally
+expensive and may not be needed. In some cases, e.g. where a
+neighbouring city is accessed by only one route, the entire neighbouring
+city can be discarded from the model and replaced with a single
+<em>weighted</em> network link. If this is the case, the weighted link should
+be added to the network at the same distance from the model area as the
+city it replaces. The special link would be weighted by the number of
+links in the city it replaced, while all normal links would be assigned
+a weight of 1. An example was shown in Table 1.</p>
+</div>
+<div class="section" id="running-the-vehicle-network-model">
+<h3>Running the vehicle network model<a class="headerlink" href="#running-the-vehicle-network-model" title="Permalink to this headline">¶</a></h3>
+<p>To run the vehicle network model, follow these steps.</p>
+<ol class="arabic">
+<li><p class="first">Decide on a set of radii (maximum trip lengths) to model. For
+example, 15, 20, 25, and 30 kilometres. As discussed above, the exact
+lengths are not important, so much as having a range of sensible
+values which will later be tested for their fit to actual vehicle
+flows.</p>
+</li>
+<li><p class="first">Configure sDNA integral. <a href="#vehintegralconfig">Figure  10</a> shows an example. The type of
+analysis chosen is “ANGULAR”. This means that all vehicle traffic
+attempts to take the straightest route, which is a good approximation
+to driver behaviour. Radii are expressed in metres (assuming the
+underlying data is projected to a coordinate system measured in
+metres – see <a class="reference internal" href="network_preparation.html#network-preparation"><span>Network Preparation</span></a>
+for more detail). Weights are taken from the “weight” field to allow
+modelling of distant cities efficiencly. Links not in the car network
+are disabled by putting <code class="docutils literal"><span class="pre">!carnet</span></code> (the opposite of the carnet field)
+into the “disable links” expression. One way information is taken
+from the <em>oneway</em> field.</p>
+<p><strong>UPDATE</strong> We now recommend selecting &#8220;Banded radius&#8221;.  This means each radius will represent only trips in the relevant distance band (e.g. 20-25km) rather than all trips below the band (0-25km).
+This helps with multivariate modelling.</p>
+</li>
+<li><p class="first">Run sDNA Integral. For a 50km urban network this will likely take a
+few hours to run. <em>At time of going to press, a bug in ArcGIS
+prevents progress information being displayed if the model runs in
+the background. There are two workarounds to this. Either use sDNA
+from the command line or QGIS, or disable background processing in
+Geoprocessing</em> → <em>Geoprocessing options.</em></p>
+</li>
+<li><p class="first">Display the model results. The parameter of interest is Angular
+Betweenness (BtA) at each radius. At this time, simply check that the
+results look like a sensible flow map, with major roads identified as
+having high levels of flow.</p>
+</li>
+</ol>
+<div class="figure" id="id5">
+<span id="vehintegralconfig"></span><img alt="_images/vehanal.PNG" src="_images/vehanal.PNG" />
+<p class="caption"><span class="caption-text">Figure 10: sDNA Integral configuration for vehicle model.</span></p>
+</div>
+</div>
+<div class="section" id="calibrating-the-vehicle-model">
+<h3>Calibrating the vehicle model<a class="headerlink" href="#calibrating-the-vehicle-model" title="Permalink to this headline">¶</a></h3>
+<p>Angular Betweenness output from the vehicle model represents the level
+of predicted flow for each maximum trip length, so shows relative
+traffic levels on the roads in the model. To calibrate, we compare
+Betweenness with actual traffic flow data to achieve two things; (i)
+determine which radius of Angular Betweenness best fits actual flows;
+(ii) determining the multiplier (coefficient) that will convert this
+radius of Betweenness into an actual count of, say, annual average daily
+traffic (AADT).</p>
+<p>The first requirement for calibration is to get hold of some vehicle
+flow data. In the UK this is freely downloadable from the Department for
+Transport <a class="footnote-reference" href="#id4" id="id2">[2]</a>. Vehicle flow data may come in the form of a table that
+includes grid references for each count point; in this case it will need
+converting to a spatial format to display (<em>In ArcGIS File</em> → <em>Add Data
+|rarr| Add XY Data</em>). The vehicle data can then be cropped to the model
+area. It is only necessary to use vehicle points from within the cycle
+network model – those that fall in the extended vehicle network can be
+discarded. Obviously the more points are available, the better the
+calibration can be, but models can be effectively calibrated using fewer
+than 50 points.</p>
+<p>The points must then be checked, and possibly adjusted, so that it is
+clear which link in the model each point is supposed to attach to.
+Depending on your network geometry, the recorded points will probably
+not fall exactly on links in the model. It is also often the case that
+vehicle flow data reports the flow on dual carriageways as the total
+flow in both directions, rather than counting each side of the
+carriageway separately; in these cases therefore a recorded point
+relates to two links rather than one. The aim of the adjustment process
+is to prepare the data such that the <em>Join</em> function of any GIS will be
+able to link each flow to the correct link(s). Points which are
+ambiguous (i.e. it is not certain which link they relate to) must be
+discarded.</p>
+<p>If the model requires summing flows from both halves of a dual
+carriageway, it is advisable to encode measured flows as <em>gates</em> rather
+than single points. A gate is a line drawn so as to intersect all the
+links it measures (and only links it measures). It is relatively easy to
+iterate through the set of flow data points, and create by hand a new
+feature class containing lines that fulfil this purpose; a GIS spatial
+join function can then be used to join each line (gate) to the nearest
+recorded flow point.</p>
+<p>Once a correct and unambiguous set of vehicle gates has been created,
+these are again <em>joined</em> to the output from the vehicle model. The
+resulting data should be the same set of vehicle gates, augmented by the
+network data from the link(s) that each gate intersects. This means
+using the gates as the primary layer for the <em>join</em> (otherwise we would
+end up with the entire network augmented by the vehicle gate data – a
+much larger dataset and not what is wanted).</p>
+<p>The process of calibration can then proceed. We now do this by
+combining predictions in whichever way best predicts flows using <em>multivariate ridge regression</em>.</p>
+<p>Regression fits a line to the plot of flows against
+predictions, as shown in Figure 2. We measure how well the regression has worked using  <em>proportion of variance
+explained</em>, or <span class="math">\(r^{2}\)</span>. <span class="math">\(r^{2}\)</span> can range from 0 (for a
+useless model) to 1 (for a perfect model). High <span class="math">\(r^{2}\)</span> is
+preferable, but low <span class="math">\(r^{2}\)</span> does not necessarily indicate a bad
+model: it can also be caused by errors in measurement, especially with
+cycle flows. Even if there is a lot of variability the model cannot
+predict, the component that can be predicted can form a useful basis for
+decision making.</p>
+<p>Vehicle traffic flows on roads (real or predicted) do not have a normal
+distribution. That is to say, most of the traffic is actually carried by
+a small subset of roads. This means we should not weight all data points
+equally. Additionally, transport planners do not weight data points equally,
+instead using a statistic called GEH to balance absolute and relative errors.</p>
+<p>To account for this, we weight data points by setting
+lambda to a value between 0 (weight to minimize relative errors) and 1 (weight to minimize absolute errors).  In practice, values around 0.7 tend to minimize GEH.</p>
+<p>If running a bivariate model (SINGLE_BEST) we can choose instead to Box-Cox transform variables to achieve the same thing, but this is not recommended for multivariate models (MULTIPLE_VARIABLES or ALL_VARIABLES).</p>
+<ol class="arabic simple">
+<li><em>Join</em> the vehicle gates to the network (<em>Right click vehicle gates
+layer in table of contents; Joins and relates, Join..., Join data from
+another layer based on spatial location</em>).</li>
+<li>Load sDNA Learn and configure it as in <a href="#sdnalearnconfig">Figure  11</a>. The output model is to
+be saved at <code class="docutils literal"><span class="pre">d:\\veh_model</span></code>. The target variable is <code class="docutils literal"><span class="pre">aadt</span></code> (annual
+average daily traffic). Note use of a regular expression <code class="docutils literal"><span class="pre">.*BtA.*</span></code> to
+select ALL angular betweenness variables as potential predictors at
+once.</li>
+</ol>
+<div class="figure" id="id6">
+<span id="sdnalearnconfig"></span><img alt="_images/learn.PNG" src="_images/learn.PNG" />
+<p class="caption"><span class="caption-text">Figure 11: sDNA Learn configuration for calibrating vehicle model.</span></p>
+</div>
+<ol class="arabic" start="3">
+<li><p class="first">Inspect the outputs of sDNA Learn. Which variables were used and with what weighting? Is
+<span class="math">\(r^2\)</span> good enough?  If so then jump to step 5.</p>
+</li>
+<li><p class="first">If <span class="math">\(r^2\)</span> is not good enough, inspect residuals output by sDNA Learn: plot a graph of
+actual flow against prediction <em>(View</em> → <em>Graphs</em>
+→ <em>Create graph).</em>  (<em>These can be selected on the graph to locate them
+on the map)</em>.</p>
+<p>Try to figure out where errors come from.  They are likely to arise</p>
+<blockquote>
+<div><p>(a) from network errors; in which case it is worth checking why traffic is not taking the route
+you expect - perhaps some links are not connected when they should be?</p>
+<p>(b) because some behaviour that happens in reality is not accounted for in the model; e.g. flows to town centre or some specific facility, people navigating by means other than most direct route.
+If desired, run extra models and combine with the existing ones before running sDNA Learn on the outputs of all models together.</p>
+</div></blockquote>
+<p>See also <a class="reference internal" href="troubleshooting.html#troubleshooting"><span>Troubleshooting Models</span></a>.</p>
+</li>
+<li><p class="first">Once you are happy with <span class="math">\(r^2\)</span>, use sDNA Predict to predict aadt on the whole network, based on the model file (<code class="docutils literal"><span class="pre">d:\veh_model</span></code>).  Note that if your vehicle gates consist of lines rather than points, the variable names must be changed slightly.  For example, a variable called <code class="docutils literal"><span class="pre">Sum_BtA25000</span></code> on the <em>gates</em> would be called <code class="docutils literal"><span class="pre">BtA25000</span></code> on the <em>network</em>.  The model file is a plain text file and can be edited to rename the variables as appropriate.</p>
+</li>
+</ol>
+<p>Calibration is now complete and the AADT field contains traffic
+predictions for each link in the combined network.</p>
+</div>
+<div class="section" id="production-of-the-cycle-model">
+<h3>Production of the cycle model<a class="headerlink" href="#production-of-the-cycle-model" title="Permalink to this headline">¶</a></h3>
+<p>Now that a calibrated estimate of vehicle traffic is present on the
+entire network, it is possible to produce a cycle model that takes
+account of vehicle traffic.</p>
+<p>If using a unified network, we can now take a copy of only the desired
+study area plus buffer to account for cycle flows in and out of the
+area. Most cycle trips are not likely to be more than 4km in length, so
+this means the study area plus 4km (though a larger distance can be used
+if desired). Although distances should be measured along the network, it
+is fine to use simple selection tools and measure these distances as the
+crow flies – the result will only be that a slightly larger network is
+used. The actual trip lengths in the simulation are determined by the
+radius requested of sDNA.</p>
+<p>It is worth checking at this point that elevation data has been
+correctly transferred to the network. One way to do this is to run sDNA
+Individual Link Measures, with a hybrid metric that captures slope.</p>
+<ol class="arabic">
+<li><p class="first">Run sDNA Individual Link Measures with analysis type set to HYBRID, and the following
+advanced config: <code class="docutils literal"><span class="pre">linkformula=hg+hl</span></code></p>
+</li>
+<li><p class="first">Check that Hybrid Metric Forward (HmF) in the results from (1)
+highlights network links which slope.</p>
+</li>
+<li><p class="first">Run a cycle model. This is again achieved by running sDNA Integral
+with the analysis type set to CYCLE_ROUNDTRIP.  Set the Radial Metric to MATCH_ANALYTICAL: this means the radius is measured as CYCLE_ROUNDTRIP as well.</p>
+<p>Choose a variety of radii e.g. 3000, 4000, 5000, 7000, 9000, 12000, 15000, 18000.  These are distances in metres adjusted for factors that deter cyclists: slope, traffic and twistiness.  Note that CYCLE_ROUNDTRIP uses round trip distances to account for the fact that going downhill is a deterrant if the cyclist must come back up the hill later.</p>
+<p>Again, choose <em>Banded Radius</em>.</p>
+</li>
+</ol>
+<p>The sDNA cycle modes are derived from prior research on cyclist
+behaviour. It is a special case of hybrid analysis. If you
+inspect the output of sDNA, the equivalent hybrid formula is shown.</p>
+</div>
+<div class="section" id="calibration-of-the-cycle-model">
+<h3>Calibration of the cycle model<a class="headerlink" href="#calibration-of-the-cycle-model" title="Permalink to this headline">¶</a></h3>
+<p>The cycle model can be calibrated in much the same way as the vehicle
+one.</p>
+<p>If no cycle flow data is available, then an uncalibrated model can be
+obtained by guessing at which radius of hybrid betweenness to use for
+the output. The most effective radius from cities similar to the study
+area would be a reasonable starting point.</p>
+<p>If cycle flow data is available, then the best radius is selected using
+sDNA Learn in the same way as it was for the vehicle models. Having done
+this, it may or may not be necessary to convert the chosen betweenness
+variable into a predicted daily flow. The betweenness variable will
+already show relative levels of flow.</p>
+<p>If predicted flows don&#8217;t seem to match actual flows, see <a class="reference internal" href="troubleshooting.html#troubleshooting"><span>Troubleshooting Models</span></a>.</p>
+</div>
+<div class="section" id="recommended-model-outputs">
+<h3>Recommended model outputs<a class="headerlink" href="#recommended-model-outputs" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="predicted-vehicle-flows">
+<h4>Predicted vehicle flows<a class="headerlink" href="#predicted-vehicle-flows" title="Permalink to this headline">¶</a></h4>
+<p>These are present on the vehicle network, labelled “aadt” (or whatever you chose to call them during calibration).</p>
+</div>
+<div class="section" id="predicted-cyclist-flows">
+<h4>Predicted cyclist flows<a class="headerlink" href="#predicted-cyclist-flows" title="Permalink to this headline">¶</a></h4>
+<p>Uncalibrated flows are available as Betweenness Hybrid for varying maximum trip distances.  Calibrated flows will be in a variable of your own creation if the calibration process is followed.</p>
+</div>
+<div class="section" id="accessibility">
+<h4>Accessibility<a class="headerlink" href="#accessibility" title="Permalink to this headline">¶</a></h4>
+<p>Accessibility is measured by computing network quantity within each distance band.  It can thus be measured by the Links, Length or Weight variables, so long as the radial metric is set appropriately (e.g. CYCLE_ROUNDTRIP).  If the model is calibrated, you have a few possible approaches</p>
+<ol class="loweralpha simple">
+<li>quick and approximate: run a cycle model <em>without</em> using banded radius.  Use sDNA learn in SINGLE_BEST mode to see which <em>single</em> radius best explains cyclist flows, and then measure accessibility for this radius.</li>
+<li>more sophisticated: keep the cycle model based on banded radius.  Edit the model file, replacing BtH with Links, Length or Weight as appropriate, then use sDNA Predict to combine accessibility measures across multiple radii in the manner that best explains cyclist flows.</li>
+<li>If mode choice data is available, use sDNA Learn and Predict on the banded cycle model to produce predictions of mode choice.  Use predicted mode choice as your definition of accessibility.</li>
+</ol>
+<p>Higher numbers show higher quantity of network.</p>
+</div>
+<div class="section" id="effect-of-traffic-and-slope-on-accessibility">
+<span id="etsa"></span><h4>Effect of traffic and slope on accessibility<a class="headerlink" href="#effect-of-traffic-and-slope-on-accessibility" title="Permalink to this headline">¶</a></h4>
+<p>This is measured by comparing accessibility from the cycle model with an alternative model with no slope or traffic.</p>
+<p>First add a numeric field to the network called &#8220;zero&#8221; and set it to 0 for all links.  This is used to simulate zero traffic!</p>
+<p>Run a second cycle model as described above but provide the following advanced config: <code class="docutils literal"><span class="pre">aadt=zero;s=0;pre=no_slope_traffic_</span></code></p>
+<p><code class="docutils literal"><span class="pre">s=0</span></code> sets the effect of slope to 0.   <code class="docutils literal"><span class="pre">aadt=zero</span></code> tells sDNA to use the contents of your &#8220;zero&#8221; field (which you set to 0) as the traffic estimate.</p>
+<p><code class="docutils literal"><span class="pre">pre=no_slope_traffic_</span></code> changes names for the outputs of the second model for clarity.</p>
+<p>Now join the output of this second model back to the original model.  Add and compute a data field to work out <span class="math">\(\text{accessibility without traffic and slope}/\text{accessibility with traffic and slope}\)</span>.  (ArcGIS: computing  a field is not necessary.  Instead, in the Symbology dialog, select accessibility without traffic/slope as Value and accessibility with traffic/slope as Normalization).</p>
+<p>The results are expressed as a ratio, where 1 means traffic and slope have no effect, 2 means traffic and slope make accessibility twice as difficult, etc.</p>
+<p>Note that producing flow predictions in the absence of traffic is also possible, and comparing these to flow predictions with traffic can also suggest hotspots to consider for infrastructure improvement.</p>
+</div>
+<div class="section" id="effect-of-traffic-on-accessibility">
+<h4>Effect of traffic on accessibility<a class="headerlink" href="#effect-of-traffic-on-accessibility" title="Permalink to this headline">¶</a></h4>
+<p>As <a class="reference internal" href="#etsa"><span>Effect of traffic and slope on accessibility</span></a>, but use a different advanced config: <code class="docutils literal"><span class="pre">pre=no_traffic_;aadt=zero</span></code></p>
+</div>
+<div class="section" id="predicted-conflicts">
+<h4>Predicted conflicts<a class="headerlink" href="#predicted-conflicts" title="Permalink to this headline">¶</a></h4>
+<p>Create a variable that multiples predicted cycle flows by predicted vehicle flows.  <em>(ArcGIS: use Add Field and Calculate Field in ArcToolbox - Data Management - Fields)</em>.  The numbers are an unscaled score indicating relative risk of conflict.  Display using only two categories, manually selecting a suitable threshold to identify the links with more conflict potential.  The threshold should be set according to need; in terms of identifying incident sites:</p>
+<ul class="simple">
+<li>High thresholds increase the rate of both true and false negatives</li>
+<li>Low thresholds increase the rate of both true and false positives</li>
+</ul>
+</div>
+<div class="section" id="flows-to-from-specific-facilities">
+<span id="specificflows"></span><h4>Flows to/from specific facilities<a class="headerlink" href="#flows-to-from-specific-facilities" title="Permalink to this headline">¶</a></h4>
+<p>Run a cycle model again, but weighted by the specific facility.  This means creating a weight field on the network to denote the facility.</p>
+<ol class="arabic simple">
+<li>Add a field named station, hospital, etc</li>
+<li>Set this field to 0 everywhere except for the facility site where it should be set to 1 <em>(ArcGIS: add field, calculate field for 0, then edit the facility itself to set field to 1)</em>.</li>
+<li>Run a cycle model with analysis type set to CYCLE_ROUNDTRIP and destination weight set to the field created in (1).</li>
+<li>Display Betweenness Hybrid for the appropriate radius</li>
+</ol>
+</div>
+<div class="section" id="accessibility-to-from-specific-facilities">
+<h4>Accessibility to/from specific facilities<a class="headerlink" href="#accessibility-to-from-specific-facilities" title="Permalink to this headline">¶</a></h4>
+<p>As for <a class="reference internal" href="#specificflows"><span>Flows to/from specific facilities</span></a>, but display Mean Hybrid Distance (MHD) for the appropriate radius.</p>
+</div>
+<div class="section" id="change-to-accessibility-caused-by-proposed-scheme">
+<h4>Change to accessibility caused by proposed scheme<a class="headerlink" href="#change-to-accessibility-caused-by-proposed-scheme" title="Permalink to this headline">¶</a></h4>
+<p>This is measured by comparing accessibility as described above, from the current cycle model with an alternative model including the proposed scheme.  Run a second cycle model that includes the new scheme and use GIS Spatial Join to bring data from the two models together.  It may help to add <code class="docutils literal"><span class="pre">pre=before_</span></code> or <code class="docutils literal"><span class="pre">pre=after_</span></code> to advanced config to label the model outputs differently.</p>
+<p>This value can be mapped to show improvement in accessibility, i.e. 1.23 = 23% more destinations to access for the same effort.  Alternatively, it can be summed over the entire model to produce a score representing both the increase in accessibility, and the quantity of network that experiences the improvement.</p>
+</div>
+</div>
+<div class="section" id="displaying-model-outputs">
+<h3>Displaying model outputs<a class="headerlink" href="#displaying-model-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Recommended outputs from the model are discussed below.</p>
+<p>We recommend using
+“graduated colours” symbologies, but modifying the highest bands of any
+key to display with thicker lines for extra emphasis.</p>
+<ul class="simple">
+<li>For flows, we recommend Geometrical Interval classification to give
+equal emphasis of high and low flows. This is to reflect the fact
+that flows tend to be exponentially distributed, i.e. most links have
+little flow but a few links have very high flow.</li>
+<li>It is also possible to display flows using Quantile or Jenks
+classification. This will condense bands of higher flows and provide
+more discernment of low level flows.</li>
+<li>For accessibility measures, we recommend Quantile or Jenks
+classification</li>
+<li>In some cases, e.g. ratios of accessibility, using manual
+classification may be useful, e.g. to create a special category for
+ratios equal to 1. A quantile classification can make a useful starting point for a manual one.</li>
+</ul>
+<p><em>In ArcGIS, data on networks is displayed by right-clicking on a layer
+in the table of contents,</em> → <em>properties</em> → <em>symbology.  For any display,
+click “Classify” from the symbologies dialog to determine how continuous
+data such as predicted flows is banded into categories.</em></p>
+<p><em>With larger data sets, ArcGIS will warn that not all data has been
+sampled to create the classification. This is ill advised as some
+high-flow links may then fail to display altogether. To ensure all data
+is sampled, click “Classify” to set a higher number of features to
+sample.</em></p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>An alternative is to use a hybrid metric for vehicle route choice that includes a random component, so that vehicle routes are distributed between both sides of the
+carriageway. This may prove useful in cases where one way data is not
+available.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Note that the DfT release major road and minor road data separately.
+For effective calibration it is necessary to download both data sets
+and merge them.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="guide_to_individual_tools.html" title="7. Guide to individual tools"
+             >previous</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">sDNA Open 4.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+    </div>
+  </body>
+</html>

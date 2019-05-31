@@ -1,0 +1,1198 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. Guide to individual tools &mdash; sDNA Open 4.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '4.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="top" title="sDNA Open 4.0.2 documentation" href="index.html" />
+    <link rel="next" title="8. Step by step guides for specific tasks" href="step_by_step_guides.html" />
+    <link rel="prev" title="6. Installation and first usage" href="installation_usage.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="step_by_step_guides.html" title="8. Step by step guides for specific tasks"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="installation_usage.html" title="6. Installation and first usage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sDNA Open 4.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/weblogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_preparation.html">2. Network Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-friendly.html">3. Analysis: what the results mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-spec.html">4. Analysis: full specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_usage.html">6. Installation and first usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">7. Guide to individual tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#options-common-to-multiple-tools">7.1. Options common to multiple tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#individual-tool-details">7.2. Individual tool details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparation">Preparation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-network">Prepare network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#individual-line-measures">Individual Line Measures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis">Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#integral-analysis">Integral Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#specific-origin-accessibility-maps">Specific Origin Accessibility Maps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integral-from-od-matrix-assignment-model">Integral from OD Matrix (assignment model)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skim-matrix">Skim Matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#geometries">Geometries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#convex-hulls">Convex Hulls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geodesics">Geodesics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-radii">Network Radii</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calibration">Calibration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#learn">Learn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#predict">Predict</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-configuration-and-command-line-options">7.3. Advanced configuration and command line options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-config-options-for-sdna-prepare">Advanced config options for sDNA Prepare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-config-options-for-sdna-integral-and-geometry-tools">Advanced config options for sDNA Integral and geometry tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preset-metric-variables">Preset metric variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpretation-of-one-way-data">Interpretation of one way data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-zone-table-or-matrix-file">Creating a zone table or matrix file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#d-table-in-list-format">1d table in list format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2d table in list format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-table-in-matrix-format">2d table in matrix format</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#zone-data-and-zone-sums">Zone Data and Zone Sums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expression-reference">Expression reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="step_by_step_guides.html">8. Step by step guides for specific tasks</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation_usage.html"
+                        title="previous chapter">6. Installation and first usage</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="step_by_step_guides.html"
+                        title="next chapter">8. Step by step guides for specific tasks</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="guide-to-individual-tools">
+<span id="id1"></span><h1>7. Guide to individual tools<a class="headerlink" href="#guide-to-individual-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="options-common-to-multiple-tools">
+<h2>7.1. Options common to multiple tools<a class="headerlink" href="#options-common-to-multiple-tools" title="Permalink to this headline">¶</a></h2>
+<p>Several tools share the following parameters:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><em>Input</em>, <em>Output</em></dt>
+<dd><p class="first last">Shape layers for input and output</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Start grade separation</em>, <em>End grade separation</em></dt>
+<dd><dl class="first docutils">
+<dt>Select fields for grade separation.  If given, links will only be deemed connected if</dt>
+<dd><ol class="first last arabic simple">
+<li>they share the same endpoints (x,y,z)</li>
+<li>they share the same grade separation value at those endpoints</li>
+</ol>
+</dd>
+</dl>
+<p class="last">Grade separation can also be used to emulate multilayer/multimode networks.  For example, use values of 0,1,2... for grade separation on roads, 10,11,12... for railways, etc.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Analysis Metric</em></dt>
+<dd><p class="first">Select metric for analysis: Euclidean, angular, custom, other (see <a class="reference internal" href="analysis-spec.html#metric"><span>Distance Metric</span></a> for details).</p>
+<p>Custom metrics require selection of a custom metric data field.</p>
+<p class="last">Some metrics provided are preset forms of hybrid metric designed for specific network types (pedestrian, vehicle, cycle, public transport).  You can inspect
+the message output of sDNA to discover exactly what formula they use.  Some presets include user variables, which have a default value but can be changed in advanced config; see <a class="reference internal" href="#preset-metric-variables">preset metric variables</a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Weighting</em>, <em>Origin weight</em>, <em>Destination weight</em></dt>
+<dd><p class="first last">Select <a class="reference internal" href="analysis-spec.html#weighting-type"><span>Weighting</span></a> (link, length or polyline) and the data to use.  If <em>origweightformula</em> or <em>destweightformula</em> are supplied in advanced config, they override origin and destination weight.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Radii</em></dt>
+<dd><p class="first last">Enter one or more radii to use as radius of analysis (see <a class="reference internal" href="analysis-spec.html#radii"><span>Radius</span></a> for details).  By default these are Euclidean and expressed in the spatial units of the data, which should usually be metres if your data is <a class="reference external" href=":ref:`projection`">projected correctly</a>.  If entering several, separate them by commas.  Radius &#8216;n&#8217; can be used to specify global analysis, limited only by the size of the network (but computationally intensive).  Example: <code class="docutils literal"><span class="pre">100,</span> <span class="pre">200,</span> <span class="pre">400,</span> <span class="pre">800,</span> <span class="pre">1600,</span> <span class="pre">n</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<ul>
+<li><dl class="first docutils">
+<dt><em>Continuous space</em></dt>
+<dd><p class="first last">Select whether <a class="reference internal" href="analysis-spec.html#continuous-space"><span>continuous space</span></a> analysis is used.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Banded radius</em></dt>
+<dd><p class="first last">If this mode is chosen, measures for each radius exclude links contained in the next smallest radius.  This allows multivariate analysis across radii while keeping cross-correlation of measures to a minimum.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Disable lines</em></dt>
+<dd><p class="first">Allows discarding of certain polylines from the analysis.  This is useful for testing multiple design
+options, or for switching on and off parts of the network such as cycle paths.</p>
+<p class="last">This parameter takes an <a class="reference internal" href="#expression"><span>expression</span></a> which, if it
+evaluates to a nonzero result for a given polyline, will disable that polyline.  In the simplest case, this can
+be a field name such as <code class="docutils literal"><span class="pre">walk_net</span></code> (which would disable all lines for which the walk_net field is nonzero) or a combination such as <code class="docutils literal"><span class="pre">walk_net||cycle_net</span></code> (which would disable both the walking and cycling network - useful for a vehicle analysis).</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><em>Origin Destination Matrix file</em></p>
+<blockquote>
+<div><p>Optionally allows weights to be determined by an Origin-Destination (OD) matrix.  The file must be formatted correctly, see <a class="reference internal" href="#creating-a-zone-table-or-matrix-file"><span>Creating a zone table or matrix file</span></a>.  All geodesic and destination weights are replaced by values read from the matrix.  The matrix is defined between sets of <em>zones</em>; polylines must contain fields to indicate their zone.</p>
+<p>In the case of sDNA Integral, <a class="reference internal" href="analysis-spec.html#two-phase-betweenness"><span>Two phase betweenness</span></a> is disabled, because use of a two phase model for determining geodesic and destination weights conflicts with use of an OD matrix to determine these.</p>
+</div></blockquote>
+</li>
+</ul>
+<ul id="intermediate-link-filter">
+<li><p class="first"><em>Intermediate link filter</em></p>
+<blockquote>
+<div><p>Optionally restricts the analysis to include only geodesics that pass through a given line or set of lines specified by the filter.  Affects output of Betweenness, Two Phase Betweenness, Two Phase Destination, Mean Crow Flight, Mean Geodesic Length, Diversion Ratio measures; also Geodesic and Destination geometries.</p>
+<p>This parameter takes an <a class="reference internal" href="#expression"><span>expression</span></a> which, if it
+evaluates to a nonzero result for a given line, will include geodesics which pass through that line.  In the simplest case, this can
+be a field name such as <code class="docutils literal"><span class="pre">my_link_filter</span></code> (which would disable all lines for which the field <em>my_link_filter</em> is nonzero).</p>
+<p>It is not sufficient for a geodesic&#8217;s origin or destination to pass the filter; an intermediate line must pass in order for the geodesic to be included.</p>
+</div></blockquote>
+</li>
+<li><dl class="first docutils">
+<dt><em>Advanced config</em></dt>
+<dd><p class="first last">Allows setting of parameters not shown in the interface.  These are described in <a class="reference internal" href="#advanced-config">advanced_config</a>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="individual-tool-details">
+<h2>7.2. Individual tool details<a class="headerlink" href="#individual-tool-details" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preparation">
+<h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prepare-network">
+<span id="prepare"></span><h4>Prepare network<a class="headerlink" href="#prepare-network" title="Permalink to this headline">¶</a></h4>
+<p>Prepares spatial networks for analysis by checking and optionally repairing various kinds of error.</p>
+<p><strong>Note that the functions offered by sDNA prepare are only a small subset of those needed for preparing networks.</strong>  A good understanding of <a class="reference internal" href="network_preparation.html#network-preparation"><span>Network Preparation</span></a> is needed, and other (free) tools can complement sDNA Prepare.</p>
+<p>The errors fixed by sDNA Prepare are:</p>
+<ul class="simple">
+<li><em>endpoint near misses</em> (XY and Z tolerance specify how close a near miss)</li>
+<li><em>duplicate lines</em></li>
+<li><em>traffic islands</em> (requires traffic island field set to 0 for no island and 1 for island).  Traffic island lines are straightened; if doing so creates duplicate lines then these are removed.</li>
+<li><em>split links</em>. Note that fixing split links is no longer necessary as of sDNA 3.0 so this is not done by default</li>
+<li><em>isolated systems</em></li>
+</ul>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+<p>Optionally, numeric data can be preserved through a prepare operation by providing the desired field names, separated by commas, to the parameters <em>Absolute data to preserve</em> and <em>Unit length data to preserve</em>.</p>
+</div>
+<div class="section" id="individual-line-measures">
+<h4>Individual Line Measures<a class="headerlink" href="#individual-line-measures" title="Permalink to this headline">¶</a></h4>
+<p>Outputs connectivity, bearing, euclidean, angular and hybrid metrics for individual polylines.</p>
+<p>This tool can be useful for checking and debugging spatial networks.  In particular, connectivity output can reveal geometry errors.</p>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+</div>
+</div>
+<div class="section" id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="integral-analysis">
+<span id="id2"></span><h4>Integral Analysis<a class="headerlink" href="#integral-analysis" title="Permalink to this headline">¶</a></h4>
+<p>sDNA Integral is the core analysis tool of sDNA.  It computes several flow, accessibility, severance and efficiency measures on networks.  Full details of the analysis are given in <a class="reference internal" href="analysis-friendly.html#analysis-friendly-guide"><span>Analysis: what the results mean</span></a> and <a class="reference internal" href="analysis-spec.html#analysis-full-specification"><span>Analysis: full specification</span></a>.</p>
+<p>Integral allows output of various groups of measures to be switched on and off.</p>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+</div>
+<div class="section" id="specific-origin-accessibility-maps">
+<h4>Specific Origin Accessibility Maps<a class="headerlink" href="#specific-origin-accessibility-maps" title="Permalink to this headline">¶</a></h4>
+<p>Outputs accessibility maps for specific origins.</p>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+<p>The accessibility map tool also allows a list of origin polyline IDs to be supplied (separated by commas).  Leave this parameter blank to output maps for all origins.</p>
+<p>If outputting &#8220;maps&#8221; for multiple origins, these will be output in the same feature class as overlapping polylines.  It may be necessary to split the result by origin link ID in order to display results correctly.</p>
+</div>
+<div class="section" id="integral-from-od-matrix-assignment-model">
+<h4>Integral from OD Matrix (assignment model)<a class="headerlink" href="#integral-from-od-matrix-assignment-model" title="Permalink to this headline">¶</a></h4>
+<p>A simplified version of sDNA Integral geared towards use of an external Origin Destination matrix.  Note that several other tools (including Integral) allow Origin Destination matrix input as well.</p>
+<p>The file must be formatted correctly, see <a class="reference internal" href="#creating-a-zone-table-or-matrix-file"><span>Creating a zone table or matrix file</span></a>.  All geodesic and destination weights are replaced by values read from the matrix.  The matrix is defined between sets of <em>zones</em>; polylines must contain text fields to indicate their zone.</p>
+</div>
+<div class="section" id="skim-matrix">
+<h4>Skim Matrix<a class="headerlink" href="#skim-matrix" title="Permalink to this headline">¶</a></h4>
+<p>Skim Matrix outputs a table of inter-zonal mean distance (as defined by whichever sDNA Metric is chosen), allowing high spatial resolution sDNA models of accessibility to be fed into existing zone-base transport models.</p>
+</div>
+</div>
+<div class="section" id="geometries">
+<h3>Geometries<a class="headerlink" href="#geometries" title="Permalink to this headline">¶</a></h3>
+<p>The geometry tools output individual geometries used in an integral analysis.  These may be useful either for visualization, or for exporting to external analysis tools.  For example, you could join geodesics to a pollution dataset to estimate exposure to pollution along everyday travel routes.</p>
+<div class="section" id="convex-hulls">
+<h4>Convex Hulls<a class="headerlink" href="#convex-hulls" title="Permalink to this headline">¶</a></h4>
+<p>Outputs the convex hulls of network radii used in <a class="reference internal" href="#integral-analysis">Integral Analysis</a>.</p>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+<p>The convex hulls tool also allows a list of origin polyline IDs to be supplied (separated by commas).  Leave this parameter blank to output hulls for all origins.</p>
+</div>
+<div class="section" id="geodesics">
+<h4>Geodesics<a class="headerlink" href="#geodesics" title="Permalink to this headline">¶</a></h4>
+<p>Outputs the geodesics (shortest paths) used by <a class="reference internal" href="#integral-analysis">Integral Analysis</a>.</p>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+<p>The geodesics tool also allows a list of origin and destination polyline IDs to be supplied (separated by commas).  Leave the origin or destination parameter blank to output geodesics for all origins or destinations.  (Caution: this can produce a very large amount of data).</p>
+</div>
+<div class="section" id="network-radii">
+<h4>Network Radii<a class="headerlink" href="#network-radii" title="Permalink to this headline">¶</a></h4>
+<p>Outputs the network radii used in <a class="reference internal" href="#integral-analysis">Integral Analysis</a>.</p>
+<p>See <a class="reference internal" href="#options-common-to-multiple-tools">Options common to multiple tools</a>.</p>
+<p>The network radii tool also allows a list of origin polyline IDs to be supplied (separated by commas).  Leave this parameter blank to output radii for all origins.</p>
+</div>
+</div>
+<div class="section" id="calibration">
+<h3>Calibration<a class="headerlink" href="#calibration" title="Permalink to this headline">¶</a></h3>
+<p>sDNA Learn and Predict provide a way to calibrate sDNA outputs against measured variables (flows, house prices, etc).  Currently they offer bivariate regression with Box-Cox transformation.  Multiple predictor variables (the outputs of sDNA) can be tested to see which gives the best cross-validated correlation with the target variable.</p>
+<div class="section" id="learn">
+<span id="id3"></span><h4>Learn<a class="headerlink" href="#learn" title="Permalink to this headline">¶</a></h4>
+<p>sDNA Learn selects the best model for predicting a target variable, then computes GEH and cross-validated <span class="math">\(R^2\)</span>.  If an output model file is set, the best model is saved and can be applied to fresh data using sDNA Predict.</p>
+<p>Available methods for finding models are:</p>
+<ul class="simple">
+<li><em>Single best variable</em> - performs bivariate regression of target against all variables and picks single predictor with best cross-validated fit</li>
+<li><em>Multiple variables</em> - regularized multivariate lasso regression</li>
+<li><em>All variables</em> - regularized multivariate ridge regression (may not use all variables, but will usually use more than lasso regression)</li>
+</ul>
+<p>Candidate predictor variables can either be entered as field names separated by commas, or alternatively as a <em>regular expression</em>.  The latter follows <a class="reference external" href="https://docs.python.org/2/library/re.html#regular-expression-syntax">Python regex syntax</a>.  A wildcard is expressed as <code class="docutils literal"><span class="pre">.*</span></code>, thus, <code class="docutils literal"><span class="pre">Bt.*</span></code> would test all Betweenness variables (which in abbreviated form begin with <em>Bt</em>) for correlation with the target.</p>
+<p>Box-Cox transformations can be disabled, and the parameters for cross-validation can be changed.</p>
+<p><em>Weighting lambda</em> weights data points by <span class="math">\(\frac{y^\lambda}{y}\)</span>, where <span class="math">\(y\)</span> is the target variable.  Setting to 1 gives unweighted regression.  Setting to around 0.7 can encourage selection of a model with better GEH statistic, when used with traffic count data.  Setting to 0 is somewhat analagous to using a log link function to handle Poisson distributed residuals, while preserving the model structure as a linear sum of predictors.  Depending on what you read, the literature can treat traffic count data as either normally or Poisson distributed, so something in between the two is probably safest.</p>
+<p>Ridge and Lasso regression can cope with multicollinear predictor variables, as is common in spatial network models.  The techniques can be interpreted as frequentist (adding a penalty term to prevent overfit); Bayesian (imposing a hyperprior on coefficient values); or a mild form of entropy maximization (that limits itself in the case of overspecified models).  More generally it&#8217;s a machine learning technique that is tuned using cross-validation.  The <span class="math">\(r^2\)</span> values reported by learn are always cross-validated, giving a built-in test of effectiveness in making predictions.</p>
+<p><em>Regularization Lambda</em> allows manual input of the minimum and maximum values for regularization parameter <span class="math">\(\lambda\)</span> in ridge and lasso regression. Enter two values separated by a comma. If this field is left blank, the software attempts to guess a suitable range, but is not always correct. If you are familiar with the theory of regularized regression you may wish to inpect a plot of cross validated <span class="math">\(r^2\)</span> against <span class="math">\(\lambda\)</span> to see what is going on. The data to do this is saved with the output model file (if specified), with extension <code class="docutils literal"><span class="pre">.regcurve.csv</span></code>.</p>
+</div>
+<div class="section" id="predict">
+<span id="id4"></span><h4>Predict<a class="headerlink" href="#predict" title="Permalink to this headline">¶</a></h4>
+<p>Predict takes an output model file from sDNA Learn, and applies it to fresh data.  For example, suppose we wish to calibrate a traffic model, using measured traffic flows at a small number of points on the network.</p>
+<ul class="simple">
+<li>First run a Betweenness analysis at a number of radii using <a class="reference internal" href="#integral-analysis">Integral Analysis</a>.</li>
+<li>Use a GIS spatial join to join Betweenness variables (the output of Integral) to the measured traffic flows.</li>
+<li>Run <a class="reference internal" href="#learn">Learn</a> on the joined data to select the best variable for predicting flows (where measured).</li>
+<li>Run <a class="reference internal" href="#predict">Predict</a> on the output of Integral to estimate traffic flow for all unmeasured polylines.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-configuration-and-command-line-options">
+<span id="advanced-config"></span><h2>7.3. Advanced configuration and command line options<a class="headerlink" href="#advanced-configuration-and-command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>sDNA supports a wide
+variety of options for customizing the analysis beyond what is shown in the user interface.  All of these are accessed through the advanced config system.</p>
+<p>Advanced config options are specified in a long string with options
+separated by semicolons (;) like this:</p>
+<div class="highlight-text"><div class="highlight"><pre>nohull;probroutethreshold=1.2;skipzeroweightorigins
+</pre></div>
+</div>
+<p>This is an example of an advanced config for sDNA Integral, which means</p>
+<ul class="simple">
+<li>Don’t compute convex hull</li>
+<li>Problem route threshold = 1.2</li>
+<li>Skip zero weight origins</li>
+</ul>
+<p>When calling sDNA <a class="reference internal" href="#integral-analysis">Integral Analysis</a> and <a class="reference internal" href="#prepare-network">Prepare Network</a> from the command line (<a class="reference internal" href="installation_usage.html#command-line"><span>Using sDNA from the command line</span></a>), the entire configuration is specified as an advanced config.  Therefore, the advanced config options include some which are usually set via the graphical interface.  If these options are given as advanced config in the sDNA graphical interface, an error (&#8220;Keyword specified multiple times&#8221;) will result.</p>
+<div class="section" id="advanced-config-options-for-sdna-prepare">
+<h3>Advanced config options for sDNA Prepare<a class="headerlink" href="#advanced-config-options-for-sdna-prepare" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="80%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Description</th>
+<th class="head">sDNA</th>
+<th class="head">sDNA+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>startelev=</td>
+<td>Name of field to read start elevation from</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>endelev=</td>
+<td>Name of field to read end elevation from</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>island=</td>
+<td>Name of field to read traffic island information from.  Anything other than zero will be treated as traffic island</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>islandfieldstozero=</td>
+<td>Specifies additional data fields to set to zero when fixing traffic islands (used for e.g. origin or destination weights)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>data_unitlength=</td>
+<td>Specifies numeric data to be preserved by sDNA prepare (preserves values per unit length, averages when merging links)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>data_absolute=</td>
+<td>Specifies numeric data to be preserved by sDNA prepare (preserves absolute values, sums when merging links)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>data_text</td>
+<td>Specifies text data to be preserved (merges if identical, deletes otherwise)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>xytol=</td>
+<td>Manual override xy tolerance for fixing endpoint connectivity</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>ztol=</td>
+<td>Manual override z tolerance for fixing endpoint connectivity</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><em>xytol and ztol are manual overrides for tolerance. sDNA, running
+on geodatabases from command line or ArcGIS, will read tolerance values from each feature class as
+appropriate. sDNA running in QGIS or on shapefiles will use a default tolerance of
+0, as shapefiles do not store tolerance information:- manual override is
+necessary to fix tolerance on shapefiles.</em></p>
+</div>
+<div class="section" id="advanced-config-options-for-sdna-integral-and-geometry-tools">
+<h3>Advanced config options for sDNA Integral and geometry tools<a class="headerlink" href="#advanced-config-options-for-sdna-integral-and-geometry-tools" title="Permalink to this headline">¶</a></h3>
+<p><em>sDNA Convex Hulls, Network Radii, Geodesics and Accessibility Map are all different interfaces applied to sDNA Integral, so will in some cases accept these options as well.</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Default</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>startelev=</td>
+<td>&nbsp;</td>
+<td>Name of field to read start elevation from</td>
+</tr>
+<tr class="row-odd"><td>endelev=</td>
+<td>&nbsp;</td>
+<td>Name of field to read end elevation from</td>
+</tr>
+<tr class="row-even"><td>metric=</td>
+<td>angular</td>
+<td>Metric – angular, euclidean, custom or one of the presets</td>
+</tr>
+<tr class="row-odd"><td>radius=</td>
+<td>n</td>
+<td>List of radii separated by commas</td>
+</tr>
+<tr class="row-even"><td>startelev=</td>
+<td>&nbsp;</td>
+<td>Name of field to read start elevation from</td>
+</tr>
+<tr class="row-odd"><td>endelev=</td>
+<td>&nbsp;</td>
+<td>Name of field to read end elevation from</td>
+</tr>
+<tr class="row-even"><td>origweight=</td>
+<td>&nbsp;</td>
+<td>Name of field to read origin weight from</td>
+</tr>
+<tr class="row-odd"><td>destweight=</td>
+<td>&nbsp;</td>
+<td>Name of field to read destination weight from</td>
+</tr>
+<tr class="row-even"><td>origweightformula=</td>
+<td>&nbsp;</td>
+<td>Expression for origin weight (overrides origweight)</td>
+</tr>
+<tr class="row-odd"><td>destweightformula=</td>
+<td>&nbsp;</td>
+<td>Expression for destination weight (overrides destweight)</td>
+</tr>
+<tr class="row-even"><td>weight=</td>
+<td>&nbsp;</td>
+<td>Name of field to read weight from. Applies weight field to both origins and destinations.</td>
+</tr>
+<tr class="row-odd"><td>zonesums=</td>
+<td>&nbsp;</td>
+<td>Expressions to sum over zones (see zone sums below)</td>
+</tr>
+<tr class="row-even"><td>lenwt</td>
+<td>&nbsp;</td>
+<td>Specifies that weight field is per unit length</td>
+</tr>
+<tr class="row-odd"><td>custommetric=</td>
+<td>&nbsp;</td>
+<td>Specified field name to read custom metric from</td>
+</tr>
+<tr class="row-even"><td>xytol=</td>
+<td>&nbsp;</td>
+<td>Manual override xy tolerance for fixing endpoint connectivity.</td>
+</tr>
+<tr class="row-odd"><td>ztol=</td>
+<td>&nbsp;</td>
+<td>Manual override z tolerance for fixing endpoint connectivity.</td>
+</tr>
+<tr class="row-even"><td>outputgeodesics</td>
+<td>&nbsp;</td>
+<td>Output geometry of all pairwise geodesics in analysis (careful – this can create a lot of data)</td>
+</tr>
+<tr class="row-odd"><td>outputdestinations</td>
+<td>&nbsp;</td>
+<td>Output geometry of all pairwise destinations in analysis (careful – this can create a lot of data).  Useful in combination with origins for creating a map of distance/metric from a given origin.</td>
+</tr>
+<tr class="row-even"><td>outputhulls</td>
+<td>&nbsp;</td>
+<td>Output geometry of all convex hulls in analysis</td>
+</tr>
+<tr class="row-odd"><td>outputnetradii</td>
+<td>&nbsp;</td>
+<td>Output geometry of all network radii in analysis</td>
+</tr>
+<tr class="row-even"><td>origins=</td>
+<td>&nbsp;</td>
+<td>Only compute selected origins (provide feature IDs as comma separated list).  Useful in conjunction with outputgeodesicsm, outputdestinations, outputhulls, outputnetradii.</td>
+</tr>
+<tr class="row-odd"><td>destinations=</td>
+<td>&nbsp;</td>
+<td>Only compute selected destinations (ditto)</td>
+</tr>
+<tr class="row-even"><td>nonetdata</td>
+<td>&nbsp;</td>
+<td>Don’t output any network data (used in conjunction with geometry outputs)</td>
+</tr>
+<tr class="row-odd"><td>pre=</td>
+<td>&nbsp;</td>
+<td>Prefix text of your choice to output column names</td>
+</tr>
+<tr class="row-even"><td>post=</td>
+<td>&nbsp;</td>
+<td>Postfix text of your choice to output column names</td>
+</tr>
+<tr class="row-odd"><td>nobetweenness</td>
+<td>&nbsp;</td>
+<td>Don’t calculate betweenness (saves a lot of time)</td>
+</tr>
+<tr class="row-even"><td>nojunctions</td>
+<td>&nbsp;</td>
+<td>Don’t calculate junction measures (saves time)</td>
+</tr>
+<tr class="row-odd"><td>nohull</td>
+<td>&nbsp;</td>
+<td>Don’t calculate convex hull measures (saves time)</td>
+</tr>
+<tr class="row-even"><td>linkonly</td>
+<td>&nbsp;</td>
+<td>Only calculate individual link measures.</td>
+</tr>
+<tr class="row-odd"><td>outputsums</td>
+<td>&nbsp;</td>
+<td>Output sum measures SAD, SCF etc as well as means MAD, MCF etc.</td>
+</tr>
+<tr class="row-even"><td>probroutes</td>
+<td>&nbsp;</td>
+<td>Output measures of problem routes – routes which exceed the length of the radius</td>
+</tr>
+<tr class="row-odd"><td>forcecontorigin</td>
+<td>&nbsp;</td>
+<td>Force origin link to be handled in continuous space, even in a discrete analysis.  Prevents odd results on very long links.</td>
+</tr>
+<tr class="row-even"><td>nqpdn=</td>
+<td>1</td>
+<td>Custom numerator power for NQPD equation</td>
+</tr>
+<tr class="row-odd"><td>nqpdd=</td>
+<td>1</td>
+<td>Custom denominator power for NQPD equation</td>
+</tr>
+<tr class="row-even"><td>skipzeroweightorigins</td>
+<td>&nbsp;</td>
+<td>Skips calculation of any output measures for origins with zero weight.  Saves a lot of time if many such origins exist.</td>
+</tr>
+<tr class="row-odd"><td>skipzeroweightdestinations</td>
+<td>1</td>
+<td>Zero weight destinations are skipped by default.  Note this will exclude them from geometry outputs; if this is not desired behaviour then set skipzeroweightdestinations=0</td>
+</tr>
+<tr class="row-even"><td>skiporiginifzero=</td>
+<td>&nbsp;</td>
+<td>Specified field name.  If this field is zero, the origin will be skipped.  Allows full customization of skipping origins.</td>
+</tr>
+<tr class="row-odd"><td>skipfraction=</td>
+<td>1</td>
+<td>Set to value n, skips calculation for (n-1)/n origins.  Effectively the increment value when looping over origins.</td>
+</tr>
+<tr class="row-even"><td>skipmod=</td>
+<td>0</td>
+<td>Chooses which origins are calculated if skipfraction?1.  Effectively the initial value when looping over origins: every skipfractionth origin is computed starting with the skipmodth one.</td>
+</tr>
+<tr class="row-odd"><td>nostrictnetworkcut</td>
+<td>&nbsp;</td>
+<td>Don’t constrain geodesics to stay within radius.  This will create a lot more ‘problem routes’.  Only alters behaviour of betweenness measures (not closeness).</td>
+</tr>
+<tr class="row-even"><td>probrouteaction=</td>
+<td>ignore</td>
+<td>Take special action for problem routes that exceed the radius by a factor greater than probroutethreshold.  Can be set to ignore, discard or reroute.  Reroute changes geodesic to shortest Euclidean path.  Only alters betweenness output, not closeness.</td>
+</tr>
+<tr class="row-odd"><td>probroutethreshold=</td>
+<td>1.2</td>
+<td>Threshold over which probrouteaction is taken.  Note this does not affect computation of probroutes measures, which report on all routes which exceed the radius length regardless of this setting.</td>
+</tr>
+<tr class="row-even"><td>outputdecomposableonly</td>
+<td>&nbsp;</td>
+<td>output only measures which are decomposable i.e. can be summed over different origins (useful for parallelization)</td>
+</tr>
+<tr class="row-odd"><td>linkcentretype=</td>
+<td>Angular for angular analysis, Euclidean otherwise</td>
+<td>Override link centre types – angular or Euclidean</td>
+</tr>
+<tr class="row-even"><td>lineformula=</td>
+<td>&nbsp;</td>
+<td>Formula for line metric in hybrid analysis (see below)</td>
+</tr>
+<tr class="row-odd"><td>juncformula=</td>
+<td>0</td>
+<td>Formula for junction turn metric in hybrid analysis (see below)</td>
+</tr>
+<tr class="row-even"><td>bidir</td>
+<td>&nbsp;</td>
+<td>Output betweenness for each direction separately</td>
+</tr>
+<tr class="row-odd"><td>oneway=</td>
+<td>&nbsp;</td>
+<td>Specified field name to read one way data from (see note 1 below)</td>
+</tr>
+<tr class="row-even"><td>vertoneway=</td>
+<td>&nbsp;</td>
+<td>Specified field name to read vertical one way data from (see note 1 below)</td>
+</tr>
+<tr class="row-odd"><td>oversample=</td>
+<td>1</td>
+<td>Number of times to run the analysis; results given are the mean of all runs.  Useful for sampling hybrid metrics with random components.</td>
+</tr>
+<tr class="row-even"><td>odmatrix</td>
+<td>&nbsp;</td>
+<td>Read OD matrix from input tables (a 2d table must be present)</td>
+</tr>
+<tr class="row-odd"><td>zonedist=</td>
+<td>euc</td>
+<td>Set expression to determine how zone weights are distributed over links in each zone, or 0 to skip distribution (all lines receive entire zone weight)</td>
+</tr>
+<tr class="row-even"><td>intermediates=</td>
+<td>&nbsp;</td>
+<td>Set expression for intermediate link filter.  Geodesics are discarded unless they pass through link where expression is nonzero.</td>
+</tr>
+<tr class="row-odd"><td>disable=</td>
+<td>&nbsp;</td>
+<td>Set expression to switch off links (links switched off when expression evaluates nonzero)</td>
+</tr>
+<tr class="row-even"><td>outputskim</td>
+<td>&nbsp;</td>
+<td>Output skim matrix file</td>
+</tr>
+<tr class="row-odd"><td>skimorigzone</td>
+<td>&nbsp;</td>
+<td>Origin zone field (must be text) for skim matrix</td>
+</tr>
+<tr class="row-even"><td>skimdestzone</td>
+<td>&nbsp;</td>
+<td>Destination zone field (must be text) for skim matrix</td>
+</tr>
+<tr class="row-odd"><td>skimzone</td>
+<td>&nbsp;</td>
+<td>Skim matrix zone field for both origin and destination (sets both skimorigzone and skimdestzone)</td>
+</tr>
+<tr class="row-even"><td>bandedradii</td>
+<td>&nbsp;</td>
+<td>Divide radius into bands: for each radius only include links outside the previous radius</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="preset-metric-variables">
+<span id="id5"></span><h3>Preset metric variables<a class="headerlink" href="#preset-metric-variables" title="Permalink to this headline">¶</a></h3>
+<p>A number of preset metrics are provided.  These are special cases of hybrid metrics, sometimes with a fairly complex formula.  To inspect the formula for a given metric, run <a class="reference internal" href="#individual-line-measures">Individual Line Measures</a> with the metric selected, and inspect the message output where the full formula will be shown.</p>
+<p>The CYCLE_ROUNDTRIP metric, as the name implies, measures a round trip to take account of hills in both directions.</p>
+<p>Certain variables within the preset metric formulae can be changed by assigning to them in advanced config.  To date, the list is:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="8%" />
+<col width="8%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Metric</th>
+<th class="head">Variable</th>
+<th class="head">Default</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Cycle</td>
+<td>aadtfield</td>
+<td>aadt</td>
+<td>Name of data field containing annual average daily vehicle traffic estimate</td>
+</tr>
+<tr class="row-odd"><td>Cycle</td>
+<td>t</td>
+<td>0.04</td>
+<td>Tendency of cyclists to avoid vehicle traffic</td>
+</tr>
+<tr class="row-even"><td>Cycle</td>
+<td>a</td>
+<td>0.3</td>
+<td>Tendency of cyclists to avoid angular change</td>
+</tr>
+<tr class="row-odd"><td>Cycle</td>
+<td>s</td>
+<td>0.5</td>
+<td>Tendency of cyclists to avoid slope</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="interpretation-of-one-way-data">
+<h3>Interpretation of one way data<a class="headerlink" href="#interpretation-of-one-way-data" title="Permalink to this headline">¶</a></h3>
+<p>One way data is interpreted as follows:</p>
+<ul class="simple">
+<li>0 – traversal allowed in both directions (so long as <em>vertoneway</em> allows this too)</li>
+<li>positive number – forward traversal only</li>
+<li>negative number – backward traversal only</li>
+</ul>
+<p>Forwards/backwards are taken with respect to the direction in which the
+link is drawn in the network (ordering of points in the data).</p>
+<p>Vertical one way data is interpreted as follows:</p>
+<ul class="simple">
+<li>0 – traversal allowed in both directions (so long as <em>oneway</em> allows this too)</li>
+<li>positive number – upward traversal only</li>
+<li>negative number – downward traversal only</li>
+</ul>
+<p>Upward/downward are deduced by measuring the endpoints of the link only.
+In the event that these have the same elevation/height and this leads to
+ambiguity, sDNA will print an error message and exit.</p>
+<p>If conflicting <em>oneway</em> and <em>vertoneway</em> data are provided, sDNA
+will print an error message and exit. Note that if either field is zero,
+the other is permitted to override it without conflict.</p>
+</div>
+<div class="section" id="creating-a-zone-table-or-matrix-file">
+<span id="id6"></span><h3>Creating a zone table or matrix file<a class="headerlink" href="#creating-a-zone-table-or-matrix-file" title="Permalink to this headline">¶</a></h3>
+<p>sDNA can read custom zone data, that is, data attached to <em>zones</em> rather than individual lines in the network.  This can come from</p>
+<ul class="simple">
+<li>one-dimensional zone tables: provide the zone files to sDNA&#8217;s inputs, and then reference the variables in expressions in the same way as you would use network data. This performs a function similar to a database join, to link zonal data to individual polylines. See <a class="reference internal" href="#zone-data-and-zone-sums">Zone Data and Zone Sums</a>.</li>
+<li>a custom origin-destination (OD) matrix: provide sDNA with a two-dimensional table and it will override all other weights</li>
+</ul>
+<p>One dimensional tables can be provided in <em>list</em> format, and two dimensional tables can be provided in <em>list</em> or <em>matrix</em> format.  The <em>list</em> format allows for sparse data, that is, data need not be given for all zones, and is assumed to be zero where not given.</p>
+<p>All tables must be saved in CSV (comma separated) format.</p>
+<div class="section" id="d-table-in-list-format">
+<h4>1d table in list format<a class="headerlink" href="#d-table-in-list-format" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>list</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>zone</td>
+<td>houses</td>
+<td>jobs</td>
+<td>schools</td>
+</tr>
+<tr class="row-odd"><td>westeros</td>
+<td>2000</td>
+<td>4000</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>royston vasey</td>
+<td>1800</td>
+<td>7</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>mordor</td>
+<td>600</td>
+<td>10000</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>narnia</td>
+<td>2100</td>
+<td>500</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>A 1d table in list format must have</p>
+<ul class="simple">
+<li><em>list</em> and <em>1</em> in the header row</li>
+<li>zone field name and data names in the second row.  The network must contain a text field with name matching the zone field name (in this case &#8220;zone&#8221;)</li>
+<li>zones and data below</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>2d table in list format<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>list</td>
+<td>2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>zone</td>
+<td>zone</td>
+<td>flow</td>
+</tr>
+<tr class="row-odd"><td>shire</td>
+<td>rivendell</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>rivendell</td>
+<td>mordor</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>mordor</td>
+<td>shire</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>gondor</td>
+<td>mordor</td>
+<td>10000</td>
+</tr>
+<tr class="row-odd"><td>mordor</td>
+<td>gondor</td>
+<td>5000</td>
+</tr>
+</tbody>
+</table>
+<p>A 2d table in list format must have</p>
+<ul class="simple">
+<li><em>list</em> and <em>2</em> in the header row</li>
+<li>origin and destination zone field names followed by data names in the second row.  The network must contain a text field with name matching the zone field names.  In this case, the origin and destination zones are drawn from the same set so these are both named &#8220;zone&#8221;.  Different sets of zones for origin and destination are supported however (e.g. for use with census residential and workplace zones).</li>
+<li>zones and data below</li>
+</ul>
+</div>
+<div class="section" id="d-table-in-matrix-format">
+<h4>2d table in matrix format<a class="headerlink" href="#d-table-in-matrix-format" title="Permalink to this headline">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>matrix</td>
+<td>zone</td>
+<td>zone</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>flow</td>
+<td>shire</td>
+<td>rivendell</td>
+<td>gondor</td>
+<td>mordor</td>
+</tr>
+<tr class="row-odd"><td>shire</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td>rivendell</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>gondor</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10000</td>
+</tr>
+<tr class="row-even"><td>mordor</td>
+<td>2</td>
+<td>0</td>
+<td>5000</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><em>This table shows the same data as the 2d table in list format above</em></p>
+<p>A 2d table in matrix format must have</p>
+<ul class="simple">
+<li><em>matrix</em> in the first line followed by the origin zone field name then the destination zone field name.  The network must contain a text field with name matching the zone field names.  In this case, the origin and destination zones are drawn from the same set so these are both named &#8220;zone&#8221;.  Different sets of zones for origin and destination are supported however (as with 2d list tables above).</li>
+<li>the second row starts with the name of the data, then the name of each destination zone</li>
+<li>the left column from row 3 downwards contains the name of each origin zone</li>
+<li>the remainder of the matrix contains the data</li>
+</ul>
+</div>
+</div>
+<div class="section" id="zone-data-and-zone-sums">
+<h3>Zone Data and Zone Sums<a class="headerlink" href="#zone-data-and-zone-sums" title="Permalink to this headline">¶</a></h3>
+<p>Zone data is accessed in the same way as field data in expressions, described below. The following computes origin weights by multiplying <em>zoneweight</em> (taken from a table provided to sDNA) with the euclidean length of each polyline:</p>
+<div class="highlight-text"><div class="highlight"><pre>origweightformula = zoneweight * euc
+</pre></div>
+</div>
+<p>Using <em>zonesums</em> in sDNA Integral&#8217;s advanced config, it is possible to sum data over network zones. This is useful for controlling how zonal weights are distributed over polylines. The following example</p>
+<ul>
+<li><p class="first">gives an example of how to use multiple zone schemes. It assumes two zonal variables are provided; <em>residential_weight</em> is defined for each zone in <em>res_zone</em>, and <em>retail_weight</em> is defined for each zone in <em>ret_zone</em>. In each case, the zone file will specify the fieldname which tells sDNA which zone each polyline belongs to.</p>
+</li>
+<li><p class="first">gives an example of how to compute multiple zone sums. These are specified in the form <em>sum1=expr1&#64;zonefield1,sum2=expr2&#64;zonefield2,...</em>. The config creates two zone sum fields, <em>eucsum</em> which is the total Euclidean length in each residential zone (<em>res_zone</em>), and <em>linksum</em> which is the total link count in each retail zone (<em>ret_zone</em>).</p>
+</li>
+<li><p class="first">gives an example of how to distribute zonal weights over the zones. <em>origweightformula</em> distributes the <em>residential_weight</em> zonal variable evenly over network length in each residential zone, while <em>destweightformula</em> distributes the <em>retail_weight</em> zonal variable evenly over links in each retail zone. (Note that polylines may constitute partial links, hence the use of <em>FULLlf</em>):</p>
+<div class="highlight-text"><div class="highlight"><pre>zonesums = eucsum=euc@origzonefield, linksum=FULLlf@destzonefield; origweightformula = residential_weight*proportion(euc,eucsum); destweightformula = retail_weight*proportion(FULLlf,linksum)
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">proportion(x,y)</span></code> function divides <code class="docutils literal"><span class="pre">x</span></code> by <code class="docutils literal"><span class="pre">y</span></code>, which is useful to work out what proportion of zone weight is found in the current link.  It correctly handles the special cases where the zone contains no weight.</p>
+<p>Note that <em>origweightformula</em> and <em>destweightformula</em> are always computed in discrete, rather than continuous space.</p>
+</div>
+<div class="section" id="expression-reference">
+<span id="expression"></span><h3>Expression reference<a class="headerlink" href="#expression-reference" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="39%" />
+<col width="22%" />
+<col width="9%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator (in reverse order of precedence)</th>
+<th class="head">Name</th>
+<th class="head">Example</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>,</td>
+<td>Statement separator</td>
+<td>a,b,c</td>
+<td>Do a, then b, then output c</td>
+</tr>
+<tr class="row-odd"><td>=</td>
+<td>Assignment</td>
+<td>_a=b</td>
+<td>Set _a equal to b</td>
+</tr>
+<tr class="row-even"><td>?:</td>
+<td>If-then-else</td>
+<td>p?x:y</td>
+<td>If p then x else y</td>
+</tr>
+<tr class="row-odd"><td>&amp;&amp;</td>
+<td>Logical and</td>
+<td>a&amp;&amp;b</td>
+<td>a and b</td>
+</tr>
+<tr class="row-even"><td>||</td>
+<td>Logical or</td>
+<td>a||b</td>
+<td>a or b</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>Less than or equal</td>
+<td>a&lt;=b</td>
+<td>a is less than or equal to b</td>
+</tr>
+<tr class="row-even"><td>&gt;=</td>
+<td>Greater than or equal</td>
+<td>a&gt;=b</td>
+<td>a is greater than or equal to b</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>Not equal</td>
+<td>a!=b</td>
+<td>a is not equal to b</td>
+</tr>
+<tr class="row-even"><td>==</td>
+<td>Equal</td>
+<td>a==b</td>
+<td>a is equal to b</td>
+</tr>
+<tr class="row-odd"><td>&gt;</td>
+<td>Greater than</td>
+<td>a&gt;b</td>
+<td>a is greater than b</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>Less than</td>
+<td>a&lt;b</td>
+<td>a is less than b</td>
+</tr>
+<tr class="row-odd"><td>+</td>
+<td>Addition</td>
+<td>a+b</td>
+<td>a plus b</td>
+</tr>
+<tr class="row-even"><td>-</td>
+<td>Subtraction</td>
+<td>a-b</td>
+<td>a minus b</td>
+</tr>
+<tr class="row-odd"><td>*</td>
+<td>Multiplication</td>
+<td>a*b</td>
+<td>a times b</td>
+</tr>
+<tr class="row-even"><td>/</td>
+<td>Division</td>
+<td>a/b</td>
+<td>a divided by b</td>
+</tr>
+<tr class="row-odd"><td>^</td>
+<td>Exponentiation</td>
+<td>a^b</td>
+<td>a to the power of b</td>
+</tr>
+<tr class="row-even"><td>()</td>
+<td>Parentheses</td>
+<td>2*(x+1)</td>
+<td>add one to x then multiply by 2</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="73%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Builtin functions</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first">sin(x), cos(x), tan(x)</p>
+<p>asin(x), acos(x), atan(x)</p>
+<p>sinh(x), cosh(x), tanh(x)</p>
+<p class="last">asinh(x), acosh(x), atanh(x)</p>
+</td>
+<td>Trigonometric functions of x (in radians).</td>
+</tr>
+<tr class="row-odd"><td>log2(x)</td>
+<td>Logarithm of x base 2</td>
+</tr>
+<tr class="row-even"><td>log10(x), log(x)</td>
+<td>Logarithm of x base 10</td>
+</tr>
+<tr class="row-odd"><td>ln(x)</td>
+<td>Logarithm of x base e</td>
+</tr>
+<tr class="row-even"><td>exp(x)</td>
+<td>e to the power of x</td>
+</tr>
+<tr class="row-odd"><td>sqrt(x)</td>
+<td>Square root of x</td>
+</tr>
+<tr class="row-even"><td>sign(x)</td>
+<td>-1 if x is negative, else 1</td>
+</tr>
+<tr class="row-odd"><td>rint(x)</td>
+<td>x rounded to nearest integer</td>
+</tr>
+<tr class="row-even"><td>abs(x)</td>
+<td>Absolute value of x</td>
+</tr>
+<tr class="row-odd"><td><p class="first">min(a,b,c,…)</p>
+<p>max(a,b,c,…)</p>
+<p>sum(a,b,c,…)</p>
+<p class="last">avg(a,b,c,…)</p>
+</td>
+<td>Minimum, maximum, sum and average of all arguments</td>
+</tr>
+<tr class="row-even"><td>trunc(x,l,u)</td>
+<td>Truncate x to the range [l,u] (including endpoints)</td>
+</tr>
+<tr class="row-odd"><td>randnorm(m,s)</td>
+<td>Random number drawn from normal distribution with mean m and standard deviation s</td>
+</tr>
+<tr class="row-even"><td>randuni(l,u)</td>
+<td>Random number drawn from uniform distribution on range [l,u]</td>
+</tr>
+<tr class="row-odd"><td>proportion(x,y)</td>
+<td>Divides x by y. Returns 0 if x=y=0 and stops calculation with error if x&gt;0 and y=0.
+Useful for distributing zonal weights over links.</td>
+</tr>
+</tbody>
+</table>
+<p>Random numbers are generated from Mersenne Twister mt19937 algorithm.
+<em>&#8220;Mersenne Twister: A 623-dimensionally equidistributed uniform
+pseudo-random number generator&#8221;, Makoto Matsumoto and Takuji Nishimura,
+ACM Transactions on Modeling and Computer Simulation: Special Issue on
+Uniform Random Number Generation, Vol. 8, No. 1, January 1998, pp.
+3-30.</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Constants</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>inf</td>
+<td>infinity</td>
+</tr>
+<tr class="row-odd"><td>pi</td>
+<td>pi</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Variables</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ang</td>
+<td>Angular change</td>
+</tr>
+<tr class="row-odd"><td>euc</td>
+<td>Euclidean distance</td>
+</tr>
+<tr class="row-even"><td>hg</td>
+<td>Height gain</td>
+</tr>
+<tr class="row-odd"><td>hl</td>
+<td>Height loss</td>
+</tr>
+<tr class="row-even"><td>FULLang</td>
+<td>Angular change for entire polyline</td>
+</tr>
+<tr class="row-odd"><td>FULLeuc</td>
+<td>Euclidean distance for entire polyline</td>
+</tr>
+<tr class="row-even"><td>FULLhg</td>
+<td>Height gain for entire polyline</td>
+</tr>
+<tr class="row-odd"><td>FULLhl</td>
+<td>Height loss for entire polyline</td>
+</tr>
+<tr class="row-even"><td>FULLlf</td>
+<td>Link fraction for entire polyline</td>
+</tr>
+<tr class="row-odd"><td><em>_x</em></td>
+<td><em>(where x is any name)</em>: Temporary variable (initialized to 0)</td>
+</tr>
+<tr class="row-even"><td><em>x</em></td>
+<td><em>(where x is any name not used as function or other value)</em>: field data on polyline</td>
+</tr>
+</tbody>
+</table>
+<p><em>Any variable can be assigned to with =, but the new value will only
+affect the current formula being evaluated (assigning to ``ang`` will
+not change the shape of the network, for example!). It is recommended to
+use only temporary variables of the form ``_x`` as targets for
+assignment.</em></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="step_by_step_guides.html" title="8. Step by step guides for specific tasks"
+             >next</a></li>
+        <li class="right" >
+          <a href="installation_usage.html" title="6. Installation and first usage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">sDNA Open 4.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+    </div>
+  </body>
+</html>

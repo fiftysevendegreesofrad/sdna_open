@@ -1,0 +1,332 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Open Source Spatial Design Network Analysis (sDNA Open) Manual &mdash; sDNA Open 4.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '4.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="top" title="sDNA Open 4.0.2 documentation" href="#" />
+    <link rel="next" title="1. Introduction" href="introduction.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="introduction.html" title="1. Introduction"
+             accesskey="N">next</a></li>
+        <li class="nav-item nav-item-0"><a href="#">sDNA Open 4.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/weblogo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_preparation.html">2. Network Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-friendly.html">3. Analysis: what the results mean</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-spec.html">4. Analysis: full specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation_usage.html">6. Installation and first usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_to_individual_tools.html">7. Guide to individual tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step_by_step_guides.html">8. Step by step guides for specific tasks</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">1. Introduction</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="open-source-spatial-design-network-analysis-sdna-open-manual">
+<h1>Open Source Spatial Design Network Analysis (sDNA Open) Manual<a class="headerlink" href="#open-source-spatial-design-network-analysis-sdna-open-manual" title="Permalink to this headline">¶</a></h1>
+<p>This is the manual for sDNA Open, the spatial network analysis toolbox for GIS and Python.</p>
+<p><strong>This manual can be cited as follows:</strong></p>
+<blockquote>
+<div>Cooper, C. (2019) Spatial Design Network Analysis (sDNA) Open version 4.0 Manual. Cardiff University.</div></blockquote>
+<p><strong>Please also remember to cite the software itself in any published sDNA analysis:</strong></p>
+<blockquote>
+<div>Cooper, C., Chiaradia, A., Webster, C. (2019) Spatial Design Network Analysis Open software, version 4.0, Cardiff University.</div></blockquote>
+<p><strong>How to get help</strong></p>
+<p>Please ask questions on <a class="reference external" href="https://gis.stackexchange.com/">GIS Stack Exchange</a> and tag them with <em>sdna</em>. If you get no response within a few days, feel free to chase up the sDNA developers by sending an email to <a class="reference external" href="mailto:sdna&#37;&#52;&#48;cardiff&#46;ac&#46;uk">sdna<span>&#64;</span>cardiff<span>&#46;</span>ac<span>&#46;</span>uk</a> with a link to your stack exchange question.</p>
+<p><strong>Bugs, Feature Requests, Errata</strong></p>
+<p>Please report bugs, feature requests and any errors found in the manual to the bug issue tracker on sDNA Open&#8217;s github page.</p>
+<p><strong>Acknowledgements:</strong> This manual was originally put together under an Impact Accelerator grant from the Economic and Social Research Council.  The principal investigator was Alain Chiaradia and the co-investigator Crispin Cooper, based at Cardiff University department of Geography and Planning and the Sustainable Places Research Institute.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-sdna-is-used-for">1.1. What sDNA is used for</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#research-evidence">1.2. Research Evidence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_preparation.html">2. Network Preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_preparation.html#principles">2.1. Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#data-in-a-misleading-format">Data in a misleading format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#connectivity-rules">Connectivity rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#spatial-reference">Spatial reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#connectivity-errors-at-key-locations">Connectivity errors at key locations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#cluster-tolerance">Cluster tolerance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#intersections-and-overlaps">Intersections and overlaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#incorrect-grade-separation-elevation-and-oneway-data">Incorrect grade separation, elevation and oneway data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#definitive-check-for-connectivity-errors">Definitive check for connectivity errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#geometry-errors-at-key-locations">Geometry errors at key locations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network_preparation.html#traffic-islands">Traffic islands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="network_preparation.html#tools">2.2. Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#break-intersections">Break intersections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#topology">Topology</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="network_preparation.html#notes-on-specific-formats">2.3. Notes on specific formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#address-point-data">Address point data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#openstreetmap-osm">OpenStreetMap (OSM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network_preparation.html#pedestrian-networks">Pedestrian networks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-friendly.html">3. Analysis: what the results mean</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis-friendly.html#links-and-network-radius">3.1. Links and network radius</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-friendly.html#betweenness">3.2. Betweenness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-friendly.html#closeness">3.3. Closeness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-friendly.html#other-measures">3.4. Other measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-friendly.html#summary-of-measures">3.5. Summary of measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-friendly.html#calibration">3.6. Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis-spec.html">4. Analysis: full specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis-spec.html#definitions">4.1. Definitions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#link">Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#polyline">Polyline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#junction">Junction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#distance-metric">Distance Metric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#radius">Radius</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#geodesic">Geodesic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-spec.html#weighting">4.2. Weighting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-spec.html#handling-of-one-way-systems">4.3. Handling of one-way systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-spec.html#mathematical-definition-of-outputs">4.4. Mathematical definition of outputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#notation">Notation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#centrality-measures">Centrality measures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#farness">Farness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#closeness">Closeness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#mean-geodesic-length">Mean geodesic length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#network-quantity-penalized-by-distance-gravity-model">Network quantity penalized by distance (gravity model)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#betweenness">Betweenness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#two-phase-betweenness">Two phase betweenness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#two-phase-destination">Two phase destination</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#network-detour-analysis">Network detour analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#mean-crow-flight">Mean Crow Flight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#diversion-ratio">Diversion Ratio</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#network-shape-analysis">Network shape analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#convex-hull-area">Convex Hull Area</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#convex-hull-perimeter">Convex Hull Perimeter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#convex-hull-maximum-radius">Convex Hull Maximum Radius</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#convex-hull-bearing">Convex Hull Bearing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#convex-hull-shape-index">Convex Hull Shape Index</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#radius-description-measures">Radius description measures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#links">Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#length">Length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#weight">Weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#angular-distance">Angular Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#junctions">Junctions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#connectivity">Connectivity</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis-spec.html#individual-polyline-descriptive-measures">Individual polyline descriptive measures</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#line-length">Line Length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#line-connectivity">Line Connectivity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#line-angular-curvature">Line Angular Curvature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#line-hybrid-metrics">Line Hybrid Metrics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#line-sinuosity">Line Sinuosity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#line-bearing">Line Bearing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis-spec.html#link-fraction">Link Fraction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="analysis-spec.html#list-of-outputs-and-abbreviations">4.5. List of outputs and abbreviations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html#is-the-model-wrong-or-am-i">5.1. Is the model wrong, or am I?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#links-with-low-flow-in-the-model-which-we-didnt-expect">Links with low flow in the model which we didn’t expect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html#links-with-high-flow-in-the-model-which-we-didnt-expect">Links with high flow in the model which we didn’t expect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation_usage.html">6. Installation and first usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation_usage.html#requirements">6.1. Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_usage.html#installation">6.2. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation_usage.html#using-sdna-for-the-first-time">6.3. Using sDNA for the first time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation_usage.html#arcgis">ArcGIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation_usage.html#qgis">QGIS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation_usage.html#autocad">Autocad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation_usage.html#advanced-sdna-models-in-autocad-map3d">Advanced sDNA models in Autocad Map3d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation_usage.html#using-sdna-from-the-command-line">Using sDNA from the command line</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installation_usage.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="installation_usage.html#using-sdna-through-the-python-interface">Using sDNA through the Python interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_to_individual_tools.html">7. Guide to individual tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_to_individual_tools.html#options-common-to-multiple-tools">7.1. Options common to multiple tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_to_individual_tools.html#individual-tool-details">7.2. Individual tool details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#preparation">Preparation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#prepare-network">Prepare network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#individual-line-measures">Individual Line Measures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#analysis">Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#integral-analysis">Integral Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#specific-origin-accessibility-maps">Specific Origin Accessibility Maps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#integral-from-od-matrix-assignment-model">Integral from OD Matrix (assignment model)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#skim-matrix">Skim Matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#geometries">Geometries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#convex-hulls">Convex Hulls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#geodesics">Geodesics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#network-radii">Network Radii</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#calibration">Calibration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#learn">Learn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#predict">Predict</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="guide_to_individual_tools.html#advanced-configuration-and-command-line-options">7.3. Advanced configuration and command line options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#advanced-config-options-for-sdna-prepare">Advanced config options for sDNA Prepare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#advanced-config-options-for-sdna-integral-and-geometry-tools">Advanced config options for sDNA Integral and geometry tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#preset-metric-variables">Preset metric variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#interpretation-of-one-way-data">Interpretation of one way data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#creating-a-zone-table-or-matrix-file">Creating a zone table or matrix file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#d-table-in-list-format">1d table in list format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#id7">2d table in list format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="guide_to_individual_tools.html#d-table-in-matrix-format">2d table in matrix format</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#zone-data-and-zone-sums">Zone Data and Zone Sums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_to_individual_tools.html#expression-reference">Expression reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="step_by_step_guides.html">8. Step by step guides for specific tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="step_by_step_guides.html#downloading-and-preparing-data-from-openstreetmap">8.1. Downloading and preparing data from OpenStreetMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="step_by_step_guides.html#modelling-a-combined-vehicle-and-cycle-network">8.2. Modelling a combined vehicle and cycle network</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#production-of-a-routable-network">Production of a routable network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#running-the-vehicle-network-model">Running the vehicle network model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#calibrating-the-vehicle-model">Calibrating the vehicle model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#production-of-the-cycle-model">Production of the cycle model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#calibration-of-the-cycle-model">Calibration of the cycle model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#recommended-model-outputs">Recommended model outputs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#predicted-vehicle-flows">Predicted vehicle flows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#predicted-cyclist-flows">Predicted cyclist flows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#accessibility">Accessibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#effect-of-traffic-and-slope-on-accessibility">Effect of traffic and slope on accessibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#effect-of-traffic-on-accessibility">Effect of traffic on accessibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#predicted-conflicts">Predicted conflicts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#flows-to-from-specific-facilities">Flows to/from specific facilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#accessibility-to-from-specific-facilities">Accessibility to/from specific facilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="step_by_step_guides.html#change-to-accessibility-caused-by-proposed-scheme">Change to accessibility caused by proposed scheme</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="step_by_step_guides.html#displaying-model-outputs">Displaying model outputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="introduction.html" title="1. Introduction"
+             >next</a></li>
+        <li class="nav-item nav-item-0"><a href="#">sDNA Open 4.0.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
+    </div>
+  </body>
+</html>
