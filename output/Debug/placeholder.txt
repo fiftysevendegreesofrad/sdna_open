@@ -1,0 +1,1 @@
+This file is checked in to endure the folder gets created when checking out from git.
