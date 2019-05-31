@@ -2,7 +2,7 @@ import re,os
 
 def getVersion():
     version = None
-    versionfile = os.path.dirname(__file__)+r"\sdna\sdna_vs2008\version_template.h"
+    versionfile = os.path.dirname(__file__)+os.sep+"sdna"+os.sep+"sdna_vs2008"+os.sep+"version_template.h"
     for line in (open (versionfile)):
         m = re.match('^const char \*SDNA_VERSION = "(.*)";.*',line)
         if m:
