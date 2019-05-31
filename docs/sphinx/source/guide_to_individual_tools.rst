@@ -260,7 +260,7 @@ Advanced config options for sDNA Prepare
 
 .. csv-table::
    :file: prepare-advanced-config.csv
-   :widths: 10,80,5,5
+   :widths: 10,80
    :header-rows: 1
    
 

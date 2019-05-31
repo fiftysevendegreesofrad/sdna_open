@@ -29,9 +29,9 @@ Note that Autocad usage is limited to network shape analysis using sDNA Prepare 
 Installation
 ************
 
-sDNA can be downloaded an installed from our website_.  You will need a serial number; these can be obtained for free.  
+sDNA Open can be downloaded an installed from Github_.  You will need a serial number; these can be obtained for free.  
 
-.. _website: http://www.cardiff.ac.uk/sdna/software/download/
+.. _Github: https://github.com/fiftysevendegreesofrad/sdna_open/releases
 
 Further steps are then needed depending on how you plan to use sDNA.
 
@@ -39,9 +39,6 @@ Further steps are then needed depending on how you plan to use sDNA.
 
 Using sDNA for the first time
 *****************************
-
-Before using sDNA, it is necessary to unlock it using ``sDNA License Manager`` on your Start menu.  If you wish to 
-manage licenses for all users, then sDNA License Manager must be run as administrator.
 
 How you use sDNA depends on your host application.
 
