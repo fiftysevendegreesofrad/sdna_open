@@ -31,7 +31,6 @@ import shlex
 # ones.
 extensions = [
     'sphinx.ext.mathjax',
-    'sphinxcontrib.fulltoc',
     'sphinx_numfig'
 ]
 
