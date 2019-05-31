@@ -10,9 +10,9 @@ Copyright rests with Cardiff University and the code is released under GPL versi
 
 ### Installation
 
-A download of the windows installer will be available soon.
+Downloads of the windows installer are available [here](https://github.com/fiftysevendegreesofrad/sdna_open/releases).
 
-The original sDNA project website will also continue to host releases both for the closed-source-but-free-as-in-beer sDNA alongside the commercial sDNA+. Depending on your needs, you may therefore prefer to install the  [proprietary build](https://www.cardiff.ac.uk/sdna/software/download/). Depending on how this fork develops, it is possible that future builds will offer different features.
+The original sDNA project website will also continue to host releases both for the closed-source-but-free-as-in-beer sDNA, and  the commercial sDNA+. Depending on your needs, you may therefore prefer to install the  [proprietary build](https://www.cardiff.ac.uk/sdna/software/download/). Depending on how this fork develops, it is possible that future builds will offer different features.
 
 If you wish to be kept apace of new sDNA developments, you might prefer the closed-source-but-free-as-in-beer version, as installing and unlocking this will add you to our mailing list. (At some point we will create a separate mailing list signup!)
 
@@ -31,7 +31,7 @@ Use the software via any of the following means:
 
 ### Documentation
 
-At the present time the best source of documentation is the manual hosted on the [sDNA/sDNA+ website](https://www.cardiff.ac.uk/sdna). If you build the project yourself, a copy of the docs will also be built from source in the repository.
+An automated build of the documentation can be found on [readthedocs](https://sdna-open.readthedocs.io/en/latest/index.html). 
 
 ### Support
 
