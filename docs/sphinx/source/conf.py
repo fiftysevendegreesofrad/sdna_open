@@ -30,7 +30,9 @@ import shlex
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
+    'sphinxcontrib.fulltoc',
+    'sphinx_numfig'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
