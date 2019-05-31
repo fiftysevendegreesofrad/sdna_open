@@ -4,13 +4,13 @@ This is the open source fork of the formerly proprietary sDNA software created b
 
 We are grateful to various parties for financial contributions towards  development: in no particular order, Hong Kong University, Tongji University, the UK Economic and Social Research Council, BRE, Wedderburn Transport Planning. Also research contributions in kind from Arup Ltd, WSP Global Engineering, BuroHappold and Sustrans. 
 
-Copyright rests with Cardiff University and the code is released under GPL version 2.
+Copyright rests with Cardiff University and the code is released under GPL version 3.
 
 ## For Users
 
 ### Installation
 
-A [download of the windows installer](sDNA_setup_win_v4_0_0.msi) is available in the project root.
+A download of the windows installer will be available soon.
 
 The original sDNA project website will also continue to host releases both for the closed-source-but-free-as-in-beer sDNA alongside the commercial sDNA+. Depending on your needs, you may therefore prefer to install the  [proprietary build](https://www.cardiff.ac.uk/sdna/software/download/). Depending on how this fork develops, it is possible that future builds will offer different features.
 
