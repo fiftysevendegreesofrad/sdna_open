@@ -121,6 +121,10 @@ For other products in the Autocad family, use of basic models (without user data
 
 9. When Autocad is restarted, the sDNA application will be loaded.
 
+sDNA for Autocad processes networks of polylines using the coincident endpoint connectivity rule (see network preparation chapter for more details on this). Networks using an intersection-is-connectivity rule can be converted using the **sdnaconvertunlinks** tool. This will take a mixture of polylines and polygons as input, and automatically breaks all polylines where they intersect (unless the intersection falls inside a polygon, which you can use to denote brunels).
+
+After running sDNA Integral, you will need to use the sDNA Colour tool to display results.
+
 In Autocad 2010 onwards, sDNA will appear as a series of buttons on the
 ribbon toolbar labelled “sDNA”. Simply click these buttons to load the
 tools.
@@ -128,6 +132,8 @@ tools.
 In older versions of Autocad, it is necessary to know the commands for
 running sDNA. (These can also be used in Autocad 2010 onwards, if
 preferred). Enter one of the following at the command prompt:
+
+- **sdnaconvertunlinks** to convert from intersection-connectivity to coincident endpoint connectivity
 
 -  **sdnaloaditn** to load ITN data
 

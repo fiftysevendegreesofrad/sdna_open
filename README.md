@@ -54,6 +54,8 @@ Build requirements:
 
 First build the geos library using `sDNA\geos\build.bat`. After that, `build_release.bat` in project root does what it says on the tin.
 
+The Autocad components are not rebuilt automatically. If editing the Lisp files, you will need to use the Autocad Lisp editor to rebuild the `sdna.prv` Lisp project.
+
 ### Project Structure
 
 Some key folders:
