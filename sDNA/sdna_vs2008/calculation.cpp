@@ -596,7 +596,7 @@ void SDNAIntegralCalculation::process_origin(SDNAPolyline *origin,int r,shared_p
 		}
 	}
 
-	if (run_betweenness)
+	if (run_betweenness && (!using_intermediate_link_filter || intermediate_filter[*origin]) )
 	{
 		total_geodesic_length_weighted(origin,r) += destweight_of_origin_within_radius * length_of_origin_within_radius / 3.;
 		
