@@ -19,7 +19,9 @@ def GEHTest(preds,ys,env,time_hours):
     ys = [y/time_hours for y in ys]
     gehs = [(2*(p-y)**2/(p+y))**0.5 for p,y in zip(truncpreds,ys)]
     env.AddMessage("GEH time period is %f hours"%time_hours)
-    env.AddMessage("GEH average (mean): %.2f\n    maximum.......: %.2f"%(numpy.mean(gehs),max(gehs)))
+    mean_geh = numpy.mean(gehs)
+    env.AddMessage(("GEH average (mean): %.2f"%mean_geh))
+    env.AddMessage(("    maximum.......: %.2f"%max(gehs)))
     for threshold in [5,10,15,20]:
         env.AddMessage("    <=%2d: %.1f%%"%(threshold,percent_under(threshold,gehs)))
     return gehs
