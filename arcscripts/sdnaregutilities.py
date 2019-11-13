@@ -227,18 +227,26 @@ def univar_regress(xs,ys,ws):
     coeff,intercept = numpy.polyfit(xs,ys,1,w=ws)
     return coeff,intercept
 
+def wss(xs,ys,ws):
+    return numpy.sum((xs-ys)**2 * ws)/numpy.sum(ws)
+
 def xval_r2(xs,ys,ws,nfolds,reps):
-    xval_r2s = []
+    xval_rsss_per_wt = [] # always calculate RSS per unit weight as fold weights will vary
     for _ in range(reps):
-        fold_r2s = []
+        fold_rsss_per_wt = []
         foldid = numpy.random.permutation([i*nfolds/len(xs) for i in range(len(xs))])
         for f in range(nfolds):
             # fit regression line on folds !=f and test on fold f
             coeff,intercept = univar_regress(xs[foldid!=f],ys[foldid!=f],ws[foldid!=f])
             pred = coeff*xs[foldid==f]+intercept
-            fold_r2s += [r2(pred,ys[foldid==f],ws[foldid==f])]
-        xval_r2s += fold_r2s
-    return numpy.mean(xval_r2s),numpy.std(xval_r2s)
+            fold_rsss_per_wt += [wss(pred,ys[foldid==f],ws[foldid==f])]
+        xval_rsss_per_wt += fold_rsss_per_wt
+    mean_resid_sum_squares = numpy.mean(xval_rsss_per_wt)
+    std_resid_sum_squares = numpy.std(xval_rsss_per_wt)
+    total_sum_squares_per_wt = wss(ys,numpy.zeros_like(ys)+numpy.mean(ys),ws)
+    rsquared = 1.-mean_resid_sum_squares/total_sum_squares_per_wt
+    std_rsquared = std_resid_sum_squares/total_sum_squares_per_wt
+    return rsquared,std_rsquared
 
 def pickbest(data,ws,names,targetdata,nfolds,reps,env):
     results = [{"name":name,
