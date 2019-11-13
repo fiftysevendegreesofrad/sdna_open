@@ -255,16 +255,17 @@ def pickbest(data,ws,names,targetdata,nfolds,reps,env):
                 "xvalr2":xval_r2(d,targetdata,ws,nfolds,reps)} for name,d in zip(names,data)]
     results = [r for r in results if not numpy.isnan(r["xvalr2"][0])]
     results.sort(key=lambda x: x["xvalr2"][0])
-    env.AddMessage("\n******** Models considered, from worst to best: ********\nVariable, xval-R2 +- 1 s.d. of mean")
+    env.AddMessage("\n******** Models considered, from worst to best: ********\nVariable, Mean-Xval-R2, Std-of-mean-xval-R2")
     for result in results:
         negstr = "-" if result["r"]<0 else ""
         xvalr2,xvalr2std = result["xvalr2"]
-        env.AddMessage(negstr+result["name"]+", %.3f +- %.3f"%(xvalr2,xvalr2std/((reps*nfolds)**0.5)))
+        env.AddMessage(negstr+result["name"]+", %.3f, %.3f"%(xvalr2,xvalr2std/((reps*nfolds)**0.5)))
     best = results[-1]
     xs = best["xs"]
     coeff,intercept = univar_regress(xs,targetdata,ws)
     fitr2 = best["r"]**2
-    env.AddMessage("\nBest model R2 = %.3f\nCross-validated R2 +- 1 s.d. = %.3f +- %.3f\n"%(fitr2,xvalr2,xvalr2std))
+    env.AddMessage("\nBest model R2 = %.3f\nCross-validated R2 +- 1 s.d. of R2 = %.3f +- %.3f\n"%(fitr2,xvalr2,xvalr2std))
+    env.AddMessage("(Note this latter figure is standard deviation of R2 itself, not its mean)")
     return [("(Intercept)",intercept),(best["name"],coeff)]
 
 class SdnaRegModel:
