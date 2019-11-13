@@ -65,4 +65,4 @@ for num,(shape1,shape2) in enumerate(zip(shapes1,shapes2)):
 for num,(d1,d2) in enumerate(zip(data1,data2)):
     for name in names1:
         if not d1[name]==d2[name]:
-            arcpy.AddWarning("Fields differ: field %s, item %d"%(name,num))
+            arcpy.AddWarning("Fields differ: field %s, item %d, %.20f!=%.20f"%(name,num,d1[name],d2[name]))

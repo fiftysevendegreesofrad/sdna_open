@@ -33,10 +33,10 @@ def structure(x,depth=-1):
     depth += 1
     prefix = " "*depth
     if not hasattr(x,"__iter__"):
-        return prefix+prettify(x,1)+"\n"
+        return prefix+prettify(x,20)+"\n"
     else:
         if all([not hasattr(i,"__iter__") for i in x]):
-            return prefix+",".join([prettify(i,1) for i in x])+"\n"
+            return prefix+",".join([prettify(i,20) for i in x])+"\n"
         else:
             retval=prefix+"[\n"
             for i in x:
@@ -65,7 +65,7 @@ def ReadFeatures(filename):
     for record in data:
         attrdict = {}
         for name,value in zip(fieldnames,record.record):
-            attrdict[name]=prettify(value,5)
+            attrdict[name]=prettify(value,20)
         yield fid,makenestedlist(record.shape),attrdict
         fid += 1
 
