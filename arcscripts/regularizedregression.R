@@ -48,6 +48,7 @@ for (i in 1:args$reps)
     errors = data.frame(fit$lambda,fit$cvm)
     lambdas <- rbind(lambdas,errors)
 }
+# this doesn't account for weights - assumed to be handled correctly in glmnet; each repetition has identical weight in total (adding up folds) so it is valid to take an average
 lambdas <- aggregate(lambdas[, 2], list(lambdas$fit.lambda), mean)
 bestindex = which(lambdas[2]==min(lambdas[2]))
 bestlambda = lambdas[bestindex,1]

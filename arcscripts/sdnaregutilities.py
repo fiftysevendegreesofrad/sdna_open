@@ -227,25 +227,23 @@ def univar_regress(xs,ys,ws):
     coeff,intercept = numpy.polyfit(xs,ys,1,w=ws)
     return coeff,intercept
 
-def wss(xs,ys,ws):
-    return numpy.sum((xs-ys)**2 * ws)/numpy.sum(ws)
-
 def xval_r2(xs,ys,ws,nfolds,reps):
-    xval_rsss_per_wt = [] # always calculate RSS per unit weight as fold weights will vary
+    xval_resid_squares = numpy.zeros((0))
+    xval_weights = numpy.zeros((0))
     for _ in range(reps):
-        fold_rsss_per_wt = []
         foldid = numpy.random.permutation([i*nfolds/len(xs) for i in range(len(xs))])
         for f in range(nfolds):
             # fit regression line on folds !=f and test on fold f
             coeff,intercept = univar_regress(xs[foldid!=f],ys[foldid!=f],ws[foldid!=f])
             pred = coeff*xs[foldid==f]+intercept
-            fold_rsss_per_wt += [wss(pred,ys[foldid==f],ws[foldid==f])]
-        xval_rsss_per_wt += fold_rsss_per_wt
-    mean_resid_sum_squares = numpy.mean(xval_rsss_per_wt)
-    std_resid_sum_squares = numpy.std(xval_rsss_per_wt)
-    total_sum_squares_per_wt = wss(ys,numpy.zeros_like(ys)+numpy.mean(ys),ws)
-    rsquared = 1.-mean_resid_sum_squares/total_sum_squares_per_wt
-    std_rsquared = std_resid_sum_squares/total_sum_squares_per_wt
+            xval_resid_squares = numpy.append(xval_resid_squares,(ys[foldid==f]-pred)**2)
+            xval_weights = numpy.append(xval_weights,ws[foldid==f])
+    mean_resid_square = numpy.average(xval_resid_squares, weights=xval_weights)
+    std_resid_square = numpy.average((xval_resid_squares-mean_resid_square)**2, weights=xval_weights)**0.5
+    mean_y = numpy.average(ys,weights=ws)
+    var_y = numpy.average((ys-mean_y)**2,weights=ws)
+    rsquared = 1.-mean_resid_square/var_y
+    std_rsquared = std_resid_square/var_y # sic: we are computing error on rsquared, which mirrors previous line
     return rsquared,std_rsquared
 
 def pickbest(data,ws,names,targetdata,nfolds,reps,env):
@@ -264,8 +262,7 @@ def pickbest(data,ws,names,targetdata,nfolds,reps,env):
     xs = best["xs"]
     coeff,intercept = univar_regress(xs,targetdata,ws)
     fitr2 = best["r"]**2
-    env.AddMessage("\nBest model R2 = %.3f\nCross-validated R2 +- 1 s.d. of R2 = %.3f +- %.3f\n"%(fitr2,xvalr2,xvalr2std))
-    env.AddMessage("(Note this latter figure is standard deviation of R2 itself, not its mean)")
+    env.AddMessage("\nBest model R2 = %.3f\nCross-validated R2 = %.3f \n"%(fitr2,xvalr2))
     return [("(Intercept)",intercept),(best["name"],coeff)]
 
 class SdnaRegModel:
