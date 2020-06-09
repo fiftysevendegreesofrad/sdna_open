@@ -14,7 +14,7 @@ This is the manual for sDNA Open, the spatial network analysis toolbox for GIS a
 
 **Please also remember to cite the software itself in any published sDNA analysis:**
 
-    Cooper, C., Chiaradia, A., Webster, C. (|today|) Spatial Design Network Analysis Open software, version |version|, Cardiff University.
+    Cooper, C.H.V., Chiaradia, A.J.F., 2020. sDNA: 3-d spatial network analysis for GIS, CAD, Command Line & Python. SoftwareX 12, 100525. https://doi.org/10.1016/j.softx.2020.100525 
 
 **How to get help**
 
