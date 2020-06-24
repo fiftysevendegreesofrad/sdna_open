@@ -25,64 +25,64 @@ class GeomItem():
         self.id = arcid
 
 def test_env(env,outbase):
-    print("Testing ",outbase)
-    print("writing an empty shape")
+    print "Testing ",outbase
+    print "writing an empty shape"
     cc = env.GetCreateCursor(outbase+"/testemptyshape",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([],[1],1))
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)]],[0],0))
     cc.Close()
-    print("writing an empty shape part")
+    print "writing an empty shape part"
     cc = env.GetCreateCursor(outbase+"/testemptyshapepart",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([[]],[2],2))
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)]],[0],0))
     cc.Close()
-    print("writing a shape with an empty part")
+    print "writing a shape with an empty part"
     cc = env.GetCreateCursor(outbase+"/testshapewithemptypart",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)],[]],[3],3))
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)]],[0],0))
     cc.Close()
-    print("writing an empty shape alone")
+    print "writing an empty shape alone"
     cc = env.GetCreateCursor(outbase+"/testloneemptyshape",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([],[1],1))
     cc.Close()
-    print("writing an empty shape part alone")
+    print "writing an empty shape part alone"
     cc = env.GetCreateCursor(outbase+"/testloneemptyshapepart",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([[]],[2],2))
     cc.Close()
-    print("writing a shape with an empty part alone")
+    print "writing a shape with an empty part alone"
     cc = env.GetCreateCursor(outbase+"/testloneshapewithemptypart",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)],[]],[3],3))
     cc.Close()
 
 
-    print("using a 2d geom item create cursor nicely")
+    print "using a 2d geom item create cursor nicely"
     cc = env.GetCreateCursor(outbase+"/test2",["dataname"],["dataname"],"POLYLINE",1)
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)]],[0],0))
     cc.Close()
-    print("using a 2d normal create cursor nicely")
+    print "using a 2d normal create cursor nicely"
     cc = env.GetCreateCursor(outbase+"/testnormalcc2d",["dataname"],["dataname"],"POLYLINE")
     cc.AddRow([(0,0),(1,1)],[0])
     cc.Close()
-    print("using a 3d normal create cursor nicely")
+    print "using a 3d normal create cursor nicely"
     cc = env.GetCreateCursor(outbase+"/testnormalcc3d",["dataname"],["dataname"],"POLYLINEZ")
     cc.AddRow([(0,0,0),(1,1,1)],[0])
     cc.Close()
     
-    print("using a create cursor geomitem with no data")
+    print "using a create cursor geomitem with no data"
     cc = env.GetCreateCursor(outbase+"/ccginodata",[],[],"POLYLINE",0)
     cc.AddRowGeomItem(GeomItem([[(0,0),(1,1)]],[],0))
     cc.Close()
-    print()
-    print()
+    print
+    print
 
-    print("using a create cursor addrow with no data")
+    print "using a create cursor addrow with no data"
     cc = env.GetCreateCursor(outbase+"/ccarnodata",[],[],"POLYLINE",0)
     cc.AddRow([(0,0),(1,1)],[])
     cc.Close()
-    print()
-    print()
+    print
+    print
 
-    print("using a 3d create cursor nicely")
+    print "using a 3d create cursor nicely"
     cc = env.GetCreateCursor(outbase+"/test3dcreate",["dataname"],["dataname"],"POLYLINEZ",1)
     cc.AddRowGeomItem(GeomItem([[(0,0,0),(1,1,1)]],[0],0))
     cc.Close()

@@ -75,7 +75,7 @@ def runcalculation(env, #environment object, IO etc
     table2d = None
     
     tablenames = []
-    if input_map.has_key("tables"):
+    if "tables" in input_map:
         for tablesource in input_map["tables"].split(","):
             tablesource = tablesource.strip()
             if tablesource!="":

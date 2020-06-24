@@ -22,7 +22,7 @@ def get_points(shape):
     pointlist = []
     if(shape.partCount != 1):
         arcpy.AddError("Error: polyline %d has multiple parts"%arcid)
-        raise Exception("Invalid polyline")
+        raise StandardError, "Invalid polyline"
     for point in shape.getPart(0):
         pointlist.append((point.X,point.Y))
     return pointlist

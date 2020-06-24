@@ -68,7 +68,7 @@ def __initialize_dll():
                 
         #first look in same directory
         encoding = sys.getfilesystemencoding()
-        dirname = os.path.dirname(unicode(__file__, encoding))
+        dirname = os.path.dirname(str(__file__, encoding))
         __sdna_dll_path = dirname+dll_name
         
         #this is to allow use of fresh build
@@ -102,7 +102,7 @@ class Net:
         self.dll.net_create.restype = my_void_p
         self.net = self.dll.net_create()
         if not self.net:
-            raise SDNAException,"Bad net config"
+            raise SDNAException("Bad net config")
         self.dll.net_add_polyline_data.restype = c_int
         self.dll.net_add_polyline_text_data.restype = c_int
         self.dll.net_add_polyline_3d.restype = c_int
@@ -117,7 +117,7 @@ class Net:
             self.dll.net_reserve.restype = c_int
             retval = self.dll.net_reserve(self.net,num_items)
             if retval==0:
-                    raise SDNAException,"Memory error"
+                    raise SDNAException("Memory error")
 
     def add_polyline(self,fid,points):
             point_array_x = (c_double*len(points))()
@@ -133,17 +133,17 @@ class Net:
             
             retval = self.dll.net_add_polyline_3d(self.net,fid,len(points),point_array_x,point_array_y,point_array_z)
             if (not retval):
-                raise SDNAException,"Bad geometry or memory error encountered in link %d"%fid            
+                raise SDNAException("Bad geometry or memory error encountered in link %d"%fid)            
                 
     def add_polyline_data(self,fid,name,data):
             retval = self.dll.net_add_polyline_data(self.net,fid,c_char_p(name),c_float(data))
             if (not retval):
-                raise SDNAException,"Out of memory error"
+                raise SDNAException("Out of memory error")
     
     def add_polyline_text_data(self,fid,name,data):
             retval = self.dll.net_add_polyline_text_data(self.net,fid,c_char_p(name),c_char_p(data))
             if (not retval):
-                raise SDNAException,"Out of memory error"
+                raise SDNAException("Out of memory error")
                 
     def toString(self,data="",textdata=""):
             def warn(x):
@@ -183,10 +183,10 @@ class GeometryLayer(object):
                 
         def toString(self):
                 output = "%s - %s (%d items)\n"%(self.name,self.type,self.get_num_items())
-                output += zip(self.datanames,self.shortdatanames,self.datatypes).__repr__()
+                output += list(zip(self.datanames,self.shortdatanames,self.datatypes)).__repr__()
                 for item in self.get_items():
                         output += "\n"
-                        output += zip(self.shortdatanames,item.data).__repr__()
+                        output += list(zip(self.shortdatanames,item.data)).__repr__()
                         output += "  " + _geom_format(item.geom)
                 return output
 
@@ -218,9 +218,9 @@ class GeometryLayer(object):
                                                                             byref(point_array_x),
                                                                             byref(point_array_y),
                                                                             byref(point_array_z))
-                                points = zip(list(point_array_x[0:num_points]),
+                                points = list(zip(list(point_array_x[0:num_points]),
                                              list(point_array_y[0:num_points]),
-                                             list(point_array_z[0:num_points]))
+                                             list(point_array_z[0:num_points])))
                                 geom.append(points)
                         item.geom = geom
                         yield item
@@ -257,7 +257,7 @@ class Calculation(object):
                                                           self.warnfunc,
                                                           tablecollection1d.tc)
                 if not self.calc:
-                        raise SDNAException, 'Bad config'
+                        raise SDNAException('Bad config')
                 
         def run(self):
             self.dll.calc_run.restype = c_int
@@ -295,11 +295,11 @@ def table_result_to_exception(result):
     if result==0:
         return
     elif result==2:
-        raise SDNAException,"Out of memory"
+        raise SDNAException("Out of memory")
     elif result==1:
-        raise SDNAException,"Duplicate table entries"
+        raise SDNAException("Duplicate table entries")
     else:
-        raise SDNAException,"Unknown table error"
+        raise SDNAException("Unknown table error")
                 
 class Table(object):
     def __init__(self,name,zonefieldname):

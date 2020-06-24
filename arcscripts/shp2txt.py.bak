@@ -71,13 +71,13 @@ def ReadFeatures(filename):
 
 for pattern in filenames:
     for filename in glob.glob(pattern+".shp"):
-        print("Shapefile ",filename,"====================================")
+        print "Shapefile ",filename,"===================================="
         
         for fid,shapes,attr in ReadFeatures(filename):
-            print("Item",fid)
-            print(structure(shapes), end=' ')
-            print(attr)
+            print "Item",fid
+            print structure(shapes),
+            print attr
 
-        print()
-        print()
-        print()
+        print
+        print
+        print

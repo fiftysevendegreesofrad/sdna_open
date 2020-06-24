@@ -25,7 +25,7 @@ parts = out_name.split(".")
 base = parts[0]
 
 if len(parts)>2 or (len(parts)==2 and parts[1].lower() != "gdb"):
-    raise Exception("Invalid gdb name")
+    raise StandardError, "Invalid gdb name"
 
 #name constants
 out_gdb = out_folder+"/"+base+".gdb"
@@ -36,7 +36,7 @@ itn_endelev_field = "DirectedNode_PositiveOrientation_GradeSeparation"
 
 #check output gdb doesn't exist already
 if os.path.exists(out_gdb):
-    raise Exception("Output gdb already exists")
+    raise StandardError, "Output gdb already exists"
 
 #then the actual work
 arcpy.AddMessage("Importing now - this may take a long time, especially if road routing information is included")

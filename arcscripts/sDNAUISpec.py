@@ -47,9 +47,9 @@ def radius_options(include_banded = True,include_cont = True):
             
 def radius_config(args):
     retval = ";radii=%(radii)s;"%args
-    if args.has_key("bandedradii") and args["bandedradii"]:
+    if "bandedradii" in args and args["bandedradii"]:
         retval += "bandedradii;"
-    if args.has_key("cont") and args["cont"]:
+    if "cont" in args and args["cont"]:
         retval += "cont;"
     return retval
     

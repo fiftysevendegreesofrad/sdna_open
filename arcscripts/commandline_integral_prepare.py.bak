@@ -78,11 +78,11 @@ def commandline_integral_prepare(command):
     if using_maps:
         infilemap = to_map(options.infilemap)
         outfilemap = to_map(options.outfilemap)
-        is_gdb = [sdna_environment.is_gdb(x) for x in list(infilemap.values())+list(outfilemap.values())]
+        is_gdb = [sdna_environment.is_gdb(x) for x in infilemap.values()+outfilemap.values()]
         try:
             tolerance_source = infilemap["net"]
         except KeyError:
-            tolerance_source = list(infilemap.values())[0]
+            tolerance_source = infilemap.values()[0]
     else:
         is_gdb = [sdna_environment.is_gdb(x) for x in [options.infilename,options.outfilename]]
         tolerance_source = options.infilename
@@ -119,5 +119,5 @@ def commandline_integral_prepare(command):
                     dll = options.dll)
     
     except sdnaexception.SDNAException as e:
-        print("ERROR: "+e.message)
+        print "ERROR: "+e.message
         sys.exit(1)

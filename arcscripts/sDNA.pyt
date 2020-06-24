@@ -17,10 +17,11 @@
 import arcpy
 import sdna_environment
 import sDNAUISpec
-reload(sDNAUISpec)
+import imp
+imp.reload(sDNAUISpec)
 from sDNAUISpec import get_tools
 import runsdnacommand
-reload (runsdnacommand)
+imp.reload (runsdnacommand)
 from runsdnacommand import runsdnacommand
 import os,sys
 
@@ -103,12 +104,12 @@ for tool in get_tools():
             
             # join parameters to sDNAUISpec variable names
             varnames = [params[0] for params in self.sdnatool.getInputSpec()]
-            args = dict(zip(varnames, [(p.ValueAsText if p.ValueAsText else "") for p in parameters]))
+            args = dict(list(zip(varnames, [(p.ValueAsText if p.ValueAsText else "") for p in parameters])))
             
             # convert booleans from strings to bool
             booleanlist = [paramname for paramname,_,paramtype,_,_,_ in self.sdnatool.getInputSpec() if paramtype=="Bool"]
             for pn in booleanlist:
-                args[pn]=(args[pn]==u"true")
+                args[pn]=(args[pn]=="true")
                 
             # get syntax to call tool
             syntax = self.sdnatool.getSyntax(args)
@@ -116,7 +117,7 @@ for tool in get_tools():
             # call by fork/exec to scripts in sDNA bin folder
             # convert input paths first
             newinputs = {}
-            for name,layer in syntax["inputs"].items():
+            for name,layer in list(syntax["inputs"].items()):
                 multis = layer.split(",")
                 newmultilist=[]
                 for m in multis:

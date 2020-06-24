@@ -96,7 +96,7 @@ def unpack_regres_output(r_output,env):
             coefs += [(varname,float(coef))]
         elif in_regcurve_section:
             rcparts = line.strip().split(",")
-            regcurve += [map(float,rcparts)]
+            regcurve += [list(map(float,rcparts))]
         else:
             parts = line.split(",")
             formatted_parts = []
@@ -322,26 +322,26 @@ class SdnaRegModel:
         rm = SdnaRegModel()
         with open(filename,"rb") as file:
             r = csv.reader(file)
-            header = r.next()
+            header = next(r)
             if header!=SdnaRegModel._c_sdna_regression_model:
-                raise "Not a valid model"
-            tss,ts = r.next()
+                raise Exception("Not a valid model")
+            tss,ts = next(r)
             if tss!=SdnaRegModel._c_target_shift:
-                raise "Not a valid model"
+                raise Exception("Not a valid model")
             rm.targetshift = float(ts)
-            tls,tl = r.next()
+            tls,tl = next(r)
             if tls!=SdnaRegModel._c_target_lambda:
-                raise "Not a valid model"
+                raise Exception("Not a valid model")
             rm.targetlambda = float(tl)
-            ints,i = r.next()
+            ints,i = next(r)
             if ints!=SdnaRegModel._c_intercept:
-                raise "Not a valid model"
+                raise Exception("Not a valid model")
             rm.intercept = float(i)
-            r.next()
-            varheaders=r.next()
+            next(r)
+            varheaders=next(r)
             if varheaders!=SdnaRegModel._c_varheaders:
                 if varheaders!=SdnaRegModel._c_varheaders[:-1]: #allow old models without final column
-                    raise "Not a valid model"
+                    raise Exception("Not a valid model")
             rm.vars = []
             rm.varshifts = []
             rm.varlambdas = []
@@ -384,7 +384,7 @@ class SdnaRegModel:
         
         # check data length
         datalen = len(ydata)
-        x_data_lengths = [len(x) for x in xdatadict.itervalues()]
+        x_data_lengths = [len(x) for x in xdatadict.values()]
         for dl in x_data_lengths:
             assert dl==datalen
         env.AddMessage(str(datalen)+" data points")
@@ -413,12 +413,12 @@ class SdnaRegModel:
         
         if btnames or bcnames:
             xshifts = {}
-            for n in xdatadict.keys():
+            for n in list(xdatadict.keys()):
                 shift,data = make_positive(xdatadict[n])
                 xdatadict[n] = data
                 xshifts[n] = shift
         else:
-            xshifts = {n:0 for n in xdatadict.keys()}
+            xshifts = {n:0 for n in list(xdatadict.keys())}
         shifted_xs = [n for n in x_order if xshifts[n]>0]
         if shifted_xs:
             env.AddMessage("The following predictor variables contained values less than 1 and have been shifted: %s"%",".join(shifted_xs))
