@@ -155,7 +155,7 @@ if len(usable_data)==0:
 if options.reglambda=="":
     reglambda = None
 else:
-    reglambda = list(map(float,options.reglambda.split(",")))
+    reglambda = map(float,options.reglambda.split(","))
     assert len(reglambda)==2
     
 # create model
