@@ -1,0 +1,26 @@
+ID,ID
+LConn,Line Connectivity
+LLen,Line Length
+LFrac,Link Fraction
+LAC,Line Ang Curvature
+LSin,Line Sinuosity
+LBear,Line Bearing
+MADn,Mean Ang Dist Rn
+NQPDAn,NetQuantPD Ang Rn
+BtAn,Betweenness Ang Rn
+TPBtAn,TPBetweenness Ang Rn
+TPDn,TPDestination Rn
+Lnkn,Links Rn
+Lenn,Length Rn
+AngDn,Ang Dist Rn
+Wtn,Weight Rn
+Jncn,Junctions Rn
+Conn,Connectivity Rn
+MGLAn,MeanGeoLen Ang Rn
+MCFn,Mean Crow Flight Rn
+DivAn,Diversion Ratio Ang Rn
+HullAn,Convex Hull Area Rn
+HullPn,Convex Hull Perimeter Rn
+HullRn,Convex Hull Max Radius Rn
+HullBn,Convex Hull Bearing Rn
+HullSIn,Convex Hull Shape Index Rn
