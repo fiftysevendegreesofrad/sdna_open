@@ -57,6 +57,7 @@ def _dll():
 def __initialize_dll():
     global __sdna_dll_path,__dll_instance
 
+    __sdna_dll_path = "C:\Program Files (x86)\sDNA"
     if __sdna_dll_path=="":
         dll_name = r"\\sdna_vs2008.dll"
         
@@ -68,7 +69,8 @@ def __initialize_dll():
                 
         #first look in same directory
         encoding = sys.getfilesystemencoding()
-        dirname = os.path.dirname(str(__file__, encoding))
+        # dirname = os.path.dirname(str(__file__, encoding))  # TODO
+        dirname = os.path.dirname(str(__file__))
         __sdna_dll_path = dirname+dll_name
         
         #this is to allow use of fresh build

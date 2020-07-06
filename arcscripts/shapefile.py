@@ -41,7 +41,7 @@ if PYTHON3:
     xrange = range
     izip = zip
 else:
-    
+    from itertools import izip
 
 def b(v):
     if PYTHON3:
