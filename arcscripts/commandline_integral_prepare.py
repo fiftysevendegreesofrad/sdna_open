@@ -49,7 +49,7 @@ def commandline_integral_prepare(command):
         config_string = args[0]
     else:
         op.error("Trailing arguments on command line")
-        
+    
     def complain_if_missing(thing,name):
         if thing==None:
             op.error(name+" not specified")
@@ -72,7 +72,7 @@ def commandline_integral_prepare(command):
                 key,val = pair.split("=")
             except ValueError:
                 op.error("Bad map specifier: "+s)
-            m[key.strip()]=val.strip()
+            m[key.strip().encode("utf-8")]=val.strip()
         return m
         
     if using_maps:
@@ -112,12 +112,12 @@ def commandline_integral_prepare(command):
     
     try:
         runcalculation(env,
-                    command,
-                    config_string,
+                    command.encode("utf-8"),
+                    config_string.encode("utf-8"),
                     infilemap,
                     outfilemap,
                     dll = options.dll)
     
     except sdnaexception.SDNAException as e:
-        print("ERROR: "+e.message)
+        print("ERROR: "+str(e))
         sys.exit(1)

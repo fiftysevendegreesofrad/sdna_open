@@ -57,7 +57,6 @@ def _dll():
 def __initialize_dll():
     global __sdna_dll_path,__dll_instance
 
-    __sdna_dll_path = "C:\Program Files (x86)\sDNA"
     if __sdna_dll_path=="":
         dll_name = r"\\sdna_vs2008.dll"
         
@@ -88,7 +87,7 @@ def __initialize_dll():
     # if __sdna_dll_path is non empty,
     # custom dll has been set for debugging
     # (do not print path as that will mess up debug tests)
-        
+    
     __dll_instance = windll.LoadLibrary(str(__sdna_dll_path))
 
 class Link:
@@ -211,7 +210,7 @@ class GeometryLayer(object):
                 point_array_z = POINTER(c_float)()
                 count = 0
                 while self.dll.geom_iterator_next(it,byref(num_parts),byref(data))==1:
-                        datalist = [getattr(d,t) for d,t in zip(data[0:self.datalength],self.datatypes)]
+                        datalist = [getattr(d,str(t,"utf-8")) for d,t in zip(data[0:self.datalength],self.datatypes)]
                         item = GeometryItem(datalist)
                         geom = []
                         count += 1
