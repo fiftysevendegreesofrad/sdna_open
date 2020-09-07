@@ -797,7 +797,7 @@ class SdnaEnvironment(metaclass=abc.ABCMeta):
             def __iter__(self):
                 return self
 
-        with open(source, 'rb') as csvfile: #https://stackoverflow.com/questions/40310042/python-read-csv-bom-embedded-into-the-first-key
+        with open(source, 'r') as csvfile: #https://stackoverflow.com/questions/40310042/python-read-csv-bom-embedded-into-the-first-key
             reader = csv_rstrip_reader(csvfile)
             metadata = next(reader)
             if metadata[0].lower()=="list": 
@@ -1034,7 +1034,7 @@ class SdnaShapefileEnvironment(SdnaEnvironment):
         return [stem+"_"+x for x in suffices]
 
     def GetCreateCursor(self,outfilename,fieldnames,long_fieldnames,fieldtypes,geomtype):
-        if geomtype=="NO_GEOM":
+        if geomtype==b"NO_GEOM":
             return CSVCreateCursor(outfilename,long_fieldnames,self)
         else:
             return ShapefileCreateCursor(outfilename,fieldnames,long_fieldnames,fieldtypes,self,geomtype)
@@ -1202,7 +1202,7 @@ class SdnaArcpyEnvironment(SdnaEnvironment):
         self.SetProgressorPosition(rownum)
         
     def GetCreateCursor(self,outfcname,fieldnames,long_fieldnames,fieldtypes,geomtype):
-        if geomtype=="NO_GEOM":
+        if geomtype==b"NO_GEOM":
             return CSVCreateCursor(outfcname,long_fieldnames,self)
         else:
             self.ensure_not_silly_path(outfcname)

@@ -49,7 +49,7 @@ def runcalculation(env, #environment object, IO etc
     set_dll_path(dll)
     
     # if we ever start having multiple geometry inputs we need to address the input spatial referencing bug
-    geominputs = [x for x in input_map if x != "tables"]
+    geominputs = [x for x in input_map if x != b"tables"]
     assert len(geominputs)==1
 
     def set_progressor_callback(x):
@@ -76,7 +76,7 @@ def runcalculation(env, #environment object, IO etc
     table2d = None
     
     tablenames = []
-    if "tables" in input_map:
+    if b"tables" in input_map:
         for tablesource in input_map[b"tables"].split(","):
             tablesource = tablesource.strip()
             if tablesource!="":

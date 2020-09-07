@@ -31,13 +31,10 @@ Adding fields:
 Field names saved to tabletestout.shp.names.csv
 Reading features from zonetest
 Reading features from zonetest
-Progress: 0.0%Progress: 33.3%sDNA processing
-
-Progress: 0.0%  sDNA is running in 32-bit mode
+sDNA processing
+  sDNA is running in 64-bit mode
   Building network and checking for tolerance errors...
-Progress: 100%
 Writing tabletestout.shp
-Progress: 0.0%Progress: 100%
 Shapefile  tabletestout.shp ====================================
 Item 0
 [
@@ -46,7 +43,7 @@ Item 0
   0.0,1.0,0.0
  ]
 ]
-{'dztest': '1.00000', 'origzone': 'a', 'lulinks': '1.00000', 'LDestWt': '4.00000', 'LOrigWt': '0.00000', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '0.00000', 'ID': '0.00000', 'destzone': 'x'}
+ {'ID': '0.00000', 'origzone': 'a', 'destzone': 'x', 'landuse': '0.00000', 'zoneweight': '3.00000', 'one': '1.00000', 'dztest': '1.00000', 'lulinks': '1.00000', 'eucsum': '4.00000', 'LConn': '0.00000', 'LLen': '1.00000', 'LFrac': '1.00000', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '0.00000', 'LDestWt': '4.00000'}
 Item 1
 [
  [
@@ -54,7 +51,7 @@ Item 1
   1.0,1.0,0.0
  ]
 ]
-{'dztest': '1.00000', 'origzone': 'a', 'lulinks': '1.00000', 'LDestWt': '4.00000', 'LOrigWt': '3.00000', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '1.00000', 'destzone': 'x'}
+ {'ID': '1.00000', 'origzone': 'a', 'destzone': 'x', 'landuse': '1.00000', 'zoneweight': '3.00000', 'one': '1.00000', 'dztest': '1.00000', 'lulinks': '1.00000', 'eucsum': '4.00000', 'LConn': '0.00000', 'LLen': '1.00000', 'LFrac': '1.00000', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '3.00000', 'LDestWt': '4.00000'}
 Item 2
 [
  [
@@ -62,7 +59,7 @@ Item 2
   2.0,1.0,0.0
  ]
 ]
-{'dztest': '1.00000', 'origzone': 'b', 'lulinks': '3.00000', 'LDestWt': '4.00000', 'LOrigWt': '2.33333', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '2.00000', 'destzone': 'x'}
+ {'ID': '2.00000', 'origzone': 'b', 'destzone': 'x', 'landuse': '1.00000', 'zoneweight': '7.00000', 'one': '1.00000', 'dztest': '1.00000', 'lulinks': '3.00000', 'eucsum': '4.00000', 'LConn': '0.00000', 'LLen': '1.00000', 'LFrac': '1.00000', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '2.33333', 'LDestWt': '4.00000'}
 Item 3
 [
  [
@@ -70,7 +67,7 @@ Item 3
   3.0,1.0,0.0
  ]
 ]
-{'dztest': '1.00000', 'origzone': 'b', 'lulinks': '3.00000', 'LDestWt': '4.00000', 'LOrigWt': '4.66667', 'LConn': '0.00000', 'eucsum': '4.00000', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '2.00000', 'ID': '3.00000', 'destzone': 'x'}
+ {'ID': '3.00000', 'origzone': 'b', 'destzone': 'x', 'landuse': '2.00000', 'zoneweight': '7.00000', 'one': '1.00000', 'dztest': '1.00000', 'lulinks': '3.00000', 'eucsum': '4.00000', 'LConn': '0.00000', 'LLen': '1.00000', 'LFrac': '1.00000', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '4.66667', 'LDestWt': '4.00000'}
 Item 4
 [
  [
@@ -78,7 +75,7 @@ Item 4
   0.0,3.0,0.0
  ]
 ]
-{'dztest': '2.00000', 'origzone': 'c', 'lulinks': '1.00000', 'LDestWt': '4.41421', 'LOrigWt': '0.00000', 'LConn': '0.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '0.00000', 'ID': '4.00000', 'destzone': 'y'}
+ {'ID': '4.00000', 'origzone': 'c', 'destzone': 'y', 'landuse': '0.00000', 'zoneweight': '3.00000', 'one': '1.00000', 'dztest': '2.00000', 'lulinks': '1.00000', 'eucsum': '4.41421', 'LConn': '0.00000', 'LLen': '1.00000', 'LFrac': '1.00000', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '0.00000', 'LDestWt': '4.41421'}
 Item 5
 [
  [
@@ -86,7 +83,7 @@ Item 5
   1.0,3.0,0.0
  ]
 ]
-{'dztest': '2.00000', 'origzone': 'c', 'lulinks': '1.00000', 'LDestWt': '4.41421', 'LOrigWt': '6.00000', 'LConn': '0.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '3.00000', 'LFrac': '1.00000', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '5.00000', 'destzone': 'y'}
+ {'ID': '5.00000', 'origzone': 'c', 'destzone': 'y', 'landuse': '1.00000', 'zoneweight': '3.00000', 'one': '1.00000', 'dztest': '2.00000', 'lulinks': '1.00000', 'eucsum': '4.41421', 'LConn': '0.00000', 'LLen': '1.00000', 'LFrac': '1.00000', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '6.00000', 'LDestWt': '4.41421'}
 Item 6
 [
  [
@@ -94,7 +91,7 @@ Item 6
   2.0,3.0,0.0
  ]
 ]
-{'dztest': '2.00000', 'origzone': 'd', 'lulinks': '1.58579', 'LDestWt': '4.41421', 'LOrigWt': '3.65685', 'LConn': '1.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '0.41421', 'LBear': '0.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.00000', 'landuse': '1.00000', 'ID': '6.00000', 'destzone': 'y'}
+ {'ID': '6.00000', 'origzone': 'd', 'destzone': 'y', 'landuse': '1.00000', 'zoneweight': '7.00000', 'one': '1.00000', 'dztest': '2.00000', 'lulinks': '1.58579', 'eucsum': '4.41421', 'LConn': '1.00000', 'LLen': '1.00000', 'LFrac': '0.41421', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '0.00000', 'LOrigWt': '3.65685', 'LDestWt': '4.41421'}
 Item 7
 [
  [
@@ -102,7 +99,7 @@ Item 7
   3.0,3.0,0.0
  ]
 ]
-{'dztest': '2.00000', 'origzone': 'd', 'lulinks': '1.58579', 'LDestWt': '4.41421', 'LOrigWt': '10.34315', 'LConn': '1.00000', 'eucsum': '4.41421', 'one': '1.00000', 'zoneweight': '7.00000', 'LFrac': '0.58579', 'LBear': '45.00000', 'LSin': '1.00000', 'LAC': '0.00000', 'LLen': '1.41421', 'landuse': '2.00000', 'ID': '7.00000', 'destzone': 'y'}
+ {'ID': '7.00000', 'origzone': 'd', 'destzone': 'y', 'landuse': '2.00000', 'zoneweight': '7.00000', 'one': '1.00000', 'dztest': '2.00000', 'lulinks': '1.58579', 'eucsum': '4.41421', 'LConn': '1.00000', 'LLen': '1.41421', 'LFrac': '0.58579', 'LAC': '0.00000', 'LSin': '1.00000', 'LBear': '45.00000', 'LOrigWt': '10.34315', 'LDestWt': '4.41421'}
 
 
 

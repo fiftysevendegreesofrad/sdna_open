@@ -136,7 +136,7 @@
 				AdditionalOptions="/Zm140"
 				Optimization="0"
 				AdditionalIncludeDirectories="d:\boost\boost_1_55_0;..\muparser\drop\include"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SDNA_VS2008_EXPORTS"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;SDNA_VS2008_EXPORTS;_SDNADEBUG"
 				MinimalRebuild="false"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -1888,7 +1888,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				Description=""
 				CommandLine=""
 			/>
 		</Configuration>

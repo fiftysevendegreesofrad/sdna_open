@@ -142,7 +142,7 @@ class Net:
                 raise SDNAException("Out of memory error")
     
     def add_polyline_text_data(self,fid,name,data):
-            retval = self.dll.net_add_polyline_text_data(self.net,fid,c_char_p(name),c_char_p(data))
+            retval = self.dll.net_add_polyline_text_data(self.net,fid,c_char_p(name),c_char_p(data.encode("ascii")))
             if (not retval):
                 raise SDNAException("Out of memory error")
                 
@@ -210,7 +210,7 @@ class GeometryLayer(object):
                 point_array_z = POINTER(c_float)()
                 count = 0
                 while self.dll.geom_iterator_next(it,byref(num_parts),byref(data))==1:
-                        datalist = [getattr(d,str(t,"utf-8")) for d,t in zip(data[0:self.datalength],self.datatypes)]
+                        datalist = [getattr(d,str(t,"ascii")) for d,t in zip(data[0:self.datalength],self.datatypes)]
                         item = GeometryItem(datalist)
                         geom = []
                         count += 1
@@ -308,9 +308,9 @@ class Table(object):
         self.name=name
         self.dll=_dll()
         self.dll.table_create.restype = my_void_p
-        self.table = self.dll.table_create(c_char_p(self.name),c_char_p(zonefieldname))
+        self.table = self.dll.table_create(c_char_p(self.name.encode("ascii")),c_char_p(zonefieldname.encode("ascii")))
     def addrow(self,zone,data):
-        result = self.dll.table_addrow(self.table,c_char_p(zone),c_float(data))
+        result = self.dll.table_addrow(self.table,c_char_p(zone.encode("ascii")),c_float(data))
         table_result_to_exception(result)
         
 class Table2d(object):
@@ -319,8 +319,8 @@ class Table2d(object):
         self.name=name
         self.dll=_dll()
         self.dll.table2d_create.restype = my_void_p
-        self.table = self.dll.table2d_create(c_char_p(self.name),c_char_p(origfieldname),c_char_p(destfieldname))
+        self.table = self.dll.table2d_create(c_char_p(self.name.encode("ascii")),c_char_p(origfieldname.encode("ascii")),c_char_p(destfieldname.encode("ascii")))
     def addrow(self,z1,z2,data):
-        result = self.dll.table2d_addrow(self.table,c_char_p(z1),c_char_p(z2),c_float(data))
+        result = self.dll.table2d_addrow(self.table,c_char_p(z1.encode("ascii")),c_char_p(z2.encode("ascii")),c_float(data))
         table_result_to_exception(result)
         

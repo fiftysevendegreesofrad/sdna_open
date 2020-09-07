@@ -90,7 +90,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -619,7 +619,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -1294,7 +1294,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -1823,7 +1823,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=True;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -2496,7 +2496,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=False;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -3025,7 +3025,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -3700,7 +3700,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=False;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -4229,7 +4229,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=True;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -4905,7 +4905,7 @@ Using default of euclidean link centres for custom analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=CUSTOM;cont=False;custommetric=custom_cost;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight', 'custom_cost']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -5434,7 +5434,7 @@ Using default of euclidean link centres for custom analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=CUSTOM;cont=True;custommetric=custom_cost;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight', 'custom_cost']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -6107,7 +6107,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;nostrictnetworkcut;probrouteaction=ignore
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -6636,7 +6636,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;nostrictnetworkcut;probrouteaction=ignore
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -7309,7 +7309,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;nostrictnetworkcut;probrouteaction=ignore
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -7838,7 +7838,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=True;weight_type=link;ignorenonlinear;nostrictnetworkcut;probrouteaction=ignore
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -8511,7 +8511,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=reroute
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -9040,7 +9040,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=reroute
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -9719,7 +9719,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=reroute
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -10248,7 +10248,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=True;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=reroute
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -10921,7 +10921,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=discard
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -11450,7 +11450,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=discard
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -12113,7 +12113,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=discard
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -12642,7 +12642,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=EUCLIDEAN;cont=True;weight_type=link;ignorenonlinear;nostrictnetworkcut;probroutethreshold=1;probrouteaction=discard
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -13315,7 +13315,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -13439,7 +13439,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -13526,7 +13526,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -13694,7 +13694,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -13871,7 +13871,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -14052,7 +14052,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -14229,7 +14229,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=True;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -14408,7 +14408,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=False;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -14585,7 +14585,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=True;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -14766,7 +14766,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -14943,7 +14943,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=True;weight_type=length;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -15125,7 +15125,7 @@ Using default of euclidean link centres for custom analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=CUSTOM;cont=False;custommetric=custom_cost;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight', 'custom_cost']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -15302,7 +15302,7 @@ Using default of euclidean link centres for custom analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=CUSTOM;cont=True;custommetric=custom_cost;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight', 'custom_cost']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -15481,7 +15481,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -15543,7 +15543,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -15668,7 +15668,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
@@ -15747,7 +15747,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;bidir
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -16432,7 +16432,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=5,6,10,50,63,n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;bidir;oneway=oneway
 expected names net only: ['start_gs', 'end_gs', 'weight', 'oneway']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -17068,7 +17068,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
@@ -17198,7 +17198,7 @@ Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=ANGULAR;cont=True;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
@@ -17331,7 +17331,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=False;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
@@ -17461,7 +17461,7 @@ Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=EUCLIDEAN;cont=True;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
@@ -17592,7 +17592,7 @@ Using default of euclidean link centres for custom analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=CUSTOM;cont=False;custommetric=custom_cost;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight', 'custom_cost']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
@@ -17722,7 +17722,7 @@ Using default of euclidean link centres for custom analysis
 Using xytolerance=0, ztolerance=0
 calc created with config start_gs=start_gs;end_gs=end_gs;weight=weight;probroutes;outputsums;radii=n;metric=CUSTOM;cont=True;custommetric=custom_cost;weight_type=link;ignorenonlinear;
 expected names net only: ['start_gs', 'end_gs', 'weight', 'custom_cost']
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 WARNING: Polyline 2 is too short to generate valid turn angles.
 WARNING: Polyline 2 has near zero length
