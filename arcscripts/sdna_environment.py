@@ -1034,16 +1034,13 @@ class SdnaShapefileEnvironment(SdnaEnvironment):
         return [stem+"_"+x for x in suffices]
 
     def GetCreateCursor(self,outfilename,fieldnames,long_fieldnames,fieldtypes,geomtype):
-        if geomtype==b"NO_GEOM":
+        if geomtype=="NO_GEOM":
             return CSVCreateCursor(outfilename,long_fieldnames,self)
         else:
             return ShapefileCreateCursor(outfilename,fieldnames,long_fieldnames,fieldtypes,self,geomtype)
 
     def _create_shapefile(self,filename,fields,alii,fieldtypes,shapefileshapetype):
         fields = self._dbf_validate_fieldnames(fields)
-        
-        fields = [str(f,"utf-8") for f in fields]
-        alii = [str(f,"utf-8") for f in alii]
         
         self.AddMessage("Adding fields:")
         format_string = "    %%-%ds - %%s"%self.max_field_length # aligns output nicely
@@ -1060,11 +1057,11 @@ class SdnaShapefileEnvironment(SdnaEnvironment):
         # create writer object and add requested fields
         writer = self.shapefile.Writer(filename,shapeType=shapefileshapetype)
         for n,t in zip(fields,fieldtypes):
-            if t==b"FLOAT":
+            if t=="FLOAT":
                 writer.field(n,"F",19,11) # add float field; 19 and 11 match what arc does for shape_length
-            elif t==b"INT":
+            elif t=="INT":
                 writer.field(n,"N")
-            elif t==b"STR":
+            elif t=="STR":
                 writer.field(n,"C")
             else:
                 assert False
@@ -1084,16 +1081,16 @@ class ShapefileCreateCursor(CreateCursor):
             self.dummydata=False
         self.outfilename = outfilename
 
-        _str_to_shapefile_geom_type = { b"POLYLINEZ": env.shapefile.POLYLINEZ,
-                                        b"POLYGON": env.shapefile.POLYGON,
-                                        b"MULTIPOLYLINEZ": env.shapefile.POLYLINEZ}
+        _str_to_shapefile_geom_type = { "POLYLINEZ": env.shapefile.POLYLINEZ,
+                                        "POLYGON": env.shapefile.POLYGON,
+                                        "MULTIPOLYLINEZ": env.shapefile.POLYLINEZ}
         shapefileshapetype = _str_to_shapefile_geom_type[geom_type]
         
         self.writer = env._create_shapefile(outfilename,fieldnames,alii,fieldtypes,shapefileshapetype)
         
-        _str_to_geom_write_method = { b"POLYLINEZ": self.writer.linez,
-                                        b"POLYGON": self.writer.poly,
-                                        b"MULTIPOLYLINEZ": self.writer.linez}
+        _str_to_geom_write_method = { "POLYLINEZ": self.writer.linez,
+                                        "POLYGON": self.writer.poly,
+                                        "MULTIPOLYLINEZ": self.writer.linez}
         
         self.geom_write_method = _str_to_geom_write_method[geom_type]
         self.env = env
@@ -1202,7 +1199,7 @@ class SdnaArcpyEnvironment(SdnaEnvironment):
         self.SetProgressorPosition(rownum)
         
     def GetCreateCursor(self,outfcname,fieldnames,long_fieldnames,fieldtypes,geomtype):
-        if geomtype==b"NO_GEOM":
+        if geomtype=="NO_GEOM":
             return CSVCreateCursor(outfcname,long_fieldnames,self)
         else:
             self.ensure_not_silly_path(outfcname)

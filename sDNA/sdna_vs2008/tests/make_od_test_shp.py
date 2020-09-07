@@ -2,7 +2,7 @@ import arcscriptsdir
 from sdna_environment import *
 
 env = SdnaShapefileEnvironment()
-cc=env.GetCreateCursor("odtest",[b"origzone",b"destzone"],[b"origzone",b"destzone"],[b"STR",b"STR"],b"POLYLINEZ")
+cc=env.GetCreateCursor("odtest",["origzone","destzone"],["origzone","destzone"],["STR","STR"],"POLYLINEZ")
 cc.StartProgressor(24)
 
 class LineGeomItem(object):

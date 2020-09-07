@@ -45,11 +45,11 @@ def runcalculation(env, #environment object, IO etc
                                 #The output names created depend on config_string - see use of get_geom_outputs() below
                     dll=""): #option to specify different dll for debugging - not relevant to you
 
-    env.AddMessage("sDNA %s config: %s"%(str(name,"utf-8"),str(config_string,"utf-8")))
+    env.AddMessage("sDNA %s config: %s"%(name,config_string))
     set_dll_path(dll)
     
     # if we ever start having multiple geometry inputs we need to address the input spatial referencing bug
-    geominputs = [x for x in input_map if x != b"tables"]
+    geominputs = [x for x in input_map if x != "tables"]
     assert len(geominputs)==1
 
     def set_progressor_callback(x):
@@ -57,7 +57,6 @@ def runcalculation(env, #environment object, IO etc
         return 0
 
     def warning_callback(x):
-        x = str(x,"utf-8")
         if re.match("WARNING:",x):
             env.AddWarning(" %s"%x)
         elif re.match("ERROR:",x):
@@ -67,7 +66,7 @@ def runcalculation(env, #environment object, IO etc
         return 0
 
     set_sdnapy_message_callback(env.AddMessage)
-    input_handle = input_map[b"net"];
+    input_handle = input_map["net"];
     
     input_fieldnames = env.ListFields(input_handle)
 
@@ -76,8 +75,8 @@ def runcalculation(env, #environment object, IO etc
     table2d = None
     
     tablenames = []
-    if b"tables" in input_map:
-        for tablesource in input_map[b"tables"].split(","):
+    if "tables" in input_map:
+        for tablesource in input_map["tables"].split(","):
             tablesource = tablesource.strip()
             if tablesource!="":
                 env.AddMessage("Reading table file "+tablesource)
@@ -117,8 +116,8 @@ def runcalculation(env, #environment object, IO etc
     allfieldtypes = env.ListFieldTypes(input_handle)
     numericfields = [f for f,t in zip(allfieldnames,allfieldtypes) if t==int or t==float]
     textfields = [f for f,t in zip(allfieldnames,allfieldtypes) if t==str]
-    names_to_load = [str(x,"utf-8") for x in calculation.expected_data_net_only()]
-    text_names_to_load = [str(x,"utf-8") for x in calculation.expected_text_data()]
+    names_to_load = calculation.expected_data_net_only()
+    text_names_to_load = calculation.expected_text_data()
     for name in names_to_load:
         if name not in numericfields:
             env.AddError("Calculation expected numeric field '%s' on network; not found"%name)
@@ -156,12 +155,12 @@ def runcalculation(env, #environment object, IO etc
             if value is None:
                 env.AddError("Null value encountered in field %s"%n)
                 sys.exit(1)
-            net.add_polyline_data(fid,n.encode("utf-8"),value)
+            net.add_polyline_data(fid,n,value)
         for n,value in zip(text_names_to_load,fielddata[len(names_to_load):]):
             if value is None:
                 env.AddError("Null value encountered in field %s"%n)
                 sys.exit(1)
-            net.add_polyline_text_data(fid,n.encode("utf-8"),value)
+            net.add_polyline_text_data(fid,n,value)
             
     env.SetProgressor("step", "sDNA processing", num_progress_steps)
     env.SetProgressorPosition(0)

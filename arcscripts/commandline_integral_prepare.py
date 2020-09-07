@@ -72,7 +72,7 @@ def commandline_integral_prepare(command):
                 key,val = pair.split("=")
             except ValueError:
                 op.error("Bad map specifier: "+s)
-            m[key.strip().encode("utf-8")]=val.strip()
+            m[key.strip()]=val.strip()
         return m
         
     if using_maps:
@@ -112,12 +112,12 @@ def commandline_integral_prepare(command):
     
     try:
         runcalculation(env,
-                    command.encode("utf-8"),
-                    config_string.encode("utf-8"),
+                    command,
+                    config_string,
                     infilemap,
                     outfilemap,
                     dll = options.dll)
     
     except sdnaexception.SDNAException as e:
-        print("ERROR: "+str(e))
+        print("ERROR: "+e.message)
         sys.exit(1)
