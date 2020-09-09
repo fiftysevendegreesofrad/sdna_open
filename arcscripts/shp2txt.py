@@ -63,9 +63,9 @@ def ReadFeatures(filename):
     fieldnames = _sf_getfields(filename)
     fid = 0
     for record in data:
-        attrdict = {}
+        attrdict = []
         for name,value in zip(fieldnames,record.record):
-            attrdict[name]=prettify(value,5)
+            attrdict += [(name,prettify(value,5))]
         yield fid,makenestedlist(record.shape),attrdict
         fid += 1
 

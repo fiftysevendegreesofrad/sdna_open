@@ -2,7 +2,7 @@ Choice Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 10 id=0
     Points: (0,3) (0,0) (1,0) (1,1) (2,1) (2,0) (3,0) (3,1) (4,1) (4,0) (5,0) 
@@ -36,10 +36,8 @@ Line Ang Curvature                 810  270  0  0
 Line Sinuosity                     2.05798  3.08697  1  1
 Line Bearing                       120.964  120.964  0  90
 
-
 destroying
 done
-
 
 
 
@@ -47,7 +45,7 @@ Choice Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 10 id=0
     Points: (0,3) (0,0) (1,0) (1,1) (2,1) (2,0) (3,0) (3,1) (4,1) (4,0) (5,0) 
@@ -81,16 +79,14 @@ Line Ang Curvature                 810  270  0  0
 Line Sinuosity                     2.05798  3.08697  1  1
 Line Bearing                       120.964  120.964  0  90
 
-
 destroying
 done
-
 
 Junction cost test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 1 id=0
     Points: (0,0) (-1,0) 
@@ -119,16 +115,14 @@ Line Ang Curvature                 0  0  0
 Line Sinuosity                     1  1  1
 Line Bearing                       270  45  135
 
-
 destroying
 done
-
 
 Split link test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 1 id=0
     Points: (0,0) (0,1) 
@@ -152,16 +146,14 @@ Line Ang Curvature                 0  0
 Line Sinuosity                     1  1
 Line Bearing                       0  0
 
-
 destroying
 done
-
 
 Activity weight test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 10 id=0
     Points: (0,3) (0,0) (1,0) (1,1) (2,1) (2,0) (3,0) (3,1) (4,1) (4,0) (5,0) 
@@ -195,16 +187,14 @@ Line Ang Curvature                 810  270  0  0
 Line Sinuosity                     2.05798  3.08697  1  1
 Line Bearing                       120.964  120.964  0  90
 
-
 destroying
 done
-
 
 Global Radius Only Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 10 id=0
     Points: (0,3) (0,0) (1,0) (1,1) (2,1) (2,0) (3,0) (3,1) (4,1) (4,0) (5,0) 
@@ -238,10 +228,8 @@ Line Ang Curvature                 810  270  0  0
 Line Sinuosity                     2.05798  3.08697  1  1
 Line Bearing                       120.964  120.964  0  90
 
-
 destroying
 done
-
 
 
 
@@ -249,7 +237,7 @@ Global Radius Only Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 10 id=0
     Points: (0,3) (0,0) (1,0) (1,1) (2,1) (2,0) (3,0) (3,1) (4,1) (4,0) (5,0) 
@@ -283,16 +271,14 @@ Line Ang Curvature                 810  270  0  0
 Line Sinuosity                     2.05798  3.08697  1  1
 Line Bearing                       120.964  120.964  0  90
 
-
 destroying
 done
-
 
 Nasty link test
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 1 id=0
     Points: (0,0) (0,1) (0,2) 
@@ -311,16 +297,14 @@ Line Ang Curvature                 0
 Line Sinuosity                     1
 Line Bearing                       0
 
-
 destroying
 done
-
 
 Triangle stick test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Polyline 1 id=0
     Points: (0,1) (1,1) 
@@ -354,16 +338,14 @@ Line Ang Curvature                 0  270  0  0
 Line Sinuosity                     1  inf  1  1
 Line Bearing                       90  inf  90  90
 
-
 destroying
 done
-
 
 Choice Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -554,10 +536,8 @@ Length Rn                          230  230  230  230
 Ang Dist Rn                        1080  1080  1080  1080
 Weight Rn                          4  4  4  4
 
-
 destroying
 done
-
 
 
 
@@ -565,7 +545,7 @@ Choice Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -812,16 +792,14 @@ Length Rnc                         230  230  230  230
 Ang Dist Rnc                       1080  1080  1080  1080
 Weight Rnc                         4  4  4  4
 
-
 destroying
 done
-
 
 Junction cost test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -878,16 +856,14 @@ Length Rn                          3.82843  3.82843  3.82843
 Ang Dist Rn                        0  0  0
 Weight Rn                          3  3  3
 
-
 destroying
 done
-
 
 Split link test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -928,16 +904,14 @@ Length Rn                          2  2
 Ang Dist Rn                        0  0
 Weight Rn                          1  1
 
-
 destroying
 done
-
 
 Activity weight test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -1014,16 +988,14 @@ Length Rn                          230  230  230  230
 Ang Dist Rn                        1080  1080  1080  1080
 Weight Rn                          3  3  3  3
 
-
 destroying
 done
-
 
 Global Radius Only Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -1100,10 +1072,8 @@ Length Rn                          230  230  230  230
 Ang Dist Rn                        1080  1080  1080  1080
 Weight Rn                          4  4  4  4
 
-
 destroying
 done
-
 
 
 
@@ -1111,7 +1081,7 @@ Global Radius Only Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -1192,16 +1162,14 @@ Length Rnc                         230  230  230  230
 Ang Dist Rnc                       1080  1080  1080  1080
 Weight Rnc                         4  4  4  4
 
-
 destroying
 done
-
 
 Nasty link test
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -1230,16 +1198,14 @@ Length Rn                          2
 Ang Dist Rn                        0
 Weight Rn                          1
 
-
 destroying
 done
-
 
 Triangle stick test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -1300,16 +1266,14 @@ Length Rn                          5.82843  5.82843  2  2
 Ang Dist Rn                        270  270  0  0
 Weight Rn                          2  2  1  1
 
-
 destroying
 done
-
 
 Choice Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -1586,10 +1550,8 @@ MeanGeoLen Ang Rn                  33.5  35.5  67.3333  65.8333
 Mean Crow Flight Rn                29.0569  26.8014  53.6807  51.9396
 Diversion Ratio Ang Rn             1.58831  1.92724  1.19833  1.21201
 
-
 destroying
 done
-
 
 
 
@@ -1597,7 +1559,7 @@ Choice Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -1988,16 +1950,14 @@ MeanGeoLen Ang Rnc                 33.5  35.5  67.3333  65.8333
 Mean Crow Flight Rnc               29.0569  26.8014  53.6807  51.9396
 Diversion Ratio Ang Rnc            1.58831  1.92724  1.19833  1.21201
 
-
 destroying
 done
-
 
 Junction cost test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -2072,16 +2032,14 @@ MeanGeoLen Euc Rn                  0.915849  1.03091  1.03091
 Mean Crow Flight Rn                0.856467  0.863146  0.863146
 Diversion Ratio Euc Rn             1.05311  1.16463  1.16463
 
-
 destroying
 done
-
 
 Split link test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -2132,16 +2090,14 @@ MeanGeoLen Euc Rn                  0.666667  0.666667
 Mean Crow Flight Rn                0.666667  0.666667
 Diversion Ratio Euc Rn             1  1
 
-
 destroying
 done
-
 
 Activity weight test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -2243,16 +2199,14 @@ MeanGeoLen Euc Rn                  25  26.6667  49.4444  75.6667
 Mean Crow Flight Rn                20.4207  20.0091  45.3918  58.4959
 Diversion Ratio Euc Rn             1.73151  2.10291  1.07915  1.26755
 
-
 destroying
 done
-
 
 Global Radius Only Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -2361,10 +2315,8 @@ MeanGeoLen Ang Rn                  33.5  35.5  67.3333  65.8333
 Mean Crow Flight Rn                29.0569  26.8014  53.6807  51.9396
 Diversion Ratio Ang Rn             1.58831  1.92724  1.19833  1.21201
 
-
 destroying
 done
-
 
 
 
@@ -2372,7 +2324,7 @@ Global Radius Only Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -2485,16 +2437,14 @@ MeanGeoLen Ang Rnc                 33.5  35.5  67.3333  65.8333
 Mean Crow Flight Rnc               29.0569  26.8014  53.6807  51.9396
 Diversion Ratio Ang Rnc            1.58831  1.92724  1.19833  1.21201
 
-
 destroying
 done
-
 
 Nasty link test
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -2529,16 +2479,14 @@ MeanGeoLen Ang Rn                  0.666667
 Mean Crow Flight Rn                0.666667
 Diversion Ratio Ang Rn             1
 
-
 destroying
 done
-
 
 Triangle stick test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -2613,16 +2561,14 @@ MeanGeoLen Euc Rn                  1.62377  2.26184  0.666667  0.666667
 Mean Crow Flight Rn                0.916667  1.25  0.666667  0.666667
 Diversion Ratio Euc Rn             1.4714  2.17851  1  1
 
-
 destroying
 done
-
 
 Choice Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -3023,10 +2969,8 @@ Convex Hull Max Radius Rn          103.019  101.494  117.618  116.765
 Convex Hull Bearing Rn             358.888  354.346  116.783  331.899
 Convex Hull Shape Index Rn         1.85549  1.85549  1.85549  1.85549
 
-
 destroying
 done
-
 
 
 
@@ -3034,7 +2978,7 @@ Choice Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R5 origin 10   (linkid 0)
@@ -3523,16 +3467,14 @@ Convex Hull Max Radius Rnc         103.019  101.494  117.618  116.765
 Convex Hull Bearing Rnc            358.888  354.346  116.783  331.899
 Convex Hull Shape Index Rnc        1.85549  1.85549  1.85549  1.85549
 
-
 destroying
 done
-
 
 Junction cost test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -3623,16 +3565,14 @@ Convex Hull Max Radius Rn          1.80278  1.58114  1.58114
 Convex Hull Bearing Rn             56.3099  251.565  288.435
 Convex Hull Shape Index Rn         1.66669  1.66669  1.66669
 
-
 destroying
 done
-
 
 Split link test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -3694,16 +3634,14 @@ Convex Hull Max Radius Rn          1.5  1.5
 Convex Hull Bearing Rn             0  180
 Convex Hull Shape Index Rn         inf  inf
 
-
 destroying
 done
-
 
 Activity weight test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -3831,16 +3769,14 @@ Convex Hull Max Radius Rn          103.005  100.404  117.618  116.765
 Convex Hull Bearing Rn             90.5563  354.857  116.783  331.899
 Convex Hull Shape Index Rn         1.85549  1.85549  1.85549  1.85549
 
-
 destroying
 done
-
 
 Global Radius Only Test, Angular analysis, discrete space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -3968,10 +3904,8 @@ Convex Hull Max Radius Rn          103.019  101.494  117.618  116.765
 Convex Hull Bearing Rn             358.888  354.346  116.783  331.899
 Convex Hull Shape Index Rn         1.85549  1.85549  1.85549  1.85549
 
-
 destroying
 done
-
 
 
 
@@ -3979,7 +3913,7 @@ Global Radius Only Test, Angular analysis, cont space, unweighted
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 10   (linkid 0)
@@ -4111,16 +4045,14 @@ Convex Hull Max Radius Rnc         103.019  101.494  117.618  116.765
 Convex Hull Bearing Rnc            358.888  354.346  116.783  331.899
 Convex Hull Shape Index Rnc        1.85549  1.85549  1.85549  1.85549
 
-
 destroying
 done
-
 
 Nasty link test
 WARNING: custommetric was supplied but is not being used
 Using default of angular link centres for angular analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -4161,16 +4093,14 @@ Convex Hull Max Radius Rn          1
 Convex Hull Bearing Rn             180
 Convex Hull Shape Index Rn         inf
 
-
 destroying
 done
-
 
 Triangle stick test
 WARNING: custommetric was supplied but is not being used
 Using default of euclidean link centres for euclidean analysis
 Using xytolerance=0, ztolerance=0
-sDNA is running in 32-bit mode
+sDNA is running in 64-bit mode
 Building network and checking for tolerance errors...
 Running sDNA Integral calculation...
 R1.79769e+308 origin 1   (linkid 0)
@@ -4266,8 +4196,6 @@ Convex Hull Max Radius Rn          1.80278  2  1.5  1.5
 Convex Hull Bearing Rn             56.3099  270  90  270
 Convex Hull Shape Index Rn         1.66669  1.66669  inf  inf
 
-
 destroying
 done
-
 

@@ -33,10 +33,9 @@ _PROGFUNCTYPE = CFUNCTYPE(c_int, c_float)
                 
 __sdna_dll_path = ""
 __dll_instance = None
-__send_message_callback = None
+__send_message_callback = None # for global issues only - there are other callbacks in constructor for Calculation()
 
 def set_dll_path(path):
-        global __dll_instance
         if path is not "":
                 global __sdna_dll_path
                 __sdna_dll_path = path
@@ -68,7 +67,7 @@ def __initialize_dll():
                 
         #first look in same directory
         encoding = sys.getfilesystemencoding()
-        # dirname = os.path.dirname(str(__file__, encoding))  # TODO
+        # dirname = os.path.dirname(str(__file__, encoding))  # TODO - may need fixing for py2 back compatibility
         dirname = os.path.dirname(str(__file__))
         __sdna_dll_path = dirname+dll_name
         
@@ -96,8 +95,8 @@ class Link:
                 self.points = points
                 self.data = data
 
-# nice wrapper class for dll net
 class Net:
+    '''how the dll inputs network with attached data'''
     def __init__(self):
         self.dll = _dll()
         self.dll.net_create.restype = my_void_p
@@ -137,22 +136,23 @@ class Net:
                 raise SDNAException("Bad geometry or memory error encountered in link %d"%fid)            
                 
     def add_polyline_data(self,fid,name,data):
-            retval = self.dll.net_add_polyline_data(self.net,fid,c_char_p(name),c_float(data))
+            retval = self.dll.net_add_polyline_data(self.net,fid,c_char_p(name.encode("ascii")),c_float(data))
             if (not retval):
                 raise SDNAException("Out of memory error")
     
     def add_polyline_text_data(self,fid,name,data):
-            retval = self.dll.net_add_polyline_text_data(self.net,fid,c_char_p(name),c_char_p(data.encode("ascii")))
+            retval = self.dll.net_add_polyline_text_data(self.net,fid,c_char_p(name.encode("ascii")),c_char_p(data.encode("ascii")))
             if (not retval):
                 raise SDNAException("Out of memory error")
                 
     def toString(self,data="",textdata=""):
             def warn(x):
-                    #print x #uncomment to debug
+                    #print (x) #uncomment to debug
                     return 0
-            c = Calculation("sdnaprepare","null;data_absolute=%s;data_text=%s"%(data,textdata),self,_PROGFUNCTYPE(warn),_WARNFUNCTYPE(warn))
+            # use dll to build net
+            c = Calculation("sdnaprepare",("null;data_absolute=%s;data_text=%s"%(data,textdata)),self,_PROGFUNCTYPE(warn),_WARNFUNCTYPE(warn))
             c.run()
-            return c.get_geom_outputs().next().toString()
+            return list(c.get_geom_outputs())[0].toString()
 
 class GeometryItem(object):
         def __init__(self,data):
@@ -165,22 +165,23 @@ def _geom_format(geom):
         except TypeError: # it wasn't iterable
                 return "%.07g"%geom
 
-class GeometryLayer(object):
+class GeometryLayer(object): 
+        '''how the dll outputs all data'''
         def __init__(self,geometrycollection):
                 self.gc = geometrycollection
                 self.dll = _dll()
                 self.dll.geom_get_name.restype = c_char_p
-                self.name = self.dll.geom_get_name(self.gc)
+                self.name = str(self.dll.geom_get_name(self.gc),"ascii")
                 self.dll.geom_get_type.restype = c_char_p
-                self.type = self.dll.geom_get_type(self.gc)
+                self.type = str(self.dll.geom_get_type(self.gc),"ascii")
                 self.dll.geom_get_field_metadata.restype = c_long
                 c_datanames = POINTER(c_char_p)()
                 c_shortdatanames = POINTER(c_char_p)()
                 c_datatypes = POINTER(c_char_p)()
                 self.datalength = self.dll.geom_get_field_metadata(self.gc,byref(c_datanames),byref(c_shortdatanames),byref(c_datatypes))
-                self.datanames = c_datanames[0:self.datalength]
-                self.shortdatanames = c_shortdatanames[0:self.datalength]
-                self.datatypes = c_datatypes[0:self.datalength]
+                self.datanames = [str(x,"ascii") for x in c_datanames[0:self.datalength]]
+                self.shortdatanames = [str(x,"ascii") for x in c_shortdatanames[0:self.datalength]]
+                self.datatypes = [str(x,"ascii") for x in c_datatypes[0:self.datalength]]
                 
         def toString(self):
                 output = "%s - %s (%d items)\n"%(self.name,self.type,self.get_num_items())
@@ -210,7 +211,8 @@ class GeometryLayer(object):
                 point_array_z = POINTER(c_float)()
                 count = 0
                 while self.dll.geom_iterator_next(it,byref(num_parts),byref(data))==1:
-                        datalist = [getattr(d,str(t,"ascii")) for d,t in zip(data[0:self.datalength],self.datatypes)]
+                        datalist = [getattr(d,t) for d,t in zip(data[0:self.datalength],self.datatypes)]
+                        datalist = [str(x,"ascii") if type(x)==bytes else x for x in datalist]
                         item = GeometryItem(datalist)
                         geom = []
                         count += 1
@@ -228,6 +230,7 @@ class GeometryLayer(object):
                 self.dll.geom_iterator_destroy(it)
 
 class TableCollection(object):
+    '''how the dll inputs table data'''
     def __init__(self):
         self.dll=_dll()
         self.dll.table_collection_create.restype = my_void_p
@@ -244,15 +247,19 @@ class Calculation(object):
                 self.dll = _dll()
                 # warnfunc must stay in scope as it is a callback
                 # hence it is made into a class member
-                self.warnfunc = _WARNFUNCTYPE(set_warning_callback)
+                if type(set_warning_callback)==_WARNFUNCTYPE:
+                    # support callback using python 2 string types for legacy test suite
+                    self.warnfunc = set_warning_callback
+                else:
+                    self.warnfunc = _WARNFUNCTYPE(lambda x: set_warning_callback(str(x,"ascii")))
 
                 # progfunc must stay in scope as it is a callback
                 # hence it is made into a class member
                 self.progfunc = _PROGFUNCTYPE(set_progressor_callback)
 
                 self.dll.calc_create.restype = my_void_p
-                self.calc = self.dll.calc_create(c_char_p(name),
-                                                          c_char_p(config_string),
+                self.calc = self.dll.calc_create(c_char_p(name.encode("ascii")),
+                                                          c_char_p(config_string.encode("ascii")),
                                                           net.net,
                                                           self.progfunc,
                                                           self.warnfunc,
@@ -268,13 +275,13 @@ class Calculation(object):
                 self.dll.calc_expected_data_net_only.restype = c_long
                 expected_names = POINTER(c_char_p)()
                 num_names = self.dll.calc_expected_data_net_only(self.calc,byref(expected_names))
-                return expected_names[0:num_names]
+                return [str(x,"ascii") for x in expected_names[0:num_names]]
 
         def expected_text_data(self):
                 self.dll.calc_expected_text_data.restype = c_long
                 expected_names = POINTER(c_char_p)()
                 num_names = self.dll.calc_expected_text_data(self.calc,byref(expected_names))
-                return expected_names[0:num_names]
+                return [str(x,"ascii") for x in expected_names[0:num_names]]
                 
         def get_geom_outputs(self):
                 self.dll.calc_get_num_geometry_outputs.restype = c_long

@@ -658,9 +658,75 @@ class ArcpyCreateCursor(CreateCursor):
 # sDNA python scripts might run.
 # At present there are two: 1. within ArcGIS; 2. directly on shapefiles
 
-import abc,sys,os,re,shutil,csv
+import abc,sys,os,re,shutil,csv,codecs
 from os import path
 from collections import defaultdict
+
+PY3 = sys.version_info > (3,)
+
+# CSV classes from http://python3porting.com/problems.html
+class UnicodeCSVReader:
+    def __init__(self, filename, dialect=csv.excel,
+                 encoding="utf-8", **kw):
+        self.filename = filename
+        self.dialect = dialect
+        self.encoding = encoding
+        self.kw = kw
+
+    def __enter__(self):
+        if PY3:
+            self.f = open(self.filename, 'rt',
+                          encoding=self.encoding, newline='')
+        else:
+            self.f = open(self.filename, 'rb')
+        self.reader = csv.reader(self.f, dialect=self.dialect,
+                                 **self.kw)
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.f.close()
+
+    def next(self):
+        row = next(self.reader)
+        if PY3:
+            return row
+        return [s.decode(self.encoding) for s in row]
+
+    __next__ = next
+
+    def __iter__(self):
+        return self
+
+class UnicodeCSVWriter:
+    def __init__(self, filename, dialect=csv.excel,
+                 encoding="utf-8", **kw):
+        self.filename = filename
+        self.dialect = dialect
+        self.encoding = encoding
+        self.kw = kw
+
+    def __enter__(self):
+        if PY3:
+            self.f = open(self.filename, 'wt',
+                          encoding=self.encoding, newline='')
+        else:
+            self.f = open(self.filename, 'wb')
+        self.writer = csv.writer(self.f, dialect=self.dialect,
+                                 **self.kw)
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.f.close()
+
+    def writerow(self, row):
+        if not PY3:
+            row = [s.encode(self.encoding) for s in row]
+        self.writer.writerow(row)
+
+    def writerows(self, rows):
+        for row in rows:
+            self.writerow(row)
+            
 
 def is_gdb(name):
     # anything that contains literal .gdb followed by / or \
@@ -863,24 +929,19 @@ class CSVCreateCursor(CreateCursor):
         if outfilename.lower()[-4:]!=".csv":
             outfilename += ".csv"
             
-        try:
-            self.outfile = open(outfilename,"wb")
-        except:
-            env.AddError("Error opening output file "+outfilename)
-            sys.exit(1)
-            
-        self.writer = csv.writer(self.outfile)
+        self.writer = UnicodeCSVWriter(outfilename)
+        self.writer.__enter__() # could convert this to 'with' pattern if desired
         self.writer.writerow(long_fieldnames)
     
     def Close(self):
-        if hasattr(self,"outfile"):
-            self.outfile.close()
+        del self.writer
         
     def AddRowGeomItem(self,geometryitem):
         def myformat(x):
             if type(x)==float:
                 return ("%.6f"%x).rstrip("0")
             else:
+                assert type(x)!=bytes
                 return x
                 
         self.writer.writerow(list(map(myformat,geometryitem.data)))

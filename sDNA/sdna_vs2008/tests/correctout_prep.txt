@@ -8,7 +8,7 @@ Field names saved to prep_crash_shapefile\out.names.csv
 Reading features from prep_crash_shapefile\shapefilepreparecrash
 Reading features from prep_crash_shapefile\shapefilepreparecrash
 sDNA processing
-  sDNA is running in 32-bit mode
+  sDNA is running in 64-bit mode
   Fixing near miss connections
 moving junction at 523776,181082 to 523776,181082
 moving link startpoint of link 16941
@@ -218,7 +218,6 @@ moving junction at 530661,180659 to 530661,180659
   Fixing isolated systems
   Fixing split links
 Writing prep_crash_shapefile\out
-dll is ..\Debug\sdna_vs2008.dll
 minimal split link, absolute weights
 Using xytolerance=0, ztolerance=0
 before
@@ -234,7 +233,6 @@ net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', -1), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
 
-
 minimal split link, length weighted
 Using xytolerance=0, ztolerance=0
 before
@@ -249,7 +247,6 @@ repair
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', -1), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
-
 
 minimal traffic island
 Using xytolerance=0, ztolerance=0
@@ -269,7 +266,6 @@ net - POLYLINEZ (2 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', -4), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,4,0),(0,3,0),(0,1,0),(0,0,0)))
 [('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
-
 
 dual traffic island
 Using xytolerance=0, ztolerance=0
@@ -291,7 +287,6 @@ net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', -8), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 3.0), ('cost', 3.0), ('island', 0.0)]  (((0,7,0),(0,6,0),(0,4,0),(0,3,0),(0,1,0),(0,0,0)))
 
-
 minimal duplicate link
 Using xytolerance=0, ztolerance=0
 before
@@ -307,7 +302,6 @@ net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
 
-
 reverse duplicate link
 Using xytolerance=0, ztolerance=0
 before
@@ -322,7 +316,6 @@ repair
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
-
 
 minimal isolated system
 Using xytolerance=0, ztolerance=0
@@ -342,7 +335,6 @@ net - POLYLINEZ (2 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', 0), ('sametext', '1'), ('difftext', '0'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0)))
 [('ID', 1), ('sametext', '1'), ('difftext', '1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,1,0),(0,2,0)))
-
 
 minimal near miss connection
 links 0 and 1 should join
@@ -382,7 +374,6 @@ net - POLYLINEZ (7 items)
 [('ID', 5), ('sametext', '1'), ('difftext', '5'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
 [('ID', 6), ('sametext', '1'), ('difftext', '6'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4.3,0),(1,5,0)))
 
-
 near miss connection resulting in zero length link
 Using xytolerance=0.2, ztolerance=0
 before
@@ -399,7 +390,6 @@ moving link endpoint of link -1
 net - POLYLINEZ (0 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 
-
 traffic island unsplits into loop link
 Using xytolerance=0, ztolerance=0
 before
@@ -415,7 +405,6 @@ repair
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
 [('ID', -4), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(0,1,0),(0,0,0),(1,0,0)))
-
 
 link unlink import test
 Using xytolerance=0, ztolerance=0

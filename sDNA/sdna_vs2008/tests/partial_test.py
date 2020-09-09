@@ -1,6 +1,10 @@
 import ctypes
 import sys,os
 
+# http://stackoverflow.com/questions/17840144/why-does-setting-ctypes-dll-function-restype-c-void-p-return-long
+class my_void_p(ctypes.c_void_p):
+    pass
+
 #sys.stdin.readline()
 
 dll = ctypes.windll.LoadLibrary(os.environ["sdnadll"])
@@ -17,7 +21,7 @@ def set_progressor(x):
 set_progressor_callback = CALLBACKFUNCTYPE(set_progressor)
 WARNINGCALLBACKFUNCTYPE = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_char_p)
 def warning(x):
-    print x
+    print(str(x,"ascii"))
     return 0
 warning_callback = WARNINGCALLBACKFUNCTYPE(warning)
 
@@ -30,11 +34,11 @@ def add_polyline(net,arcid,points,_gs,activity_weight=1,custom_cost=1):
         point_array_x[i] = x
         point_array_y[i] = y
     dll.net_add_polyline(net,arcid,len(points),point_array_x,point_array_y)
-    dll.net_add_polyline_data(net,arcid,"start_gs",ctypes.c_float(_gs[0]))
-    dll.net_add_polyline_data(net,arcid,"end_gs",ctypes.c_float(_gs[1]))
-    dll.net_add_polyline_data(net,arcid,"weight",ctypes.c_float(activity_weight))
-    dll.net_add_polyline_data(net,arcid,"custom_cost",ctypes.c_float(custom_cost))
-    dll.net_add_polyline_data(net,arcid,"is_island",ctypes.c_float(0))
+    dll.net_add_polyline_data(net,arcid,b"start_gs",ctypes.c_float(_gs[0]))
+    dll.net_add_polyline_data(net,arcid,b"end_gs",ctypes.c_float(_gs[1]))
+    dll.net_add_polyline_data(net,arcid,b"weight",ctypes.c_float(activity_weight))
+    dll.net_add_polyline_data(net,arcid,b"custom_cost",ctypes.c_float(custom_cost))
+    dll.net_add_polyline_data(net,arcid,b"is_island",ctypes.c_float(0))
 
 def choice_test(net):
     add_polyline(net,10,[(0,3),(0,0),(1,0),(1,1),(2,1),(2,0),(3,0),(3,1),(4,1),(4,0),(5,0)],(0,0),1,1)
@@ -102,7 +106,8 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,length_weig
     global current_net_arcids
     current_net_arcids = []
 
-    net = ctypes.c_void_p(dll.net_create())
+    dll.net_create.restype = my_void_p
+    net = dll.net_create()
 
     config_string = "start_gs=start_gs;end_gs=end_gs;custommetric=custom_cost;weight=weight;radii=%s;"%",".join(map(str,euclidean_radii))
     config_string += "metric=%s;"%analysis_type
@@ -112,18 +117,19 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,length_weig
     else:
         config_string += "weight_type=link;"
     config_string += extra_config
-    calculation = ctypes.c_void_p(dll.integral_calc_create(net,config_string,
+    dll.integral_calc_create.restype = my_void_p
+    calculation = dll.integral_calc_create(net,ctypes.c_char_p(config_string.encode("ascii")),
                                                            set_progressor_callback,
-                                                           warning_callback))
+                                                           warning_callback)
 
     if not calculation:
-        print "config failed"
+        print ("config failed")
         return
     
     dll.icalc_get_all_output_names.restype = ctypes.POINTER(ctypes.c_char_p)
     dll.icalc_get_output_length.restype = ctypes.c_int
     outlength = dll.icalc_get_output_length(calculation)
-    names = dll.icalc_get_all_output_names(calculation)
+    names = [str(x,"ascii") for x in dll.icalc_get_all_output_names(calculation)[0:outlength]]
     dll.icalc_get_short_output_names.restype = ctypes.POINTER(ctypes.c_char_p)
     shortnames = dll.icalc_get_short_output_names(calculation)
     sn=[]
@@ -133,16 +139,16 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,length_weig
     net_definition(net)
     
     if not dll.calc_run(calculation):
-        print "run failed"
+        print ("run failed")
         return
 
     dll.net_print(net)
     
     
-    print '\nshortnames: '+','.join(sn)
-    print 'created output buffer size float *',outlength
+    print ('\nshortnames: '+','.join([str(x,"ascii") for x in sn]))
+    print ('created output buffer size float *',outlength)
 
-    print '\nOUTPUT DATA:'
+    print ('\nOUTPUT DATA:')
 
     # for debug display we want to invert output arrays
     out_buffer_type = ctypes.c_float * outlength
@@ -153,33 +159,33 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,length_weig
         out_array += [list(out_buffer)]
 
     for i in range(outlength):
-        print names[i]+' '*(35-len(names[i]))+'  '.join("%.6g"%link_data[i] for link_data in out_array)
+        print (names[i]+' '*(35-len(names[i]))+'  '.join("%.6g"%link_data[i] for link_data in out_array))
 
-    print '\n'
-    print 'destroying'
+    print ()
+    print ('destroying')
     dll.net_destroy(net)
     dll.calc_destroy(calculation)
-    print 'done'
-    print '\n'
+    print ('done')
+    print ()
     
 def test_net_all_options(test_name,net_definition,euclidean_radii,problink,extra_config):
-    print "%s, Angular analysis, discrete space, unweighted"%test_name
+    print ("%s, Angular analysis, discrete space, unweighted"%test_name)
     test_net(net_definition,euclidean_radii,ANGULAR,False,False,problink,extra_config)
-    print "\n\n%s, Angular analysis, cont space, unweighted"%test_name
+    print ("\n\n%s, Angular analysis, cont space, unweighted"%test_name)
     test_net(net_definition,euclidean_radii,ANGULAR,True,False,problink,extra_config)
 
 def bigger_test(extra_config):
     test_net_all_options("Choice Test",choice_test,choice_test_radii,12,extra_config)
-    print "Junction cost test"
+    print ("Junction cost test")
     test_net(junction_cost_test,junction_cost_test_radii,EUCLIDEAN,False,False,1,extra_config)
-    print "Split link test"
+    print ("Split link test")
     test_net(split_link_test,split_link_test_radii,EUCLIDEAN,False,False,1,extra_config)
-    print "Activity weight test"
+    print ("Activity weight test")
     test_net(act_weight_test,act_weight_test_radii,EUCLIDEAN,False,False,10,extra_config)
     test_net_all_options("Global Radius Only Test",choice_test,["n"],12,extra_config)
-    print "Nasty link test"
+    print ("Nasty link test")
     test_net(nasty_link_test,nasty_link_test_radii,ANGULAR,False,False,1,extra_config)
-    print "Triangle stick test"
+    print ("Triangle stick test")
     test_net(triangle_stick_test,triangle_stick_test_radii,EUCLIDEAN,False,False,1,extra_config)
     
 bigger_test("linkonly")

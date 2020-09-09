@@ -1,6 +1,6 @@
 rem "if this hangs, try pressing return, it might have been waiting for you to attach a debugger..."
 
-rem %pythonexe% -u debug_test.py >testout.txt 2>&1
+%pythonexe% -u debug_test.py >testout.txt 2>&1
 diff -q -w correctout.txt testout.txt 
 
 echo
@@ -24,12 +24,12 @@ del odtestout*
 del odtest.shp
 %pythonexe% -u make_od_test_shp.py >NUL 2>NUL
 del testout_od.txt testout_od_skim*
-%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=skimtest" --om "skim=testout_od_skim.csv" "radii=n;outputskim;skimzone=zone;nonetdata;metric=euclidean" >>odtestout_stdout.txt 2>>testout_od.txt
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=skimtest" --om "skim=testout_od_skim.csv" "radii=n;outputskim;skimzone=zone;nonetdata;metric=euclidean" >>odtestout_stdout.txt 2>>NUL
 cat testout_od_skim.csv >>testout_od.txt
-%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=skimtestzeroweight" --om "skim=testout_od_skimzeroweight.csv" "radii=n;outputskim;skimzone=zone;nonetdata;metric=euclidean;weight=weight" >>odtestout_stdout.txt 2>>testout_od.txt
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=skimtestzeroweight" --om "skim=testout_od_skimzeroweight.csv" "radii=n;outputskim;skimzone=zone;nonetdata;metric=euclidean;weight=weight" >>odtestout_stdout.txt 2>>NUL
 cat testout_od_skimzeroweight.csv >>testout_od.txt
-%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=odtest;tables=testodmatrix.csv" --om "net=odtestoutsparse" "radii=n;odmatrix" >>odtestout_stdout.txt 2>>testout_od.txt
-%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=odtest;tables=testodmatrix-nonsparse.csv" --om "net=odtestoutnonsparse" "radii=n;odmatrix" >>odtestout_stdout.txt 2>>testout_od.txt
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=odtest;tables=testodmatrix.csv" --om "net=odtestoutsparse" "radii=n;odmatrix" >>odtestout_stdout.txt 2>>NUL
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnaintegral.py --dll %sdnadll% --im "net=odtest;tables=testodmatrix-nonsparse.csv" --om "net=odtestoutnonsparse" "radii=n;odmatrix" >>odtestout_stdout.txt 2>>NUL
 %pythonexe% ..\..\..\arcscripts\shp2txt.py odtestoutsparse odtestoutnonsparse >>testout_od.txt 2>&1
 @echo on
 diff -q -w correctout_od.txt testout_od.txt
@@ -39,7 +39,7 @@ diff -q -w correctout3d.txt testout3d.txt
 %pythonexe% -u partial_test.py >testout_partial.txt 2>&1
 diff -q -w correctout_partial.txt testout_partial.txt 
 
-%pythonexe% -u test_parallel_results.py 
+%pythonexe% -u test_parallel_results.py >NUL
 
 cmd /C run_geom_test.bat
 cmd /C run_prepare_test.bat

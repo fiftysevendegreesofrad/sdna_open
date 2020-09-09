@@ -119,5 +119,5 @@ def commandline_integral_prepare(command):
                     dll = options.dll)
     
     except sdnaexception.SDNAException as e:
-        print("ERROR: "+e.message)
+        print("ERROR: "+str(e))
         sys.exit(1)
