@@ -67,7 +67,7 @@ class ForwardPipeToProgress:
     
     def poll(self):
         while not self.q.empty():
-            char = self.q.get_nowait()
+            char = str(self.q.get_nowait(),"ascii")
             # treat \r and \r\n as \n
             if char == "\r":
                 self.seen_cr = True
