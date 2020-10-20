@@ -317,10 +317,12 @@ class SdnaShapefileEnvironment(SdnaEnvironment):
                         #http://www.dbase.com/Knowledgebase/INT/db7_file_fmt.htm
                         converted_value = typ()
                     else:
-                        name = fieldnames[i]
-                        msg = "Failed to convert %s (in field %s line %s) to %s"%tuple(map(str,[value,name,fid,typ]))
-                        self.AddError(msg)
-                        sys.exit(1)
+                        raise TypeError
+                except TypeError:
+                    name = fieldnames[i]
+                    msg = "Failed to convert %s (in field %s line %s) to %s"%tuple(map(str,[value,name,fid,typ]))
+                    self.AddError(msg)
+                    sys.exit(1)
                 fielddata += [converted_value]
             if list(record.shape.parts) != [0]:
                 self.AddError("Multipart features are not supported in sDNA: convert your input data to single part features then rerun")
