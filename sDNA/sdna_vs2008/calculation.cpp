@@ -604,9 +604,10 @@ void SDNAIntegralCalculation::process_origin(SDNAPolyline *origin,int r,shared_p
 		//this is very approximate, but simplifies the appearance of sdna output measures:
 		//if we don't estimate origin diversion ratio then that breaks the concept of normalizing by weight in radius
 		//as the weight does include the origin itself
-		total_crow_flies(origin,r) += origin->estimate_average_inner_crow_flight_distance_ignoring_oneway(proportion_of_origin_within_radius) 
-										* destweight_of_origin_within_radius;
-		diversion_ratio(origin,r) += origin->estimate_average_inner_diversion_ratio_ignoring_oneway() * destweight_of_origin_within_radius;
+		double origin_crow_flight = origin->estimate_average_inner_crow_flight_distance_ignoring_oneway(proportion_of_origin_within_radius) ;
+		total_crow_flies(origin,r) += origin_crow_flight * destweight_of_origin_within_radius;
+		double origin_diversion_ratio = origin->estimate_average_inner_diversion_ratio_ignoring_oneway() ;
+		diversion_ratio(origin,r) += origin_diversion_ratio * destweight_of_origin_within_radius;
 
 		//each point experiences intra-origin traffic of 1/6*(origweight*destweight) in each direction
 		betweenness.increment_both(origin,r,origin_self_betweenness_weight/6.);
@@ -631,7 +632,9 @@ void SDNAIntegralCalculation::process_origin(SDNAPolyline *origin,int r,shared_p
 										 (float)origweight_of_origin_within_radius,
 										 (float)two_stage_betweenness_origin_weight,
 										 (float)(cost_of_origin_within_radius / 3.),
-										 (float)(length_of_origin_within_radius / 3.)),
+										 (float)(length_of_origin_within_radius / 3.),
+										 (float)origin_crow_flight,
+										 (float)origin_diversion_ratio),
 					 1));
 			shared_ptr<sDNAGeometryPointsByEdgeLength> origasdestination(new sDNAGeometryPointsByEdgeLength());
 			orig_as_destinationdata->add_part(origin_geom);
@@ -809,7 +812,8 @@ void SDNAIntegralCalculation::process_geodesic(DestinationEdgeProcessingTask &de
 	}
 	total_geodesic_length_weighted(origin_link,r) += euclidean_cost_of_geodesic * dest_weight;
 
-	diversion_ratio(origin_link,r) += euclidean_cost_of_geodesic / crow_flies_distance * dest_weight;
+	double diversion_ratio_this_destination = euclidean_cost_of_geodesic / crow_flies_distance;
+	diversion_ratio(origin_link,r) += diversion_ratio_this_destination * dest_weight;
 	#ifdef _SDNADEBUG
 		cout << "euclidean geodesic from link " << origin_link->arcid << "-" << destination_link->arcid << " is " << euclidean_cost_of_geodesic << endl;
 		cout << "crow flies distance is " << crow_flies_distance << endl;
@@ -846,7 +850,9 @@ void SDNAIntegralCalculation::process_geodesic(DestinationEdgeProcessingTask &de
 									 (float)origin_weight,
 									 (float)two_stage_betweenness_weight,
 									 (float)get_geodesic_analytical_cost(dest,anal_best_costs_reaching_edge),
-									 (float)euclidean_cost_of_geodesic),
+									 (float)euclidean_cost_of_geodesic,
+									 (float)crow_flies_distance,
+									 (float)diversion_ratio_this_destination),
 				 1));
 		shared_ptr<sDNAGeometryPointsByEdgeLength> destination(new sDNAGeometryPointsByEdgeLength());
 		destination->add_edge_length_from_start_to_end(dest.routing_edge,dest.length_of_edge_inside_radius);
