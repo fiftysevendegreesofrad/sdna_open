@@ -21,6 +21,13 @@ from sdnaexception import SDNAException
 from ctypes import *
 import sys,os
 
+PY3 = sys.version_info > (3,)
+if PY3:
+    bytes_to_str = str
+else:
+    def bytes_to_str(b,enc):
+        return b
+
 # http://stackoverflow.com/questions/17840144/why-does-setting-ctypes-dll-function-restype-c-void-p-return-long
 class my_void_p(c_void_p):
     pass
@@ -66,9 +73,12 @@ def __initialize_dll():
                 assert(c_size_t==c_ulong) # 32-bit
                 
         #first look in same directory
-        encoding = sys.getfilesystemencoding()
-        # dirname = os.path.dirname(str(__file__, encoding))  # TODO - may need fixing for py2 back compatibility
-        dirname = os.path.dirname(str(__file__))
+        if PY3:
+            file = str(__file__)
+        else:
+            encoding = sys.getfilesystemencoding()
+            file = str(__file__,encoding)
+        dirname = os.path.dirname(file)
         __sdna_dll_path = dirname+dll_name
         
         #this is to allow use of fresh build
@@ -171,17 +181,17 @@ class GeometryLayer(object):
                 self.gc = geometrycollection
                 self.dll = _dll()
                 self.dll.geom_get_name.restype = c_char_p
-                self.name = str(self.dll.geom_get_name(self.gc),"ascii")
+                self.name = bytes_to_str(self.dll.geom_get_name(self.gc),"ascii")
                 self.dll.geom_get_type.restype = c_char_p
-                self.type = str(self.dll.geom_get_type(self.gc),"ascii")
+                self.type = bytes_to_str(self.dll.geom_get_type(self.gc),"ascii")
                 self.dll.geom_get_field_metadata.restype = c_long
                 c_datanames = POINTER(c_char_p)()
                 c_shortdatanames = POINTER(c_char_p)()
                 c_datatypes = POINTER(c_char_p)()
                 self.datalength = self.dll.geom_get_field_metadata(self.gc,byref(c_datanames),byref(c_shortdatanames),byref(c_datatypes))
-                self.datanames = [str(x,"ascii") for x in c_datanames[0:self.datalength]]
-                self.shortdatanames = [str(x,"ascii") for x in c_shortdatanames[0:self.datalength]]
-                self.datatypes = [str(x,"ascii") for x in c_datatypes[0:self.datalength]]
+                self.datanames = [bytes_to_str(x,"ascii") for x in c_datanames[0:self.datalength]]
+                self.shortdatanames = [bytes_to_str(x,"ascii") for x in c_shortdatanames[0:self.datalength]]
+                self.datatypes = [bytes_to_str(x,"ascii") for x in c_datatypes[0:self.datalength]]
                 
         def toString(self):
                 output = "%s - %s (%d items)\n"%(self.name,self.type,self.get_num_items())
@@ -212,7 +222,7 @@ class GeometryLayer(object):
                 count = 0
                 while self.dll.geom_iterator_next(it,byref(num_parts),byref(data))==1:
                         datalist = [getattr(d,t) for d,t in zip(data[0:self.datalength],self.datatypes)]
-                        datalist = [str(x,"ascii") if type(x)==bytes else x for x in datalist]
+                        datalist = [bytes_to_str(x,"ascii") if type(x)==bytes else x for x in datalist]
                         item = GeometryItem(datalist)
                         geom = []
                         count += 1
@@ -251,7 +261,7 @@ class Calculation(object):
                     # support callback using python 2 string types for legacy test suite
                     self.warnfunc = set_warning_callback
                 else:
-                    self.warnfunc = _WARNFUNCTYPE(lambda x: set_warning_callback(str(x,"ascii")))
+                    self.warnfunc = _WARNFUNCTYPE(lambda x: set_warning_callback(bytes_to_str(x,"ascii")))
 
                 # progfunc must stay in scope as it is a callback
                 # hence it is made into a class member
@@ -275,13 +285,13 @@ class Calculation(object):
                 self.dll.calc_expected_data_net_only.restype = c_long
                 expected_names = POINTER(c_char_p)()
                 num_names = self.dll.calc_expected_data_net_only(self.calc,byref(expected_names))
-                return [str(x,"ascii") for x in expected_names[0:num_names]]
+                return [bytes_to_str(x,"ascii") for x in expected_names[0:num_names]]
 
         def expected_text_data(self):
                 self.dll.calc_expected_text_data.restype = c_long
                 expected_names = POINTER(c_char_p)()
                 num_names = self.dll.calc_expected_text_data(self.calc,byref(expected_names))
-                return [str(x,"ascii") for x in expected_names[0:num_names]]
+                return [bytes_to_str(x,"ascii") for x in expected_names[0:num_names]]
                 
         def get_geom_outputs(self):
                 self.dll.calc_get_num_geometry_outputs.restype = c_long

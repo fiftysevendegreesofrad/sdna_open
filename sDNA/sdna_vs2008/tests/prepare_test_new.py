@@ -1,3 +1,4 @@
+from __future__ import print_function
 from make_barnsbury import *
 from ctypes import *
 import sys,os
@@ -6,6 +7,11 @@ import arcscriptsdir
 import sdnapy
 sdnapy.set_dll_path(os.environ["sdnadll"])
 from sdnapy import my_void_p
+
+def ensure_unicode(x):
+  if sys.version_info < (3, 0):
+    return unicode(x)
+  return str(x,"ascii")
 
 #sys.stdin.readline()
 
@@ -206,7 +212,7 @@ dll.prep_get_subsystems.restype=c_long
 links = POINTER(c_long)()
 message = c_char_p()
 num_disconnected_links = dll.prep_get_subsystems(prep,byref(message),byref(links))
-print (str(message.value,"ascii"))
+print (ensure_unicode(message.value))
 print (list(links[0:num_disconnected_links]))
 print ("repair")
 dll.prep_fix_subsystems.restype=c_long

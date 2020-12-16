@@ -742,8 +742,11 @@ def stripshpextensions(name):
 def get_sensible_increment(numitems):
     inc = numitems/1000 if numitems>100 else numitems
     return inc if inc>0 else 1
+
+# py2+3 compatible abstract base class
+ABC = abc.ABCMeta('ABC', (object,), {})
         
-class SdnaEnvironment(metaclass=abc.ABCMeta):
+class SdnaEnvironment(ABC):
     def __init__(self):
         self.tty_unfinished_line = False
         self.progressor_output_100 = False
@@ -862,6 +865,7 @@ class SdnaEnvironment(metaclass=abc.ABCMeta):
                 return csv_rstrip(next(self.reader))
             def __iter__(self):
                 return self
+            next=__next__ # for py2
 
         with open(source, 'r') as csvfile: #https://stackoverflow.com/questions/40310042/python-read-csv-bom-embedded-into-the-first-key
             reader = csv_rstrip_reader(csvfile)
@@ -909,7 +913,7 @@ class SdnaEnvironment(metaclass=abc.ABCMeta):
                 sys.exit(1)
             
                 
-class CreateCursor(metaclass=abc.ABCMeta):
+class CreateCursor(ABC):
     @abc.abstractmethod
     def AddRowGeomItem(self,geometryitem):
         return
@@ -941,8 +945,9 @@ class CSVCreateCursor(CreateCursor):
             if type(x)==float:
                 return ("%.6f"%x).rstrip("0")
             else:
-                assert type(x)!=bytes
-                return x
+                if PY3:
+                    assert type(x)!=bytes
+                return str(x)
                 
         self.writer.writerow(list(map(myformat,geometryitem.data)))
         

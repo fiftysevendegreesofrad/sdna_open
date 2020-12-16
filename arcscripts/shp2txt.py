@@ -14,6 +14,7 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+from __future__ import print_function
 import sys,glob,shapefile
 
 filenames = sys.argv[1:]
@@ -65,7 +66,7 @@ def ReadFeatures(filename):
     for record in data:
         attrdict = []
         for name,value in zip(fieldnames,record.record):
-            attrdict += [(name,prettify(value,5))]
+            attrdict += [(str(name),prettify(value,5))] # str maintains py2 output appearance
         yield fid,makenestedlist(record.shape),attrdict
         fid += 1
 

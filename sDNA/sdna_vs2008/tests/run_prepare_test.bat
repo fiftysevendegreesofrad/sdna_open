@@ -2,4 +2,4 @@
 
 %pythonexe% -u prepare_test_new.py >>testout_prep_%outputsuffix%.txt 2>&1
 
-diff -q -w correctout_prep.txt testout_prep_%outputsuffix%.txt 
+cmd /C mydiff correctout_prep.txt testout_prep_%outputsuffix%.txt 
