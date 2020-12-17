@@ -68,7 +68,7 @@ over another? To answer that question, we need to specify a
 
 sDNA processes spatial networks encoded using a **coincident endpoint
 connectivity rule.** This is a common standard used in many data sets
-e.g. OpenStreetMap and Ordnance Survey products as well as other
+e.g. Ordnance Survey products as well as other
 software such as ArcGIS Network Analyst.
 (Provided you take grade separation into account. Ordnance survey
 specify grade separations for each end of a link, and links only join
@@ -124,6 +124,7 @@ rather than crossroads? By using some different connectivity rules:
     * *Link-Unlink (data) rule*.   Intersecting links are assumed to join unless they are specifically marked otherwise.  This is done by having a brunel data field attached to each line.  This is an easy format to draw by hand.
     * *Link-Endpoint Grade Separation rule*.  Intersections are not allowed in the data at all; ALL lines where they touch MUST have coincident endpoints.  Where links don’t join at their endpoints this is shown by providing elevation or grade separation data – two data fields attached to each line, one for the line start and the other for its end.  (OS ITN does this).
     * *Link-Node rule*.  Intersections are not allowed in the data at all; ALL lines where they touch MUST have coincident endpoints.  Where links don’t join at their endpoints this is shown by providing elevation or grade separation data – endpoints are assumed not to join unless their elevation and grade separation match.  This data is provided in a separate layer of points, cross-referenced to the lines whose elevations they represent (OS Meridian does this).
+    * *Shared point rule* Lines do not intersect unless they share a point in the list of points representing the line in the data. This could be an endpoint, or any corner in the line itself, or even added without a corner to create an intersection. OpenStreetMap uses this rule, though refers to all points within the lines as 'nodes'; in this document I reserve use of 'nodes' for places where links are connected.
     
     Note one advantage of the latter two formats is that intersecting lines are not allowed at all; therefore any detected by software are guaranteed to be data errors.  Catching errors in data is an important function we discuss later.
 
@@ -161,6 +162,8 @@ with a coincident endpoint connectivity rule.
 
 -  **For Link-Node rule**, get in touch with us – although they are not
    released to the public yet, we have some tools to do this.
+   
+- **For Shared point rule** use a :ref:`Shared point line breaker` 
 
 **Summary:  ensure you understand spatial network
 connectivity rules, and (for sDNA) that your network uses coincident endpoint
@@ -494,6 +497,13 @@ Breaking intersections between lines means converting intersections from the typ
 * **Autocad Map3d**: 
     Autocad Map3d has a *Break lines at intersections* tool within the `Drawing Cleanup`_ toolkit.
 
+.. _shared point line breaker:
+
+-------------------------
+Shared point line breaker
+-------------------------
+
+The ``bpol`` option on `v.clean in the GRASS tools`_ does exactly this. The GRASS tools are bundled with the free QGIS_, though to display them it is necessary to switch the Processing toolbox to advanced mode.  (This is necessary for :ref:`firstuse` in any case).
 
 .. _topology:
    
@@ -582,14 +592,13 @@ Our experience with OSM has alerted us to the following pitfalls:
 
     As of November 2014, the OSM data for Cardiff contained a number of
     connectivity and geometry errors. These were fixed by planarizing in ArcGIS with a
-    1m cluster tolerance. It was first necessary to extract bridges and
+    1 metre cluster tolerance. It was first necessary to extract bridges and
     tunnels, to avoid planarizing these also.
     
 See also the step by step guide, :ref:`osm-step-by-step`.
     
-OSM, despite its inconsistencies, is a very useful spatial model as of
-November 2014, and we expect it only to improve for the foreseeable
-future.
+Update: as of 2020 many areas of OpenStreetMap are greatly improved and can be prepared correctly using the ``bpol`` option on `v.clean in the GRASS tools`_.
+
 
 .. [OSM1] See https://www.mapbox.com/osm-data-report/ and http://radar.oreilly.com/2014/08/ten-years-of-openstreetmap.html
 

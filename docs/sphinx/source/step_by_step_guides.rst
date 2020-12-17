@@ -11,6 +11,8 @@ Step by step guides for specific tasks
 Downloading and preparing data from OpenStreetMap
 =================================================
 
+NOTE: AS OF 2020 THIS SECTION IS LARGELY OUT OF DATE. OSM DATA CAN BE CONNECTED USING THE bpol OPTION IN GRASS v.clean; THIS HANDLES ALL INTERSECTIONS CORRECTLY.
+
 OSM is a crowd-sourced mapping product and as such is particularly well supported by the open source community.  This tutorial therefore uses the free `QGIS`_.  
 
 .. _QGIS: http://www.qgis.org/en/site/

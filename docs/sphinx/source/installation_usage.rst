@@ -15,6 +15,8 @@ The toolbox can be used in any of a number of ways:
 
 -  As a plug-in to ArcGIS 10.1 or later, or
 
+-  As a plug-in to ArcGIS Professional, or
+
 -  As a plug-in to QGIS 2.0 or later, or
 
 -  As a plug-in to Autocad (various versions; 2010-2013 have been
@@ -42,8 +44,8 @@ Using sDNA for the first time
 
 How you use sDNA depends on your host application.
 
-ArcGIS
-======
+ArcGIS 10.x
+===========
 
 1. From inside ArcGIS, go to ArcToolbox.
 
@@ -64,12 +66,26 @@ dialog. If you are not familiar with using tools from ArcToolbox, or
 changing layer symbology, visit the *ArcGIS Desktop Help* website for
 further details.
 
+ArcGIS Professional
+===================
+
+In ArcGIS Professional, external toolboxes appear in the Catalog rather than with ESRI's own geoprocessing tools.
+
+1. From inside ArcGIS, navigate to the "View" ribbon and choose "Catalog Pane" to open the catalog.
+
+2. In the Catalog pane, right click on "Toolboxes", Choose "Add Toolbox"
+
+3. Navigate to the place you have installed sDNA (usually ``c:\Program
+   Files (x86)\sDNA``) and select the toolbox ``sdna.pyt``.
+
+The tools can then be used from the catalog. 
+
 QGIS
 ====
 
 1. From inside QGIS, choose ``Plugins`` |rarr| ``Manage and install plugins...``.  At present, QGIS support is considered experimental, so go to ``Settings`` and click ``Also show experimental plugins``.
 
-2. Type "sdna" into the search box; you should find the Spatial Design Network Analysis plugin
+2. Type "sdna" into the search box; you should find the Spatial Design Network Analysis plugin. Different sDNA plugins should appear depending on which version of QGIS you are using (2 or 3).
 
 3. Click ``Install Plugin``, then ``Close``
 
