@@ -109,7 +109,7 @@ for tool in get_tools():
             # convert booleans from strings to bool
             booleanlist = [paramname for paramname,_,paramtype,_,_,_ in self.sdnatool.getInputSpec() if paramtype=="Bool"]
             for pn in booleanlist:
-                args[pn]=(args[pn]=="true")
+                args[pn]=(args[pn]==u"true")
                 
             # get syntax to call tool
             syntax = self.sdnatool.getSyntax(args)

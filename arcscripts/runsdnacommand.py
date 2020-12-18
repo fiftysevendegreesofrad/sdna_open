@@ -25,10 +25,16 @@
 import os,sys,time,re
 from subprocess import PIPE, Popen, STDOUT
 try:
-    from queue import Queue, Empty
+    from Queue import Queue, Empty
 except ImportError:
     from queue import Queue, Empty
 from threading import Thread
+
+def ensure_string(byte):
+	if sys.version_info>=(3,0):
+		return str(byte,"ascii")
+	else:
+		return byte
 
 def map_to_string(map):
     return '"'+";".join((k+"="+v.replace("\\","/") for k,v in map.items()))+'"'
@@ -67,7 +73,7 @@ class ForwardPipeToProgress:
     
     def poll(self):
         while not self.q.empty():
-            char = str(self.q.get_nowait(),"ascii")
+            char = ensure_string(self.q.get_nowait())
             # treat \r and \r\n as \n
             if char == "\r":
                 self.seen_cr = True

@@ -77,7 +77,7 @@ def __initialize_dll():
             file = str(__file__)
         else:
             encoding = sys.getfilesystemencoding()
-            file = str(__file__,encoding)
+            file = unicode(__file__,encoding)
         dirname = os.path.dirname(file)
         __sdna_dll_path = dirname+dll_name
         
