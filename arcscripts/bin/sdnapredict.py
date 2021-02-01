@@ -8,7 +8,7 @@ from sdnaregutilities import *
 import optparse
 from optparse import OptionParser
 
-example='python -u sdnapredict.py --input infile --output outfile --modelfile model.csv --target prediction\n'
+example='python -u sdnapredict.py --input infile --output outfile --modelfile model.csv --predvarname prediction\n'
 desc = 'Examples:\n'\
        + example\
        + "GDB usage requires ArcGIS to be installed, Shapefile usage doesn't."

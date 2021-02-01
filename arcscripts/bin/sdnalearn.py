@@ -8,7 +8,7 @@ from sdnaregutilities import *
 import optparse,re
 from optparse import OptionParser
 
-example='python -u sdnalearn.py --calibfile cfile --vars var1,var2 --varregex "var.*"\n'
+example='python -u sdnalearn.py --calibfile cfile --target var0 --vars var1,var2 --varregex "var.*"\n'
 desc = 'Examples:\n'\
        + example\
        + "GDB usage requires ArcGIS to be installed, Shapefile usage doesn't."
@@ -66,7 +66,7 @@ if len(args)>0:
     op.error("Trailing arguments on command line")
 
 options.mode = options.mode.lower()
-if options.mode not in MODES:
+if options.mode not in MODES.split("|"):
     op.error("Unrecognized mode")
     
 for thing,name in [(options.calibfile,"calibration file"),(options.target,"target variable")]:

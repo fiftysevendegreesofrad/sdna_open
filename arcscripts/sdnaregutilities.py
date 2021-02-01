@@ -40,7 +40,8 @@ def R_call(script,args):
     dir = os.path.dirname(__file__)
     rpath = dir+os.sep+"rportable"+os.sep+"R-Portable"+os.sep+"App"+os.sep+"R-Portable"+os.sep+"bin"+os.sep+"i386"+os.sep+"RScript.exe"
     scriptpath = dir+os.sep+script
-    return '"%s" --no-site-file --no-init-file --no-save --no-environ --no-init-file --no-restore --no-Rconsole "%s" %s'%(rpath,scriptpath," ".join(args))
+    rcall = '"%s" --no-site-file --no-init-file --no-save --no-environ --no-init-file --no-restore --no-Rconsole "%s" %s'%(rpath,scriptpath," ".join(args))
+    return rcall
 
 def Rcall_estimate(script,arrays,env):
     assert len(arrays)>0
@@ -54,7 +55,7 @@ def Rcall_estimate(script,arrays,env):
         tmpfile.write("\n")
         tmpfile.close()
     # call R
-    process = subprocess.Popen(R_call(script,['"%s"'%t.name for t in tmpfiles]),shell=False,stdout=subprocess.PIPE,env={}) 
+    process = subprocess.Popen(R_call(script,['"%s"'%t.name for t in tmpfiles]),shell=False,stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
     result = []
     stdout,stderr = process.communicate()
     lines = stdout.split('\n')[0:arrays[0].shape[1]]
@@ -135,7 +136,7 @@ def regularizedregression(data,names,targetdata,targetname,alpha,nfolds,reps,env
         reglambda_s = ""
     call = R_call("regularizedregression.R",['--calibrationfile "%s" --target %s --xs %s --alpha %f --nfolds %d --reps %d --weightfile "%s" %s %s'
                                                 %(tmpfile.name,targetname,xs,alpha,nfolds,reps,weightfile.name,intercept_s,reglambda_s)])
-    p = Popen(call,shell=False,stdout=PIPE,stderr=PIPE,env={})
+    p = Popen(call,shell=False,stdout=PIPE,stderr=PIPE,stdin=PIPE)
     stdout,stderr = p.communicate()
     os.unlink(tmpfile.name)
     os.unlink(weightfile.name)
