@@ -10,6 +10,8 @@ set outputsuffix=py3
 
 cmd /C run_debug_test.bat
 
+EXIT /B 0
+
 rem Python 3 test only for the following:
 %pythonexe% -u debug_test.py >testout_%outputsuffix%.txt 2>&1
 cmd /C colourdiff correctout.txt testout_%outputsuffix%.txt 

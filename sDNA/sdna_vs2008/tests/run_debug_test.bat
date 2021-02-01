@@ -1,5 +1,19 @@
 rem "if this hangs, try pressing return, it might have been waiting for you to attach a debugger..."
 
+del testout_learn_%outputsuffix%.txt
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnalearn.py --calibfile tiny.shp --target MADn --vars MGLAn,MCFn --boxcoxtarget --bcregex ".*" --mode single_best_variable --output regtestout_single_%outputsuffix%.txt --resids regtestresids_%outputsuffix%.shp >>testout_learn_%outputsuffix%.txt 2>>&1
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnalearn.py --calibfile tiny.shp --target MADn --vars MGLAn,MCFn --mode multiple_variables --output regtestout_multiple_%outputsuffix%.txt >>testout_learn_%outputsuffix%.txt 2>>&1
+%pythonexe% -u ..\..\..\arcscripts\bin\sdnapredict.py --input tiny --output tinypred_%outputsuffix%.shp --modelfile regtestout_multiple_%outputsuffix%.txt --predvarname prediction >>testout_learn_%outputsuffix%.txt 2>>&1
+
+rem remove all numbers after :,= as they vary with random seed. unlike the rest of the suite, this particular test is to check i/o works not numeric backend.
+sed 's/[,:=].*[0-9].*//' testout_learn_%outputsuffix%.txt >testout_learn_%outputsuffix%_fordiff.txt
+
+cmd /C mydiff correctout_learn.txt testout_learn_%outputsuffix%_fordiff.txt
+
+pause
+
+EXIT /B 0
+
 @echo off
 echo running table tests on %sdnadll%
 del testout_table_%outputsuffix%.txt

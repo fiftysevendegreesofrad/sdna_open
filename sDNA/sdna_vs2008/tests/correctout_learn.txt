@@ -1,0 +1,83 @@
+Requested fields: MGLAn,MCFn
+Fields matching regex: 
+Reading features from tiny.shp
+Reading features from tiny.shp
+Progress
+57 data points
+Variables for Box-Cox transformation: MGLAn,MCFn
+Transforming y data
+Box-Cox transforming x data
+Testing models (don't worry if this appears to hang)
+Progress
+******** Models considered, from worst to best: ********
+Variable
+MCFn
+MGLAn
+
+Best model R2 
+Cross-validated R2 
+
+GEH time period is 1.000000 hours
+GEH average (mean)
+    maximum.......
+    <
+    <
+    <
+    <
+
+sDNA regression model
+Target shift
+Target lambda
+Intercept
+
+Variable, Shift, Lambda, Coeff, StdCoeff
+MGLAn
+
+Saving model to regtestout_single.txt
+Saving residuals to regtestresids.shp
+Adding fields:
+    MADn       - MADn
+    prediction - prediction
+    geh        - geh
+Field names saved to regtestresids.shp.names.csv
+Writing regtestresids.shp
+
+Progress
+Requested fields: MGLAn,MCFn
+Fields matching regex: 
+Reading features from tiny.shp
+Reading features from tiny.shp
+Progress
+57 data points
+Testing models (don't worry if this appears to hang)
+Progress
+Regularized r2 out of sample
+OLS r2 (with intercept)     
+OLS adj-r2 (with intercept) 
+
+GEH time period is 1.000000 hours
+GEH average (mean)
+    maximum.......
+    <
+    <
+    <
+    <
+
+sDNA regression model
+Target shift
+Target lambda
+Intercept
+
+Variable, Shift, Lambda, Coeff, StdCoeff
+MCFn
+
+Saving model to regtestout_multiple.txt
+Reading features from tiny
+Reading features from tiny
+Progress
+Adding fields:
+    MCFn       - MCFn
+    prediction - prediction
+Field names saved to tinypred.shp.names.csv
+Writing tinypred.shp
+Progress
