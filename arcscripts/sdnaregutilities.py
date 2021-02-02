@@ -42,7 +42,7 @@ def R_call(script,args):
     dir = os.path.dirname(__file__)
     rpath = dir+os.sep+"rportable"+os.sep+"R-Portable"+os.sep+"App"+os.sep+"R-Portable"+os.sep+"bin"+os.sep+"i386"+os.sep+"RScript.exe"
     scriptpath = dir+os.sep+script
-    rcall = '"%s" --no-site-file --no-init-file --no-save --no-environ --no-init-file --no-restore --no-Rconsole "%s" %s'%(rpath,scriptpath," ".join(args))
+    rcall = '"%s" --no-site-file --no-save --no-environ --no-init-file --no-restore --no-Rconsole "%s" %s'%(rpath,scriptpath," ".join(args))
     return rcall
 
 def Rcall_estimate(script,arrays,env):
@@ -369,13 +369,13 @@ class SdnaRegModel:
         '''Takes data by rows then variable (in order specified by getVarNames())'''
         assert data.shape[1]==len(self.vars)
         data = data.copy()
-        data += self.varshifts
+        data = data + self.varshifts
         data = boxcox_transform(data,self.varlambdas)
-        data *= self.varcoeffs
+        data = data * self.varcoeffs
         data = data.sum(axis=1)
-        data += self.intercept
+        data = data + self.intercept
         data = boxcox_inverse_transform(data,self.targetlambda)
-        data -= self.targetshift
+        data = data - self.targetshift
         return data
 
     @staticmethod
