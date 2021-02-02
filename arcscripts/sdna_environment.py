@@ -664,6 +664,20 @@ from collections import defaultdict
 
 PY3 = sys.version_info > (3,)
 
+if PY3:
+    bytes_to_str = str
+else:
+    def bytes_to_str(b,enc):
+        return b
+
+def format_for_csv_cell(x):
+            if type(x)==float:
+                return ("%.6f"%x).rstrip("0")
+            else:
+                if PY3:
+                    assert type(x)!=bytes
+                return str(x)
+
 # CSV classes from http://python3porting.com/problems.html
 class UnicodeCSVReader:
     def __init__(self, filename, dialect=csv.excel,
@@ -719,6 +733,7 @@ class UnicodeCSVWriter:
         self.f.close()
 
     def writerow(self, row):
+        row = list(map(format_for_csv_cell,row))
         if not PY3:
             row = [s.encode(self.encoding) for s in row]
         self.writer.writerow(row)
@@ -941,15 +956,7 @@ class CSVCreateCursor(CreateCursor):
         del self.writer
         
     def AddRowGeomItem(self,geometryitem):
-        def myformat(x):
-            if type(x)==float:
-                return ("%.6f"%x).rstrip("0")
-            else:
-                if PY3:
-                    assert type(x)!=bytes
-                return str(x)
-                
-        self.writer.writerow(list(map(myformat,geometryitem.data)))
+        self.writer.writerow(geometryitem.data)
         
     def StartProgressor(self,numitems):
         # no progressor for now as csv files are expected to be short

@@ -1,9 +1,11 @@
 # (c) Crispin Cooper on behalf of Cardiff University 2015
 # This file is released under MIT license
 
+from __future__ import unicode_literals
 import subprocess
 from subprocess import Popen,PIPE
 import csv,sys,numpy,tempfile,os,copy
+from sdna_environment import UnicodeCSVReader,UnicodeCSVWriter,bytes_to_str
 
 SINGLE_BEST="single_best_variable"
 MULTIPLE_LASSO="multiple_variables"
@@ -46,7 +48,7 @@ def R_call(script,args):
 def Rcall_estimate(script,arrays,env):
     assert len(arrays)>0
     # write each var to temporary file
-    tmpfiles = [tempfile.NamedTemporaryFile(delete=False) for _ in arrays]
+    tmpfiles = [tempfile.NamedTemporaryFile(delete=False,mode="w") for _ in arrays]
     for tmpfile,arr in zip(tmpfiles,arrays):
         for row in arr:
             for v in row:
@@ -58,6 +60,8 @@ def Rcall_estimate(script,arrays,env):
     process = subprocess.Popen(R_call(script,['"%s"'%t.name for t in tmpfiles]),shell=False,stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
     result = []
     stdout,stderr = process.communicate()
+    stdout = bytes_to_str(stdout,"ascii")
+    stderr = bytes_to_str(stderr,"ascii")
     lines = stdout.split('\n')[0:arrays[0].shape[1]]
     if stderr:
         env.AddError("Estimation error ******")
@@ -116,13 +120,13 @@ def regularizedregression(data,names,targetdata,targetname,alpha,nfolds,reps,env
     if len(names)<2:
         env.AddError("Error: multiple variable models need 2 or more predictor variables")
         sys.exit(1)
-    tmpfile = tempfile.NamedTemporaryFile(delete=False)
+    tmpfile = tempfile.NamedTemporaryFile(delete=False,mode="w")
     writer = csv.writer(tmpfile)
     writer.writerow([targetname]+names)
     for trow,row in zip(targetdata,data.T):
         writer.writerow([trow]+list(row))
     tmpfile.close()
-    weightfile = tempfile.NamedTemporaryFile(delete=False)
+    weightfile = tempfile.NamedTemporaryFile(delete=False,mode="w")
     weightfile.write(" ".join(["%.15f"%w for w in weights])+"\n")
     weightfile.close()
     xs = "+".join(names)
@@ -138,6 +142,8 @@ def regularizedregression(data,names,targetdata,targetname,alpha,nfolds,reps,env
                                                 %(tmpfile.name,targetname,xs,alpha,nfolds,reps,weightfile.name,intercept_s,reglambda_s)])
     p = Popen(call,shell=False,stdout=PIPE,stderr=PIPE,stdin=PIPE)
     stdout,stderr = p.communicate()
+    stdout = bytes_to_str(stdout,"ascii")
+    stderr = bytes_to_str(stderr,"ascii")
     os.unlink(tmpfile.name)
     os.unlink(weightfile.name)
     coefs,regcurve = unpack_regres_output(stdout,env)
@@ -282,12 +288,10 @@ class SdnaRegModel:
         return rm
         
     def save(self,csvfile):
-        with open(csvfile,"wb") as file:
-            writer = csv.writer(file)
+        with UnicodeCSVWriter(csvfile) as writer:
             self._output(writer)
         if self.regcurve:
-            with open(csvfile+".regcurve.csv","wb") as file:
-                writer = csv.writer(file)
+            with UnicodeCSVWriter(csvfile+".regcurve.csv") as writer:
                 for line in self.regcurve:
                     writer.writerow(line)
     
@@ -321,8 +325,7 @@ class SdnaRegModel:
     @staticmethod
     def fromFile(filename):
         rm = SdnaRegModel()
-        with open(filename,"rb") as file:
-            r = csv.reader(file)
+        with UnicodeCSVReader(filename) as r:
             header = next(r)
             if header!=SdnaRegModel._c_sdna_regression_model:
                 raise Exception("Not a valid model")
