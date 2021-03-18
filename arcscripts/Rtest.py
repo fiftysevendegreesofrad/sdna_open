@@ -30,7 +30,7 @@ stdout,stderr = process.communicate()
 
 def output(x):
     for line in x.split("\n"):
-        arcpy.AddMessage(x)
+        arcpy.AddMessage(line)
 
 output(stdout)
 output(stderr)
