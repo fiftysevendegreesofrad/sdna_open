@@ -547,6 +547,17 @@ Net* PrepareOperation::import_from_link_unlink_format()
 	return result;
 }
 
+bool PrepareOperation::all_enforced_data_identical(SDNAPolyline *s1,SDNAPolyline *s2)
+{
+	for (vector<NetExpectedDataSource<float>*>::iterator it=enforce_identical_numeric_data.begin();it!=enforce_identical_numeric_data.end();it++)
+		if ((*it)->get_data(s1)!=(*it)->get_data(s2))
+			return false;
+	for (vector<NetExpectedDataSource<string>*>::iterator it=enforce_identical_text_data.begin();it!=enforce_identical_text_data.end();it++)
+		if ((*it)->get_data(s1)!=(*it)->get_data(s2))
+			return false;
+	return true;
+}
+
 SplitLinkVector PrepareOperation::get_split_link_junction_keys(unsigned long max_ids)
 {
 	net->ensure_junctions_created();
@@ -583,8 +594,9 @@ SplitLinkVector PrepareOperation::get_split_link_junction_keys(unsigned long max
 				s2 = *it;
 				
 				if (s1->is_not_loop() && s2->is_not_loop())
-					//definite split link
-					result.push_back(make_pair(key,gs));
+					//definite split link, check enforce_identical data
+					if (all_enforced_data_identical(s1,s2))
+						result.push_back(make_pair(key,gs));
 			}
 			if (result.size() >= max_ids)
 				break;

@@ -43,6 +43,7 @@ private:
 	void get_duplicate_links(vector<SDNAPolyline*> &duplicates, vector<SDNAPolyline*> &originals,
 		bool partial_search = false, vector<SDNAPolyline*> &subset = vector<SDNAPolyline*>());
 	hash_t get_link_hash(SDNAPolyline *s);
+	bool all_enforced_data_identical(SDNAPolyline *s1,SDNAPolyline *s2);
 	
 	typedef vector<shared_ptr<vector<SDNAPolyline*> > > subsystem_group;
 	subsystem_group get_subsystems();
@@ -56,6 +57,8 @@ private:
 	vector<NetExpectedDataSource<float>> islandfieldstozero;
 	vector<LengthWeightingStrategy> datatokeep;
 	vector<NetExpectedDataSource<string>> textdatatokeep;
+	vector<NetExpectedDataSource<float>*> enforce_identical_numeric_data;
+	vector<NetExpectedDataSource<string>*> enforce_identical_text_data;
 
 	SDNAPolylineDataSourceGeometryCollectionWrapper netwrapper;
 	CalcExpectedDataSDNAPolylineDataSourceWrapper inputdatawrapper;
@@ -85,9 +88,9 @@ public:
 	{
 		ConfigStringParser config(//allowable keywords
 								  "start_gs;end_gs;island;islandfieldstozero;data_unitlength;data_absolute;data_text;preserve_net_config;arcxytol;arcztol;xytol;ztol;"\
-								  "action;nearmisses;trafficislands;duplicates;isolated;splitlinks;internal_interface;null",
+								  "action;nearmisses;trafficislands;duplicates;isolated;splitlinks;internal_interface;null;merge_if_identical",
 								  //default values for those keywords if unspecified by user (0 is false for booleans)
-								  "start_gs=;end_gs=;island=;islandfieldstozero=;data_unitlength=;data_absolute=;data_text=;preserve_net_config=0;arcxytol=;arcztol=;"\
+								  "start_gs=;end_gs=;island=;islandfieldstozero=;data_unitlength=;data_absolute=;data_text=;merge_if_identical=;preserve_net_config=0;arcxytol=;arcztol=;"\
 								  "action=detect;nearmisses=0;trafficislands=0;duplicates=0;isolated=0;splitlinks=0;internal_interface=0;"\
 								  "xytol=;ztol=;null=0",
 							      configstring);
@@ -102,6 +105,7 @@ public:
 		vector<string> perunitlengthdatanames = config.get_vector("data_unitlength");
 		vector<string> textdatanames = config.get_vector("data_text");
 		vector<string> islandfieldstozeronames = config.get_vector("islandfieldstozero");
+		vector<string> mergeifidenticalnames = config.get_vector("merge_if_identical");
 		
 		for (vector<string>::iterator it=islandfieldstozeronames.begin();it!=islandfieldstozeronames.end();it++)
 		{
@@ -122,8 +126,35 @@ public:
 		for (vector<string>::iterator it=textdatanames.begin();it!=textdatanames.end();it++)
 			textdatatokeep.push_back(NetExpectedDataSource<string>(*it,net,print_warning_callback));
 
+		//add_expected_data will maintain pointers into these, so they must not be changed after
 		add_expected_data(datatokeep);
 		add_expected_data(textdatatokeep);
+
+		for (vector<string>::iterator name=mergeifidenticalnames.begin();name!=mergeifidenticalnames.end();name++)
+		{
+			bool found_something = false;
+			vector<LengthWeightingStrategy>::iterator found = datatokeep.end();
+			for (vector<LengthWeightingStrategy>::iterator it=datatokeep.begin();it!=datatokeep.end();it++)
+				if (it->get_name()==*name)
+				{
+					found = it;
+					found_something=true;
+				}
+			if (found!=datatokeep.end())
+				enforce_identical_numeric_data.push_back(&*found);
+			vector<NetExpectedDataSource<string>>::iterator foundtext = textdatatokeep.end();
+			for (vector<NetExpectedDataSource<string>>::iterator itt=textdatatokeep.begin();itt!=textdatatokeep.end();itt++)
+				if (itt->get_name()==*name)
+					foundtext = itt;
+			if (foundtext!=textdatatokeep.end())
+			{
+				enforce_identical_text_data.push_back(&*foundtext);
+				found_something=true;
+			}
+			if (!found_something)
+				throw BadConfigException(string("merge_if_identical field not found in data_unitlength, data_absolute or data_text: ")+*name);
+		}
+
 		
 		prepare_no_operation = config.get_bool("null");
 		if (!config.get_bool("internal_interface"))

@@ -373,6 +373,7 @@ class sDNAPrepare(object):
                   ("preserve_absolute","Absolute data to preserve (numeric field names separated by commas)","Text",None,"",False),
                   ("preserve_unitlength","Unit length data to preserve (numeric field names separated by commas)","Text",None,"",False),
                   ("preserve_text","Text data to preserve (text field names separated by commas)","Text",None,"",False),
+                  ("merge_if_identical","Do not merge split links if not identical (field names separated by commas)","Text",None,"",False),
                   ("xytol","Custom XY Tolerance","Text",None,"",False),
                   ("ztol","Custom Z Tolerance","Text",None,"",False)
                   ]
@@ -390,7 +391,7 @@ class sDNAPrepare(object):
                            "action=%(action)s;"\
                            "%(boolstring)s;"\
                            "island=%(tifield)s;"\
-                           "data_absolute=%(preserve_absolute)s;data_unitlength=%(preserve_unitlength)s;data_text=%(preserve_text)s"\
+                           "data_absolute=%(preserve_absolute)s;data_unitlength=%(preserve_unitlength)s;data_text=%(preserve_text)s;merge_if_identical=%(merge_if_identical)s"\
                            %args
         syntax["config"] = quote(syntax["config"])
         return syntax
