@@ -243,6 +243,9 @@ private:
 	bool using_od_matrix_bool;
 	bool using_od_matrix() {return using_od_matrix_bool;}
 
+	vector<LengthWeightingStrategy> datatokeep;
+	vector<NetExpectedDataSource<string>> textdatatokeep;
+
 	void unpack_config(char *configstring)
 	{
 		ConfigStringParser config(//allowable keywords
@@ -251,7 +254,8 @@ private:
 								  "probroutes;probroutethreshold;probrouteaction;nostrictnetworkcut;weight;custommetric;weight_type;origweight;destweight;"
 								  "outputgeodesics;outputhulls;outputnetradii;outputdestinations;outputskim;origins;destinations;nonetdata;linkcentretype;lineformula;juncformula;ignorenonlinear;bidir;oneway;vertoneway;oversample;"
 								  "aadtfield;t;a;s;jp;disable;zonedist;odmatrix;intermediates;linefield;c;e;"
-								  "skimorigzone;skimdestzone;skimzone;bandedradii;linerand;juncrand;zonesums;origweightformula;destweightformula",
+								  "skimorigzone;skimdestzone;skimzone;bandedradii;linerand;juncrand;zonesums;origweightformula;destweightformula;datatokeep;textdatatokeep",
+
 								  //default values for those keywords if unspecified by user (0 is false for booleans)
 								  "juncformula=0;preserve_net_config=0;start_gs=;end_gs=;radii=n;metric=angular;cont=0;pre=;post=;nobetweenness=0;nojunctions=0;nohull=0;linkonly=0;"
 								  "forcecontorigin=0;nqpdn=1;nqpdd=1;arcxytol=;arcztol=;xytol=;ztol=;skipzeroweightorigins=0;skipzeroweightdestinations=1;skipfraction=1;skipmod=0;"
@@ -260,11 +264,24 @@ private:
 								  "outputgeodesics=0;outputhulls=0;outputnetradii=0;outputdestinations=0;outputskim=0;origins=;destinations=;nonetdata=0;ignorenonlinear=0;bidir=0;oneway=;vertoneway=;oversample=1;"
 								  "aadtfield=aadt;t=default;a=default;s=default;jp=default;disable=;zonedist=euc;odmatrix=0;intermediates=;"
 								  "linefield=line;c=default;e=default;"
-								  "skimorigzone=;skimdestzone=;skimzone=;bandedradii=0;linerand=0;juncrand=0;zonesums=;origweightformula=;destweightformula=",
+								  "skimorigzone=;skimdestzone=;skimzone=;bandedradii=0;linerand=0;juncrand=0;zonesums=;origweightformula=;destweightformula=;datatokeep=;textdatatokeep=",
+
 							      configstring);
 
 		set_net_gs_data(config);
 		
+		//this functionality kinda duplicated from prepareoperation.h
+		vector<string> keepdatanames = config.get_vector("datatokeep");
+		vector<string> textdatanames = config.get_vector("textdatatokeep");
+		for (vector<string>::iterator it=keepdatanames.begin();it!=keepdatanames.end();it++)
+			datatokeep.push_back(LengthWeightingStrategy(NetExpectedDataSource<float>(*it,net,print_warning_callback),POLYLINE_WEIGHT,NULL));
+		for (vector<string>::iterator it=textdatanames.begin();it!=textdatanames.end();it++)
+			textdatatokeep.push_back(NetExpectedDataSource<string>(*it,net,print_warning_callback));
+
+		//add_expected_data will maintain pointers into these, so they must not be changed after
+		add_expected_data(datatokeep);
+		add_expected_data(textdatatokeep);
+
 		vector<string> zs = config.get_vector("zonesums");
 		BOOST_FOREACH(string& s,zs)
 		{
