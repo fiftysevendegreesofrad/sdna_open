@@ -633,8 +633,7 @@ void SDNAIntegralCalculation::process_origin(SDNAPolyline *origin,int r,shared_p
 										 (float)two_stage_betweenness_origin_weight,
 										 (float)(cost_of_origin_within_radius / 3.),
 										 (float)(length_of_origin_within_radius / 3.),
-										 (float)origin_crow_flight,
-										 (float)origin_diversion_ratio),
+										 (float)origin_crow_flight),
 					 1));
 			shared_ptr<sDNAGeometryPointsByEdgeLength> origasdestination(new sDNAGeometryPointsByEdgeLength());
 			orig_as_destinationdata->add_part(origin_geom);
@@ -851,8 +850,7 @@ void SDNAIntegralCalculation::process_geodesic(DestinationEdgeProcessingTask &de
 									 (float)two_stage_betweenness_weight,
 									 (float)get_geodesic_analytical_cost(dest,anal_best_costs_reaching_edge),
 									 (float)euclidean_cost_of_geodesic,
-									 (float)crow_flies_distance,
-									 (float)diversion_ratio_this_destination),
+									 (float)crow_flies_distance),
 				 1));
 		shared_ptr<sDNAGeometryPointsByEdgeLength> destination(new sDNAGeometryPointsByEdgeLength());
 		destination->add_edge_length_from_start_to_end(dest.routing_edge,dest.length_of_edge_inside_radius);

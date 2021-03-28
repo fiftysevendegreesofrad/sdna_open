@@ -724,7 +724,7 @@ private:
 		return result;
 	}
 	static vector<SDNAVariant> get_destination_data(long orig,long dest,double radius,float origweight,float tpweight,float anal_cost,float radial_cost,
-		float crowflight,float divr)
+		float crowflight)
 	{
 		vector<SDNAVariant> result(9);
 		result[0]=SDNAVariant(orig);
@@ -735,7 +735,7 @@ private:
 		result[5]=SDNAVariant(anal_cost);
 		result[6]=SDNAVariant(radial_cost);
 		result[7]=SDNAVariant(crowflight);
-		result[8]=SDNAVariant(divr);
+		result[8]=SDNAVariant(radial_cost-crowflight);
 		return result;
 	}
 	static vector<FieldMetaData> get_destination_field_metadata()
@@ -749,7 +749,7 @@ private:
 		FIELD(fFLOAT,"Analytic Metric","AnalMet");
 		FIELD(fFLOAT,"Length","Length");
 		FIELD(fFLOAT,"Crow flight","CrowFlt");
-		FIELD(fFLOAT,"Diversion Ratio","DivR");
+		FIELD(fFLOAT,"Diversion Abs","Div");
 		return result;
 	}
 		
