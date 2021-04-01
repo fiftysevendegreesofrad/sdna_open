@@ -352,11 +352,11 @@ class SdnaShapefileEnvironment(SdnaEnvironment):
 
     @staticmethod
     def _sf_field_to_type(letter):
-        if letter=="F" or letter=="O":
+        if letter=="F" or letter=="O" or letter=="N":
             return float
         if letter=="L":
             return bool
-        if letter=="N" or letter=="I" or letter=="+":
+        if letter=="I" or letter=="+":
             return int
         if letter=="C" or letter=="D" or letter=="M":
             return str
