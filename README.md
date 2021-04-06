@@ -4,6 +4,8 @@ This is the open source fork of the formerly proprietary sDNA software created b
 
 We are grateful to various parties for financial contributions towards  development: in no particular order, Hong Kong University, Tongji University, the UK Economic and Social Research Council, BRE, Wedderburn Transport Planning. Also research contributions in kind from Arup Ltd, WSP Global Engineering, BuroHappold and Sustrans. 
 
+If you are interested in sponsoring changes to sDNA, please get in touch with Crispin cooperch@cardiff.ac.uk.
+
 Copyright rests with Cardiff University and the code is released under GPL version 3.
 
 ## For Users
