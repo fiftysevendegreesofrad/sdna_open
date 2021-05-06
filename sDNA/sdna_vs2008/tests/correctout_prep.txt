@@ -231,7 +231,7 @@ repair
 1 split links repaired
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
-[('ID', -1), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
+[('ID', -1), ('sametext', '1'), ('difftext', '0;1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
 
 minimal split link, length weighted
 Using xytolerance=0, ztolerance=0
@@ -246,7 +246,7 @@ repair
 1 split links repaired
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
-[('ID', -1), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
+[('ID', -1), ('sametext', '1'), ('difftext', '0;1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,0,0),(0,1,0),(0,2,0)))
 
 minimal traffic island
 Using xytolerance=0, ztolerance=0
@@ -264,7 +264,7 @@ repair
 2 traffic islands repaired
 net - POLYLINEZ (2 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
-[('ID', -4), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,4,0),(0,3,0),(0,1,0),(0,0,0)))
+[('ID', -4), ('sametext', '1'), ('difftext', '3;0;2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 2.0), ('cost', 2.0), ('island', 0.0)]  (((0,4,0),(0,3,0),(0,1,0),(0,0,0)))
 [('ID', 4), ('sametext', '1'), ('difftext', '4'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((0,4,0),(0,5,0)))
 
 dual traffic island
@@ -285,7 +285,7 @@ repair
 4 traffic islands repaired
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
-[('ID', -8), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 3.0), ('cost', 3.0), ('island', 0.0)]  (((0,7,0),(0,6,0),(0,4,0),(0,3,0),(0,1,0),(0,0,0)))
+[('ID', -8), ('sametext', '1'), ('difftext', '6;5;3;0;2'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 3.0), ('cost', 3.0), ('island', 0.0)]  (((0,7,0),(0,6,0),(0,4,0),(0,3,0),(0,1,0),(0,0,0)))
 
 minimal duplicate link
 Using xytolerance=0, ztolerance=0
@@ -404,7 +404,7 @@ repair
 2 traffic islands repaired
 net - POLYLINEZ (1 items)
 [('ID', 'ID', 'INT'), ('sametext', 'sametext', 'STR'), ('difftext', 'difftext', 'STR'), ('start_gs', 'start_gs', 'FLOAT'), ('end_gs', 'end_gs', 'FLOAT'), ('weight', 'weight', 'FLOAT'), ('cost', 'cost', 'FLOAT'), ('island', 'island', 'FLOAT')]
-[('ID', -4), ('sametext', '1'), ('difftext', ''), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(0,1,0),(0,0,0),(1,0,0)))
+[('ID', -4), ('sametext', '1'), ('difftext', '2;0;1'), ('start_gs', 0.0), ('end_gs', 0.0), ('weight', 1.0), ('cost', 1.0), ('island', 0.0)]  (((1,0,0),(0,1,0),(0,0,0),(1,0,0)))
 
 link unlink import test
 Using xytolerance=0, ztolerance=0

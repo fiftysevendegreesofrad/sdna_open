@@ -125,12 +125,17 @@ void PrepareOperation::fix_split_link(JunctionMapKey &key,float gradesep)
 	
 	//move over data
 	for (vector<LengthWeightingStrategy>::iterator it=datatokeep.begin();it!=datatokeep.end();it++)
-		it->set_data(newlink,it->get_data(link1)+it->get_data(link2));
+	{
+		if (std::find(enforce_identical_numeric_data.begin(),enforce_identical_numeric_data.end(),&*it)!=enforce_identical_numeric_data.end())
+			it->set_data_ignoring_weighting_strategy(newlink,it->get_data_ignoring_weighting_strategy(link1));
+		else
+			it->set_data(newlink,it->get_data(link1)+it->get_data(link2));
+	}
 	for (vector<NetExpectedDataSource<string>>::iterator it=textdatatokeep.begin();it!=textdatatokeep.end();it++)
 		if (it->get_data(link1)==it->get_data(link2))
 			it->set_data(newlink,it->get_data(link1));
 		else
-			it->set_data(newlink,"");
+			it->set_data(newlink,it->get_data(link1)+";"+it->get_data(link2));
 		
 	//but that said...
 	//only treat as island if both halves were islands

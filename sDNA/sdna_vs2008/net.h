@@ -65,6 +65,10 @@ public:
 			return;
 		}
 	}
+	virtual float get_data_ignoring_weighting_strategy(SDNAPolyline * const link)
+	{ return NetExpectedDataSource<float>::get_data(link);}
+	virtual void set_data_ignoring_weighting_strategy(SDNAPolyline * const link,float d)
+	{ NetExpectedDataSource<float>::set_data(link,d); }
 };
 
 // JunctionContainer: allocates, deallocates and indexes nodes, used to detect when edges are joined (see ensure_junctions_created, link_edges)
