@@ -28,4 +28,4 @@ const char *BUILD_CONFIG="";
 
 //do not change anything on this line except what's in the quotes
 //python parses this file to pull out the version number
-const char *SDNA_VERSION = "4.1.0";
+const char *SDNA_VERSION = "4.2.0";
