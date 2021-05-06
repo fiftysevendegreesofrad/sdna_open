@@ -5,6 +5,7 @@ island=,Name of field to read traffic island information from.  Anything other t
 islandfieldstozero=,Specifies additional data fields to set to zero when fixing traffic islands (used for e.g. origin or destination weights)
 data_unitlength=,"Specifies numeric data to be preserved by sDNA prepare (preserves values per unit length, averages when merging links)"
 data_absolute=,"Specifies numeric data to be preserved by sDNA prepare (preserves absolute values, sums when merging links)"
-data_text,"Specifies text data to be preserved (merges if identical, deletes otherwise)"
+data_text=,"Specifies text data to be preserved (merges if identical, concatenates with semicolon otherwise)"
 xytol=,Manual override xy tolerance for fixing endpoint connectivity
 ztol=,Manual override z tolerance for fixing endpoint connectivity
+merge_if_identical=,"Specifies data fields which can only be merged if identical, i.e. split links will not be fixed if they differ (similar to 'dissolve' GIS operation)"

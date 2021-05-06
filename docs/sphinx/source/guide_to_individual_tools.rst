@@ -130,7 +130,7 @@ See `Options common to multiple tools`_.
 Specific Origin Accessibility Maps
 ==================================
 
-Outputs accessibility maps for specific origins.  
+Outputs accessibility maps for specific origins, including metric between each origin-destination, Euclidean path length and absolute diversion (difference between Euclidean path length and crow flight path length, similar to circuity, notated here as 'Div').
 
 See `Options common to multiple tools`_.
 
