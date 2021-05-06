@@ -58,3 +58,4 @@ skimorigzone,,Origin zone field (must be text) for skim matrix
 skimdestzone,,Destination zone field (must be text) for skim matrix
 skimzone,,Skim matrix zone field for both origin and destination (sets both skimorigzone and skimdestzone)
 bandedradii,,Divide radius into bands: for each radius only include links outside the previous radius
+datatokeep=,,List of field names for data to copy to output
