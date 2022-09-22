@@ -12,12 +12,12 @@ def listcompare(a,b,depth=-1):
         return False
     if len(a)!=len(b):
         return False
-    print "depth",depth,"length",len(a)
+    print("depth: %s, length: %s" % (depth,len(a)))
     for n,(i1,i2) in enumerate(zip(a,b)):
         if not listcompare(i1,i2,depth):
-            print "mismatch level",depth,"position",n,"of",len(a)
-            print i1
-            print i2
+            print("mismatch level: %s, position: %s of %s" % (depth, n, len(a)))
+            print(i1)
+            print(i2)
             return False
     return True
 
@@ -36,6 +36,5 @@ for n,(line1,line2) in enumerate(izip(*infiles)):
     list2 = eval(line2)
 
     if not listcompare(list1,list2):
-        print "line",n
-        print "depth",maxdepth(list1),maxdepth(list2)
-        print
+        print("line: %s" % n)
+        print("depth: %s %s \n" % (maxdepth(list1),maxdepth(list2)))
