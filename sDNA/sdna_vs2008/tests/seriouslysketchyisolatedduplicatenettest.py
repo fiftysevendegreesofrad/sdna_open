@@ -1,6 +1,11 @@
 import ctypes
 import sys
 
+try:
+    xrange #type: ignore
+except NameError:
+    xrange = range
+
 #sys.stdin.readline()
 
 dll = ctypes.windll.sDNA
@@ -91,10 +96,10 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,length_weig
     dll.net_print(net)
     
     
-    print '\nshortnames: '+','.join(sn)
-    print 'created output buffer size double *',outlength
+    print('\nshortnames: '+','.join(sn))
+    print('created output buffer size double *%s' % outlength)
 
-    print '\nOUTPUT DATA:'
+    print('\nOUTPUT DATA:')
 
     # for debug display we want to invert output arrays
     out_buffer_type = ctypes.c_double * outlength
@@ -105,14 +110,14 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,length_weig
         out_array += [list(out_buffer)]
 
     for i in range(outlength):
-        print names[i]+' '*(25-len(names[i]))+'  '.join(str(link_data[i]) for link_data in out_array)
+        print(names[i]+' '*(25-len(names[i]))+'  '.join(str(link_data[i]) for link_data in out_array))
 
-    print '\n'
-    print 'destroying'
+    print('\n')
+    print('destroying')
     dll.net_destroy(net)
     dll.calc_destroy(calculation)
-    print 'done'
-    print '\n'
+    print('done')
+    print('\n')
     test_net_duplicate(net_definition,euclidean_radii,analysis_type,cont_space,length_weight,prob_link)
 
 def test_net_duplicate(net_definition,euclidean_radii,analysis_type,cont_space,length_weight,prob_link):
@@ -158,12 +163,12 @@ def test_net_duplicate(net_definition,euclidean_radii,analysis_type,cont_space,l
 
     numlinks = len(current_net_arcids)/2
     for i in range(numlinks):
-        print "checking..."
-        print current_net_arcids[i],out_array[i]
-        print current_net_arcids[i+numlinks],out_array[i+numlinks]
+        print("checking...")
+        print(current_net_arcids[i],out_array[i])
+        print(current_net_arcids[i+numlinks],out_array[i+numlinks])
         assert(out_array[i]==out_array[i+numlinks])
 
-    print "Passed duplicate test"
+    print("Passed duplicate test")
 
     dll.net_destroy(net)
     dll.calc_destroy(calculation)
@@ -172,27 +177,27 @@ def test_net_duplicate(net_definition,euclidean_radii,analysis_type,cont_space,l
 
     
 def test_net_all_options(test_name,net_definition,euclidean_radii):
-    print "%s, Angular analysis, discrete space, unweighted"%test_name
+    print("%s, Angular analysis, discrete space, unweighted" % test_name)
     test_net(net_definition,euclidean_radii,ANGULAR,False,False,12)
-    print "\n\n%s, Angular analysis, cont space, unweighted"%test_name
+    print("\n\n%s, Angular analysis, cont space, unweighted" % test_name)
     test_net(net_definition,euclidean_radii,ANGULAR,True,False,12)
-    print "\n\n%s, Euclidean analysis, discrete space, unweighted"%test_name
+    print("\n\n%s, Euclidean analysis, discrete space, unweighted" % test_name)
     test_net(net_definition,euclidean_radii,EUCLIDEAN,False,False,12)
-    print "\n\n%s, Euclidean analysis, cont space, unweighted"%test_name
+    print("\n\n%s, Euclidean analysis, cont space, unweighted" % test_name)
     test_net(net_definition,euclidean_radii,EUCLIDEAN,True,False,12)
 
-    print "%s, Angular analysis, discrete space, weighted"%test_name
+    print("%s, Angular analysis, discrete space, weighted" % test_name)
     test_net(net_definition,euclidean_radii,ANGULAR,False,True,12)
-    print "\n\n%s, Angular analysis, cont space, weighted"%test_name
+    print("\n\n%s, Angular analysis, cont space, weighted" % test_name)
     test_net(net_definition,euclidean_radii,ANGULAR,True,True,12)
-    print "\n\n%s, Euclidean analysis, discrete space, weighted"%test_name
+    print( "\n\n%s, Euclidean analysis, discrete space, weighted" % test_name)
     test_net(net_definition,euclidean_radii,EUCLIDEAN,False,True,12)
-    print "\n\n%s, Euclidean analysis, cont space, weighted"%test_name
+    print("\n\n%s, Euclidean analysis, cont space, weighted" % test_name)
     test_net(net_definition,euclidean_radii,EUCLIDEAN,True,True,12)
-    print "\n\n"
+    print("\n\n")
 
 test_net_all_options("Choice Test",choice_test,choice_test_radii)
 
-print "Junction cost test"
+print("Junction cost test")
 test_net(junction_cost_test,junction_cost_test_radii,EUCLIDEAN,False,False,1)
 
