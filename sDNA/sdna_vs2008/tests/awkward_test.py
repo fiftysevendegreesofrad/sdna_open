@@ -48,12 +48,12 @@ def populate_dll_defined_fields(dll,calculation,table,idfield):
 
 CALLBACKFUNCTYPE = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_long)
 def set_progressor(x):
-    print "progress callback: %d"%x
+    print("progress callback: %d" % x)
     return 0
 set_progressor_callback = CALLBACKFUNCTYPE(set_progressor)
 WARNINGCALLBACKFUNCTYPE = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_char_p)
 def warning(x):
-    print "warning callback: %s"%x
+    print("warning callback: %s" % x)
     return 0
 warning_callback = WARNINGCALLBACKFUNCTYPE(warning)
 
@@ -73,7 +73,7 @@ def string_to_radius(r):
         except ValueError:
             errorstring = 'Invalid radius specified: %s'%r
             arcpy.AddError(errorstring)
-            raise StandardError, errorstring
+            raise Exception(errorstring)
         return result
 
 def string_to_measure_index(s):
@@ -100,8 +100,9 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     arcpy.AddMessage("%s analysis, %s space, %s %s weighting"%(in_output_measure,space,custom,weighting))
 
     if not arcpy.Describe(in_polyline_feature_class).hasOID:
-        arcpy.AddError('Feature class has no object ID field')
-        raise StandardError, 'Feature class has no object ID field'
+        msg = 'Feature class has no object ID field'
+        arcpy.AddError(msg)
+        raise AttributeError(msg)
     in_arc_idfield = arcpy.Describe(in_polyline_feature_class).OIDfieldname
 
     shapefieldname = arcpy.Describe(in_polyline_feature_class).ShapeFieldName
@@ -109,27 +110,32 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     fieldnames = [f.name for f in arcpy.ListFields(in_polyline_feature_class)]
     if in_start__gsation != "" or in_end__gsation != "":
         if not in_start__gsation in fieldnames:
-            arcpy.AddError('Start _gsation field does not exist: %s'%in_start__gsation)
-            raise StandardError, 'Start _gsation field does not exist: %s'%in_start__gsation
+            msg = 'Start _gsation field does not exist: %s' % in_start__gsation
+            arcpy.AddError(msg)
+            raise AttributeError(msg)
         if not in_end__gsation in fieldnames:
-            arcpy.AddError('End _gsation field does not exist: %s'%in_end__gsation)
-            raise StandardError, 'End _gsation field does not exist: %s'%in_end__gsation
+            msg = 'End _gsation field does not exist: %s' % in_end__gsation
+            arcpy.AddError(msg)
+            raise AttributeError(msg)
         using__gsation = True
     else:
         using__gsation = False
 
     if custom_activity_weight_field != "":
         if not custom_activity_weight_field in fieldnames:
-            arcpy.AddError('Custom activity weight field does not exist: %s'%custom_activity_weight_field)
-            raise StandardError, 'Custom activity weight field does not exist: %s'%custom_activity_weight_field
+            msg = 'Custom activity weight field does not exist: %s' 
+            msg %= custom_activity_weight_field
+            arcpy.AddError(msg)
+            raise AttributeError(msg)
         using_custom_weight = True
     else:
         using_custom_weight = False
 
     num_rows = int(arcpy.GetCount_management(in_polyline_feature_class).getOutput(0))
     if num_rows == 0:
-        arcpy.AddError('No rows in input')
-        raise StandardError, 'No rows in input'
+        msg = 'No rows in input'
+        arcpy.AddError(msg)
+        raise ValueError(msg)
     arcpy.AddMessage('Input has %d rows'%num_rows)
 
     radii = map(string_to_radius,in_radii)
@@ -142,7 +148,7 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     #initialize dll and create add_polyline wrapper func
     dirname = os.path.dirname(sys.argv[0])
     dllpath = dirname+r"\\..\\Debug\\sdna_vs2008.dll"
-    print dllpath
+    print(dllpath)
     dll = ctypes.windll.LoadLibrary(dllpath)
 
     net = ctypes.c_void_p(dll.net_create(weight_activity_by_link_length))
@@ -228,13 +234,13 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
         out_array += [list(out_buffer)]
 
     for i in range(outlength):
-        print names[i]+' '*(25-len(names[i]))+'  '.join("%.6g"%link_data[i] for link_data in out_array)
+        print(names[i]+' '*(25-len(names[i]))+'  '.join("%.6g"%link_data[i] for link_data in out_array))
 
     dll.net_destroy(net)
     dll.calc_destroy(calculation)
 
 for i in range(10):
-    print i,arcpy.GetParameterAsText(i)
+    print('%s: %s' % (i, arcpy.GetParameterAsText(i)))
 
 #get input params
 in_polyline_feature_class = arcpy.GetParameterAsText(0)
