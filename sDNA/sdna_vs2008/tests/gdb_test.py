@@ -33,7 +33,7 @@ def add_dll_defined_fields_to_table(dll,calculation,table,overwrite):
         if error_happened:
             arcpy.AddError("Either enable 'Overwrite output fields' in the tool dialog box\n\
                             Or delete/rename the existing fields")
-            raise StandardError, "Can't overwrite output data"
+            raise Exception("Can't overwrite output data")
 
     arcpy.SetProgressor("step", "Checking output columns", 0, outlength, 1)
             
@@ -78,12 +78,12 @@ def populate_dll_defined_fields(dll,calculation,table,idfield):
 
 CALLBACKFUNCTYPE = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_long)
 def set_progressor(x):
-    print "progress callback: %d"%x
+    print( "progress callback: %d" % x)
     return 0
 set_progressor_callback = CALLBACKFUNCTYPE(set_progressor)
 WARNINGCALLBACKFUNCTYPE = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_char_p)
 def warning(x):
-    print "warning callback: %s"%x
+    print("warning callback: %s" % x)
     return 0
 warning_callback = WARNINGCALLBACKFUNCTYPE(warning)
 
@@ -103,7 +103,7 @@ def string_to_radius(r):
         except ValueError:
             errorstring = 'Invalid radius specified: %s'%r
             arcpy.AddError(errorstring)
-            raise StandardError, errorstring
+            raise Exception(errorstring)
         return result
 
 def string_to_measure_index(s):
@@ -131,8 +131,9 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     arcpy.AddMessage("%s analysis, %s space, %s %s weighting"%(in_output_measure,space,custom,weighting))
 
     if not arcpy.Describe(in_polyline_feature_class).hasOID:
-        arcpy.AddError('Feature class has no object ID field')
-        raise StandardError, 'Feature class has no object ID field'
+        msg = 'Feature class has no object ID field'
+        arcpy.AddError(msg)
+        raise AttributeError(msg)
     in_arc_idfield = arcpy.Describe(in_polyline_feature_class).OIDfieldname
 
     shapefieldname = arcpy.Describe(in_polyline_feature_class).ShapeFieldName
@@ -140,27 +141,32 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     fieldnames = [f.name for f in arcpy.ListFields(in_polyline_feature_class)]
     if in_start__gsation != "" or in_end__gsation != "":
         if not in_start__gsation in fieldnames:
-            arcpy.AddError('Start _gsation field does not exist: %s'%in_start__gsation)
-            raise StandardError, 'Start _gsation field does not exist: %s'%in_start__gsation
+            msg = 'Start _gsation field does not exist: %s' % in_start__gsation
+            arcpy.AddError(msg)
+            raise AttributeError(msg)
         if not in_end__gsation in fieldnames:
-            arcpy.AddError('End _gsation field does not exist: %s'%in_end__gsation)
-            raise StandardError, 'End _gsation field does not exist: %s'%in_end__gsation
+            msg = 'End _gsation field does not exist: %s'%in_end__gsation
+            arcpy.AddError(msg)
+            raise AttributeError(msg)
         using__gsation = True
     else:
         using__gsation = False
 
     if custom_activity_weight_field != "":
         if not custom_activity_weight_field in fieldnames:
-            arcpy.AddError('Custom activity weight field does not exist: %s'%custom_activity_weight_field)
-            raise StandardError, 'Custom activity weight field does not exist: %s'%custom_activity_weight_field
+            msg = 'Custom activity weight field does not exist: %s'
+            msg %= custom_activity_weight_field
+            arcpy.AddError(msg)
+            raise AttributeError(msg)
         using_custom_weight = True
     else:
         using_custom_weight = False
 
     num_rows = int(arcpy.GetCount_management(in_polyline_feature_class).getOutput(0))
     if num_rows == 0:
-        arcpy.AddError('No rows in input')
-        raise StandardError, 'No rows in input'
+        msg = 'No rows in input'
+        arcpy.AddError(msg)
+        raise AttributeError(msg)
     arcpy.AddMessage('Input has %d rows'%num_rows)
 
     radii = map(string_to_radius,in_radii)
@@ -173,7 +179,7 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     #initialize dll and create add_polyline wrapper func
     dirname = os.path.dirname(sys.argv[0])
     dllpath = dirname+r"\\..\\Release\\sdna_vs2008.dll"
-    print dllpath
+    print(dllpath)
     dll = ctypes.windll.LoadLibrary(dllpath)
 
     net = ctypes.c_void_p(dll.net_create(weight_activity_by_link_length))
@@ -189,12 +195,12 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
         for i,(x,y) in enumerate(points):
             point_array_x[i] = x
             point_array_y[i] = y
-		dll.net_add_polyline(net,arcid,len(points),point_array_x,point_array_y)
-		dll.net_add_polyline_data(net,arcid,"start_gs",ctypes.c_float(_gs[0]))
-		dll.net_add_polyline_data(net,arcid,"end_gs",ctypes.c_float(_gs[1]))
-		dll.net_add_polyline_data(net,arcid,"weight",ctypes.c_float(weight))
-		dll.net_add_polyline_data(net,arcid,"custom_cost",ctypes.c_float(1))
-		dll.net_add_polyline_data(net,arcid,"is_island",ctypes.c_float(0))
+        dll.net_add_polyline(net,arcid,len(points),point_array_x,point_array_y)
+        dll.net_add_polyline_data(net,arcid,"start_gs",ctypes.c_float(_gs[0]))
+        dll.net_add_polyline_data(net,arcid,"end_gs",ctypes.c_float(_gs[1]))
+        dll.net_add_polyline_data(net,arcid,"weight",ctypes.c_float(weight))
+        dll.net_add_polyline_data(net,arcid,"custom_cost",ctypes.c_float(1))
+        dll.net_add_polyline_data(net,arcid,"is_island",ctypes.c_float(0))
 
     timestamp()
 
@@ -264,7 +270,7 @@ def integral_common(in_polyline_feature_class,in_start__gsation,in_end__gsation,
     dll.calc_destroy(calculation)
 
 for i in range(10):
-    print i,arcpy.GetParameterAsText(i)
+    print('%s: %s' % i,arcpy.GetParameterAsText(i))
 
 #get input params
 in_polyline_feature_class = arcpy.GetParameterAsText(0)
