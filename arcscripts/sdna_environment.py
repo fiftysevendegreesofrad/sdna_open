@@ -199,7 +199,7 @@ class SdnaEnvironment(ABC):
             def add(self,z,d,i):
                 for zpart in z:
                     if zpart.strip()=="":
-                        env.AddError("Zone with no name")
+                        self.env.AddError("Zone with no name")
                 self.zones += [z]
                 try:
                     self.rowdata += [float(d)]
