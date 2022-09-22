@@ -24,6 +24,7 @@ import sys,os
 PY3 = sys.version_info > (3,)
 if PY3:
     bytes_to_str = str
+    unicode = str
 else:
     def bytes_to_str(b,enc):
         return b
