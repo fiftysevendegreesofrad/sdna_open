@@ -8,7 +8,12 @@
 import abc,sys,os,re,shutil,csv,codecs
 from os import path
 from collections import defaultdict
-
+import time
+try:
+    time.clock #type: ignore
+except:
+    time.clock = time.perf_counter
+    
 PY3 = sys.version_info > (3,)
 
 if PY3:
@@ -540,6 +545,7 @@ class ShapefileCreateCursor(CreateCursor):
             
     def Close(self):
         self.env.SetProgressorPosition(self.numitems)
+        self.writer.close()
         del self.writer
 
 class SdnaArcpyEnvironment(SdnaEnvironment):
