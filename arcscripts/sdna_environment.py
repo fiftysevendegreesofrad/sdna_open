@@ -545,6 +545,7 @@ class ShapefileCreateCursor(CreateCursor):
             
     def Close(self):
         self.env.SetProgressorPosition(self.numitems)
+        self.writer.close()
         del self.writer
 
 class SdnaArcpyEnvironment(SdnaEnvironment):
