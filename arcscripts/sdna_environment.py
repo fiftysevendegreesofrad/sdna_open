@@ -11,7 +11,7 @@ from collections import defaultdict
 import time
 try:
     time.clock #type: ignore
-except:
+except AttributeError:
     time.clock = time.perf_counter
     
 PY3 = sys.version_info > (3,)
