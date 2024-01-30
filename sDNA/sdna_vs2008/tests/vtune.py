@@ -3,6 +3,11 @@ import sys
 import numpy
 import time
 
+try:
+    xrange #type: ignore
+except NameError:
+    xrange = range
+
 dll = ctypes.windll.LoadLibrary(r"..\vtune\sDNA_vs2008.dll")
 
 (ANGULAR, EUCLIDEAN) = map(ctypes.c_int,xrange(2))
@@ -75,10 +80,10 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,prob_link):
     after_time = time.clock()
 
     if cont_space:
-        print "cont,",
+        print("cont,")
     else:
-        print "disc,",
-    print (after_time-before_time)*1000,"ms\n"
+        print("disc,")
+    print("%sms\n" % (after_time-before_time)*1000)
 
     dll.net_destroy(net)
     dll.calc_destroy(calculation)

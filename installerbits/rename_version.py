@@ -3,9 +3,9 @@ from getSdnaVersion import getVersion
 
 installfile,docdir,outputdir = sys.argv[1:4]
 
-print installfile
-print docdir
-print outputdir
+print(installfile)
+print(docdir)
+print(outputdir)
 
 version = getVersion()
 

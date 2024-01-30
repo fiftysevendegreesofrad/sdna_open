@@ -5,7 +5,7 @@ import time
 import os
 
 sdnadll = os.environ["sdnadll"]
-print "dll name",sdnadll
+print("dll name %s" % sdnadll)
 
 dll = ctypes.windll.LoadLibrary(sdnadll)
 
@@ -78,10 +78,10 @@ def test_net(net_definition,euclidean_radii,analysis_type,cont_space,prob_link):
     after_time = time.clock()
 
     if cont_space:
-        print "cont,",
+        print("cont,")
     else:
-        print "disc,",
-    print (after_time-before_time)*1000,"ms\n"
+        print("disc,")
+    print("%sms\n" % (after_time-before_time)*100)
 
     dll.net_destroy(net)
     dll.calc_destroy(calculation)
@@ -90,10 +90,10 @@ desired_num_links = 1500
 bound_grid_test = lambda n: grid_test(n,5000,desired_num_links)
 large_radius_list = [400,800,1200,2000,3600,5000]
 small_radius_list = [400,5000]
-print "large r list"
+print("large r list")
 test_net(bound_grid_test,large_radius_list,"ANGULAR",False,1)
 test_net(bound_grid_test,large_radius_list,"ANGULAR",True,1)
-print "small r list"
+print("small r list")
 test_net(bound_grid_test,small_radius_list,"ANGULAR",False,1)
 test_net(bound_grid_test,small_radius_list,"ANGULAR",True,1)
 

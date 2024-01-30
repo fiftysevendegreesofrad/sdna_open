@@ -8,7 +8,12 @@
 import abc,sys,os,re,shutil,csv,codecs
 from os import path
 from collections import defaultdict
-
+import time
+try:
+    time.clock #type: ignore
+except AttributeError:
+    time.clock = time.perf_counter
+    
 PY3 = sys.version_info > (3,)
 
 if PY3:
@@ -199,7 +204,7 @@ class SdnaEnvironment(ABC):
             def add(self,z,d,i):
                 for zpart in z:
                     if zpart.strip()=="":
-                        env.AddError("Zone with no name")
+                        self.env.AddError("Zone with no name")
                 self.zones += [z]
                 try:
                     self.rowdata += [float(d)]
@@ -540,6 +545,7 @@ class ShapefileCreateCursor(CreateCursor):
             
     def Close(self):
         self.env.SetProgressorPosition(self.numitems)
+        self.writer.close()
         del self.writer
 
 class SdnaArcpyEnvironment(SdnaEnvironment):
